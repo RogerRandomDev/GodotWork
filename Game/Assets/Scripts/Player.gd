@@ -19,7 +19,8 @@ export var climbRate = 32
 signal P1
 signal P2
 signal CPU
-
+##current score
+var score = 0
 
 func _ready():
 	connect("P1",self,"P1Move")
@@ -68,5 +69,12 @@ func P2Move():
 		direction.y = moveDist;
 	elif Input.is_action_just_pressed("upP2"):
 		direction.y = -moveDist;
+
 func cpuMove():
 	pass
+
+
+func _on_ScoreTimer_timeout():
+	score += 1
+	GlobalData.setScore(score,PlayerID)
+	$ScoreTimer.start()

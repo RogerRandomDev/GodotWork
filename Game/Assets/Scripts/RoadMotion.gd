@@ -12,6 +12,11 @@ export var carLength = [1,1]
 ##sets speed of motion
 func _ready():
 	$Carmotion.wait_time = movespeed
+	if carDir == 1:
+		for car in get_children():
+			if car.get_child_count() != 0:
+				car.get_child(0).flip_h = true
+			pass
 	randomize()
 func _process(delta):
 	for car in currentCars.size():
@@ -25,9 +30,14 @@ func _process(delta):
 
 var carpos = 0
 func _on_Carmotion_timeout():
-	$Carmotion.wait_time = rand_range(movespeed+0.25,movespeed+2.5)
+	$Carmotion.wait_time = rand_range(1/movespeed/2,1/movespeed+0.5)
 	$Carmotion.start()
 	carpos = currentCars.find(0)
 	if carpos != -1:
 			currentCars[carpos] = 1
-			get_child(carpos).rect_size.x = 64 * round(rand_range(carLength[0],carLength[1]))
+			get_child(carpos).scale.x = round(rand_range(carLength[0],carLength[1]))
+
+
+func _on_Area2D_body_entered(body):
+	if body.name =="Player":
+		GlobalData.gameover()

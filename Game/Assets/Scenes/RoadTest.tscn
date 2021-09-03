@@ -5,11 +5,11 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -64, 0, 0, 0, 0, 0, 576, 0 )
+"points": PoolVector2Array( 0, 0, 0, 0, -128, 0, 0, 0, 0, 0, 640, 0 )
 }
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 30, 30 )
+extents = Vector2( 16, 16 )
 
 [node name="VehicleMotion" type="Path2D"]
 curve = SubResource( 1 )
@@ -17,7 +17,7 @@ script = ExtResource( 2 )
 carDir = 1
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
-position = Vector2( -64, 0 )
+position = Vector2( -128, 0 )
 
 [node name="Sprite" type="Sprite" parent="PathFollow2D"]
 texture = ExtResource( 1 )
@@ -28,7 +28,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="PathFollow2D2" type="PathFollow2D" parent="."]
-position = Vector2( -64, 0 )
+position = Vector2( -128, 0 )
 
 [node name="Sprite" type="Sprite" parent="PathFollow2D2"]
 texture = ExtResource( 1 )
@@ -39,7 +39,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="PathFollow2D3" type="PathFollow2D" parent="."]
-position = Vector2( -64, 0 )
+position = Vector2( -128, 0 )
 
 [node name="Sprite" type="Sprite" parent="PathFollow2D3"]
 texture = ExtResource( 1 )
@@ -50,7 +50,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="PathFollow2D4" type="PathFollow2D" parent="."]
-position = Vector2( -64, 0 )
+position = Vector2( -128, 0 )
 
 [node name="Sprite" type="Sprite" parent="PathFollow2D4"]
 texture = ExtResource( 1 )
@@ -61,7 +61,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="PathFollow2D5" type="PathFollow2D" parent="."]
-position = Vector2( -64, 0 )
+position = Vector2( -128, 0 )
 
 [node name="Sprite" type="Sprite" parent="PathFollow2D5"]
 texture = ExtResource( 1 )
@@ -75,4 +75,9 @@ shape = SubResource( 2 )
 one_shot = true
 autostart = true
 
+[connection signal="body_entered" from="PathFollow2D/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="PathFollow2D2/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="PathFollow2D3/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="PathFollow2D4/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="PathFollow2D5/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="Carmotion" to="." method="_on_Carmotion_timeout"]
