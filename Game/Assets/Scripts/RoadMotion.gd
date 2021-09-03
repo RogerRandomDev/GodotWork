@@ -8,7 +8,7 @@ export var movespeed = 0.25
 var moving = true
 var carprogress = [0,0,0,0,0]
 export var carDir = 0
-
+export var carLength = [1,1]
 ##sets speed of motion
 func _ready():
 	$Carmotion.wait_time = movespeed
@@ -30,3 +30,4 @@ func _on_Carmotion_timeout():
 	carpos = currentCars.find(0)
 	if carpos != -1:
 			currentCars[carpos] = 1
+			get_child(carpos).rect_size.x = 64 * round(rand_range(carLength[0],carLength[1]))
