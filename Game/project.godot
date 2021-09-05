@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Game"
-run/main_scene="res://Assets/Scenes/TestingScene.tscn"
+run/main_scene="res://Assets/Scenes/BaseGame.tscn"
 config/icon="res://icon.png"
 
 [autoload]

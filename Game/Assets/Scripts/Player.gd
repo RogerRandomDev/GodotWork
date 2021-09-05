@@ -4,13 +4,15 @@ extends KinematicBody2D
 
 ##Camera variable##
 export var cam: NodePath
+##map node so you can change position and others##
+export var Map: NodePath
 ##player motion variables##
 export var PlayerID = "P1"
 const moveDist = 64
 var direction = Vector2.ZERO
+var PrevPos = Vector2.ZERO
 ##sets when motion can be done, so you dont get off of the grid-based motion
 var canMove = true
-
 ##forces player to move up at a set pace, as the value your camera will be at lowest and the rate it goes up
 var cameraY = 448
 export var climbRate = 32
@@ -23,6 +25,7 @@ signal CPU
 var score = 0
 
 func _ready():
+	PrevPos = position
 	connect("P1",self,"P1Move")
 	connect("P2",self,"P2Move")
 	connect("CPU",self,"cpuMove")
@@ -35,11 +38,13 @@ func _process(delta):
 		emit_signal(PlayerID)
 		
 		##sets the ability to move to false when in the middle of motion already##
-		if direction != Vector2.ZERO:
+		if direction != Vector2.ZERO && canMove:
 			canMove=false
+			PrevPos = position
 			$Timer.start()
 	##Applies current motion, the 0.125 is the motion time to interoplate by##
-	move_and_collide(direction*0.125)
+	if !canMove:
+		move_and_collide(direction*delta/$Timer.wait_time)
 	position.x = max(min(512,position.x),0)
 	##sets camera vertical position and minimum vertical position
 	cameraY-=climbRate*delta
@@ -48,6 +53,8 @@ func _process(delta):
 
 
 func _on_Timer_timeout():
+	position = PrevPos
+	move_and_collide(direction)
 	canMove = true
 
 func P1Move():
@@ -59,6 +66,7 @@ func P1Move():
 		direction.y = moveDist;
 	elif Input.is_action_just_pressed("upP1"):
 		direction.y = -moveDist;
+	get_node(Map).ModulePosition = max(-position.y+1152,get_node(Map).ModulePosition)
 
 func P2Move():
 	if Input.is_action_just_pressed("leftP2"):

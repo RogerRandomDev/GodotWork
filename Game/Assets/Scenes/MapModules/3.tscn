@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Tilesets/Tileset0.tres" type="TileSet" id=1]
+[ext_resource path="res://Assets/Scenes/Sliders.tscn" type="PackedScene" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="03" type="TileMap" parent="."]
+scale = Vector2( 8, 8 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( -458752, -1610612736, 0, -458751, -1610612736, 0, -458744, -1610612736, 0, -458743, -1610612736, 0, -262144, -1610612736, 0, -262141, -1610612736, 0, -262140, -1610612736, 0, -262139, -1610612736, 0, -262138, -1610612736, 0, -262135, -1610612736, 0, -65536, -1610612736, 0, -65535, -1610612736, 0, -65534, -1610612736, 0, -65529, -1610612736, 0, -65528, -1610612736, 0, -65527, -1610612736, 0 )
+
+[node name="VehicleMotion" parent="." instance=ExtResource( 2 )]
+position = Vector2( 64, -96 )
+
+[node name="VehicleMotion2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 64, -160 )
+
+[node name="VehicleMotion4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 64, -288 )
+carDir = 0
+
+[node name="VehicleMotion5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 64, -352 )
+carDir = 0
