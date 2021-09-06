@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Scenes/MapModules/ModuleLoader.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Scripts/BaseGame.gd" type="Script" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Shaders/crt_material.tres" type="Material" id=5]
+[ext_resource path="res://Assets/Fonts/GameFont.tres" type="DynamicFont" id=6]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="P1" type="ViewportContainer" parent="."]
 margin_left = 128.0
@@ -62,7 +67,7 @@ Map = NodePath("../Map")
 PlayerID = "P2"
 
 [node name="Map" parent="P2/Viewport" instance=ExtResource( 2 )]
-position = Vector2( -32, 0 )
+position = Vector2( -32, 384 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -72,7 +77,7 @@ current = true
 show_behind_parent = true
 margin_right = 1024.0
 margin_bottom = 600.0
-color = Color( 0.215686, 0.215686, 0.215686, 1 )
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -82,33 +87,62 @@ __meta__ = {
 ]]
 
 [node name="Score0" type="Label" parent="Scores"]
-margin_right = 128.0
-margin_bottom = 600.0
+margin_left = 132.0
+margin_top = 540.0
+margin_right = 444.0
+margin_bottom = 1124.0
+custom_fonts/font = ExtResource( 6 )
 text = "SCORE:
 "
-align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Score1" type="Label" parent="Scores"]
-margin_left = 896.0
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_left = 580.0
+margin_top = 540.0
+margin_right = 892.0
+margin_bottom = 1124.0
+custom_fonts/font = ExtResource( 6 )
 text = "SCORE:
 "
-align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HighScore" type="Label" parent="Scores"]
+visible = false
 margin_left = 448.0
+margin_top = 16.0
 margin_right = 576.0
 margin_bottom = 600.0
+custom_fonts/font = ExtResource( 6 )
 text = "HighScore:
 "
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Coins" type="Label" parent="Scores" groups=[
+"COINDISPLAY",
+]]
+margin_left = 448.0
+margin_top = 24.0
+margin_right = 576.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 6 )
+text = "COINS: "
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shader" type="Sprite" parent="." groups=[
+"SHADER",
+]]
+material = ExtResource( 5 )
+scale = Vector2( 16, 9.375 )
+texture = ExtResource( 4 )
+centered = false
+flip_v = true

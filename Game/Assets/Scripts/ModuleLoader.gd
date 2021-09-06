@@ -18,12 +18,12 @@ var ModuleID = 0
 func _ready():
 	randomize()
 
+# warning-ignore:unused_argument
 func _process(delta):
 	##creates new modules when you go up and removes the lowest one to maintain efficiency over time
 	if ModulePosition > nextModule:
 		ModuleID = round(rand_range(0,moduleHeight.size()-1))
 		var Module = load("res://Assets/Scenes/MapModules/"+str(ModuleID)+".tscn").instance()
-		print(moduleHeight[ModuleID])
 		add_child(Module)
 	#positions Modules
 		Module.position.y = -nextModule+32
@@ -32,6 +32,6 @@ func _process(delta):
 		moduleProgress+=1
 		currentModules+=1
 	#removes earliest module past a certain number of them
-	if currentModules > 6:
+	if currentModules > 12:
 		get_child(1).queue_free()
 		currentModules-=1

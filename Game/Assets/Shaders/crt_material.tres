@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Shaders/FinalShader.shader" type="Shader" id=1]
+
+[resource]
+render_priority = 1
+shader = ExtResource( 1 )
+shader_param/tape_wave_amount = 0.002
+shader_param/tape_crease_amount = 0.25
+shader_param/color_displacement = 0.0
+shader_param/lines_velocity = 0.075
+shader_param/colorset = 1.0
+shader_param/screen_size = Vector2( 512, 300 )
+shader_param/show_curvature = true
+shader_param/curvature_x_amount = 6.0
+shader_param/curvature_y_amount = 4.0
+shader_param/corner_color = Color( 0, 0, 0, 1 )
+shader_param/show_vignette = true
+shader_param/vignette_opacity = 0.5
+shader_param/show_horizontal_scan_lines = true
+shader_param/horizontal_scan_lines_amount = 96.0
+shader_param/horizontal_scan_lines_opacity = 0.05
+shader_param/show_vertical_scan_lines = false
+shader_param/vertical_scan_lines_amount = 320.0
+shader_param/vertical_scan_lines_opacity = 1.0
+shader_param/boost = 1.2
+shader_param/aberration_amount = 0.25

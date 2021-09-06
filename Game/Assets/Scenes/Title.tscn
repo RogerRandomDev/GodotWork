@@ -1,3 +1,167 @@
-[gd_scene format=2]
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Fonts/GameFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Scripts/Title.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Shaders/crt_material.tres" type="Material" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 512, 384 )
+own_world = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera2D" type="Camera2D" parent="ViewportContainer/Viewport"]
+zoom = Vector2( 2, 2 )
+
+[node name="ScreenSides" type="Node2D" parent="ViewportContainer/Viewport"]
+
+[node name="ScreenSideL" type="ColorRect" parent="ViewportContainer/Viewport/ScreenSides"]
+show_behind_parent = true
+margin_right = 160.0
+margin_bottom = 384.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ScreenSideR" type="ColorRect" parent="ViewportContainer/Viewport/ScreenSides"]
+show_behind_parent = true
+margin_left = 352.0
+margin_right = 512.0
+margin_bottom = 384.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Labels" type="Node2D" parent="ViewportContainer/Viewport"]
+
+[node name="Label" type="Label" parent="ViewportContainer/Viewport/Labels"]
+margin_left = 160.0
+margin_top = 24.0
+margin_right = 352.0
+margin_bottom = 59.0
+custom_fonts/font = ExtResource( 1 )
+text = "GAME NAME
+HERE"
+align = 1
+
+[node name="Release Date" type="Label" parent="ViewportContainer/Viewport/Labels"]
+margin_left = 160.0
+margin_top = 360.0
+margin_right = 352.0
+margin_bottom = 376.0
+custom_fonts/font = SubResource( 1 )
+text = "West-MEC© 2021"
+align = 1
+
+[node name="CoinCount" type="Label" parent="ViewportContainer/Viewport/Labels"]
+margin_left = 160.0
+margin_top = 320.0
+margin_right = 352.0
+margin_bottom = 350.0
+custom_fonts/font = SubResource( 1 )
+text = "PRESS E TO
+INSERT 
+COINS"
+align = 1
+valign = 2
+
+[node name="Play" type="Label" parent="ViewportContainer/Viewport/Labels"]
+visible = false
+margin_left = 160.0
+margin_top = 165.0
+margin_right = 352.0
+margin_bottom = 195.0
+custom_fonts/font = SubResource( 1 )
+text = "PRESS ENTER
+TO PLAY"
+align = 1
+valign = 2
+
+[node name="PlayerCount" type="Label" parent="ViewportContainer/Viewport/Labels"]
+margin_left = 144.0
+margin_top = 256.0
+margin_right = 368.0
+margin_bottom = 272.0
+custom_fonts/font = SubResource( 2 )
+text = "<ONE PLAYER>
+TWO PLAYERS
+A<->D"
+align = 1
+percent_visible = -0.0454545
+
+[node name="Controls" type="Label" parent="ViewportContainer/Viewport/Labels"]
+margin_top = 32.0
+margin_right = 160.0
+margin_bottom = 326.0
+custom_fonts/font = SubResource( 3 )
+text = "CONTROLS:
+
+PLAYER 1:
+W-UP
+S-DOWN
+A-LEFT
+D-RIGHT
+
+PLAYER 2:
+(NUMPAD)
+UP ARROW-UP
+DOWN ARROW-DOWN
+LEFT ARROW-LEFT
+RIGHT ARROW-RIGHT
+
+
+
+
+
+
+
+
+
+MENU:
+ENTER-START
+E-INSERT COIN
+BSPACE-TOGGLE SHADER"
+align = 1
+
+[node name="CoinFlash" type="Timer" parent="."]
+autostart = true
+
+[node name="Shader" type="Sprite" parent="." groups=[
+"SHADER",
+]]
+material = ExtResource( 4 )
+position = Vector2( -1.90735e-06, -3.45707e-06 )
+scale = Vector2( 16, 9.375 )
+texture = ExtResource( 5 )
+flip_v = true
+
+[connection signal="timeout" from="CoinFlash" to="." method="_on_CoinFlash_timeout"]

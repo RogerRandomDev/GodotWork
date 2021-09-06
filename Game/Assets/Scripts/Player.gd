@@ -15,19 +15,25 @@ var PrevPos = Vector2.ZERO
 var canMove = true
 ##forces player to move up at a set pace, as the value your camera will be at lowest and the rate it goes up
 var cameraY = 448
-export var climbRate = 32
+export var climbRate = 16
 
 #signals for motion, to set controls, and for CPU, to process what they should choose to do
+# warning-ignore:unused_signal
 signal P1
+# warning-ignore:unused_signal
 signal P2
+# warning-ignore:unused_signal
 signal CPU
 ##current score
 var score = 0
 
 func _ready():
 	PrevPos = position
+# warning-ignore:return_value_discarded
 	connect("P1",self,"P1Move")
+# warning-ignore:return_value_discarded
 	connect("P2",self,"P2Move")
+# warning-ignore:return_value_discarded
 	connect("CPU",self,"cpuMove")
 	pass
 
@@ -44,6 +50,7 @@ func _process(delta):
 			$Timer.start()
 	##Applies current motion, the 0.125 is the motion time to interoplate by##
 	if !canMove:
+# warning-ignore:return_value_discarded
 		move_and_collide(direction*delta/$Timer.wait_time)
 	position.x = max(min(512,position.x),0)
 	##sets camera vertical position and minimum vertical position
@@ -53,7 +60,9 @@ func _process(delta):
 
 
 func _on_Timer_timeout():
+	#reenables motion and realligns you to the grid by resetting position and moving without interp
 	position = PrevPos
+# warning-ignore:return_value_discarded
 	move_and_collide(direction)
 	canMove = true
 
@@ -66,7 +75,7 @@ func P1Move():
 		direction.y = moveDist;
 	elif Input.is_action_just_pressed("upP1"):
 		direction.y = -moveDist;
-	get_node(Map).ModulePosition = max(-position.y+1152,get_node(Map).ModulePosition)
+	get_node(Map).ModulePosition = max(-position.y+2304,get_node(Map).ModulePosition)
 
 func P2Move():
 	if Input.is_action_just_pressed("leftP2"):
@@ -78,11 +87,13 @@ func P2Move():
 	elif Input.is_action_just_pressed("upP2"):
 		direction.y = -moveDist;
 
+#Deprecated, currently un-used and unupdated, will work on as is seen fit
 func cpuMove():
 	pass
 
 
 func _on_ScoreTimer_timeout():
+	#updates score over time
 	score += 1
-	GlobalData.setScore(score,PlayerID)
+	GlobalData.setScore(abs(round(score-0.5)),PlayerID)
 	$ScoreTimer.start()

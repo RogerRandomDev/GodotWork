@@ -6,11 +6,11 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="00" type="TileMap" parent="."]
-scale = Vector2( 8, 8 )
+scale = Vector2( 8, 9.143 )
 tile_set = ExtResource( 1 )
-cell_size = Vector2( 8, 8 )
+cell_size = Vector2( 8, 7 )
 format = 1
-tile_data = PoolIntArray( -458752, 0, 0, -458751, 0, 0, -458747, 0, 0, -458746, 0, 0, -458743, 0, 0, -262144, 0, 0, -262143, 0, 0, -262139, 0, 0, -262138, 0, 0, -262135, 0, 0, -65536, 0, 0, -65527, 0, 0 )
+tile_data = PoolIntArray( -458752, 0, 65537, -458751, 0, 65537, -458747, 0, 65537, -458746, 0, 65537, -458743, 0, 65537, -262144, 0, 65537, -262143, 0, 65537, -262139, 0, 65537, -262138, 0, 65537, -262135, 0, 65537, -65536, 0, 65537, -65527, 0, 65537 )
 
 [node name="VehicleMotion" parent="." instance=ExtResource( 2 )]
 position = Vector2( 64, -96 )
