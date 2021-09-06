@@ -16,7 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-GlobalData="*res://Assets/Scripts/GlobalData.gd"
+GlobalScene="*res://Assets/Scenes/GlobalScene.tscn"
 
 [debug]
 

@@ -26,7 +26,9 @@ func _unhandled_key_input(event):
 	if Input.is_key_pressed(KEY_E):
 	##increments coins by 1 and sets text of coin count to it and a space with COINS after it
 		coinCount+=1
-		
+	##plays coin sound when coins are less then 100 when you insert one##
+		if coinCount != 100:
+			$CoinSound.play(0.0)
 	##sets max to 99, because I specifically remember this from these kinds of games
 		coinCount = min(coinCount,99)
 	##sets visible coins on normal game level##
@@ -35,8 +37,8 @@ func _unhandled_key_input(event):
 	
 	##Lets you disable the shaders
 	if Input.is_key_pressed(KEY_TAB):
-		GlobalData.shaderOFF = !GlobalData.shaderOFF
-		get_tree().get_nodes_in_group("SHADER")[0].visible = !GlobalData.shaderOFF
+		GlobalScene.shaderOFF = !GlobalScene.shaderOFF
+		get_tree().get_nodes_in_group("SHADER")[0].visible = !GlobalScene.shaderOFF
 ##sets scoreboard and highscore##
 func setScore(value,ID):
 	Score[pID[ID]]=value
@@ -59,3 +61,6 @@ func gameover():
 ##randomly selects color to return from pallette above##
 func randColor():
 	return ColorValues[round(rand_range(0,ColorValues.size()-1))]
+##plays movement sound##
+func playmove():
+	$MoveSound.play(0.0)

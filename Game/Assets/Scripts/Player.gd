@@ -52,6 +52,7 @@ func _process(delta):
 			PrevPos = position
 			$Timer.start()
 			$Sprite.region_rect.position.x += 9
+			GlobalScene.playmove()
 	##Applies current motion, the 0.125 is the motion time to interoplate by##
 	if !canMove:
 # warning-ignore:return_value_discarded
@@ -105,5 +106,5 @@ func cpuMove():
 func _on_ScoreTimer_timeout():
 	#updates score over time
 	score += 1
-	GlobalData.setScore(abs(round(score-0.5)),PlayerID)
+	GlobalScene.setScore(abs(round(score-0.5)),PlayerID)
 	$ScoreTimer.start()

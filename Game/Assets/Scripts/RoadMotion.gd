@@ -58,9 +58,9 @@ func _on_Carmotion_timeout():
 carData[carSize-1][currentCar][1],
 carData[carSize-1][currentCar][2],
 carData[carSize-1][currentCar][3])
-##sets color to one of the colors in the globaldata color pallette i've set up##
-			get_child(carpos).get_child(0).modulate = GlobalData.randColor()
+##sets color to one of the colors in the GlobalScene color pallette i've set up##
+			get_child(carpos).get_child(0).modulate = GlobalScene.randColor()
 
 func _on_Area2D_body_entered(body):
 	if body.name =="Player":
-		GlobalData.gameover()
+		GlobalScene.gameover()

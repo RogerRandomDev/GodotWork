@@ -16,7 +16,7 @@ func _unhandled_key_input(event):
 		
 		##shows that the player can now start the game##
 		$ViewportContainer/Viewport/Labels/Play.show()
-		currentcoins = min(GlobalData.coinCount+1,99)
+		currentcoins = min(GlobalScene.coinCount+1,99)
 		
 		##puts zero before the text when the number is less than 10
 		if currentcoins < 10:
@@ -31,13 +31,13 @@ func _unhandled_key_input(event):
 		$CoinFlash.start()
 	if Input.is_key_pressed(KEY_ENTER) && currentcoins > 0:
 		##removes 1 coin and starts game
-		GlobalData.coinCount -= 1
+		GlobalScene.coinCount -= 1
 # warning-ignore:return_value_discarded
 		get_tree().change_scene("res://Assets/Scenes/BaseGame.tscn")
 	##changes player mode##
 	if Input.is_action_just_pressed("leftP1") or Input.is_action_just_pressed("rightP1"):
 		GameType = abs(GameType-1)
-		GlobalData.PlayerCount = GameType+1
+		GlobalScene.PlayerCount = GameType+1
 		updateMode()
 #updates gamemode text
 func updateMode():
