@@ -60,7 +60,7 @@ shape = SubResource( 3 )
 position = Vector2( -128, 0 )
 
 [node name="Sprite" type="Sprite" parent="PathFollow2D3"]
-scale = Vector2( 4, 9.143 )
+scale = Vector2( 8, 9.143 )
 texture = ExtResource( 1 )
 region_enabled = true
 
@@ -73,7 +73,7 @@ shape = SubResource( 4 )
 position = Vector2( -128, 0 )
 
 [node name="Sprite" type="Sprite" parent="PathFollow2D4"]
-scale = Vector2( 4, 9.143 )
+scale = Vector2( 8, 9.143 )
 texture = ExtResource( 1 )
 region_enabled = true
 
@@ -86,7 +86,7 @@ shape = SubResource( 5 )
 position = Vector2( -128, 0 )
 
 [node name="Sprite" type="Sprite" parent="PathFollow2D5"]
-scale = Vector2( 4, 9.143 )
+scale = Vector2( 8, 9.143 )
 texture = ExtResource( 1 )
 region_enabled = true
 
@@ -96,6 +96,7 @@ region_enabled = true
 shape = SubResource( 6 )
 
 [node name="Carmotion" type="Timer" parent="."]
+wait_time = 0.1
 autostart = true
 
 [connection signal="body_entered" from="PathFollow2D/Area2D" to="." method="_on_Area2D_body_entered"]

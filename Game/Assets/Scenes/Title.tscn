@@ -148,8 +148,7 @@ RIGHT ARROW-RIGHT
 MENU:
 ENTER-START
 E-INSERT COIN
-TAB-TOGGLE SHADER
-~-CREATE MODULE"
+TAB-TOGGLE SHADER"
 align = 1
 
 [node name="CoinFlash" type="Timer" parent="."]

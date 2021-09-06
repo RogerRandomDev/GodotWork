@@ -26,9 +26,9 @@ handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="Camera2D" type="Camera2D" parent="P1/Viewport"]
-position = Vector2( 256, 32 )
+position = Vector2( 288, 32 )
 current = true
-zoom = Vector2( 3, 3 )
+zoom = Vector2( 3.333, 3 )
 smoothing_enabled = true
 smoothing_speed = 15.0
 
@@ -55,9 +55,9 @@ handle_input_locally = false
 render_target_update_mode = 3
 
 [node name="Camera2D" type="Camera2D" parent="P2/Viewport"]
-position = Vector2( 256, 32 )
+position = Vector2( 288, 32 )
 current = true
-zoom = Vector2( 3, 3 )
+zoom = Vector2( 3.333, 3 )
 smoothing_enabled = true
 smoothing_speed = 15.0
 

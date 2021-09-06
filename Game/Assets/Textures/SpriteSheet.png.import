@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Atari2600Frogger(placeholder).png-eec49d13a469ca8d4c53956984b2c87c.stex"
+path="res://.import/SpriteSheet.png-acc63c0e9df3e6aac8156a21a8c0008c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/Atari2600Frogger(placeholder).png"
-dest_files=[ "res://.import/Atari2600Frogger(placeholder).png-eec49d13a469ca8d4c53956984b2c87c.stex" ]
+source_file="res://Assets/Textures/SpriteSheet.png"
+dest_files=[ "res://.import/SpriteSheet.png-acc63c0e9df3e6aac8156a21a8c0008c.stex" ]
 
 [params]
 

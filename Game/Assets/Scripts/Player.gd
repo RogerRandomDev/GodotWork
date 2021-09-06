@@ -16,7 +16,9 @@ var canMove = true
 ##forces player to move up at a set pace, as the value your camera will be at lowest and the rate it goes up
 var cameraY = 448
 export var climbRate = 16
-
+##sets player sprite image using thins##
+var spritePos = Vector2(0,7.5)
+var spriteSize = Vector2(8,8)
 #signals for motion, to set controls, and for CPU, to process what they should choose to do
 # warning-ignore:unused_signal
 signal P1
@@ -29,6 +31,7 @@ var score = 0
 
 func _ready():
 	PrevPos = position
+	$Sprite.region_rect.position = spritePos*Vector2(int(PlayerID!="P1")+1,1)
 # warning-ignore:return_value_discarded
 	connect("P1",self,"P1Move")
 # warning-ignore:return_value_discarded
@@ -48,11 +51,12 @@ func _process(delta):
 			canMove=false
 			PrevPos = position
 			$Timer.start()
+			$Sprite.region_rect.position.x += 9
 	##Applies current motion, the 0.125 is the motion time to interoplate by##
 	if !canMove:
 # warning-ignore:return_value_discarded
 		move_and_collide(direction*delta/$Timer.wait_time)
-	position.x = max(min(512,position.x),0)
+	position.x = max(min(576,position.x),0)
 	##sets camera vertical position and minimum vertical position
 	cameraY-=climbRate*delta
 	cameraY = min(self.position.y,cameraY)
@@ -65,16 +69,22 @@ func _on_Timer_timeout():
 # warning-ignore:return_value_discarded
 	move_and_collide(direction)
 	canMove = true
+	##resets player image##
+	$Sprite.region_rect.position.x = (int(PlayerID!="P1")*9)
 
 func P1Move():
 	if Input.is_action_just_pressed("leftP1"):
 		direction.x = -moveDist;
+		$Sprite.rotation_degrees = -90
 	elif Input.is_action_just_pressed("rightP1"):
 		direction.x =moveDist;
+		$Sprite.rotation_degrees = 90
 	elif Input.is_action_just_pressed("downP1"):
 		direction.y = moveDist;
+		$Sprite.rotation_degrees = 180
 	elif Input.is_action_just_pressed("upP1"):
 		direction.y = -moveDist;
+		$Sprite.rotation_degrees = 0
 	get_node(Map).ModulePosition = max(-position.y+2304,get_node(Map).ModulePosition)
 
 func P2Move():
