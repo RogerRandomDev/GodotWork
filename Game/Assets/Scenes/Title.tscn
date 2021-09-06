@@ -116,12 +116,11 @@ text = "<ONE PLAYER>
 TWO PLAYERS
 A<->D"
 align = 1
-percent_visible = -0.0454545
 
 [node name="Controls" type="Label" parent="ViewportContainer/Viewport/Labels"]
 margin_top = 32.0
 margin_right = 160.0
-margin_bottom = 326.0
+margin_bottom = 384.0
 custom_fonts/font = SubResource( 3 )
 text = "CONTROLS:
 
@@ -149,7 +148,8 @@ RIGHT ARROW-RIGHT
 MENU:
 ENTER-START
 E-INSERT COIN
-BSPACE-TOGGLE SHADER"
+TAB-TOGGLE SHADER
+~-CREATE MODULE"
 align = 1
 
 [node name="CoinFlash" type="Timer" parent="."]

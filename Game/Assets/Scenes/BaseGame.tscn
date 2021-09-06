@@ -88,9 +88,9 @@ __meta__ = {
 
 [node name="Score0" type="Label" parent="Scores"]
 margin_left = 132.0
-margin_top = 540.0
+margin_top = 556.0
 margin_right = 444.0
-margin_bottom = 1124.0
+margin_bottom = 1140.0
 custom_fonts/font = ExtResource( 6 )
 text = "SCORE:
 "
@@ -100,9 +100,9 @@ __meta__ = {
 
 [node name="Score1" type="Label" parent="Scores"]
 margin_left = 580.0
-margin_top = 540.0
+margin_top = 556.0
 margin_right = 892.0
-margin_bottom = 1124.0
+margin_bottom = 1140.0
 custom_fonts/font = ExtResource( 6 )
 text = "SCORE:
 "

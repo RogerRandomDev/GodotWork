@@ -1,26 +1,26 @@
 [gd_scene load_steps=9 format=2]
 
+[ext_resource path="res://Assets/Textures/Cars0.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Scripts/RoadMotion.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Textures/Atari2600Frogger(placeholder).png" type="Texture" id=3]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, -128, 0, 0, 0, 0, 0, 640, 0 )
 }
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 16, 16 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16, 16 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 16, 16 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 16, 16 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 16, 16 )
 
 [node name="VehicleMotion" type="Path2D"]
@@ -32,68 +32,68 @@ carDir = 1
 position = Vector2( -128, 0 )
 
 [node name="Sprite" type="Sprite" parent="PathFollow2D"]
-scale = Vector2( 4, 8 )
+scale = Vector2( 8, 9.143 )
 z_index = 1
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 1, 1, 32, 7 )
+region_rect = Rect2( 0, 0, 8, 7 )
 
 [node name="Area2D" type="Area2D" parent="PathFollow2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Area2D"]
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 
 [node name="PathFollow2D2" type="PathFollow2D" parent="."]
 position = Vector2( -128, 0 )
 
 [node name="Sprite" type="Sprite" parent="PathFollow2D2"]
-scale = Vector2( 4, 8 )
-texture = ExtResource( 3 )
+scale = Vector2( 8, 9.143 )
+texture = ExtResource( 1 )
 region_enabled = true
 
 [node name="Area2D" type="Area2D" parent="PathFollow2D2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D2/Area2D"]
-shape = SubResource( 10 )
+shape = SubResource( 3 )
 
 [node name="PathFollow2D3" type="PathFollow2D" parent="."]
 position = Vector2( -128, 0 )
 
 [node name="Sprite" type="Sprite" parent="PathFollow2D3"]
-scale = Vector2( 4, 8 )
-texture = ExtResource( 3 )
+scale = Vector2( 4, 9.143 )
+texture = ExtResource( 1 )
 region_enabled = true
 
 [node name="Area2D" type="Area2D" parent="PathFollow2D3"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D3/Area2D"]
-shape = SubResource( 9 )
+shape = SubResource( 4 )
 
 [node name="PathFollow2D4" type="PathFollow2D" parent="."]
 position = Vector2( -128, 0 )
 
 [node name="Sprite" type="Sprite" parent="PathFollow2D4"]
-scale = Vector2( 4, 8 )
-texture = ExtResource( 3 )
+scale = Vector2( 4, 9.143 )
+texture = ExtResource( 1 )
 region_enabled = true
 
 [node name="Area2D" type="Area2D" parent="PathFollow2D4"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D4/Area2D"]
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="PathFollow2D5" type="PathFollow2D" parent="."]
 position = Vector2( -128, 0 )
 
 [node name="Sprite" type="Sprite" parent="PathFollow2D5"]
-scale = Vector2( 4, 8 )
-texture = ExtResource( 3 )
+scale = Vector2( 4, 9.143 )
+texture = ExtResource( 1 )
 region_enabled = true
 
 [node name="Area2D" type="Area2D" parent="PathFollow2D5"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D5/Area2D"]
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Carmotion" type="Timer" parent="."]
 autostart = true

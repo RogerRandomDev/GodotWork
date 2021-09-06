@@ -8,17 +8,22 @@ export var movespeed = 0.25
 var moving = true
 var carprogress = [0,0,0,0,0]
 export var carDir = 0
-export var carLength = [1,2]
+export var carLength = [1,1]
+
+###
 ##placeholder to set texture position and size for now##
+##no longer placeholder, has been modified to suit its purpose permanently,
+##or until better method is though of.
+###
 var carData = [
-[[38,1,16,7],[59,1,16,7],[80,1,16,7],[101,1,16,7]],
+[[0,0,8,7],[9,0,8,7],[0,8,8,7],[9,8,8,7]],
 [[1,1,32,7]],
 ]
 var carCounts = [3,0]
 ##sets speed of motion
 func _ready():
 	$Carmotion.wait_time = movespeed
-	if carDir == 1:
+	if carDir == 0:
 		for car in get_children():
 			if car.get_child_count() != 0:
 				car.get_child(0).flip_h = true
@@ -45,11 +50,16 @@ func _on_Carmotion_timeout():
 			var currentCar = round(rand_range(0,carCounts[carSize-1]-1))
 			get_child(carpos).get_child(1).scale.x = carSize
 ##sets extents(TEMPORARY) this is being used while using the frogger textures i got from the atari 2600
+###
+##Leaving last comment aside, I set up my own textures in the style, and am using it in the same manner
+##as before, since it has proved to be rather effective at what it is meant to do.
+###
 			get_child(carpos).get_child(0).region_rect = Rect2(carData[carSize-1][currentCar][0],
 carData[carSize-1][currentCar][1],
 carData[carSize-1][currentCar][2],
 carData[carSize-1][currentCar][3])
-
+##sets color to one of the colors in the globaldata color pallette i've set up##
+			get_child(carpos).get_child(0).modulate = GlobalData.randColor()
 
 func _on_Area2D_body_entered(body):
 	if body.name =="Player":

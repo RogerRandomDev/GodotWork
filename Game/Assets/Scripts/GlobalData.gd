@@ -2,7 +2,7 @@ extends Node
 
 
 ##allows you to disable the shader
-var shaderOFF = true
+var shaderOFF = false
 
 ##stores score and HighScore##
 var Score = [0,0]
@@ -12,8 +12,14 @@ var PlayerCount = 1
 var coinCount = 0
 ##converts player ID to the label for the score##
 const pID = {"P1":0,"P2":1,"CPU":1}
+##Modulation colors to allow for more variety by just changing pallette essentially between the values##
+const ColorValues = [Color8(136,0,0,255),Color8(48,32,152,255),Color8(120,0,92,255),Color8(208,208,80,255)]
 
-##Allows you to insert more coins during the game as wepp
+##Randomizes random function##
+func _ready():
+	randomize()
+
+##Allows you to insert more coins during the game as wanted##
 func _unhandled_key_input(event):
 	if str(event) == "0":
 		pass
@@ -28,9 +34,9 @@ func _unhandled_key_input(event):
 			get_tree().get_nodes_in_group("COINDISPLAY")[0].text = "COINS:\n"+str(coinCount)
 	
 	##Lets you disable the shaders
-	if Input.is_key_pressed(KEY_BACKSPACE):
+	if Input.is_key_pressed(KEY_TAB):
 		GlobalData.shaderOFF = !GlobalData.shaderOFF
-		get_tree().get_nodes_in_group("SHADER")[0].visible = GlobalData.shaderOFF
+		get_tree().get_nodes_in_group("SHADER")[0].visible = !GlobalData.shaderOFF
 ##sets scoreboard and highscore##
 func setScore(value,ID):
 	Score[pID[ID]]=value
@@ -50,3 +56,6 @@ func setScore(value,ID):
 func gameover():
 	print("hit")
 	pass
+##randomly selects color to return from pallette above##
+func randColor():
+	return ColorValues[round(rand_range(0,ColorValues.size()-1))]

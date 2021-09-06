@@ -4,7 +4,6 @@ uniform float tape_crease_amount :hint_range (0, 15) = 0.25;
 uniform float color_displacement :hint_range (0, 5) = 0.0;
 uniform float lines_velocity :hint_range (0, 5) = 0.075;
 const float PI = 3.14159265359;
-uniform float colorset = 256.0;
 uniform vec2 screen_size = vec2(320.0, 180.0);
 uniform bool show_curvature = true;
 uniform float curvature_x_amount : hint_range(3.0, 15.0, 0.01) = float(6.0); 
@@ -83,7 +82,7 @@ void fragment() {
 	
 	// switching noise
 	float snPhase = smoothstep( 0.03, 0.0, uvn.y );
-	uvn.y += snPhase * 0.0;
+	uvn.y += snPhase * 0.125;
 	uvn.x += snPhase * ( ( noise( vec2( uv.y * 100.0, TIME * 10.0 ) ) - 0.5 ) * 0.0 );
 	
 	color = tex2D( SCREEN_TEXTURE, uvn );
@@ -93,28 +92,21 @@ void fragment() {
 		color.yzx,
 		snPhase
 	);
-	
+/*
 	// bloom
 	for( float x = -1.0; x < 2.5; x += 2.0 ){
 		color.xyz += vec3(
 		tex2D( SCREEN_TEXTURE, uvn + vec2( x - 0.0, 0.0 ) * 0.007 ).x,
 		tex2D( SCREEN_TEXTURE, uvn + vec2( x - color_displacement, 0.0 ) * 0.007 ).y,
 		tex2D( SCREEN_TEXTURE, uvn + vec2( x - color_displacement * 2.0, 0.0 ) * 0.007 ).z
-		) * 0.1;
+		) * 0.01;
 	}
-	color *= 0.6;
+*/
+	color *= 0.5;
 	
 	// ac beat
-	color *= 1.0 + clamp( noise( vec2( 0.0, uv.y + TIME * lines_velocity ) ) * 0.6 - 0.25, 0.0, 0.1 );
-
-///THIS SHOULD ONLY BE USED IF I FINALLY FIGURE OUT HOW I CAN MAKE IT LOOK NICE WITHOUT SCREWING THE REST UP
-	//one of the first parts of the shader here,
-	//it would basically limit the color pallate by dividing the possible values and rounding
-	//before just multiplying it to get a reduced color pallate.
-	//sounds nice, but i realized it doesnt work all that well in the end, so if i ever find a way
-	//to make it nice, i will re-used it once again//
-///
-	//color = roundEven(color*(256.0/colorset))/(256.0/colorset);
+	color *= 1.0 + clamp( noise( vec2( 0.0, uv.y + TIME * lines_velocity ) ) * 0.16 - 0.25, 0.0, 0.1 );
+	
 	
 	if (show_horizontal_scan_lines) {
 		float s = sin(screen_uv.y * horizontal_scan_lines_amount * PI * 2.0);
