@@ -70,14 +70,20 @@ func setScore(value,ID):
 		HighScore = Score[pID[ID]]
 		get_tree().get_nodes_in_group("ScoreBoard")[0].get_child(PlayerCount).text = "HighScore:\n" + str(value)
 
-###Need to add functionality here, preferrable a screen prompting you to continue for 1 Coin##
+###
+##Need to add functionality here, preferrable a screen prompting you to continue for 1 Coin
 ##Best if it provides high score here as well to give them a sense of progression##
+
+##Choice rejected for now, no high score to be shown, but there is an end screen
+##That prompts you to continue on single player, on two player, it just says who won
+##and lets you return to the menu##
 ###
 func gameover(x):
-	##only allows death if you can die
+	##only allows death if you can die, and decides if it is single or double player##
 	if canDie && PlayerCount!=2:
 		get_tree().get_nodes_in_group("ENDSCREEN")[0].show()
 		$EndTimer.start()
+		get_tree().get_nodes_in_group("ENDSCREEN")[0].get_child(2).text = 10
 		timerleft = 10
 		get_tree().paused = true
 		canDie = false
@@ -85,9 +91,11 @@ func gameover(x):
 		get_tree().paused = true
 		get_tree().get_nodes_in_group("WINSCREEN")[0].show()
 		get_tree().get_nodes_in_group("WINSCREEN")[0].get_child(0).text = "-----------\nGAME OVER\n-----------\nPLAYER "+str(abs(1-pID[x])+1)+"\nWINS"
+
 ##randomly selects color to return from pallette above##
 func randColor():
 	return ColorValues[round(rand_range(0,ColorValues.size()-1))]
+
 ##plays movement sound##
 func playmove():
 	$MoveSound.play(0.0)
@@ -96,7 +104,7 @@ func playmove():
 func _on_RespawnTimer_timeout():
 	canDie = true
 
-
+##Updates timer on endscreen for the time left
 func _on_EndTimer_timeout():
 	if timerleft != 0:
 		timerleft-=1
