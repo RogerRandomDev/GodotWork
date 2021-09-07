@@ -10,11 +10,15 @@ var HighScore = 0
 var PlayerCount = 1
 ##Coins in at the moment##
 var coinCount = 0
+##allows you to survive for 5 seconds after respawing##
+var canDie = true
+var timerleft = 0
 ##converts player ID to the label for the score##
 const pID = {"P1":0,"P2":1,"CPU":1}
 ##Modulation colors to allow for more variety by just changing pallette essentially between the values##
 const ColorValues = [Color8(136,0,0,255),Color8(48,32,152,255),Color8(120,0,92,255),Color8(208,208,80,255)]
-
+##to prevent errors##
+var placeholder
 ##Randomizes random function##
 func _ready():
 	randomize()
@@ -39,6 +43,20 @@ func _unhandled_key_input(event):
 	if Input.is_key_pressed(KEY_TAB):
 		GlobalScene.shaderOFF = !GlobalScene.shaderOFF
 		get_tree().get_nodes_in_group("SHADER")[0].visible = !GlobalScene.shaderOFF
+	##lets you restart so long as coins are in the game##
+	if Input.is_key_pressed(KEY_ENTER) && get_tree().paused:
+		if coinCount > 0:
+			coinCount-=1
+			$CoinSound.play(0.0)
+			get_tree().get_nodes_in_group("ENDSCREEN")[0].hide()
+			get_tree().paused=false
+			$RespawnTimer.start()
+			canDie = false
+		if get_tree().get_nodes_in_group("COINDISPLAY").size()!=0:
+			get_tree().get_nodes_in_group("COINDISPLAY")[0].text = "COINS:\n"+str(coinCount)
+		$EndTimer.stop()
+		if PlayerCount == 2:
+			placeholder = get_tree().change_scene("res://Assets/Scenes/Title.tscn")
 ##sets scoreboard and highscore##
 func setScore(value,ID):
 	Score[pID[ID]]=value
@@ -55,12 +73,35 @@ func setScore(value,ID):
 ###Need to add functionality here, preferrable a screen prompting you to continue for 1 Coin##
 ##Best if it provides high score here as well to give them a sense of progression##
 ###
-func gameover():
-	print("hit")
-	pass
+func gameover(x):
+	##only allows death if you can die
+	if canDie && PlayerCount!=2:
+		get_tree().get_nodes_in_group("ENDSCREEN")[0].show()
+		$EndTimer.start()
+		timerleft = 10
+		get_tree().paused = true
+		canDie = false
+	elif PlayerCount==2:
+		get_tree().paused = true
+		get_tree().get_nodes_in_group("WINSCREEN")[0].show()
+		get_tree().get_nodes_in_group("WINSCREEN")[0].get_child(0).text = "-----------\nGAME OVER\n-----------\nPLAYER "+str(abs(1-pID[x])+1)+"\nWINS"
 ##randomly selects color to return from pallette above##
 func randColor():
 	return ColorValues[round(rand_range(0,ColorValues.size()-1))]
 ##plays movement sound##
 func playmove():
 	$MoveSound.play(0.0)
+
+
+func _on_RespawnTimer_timeout():
+	canDie = true
+
+
+func _on_EndTimer_timeout():
+	if timerleft != 0:
+		timerleft-=1
+		$EndTimer.start()
+		get_tree().get_nodes_in_group("ENDSCREEN")[0].get_child(2).text = str(timerleft)
+	else:
+		get_tree().paused=false
+		placeholder = get_tree().change_scene("res://Assets/Scenes/Title.tscn")

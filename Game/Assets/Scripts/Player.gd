@@ -31,7 +31,7 @@ var score = 0
 
 func _ready():
 	PrevPos = position
-	$Sprite.region_rect.position = spritePos*Vector2(int(PlayerID!="P1")+1,1)
+	$Sprite.region_rect.position.x = (int(PlayerID!="P1")*18)
 # warning-ignore:return_value_discarded
 	connect("P1",self,"P1Move")
 # warning-ignore:return_value_discarded
@@ -57,7 +57,7 @@ func _process(delta):
 	if !canMove:
 # warning-ignore:return_value_discarded
 		move_and_collide(direction*delta/$Timer.wait_time)
-	position.x = max(min(576,position.x),0)
+	position.x = max(min(768,position.x),0)
 	##sets camera vertical position and minimum vertical position
 	cameraY-=climbRate*delta
 	cameraY = min(self.position.y,cameraY)
@@ -71,7 +71,7 @@ func _on_Timer_timeout():
 	move_and_collide(direction)
 	canMove = true
 	##resets player image##
-	$Sprite.region_rect.position.x = (int(PlayerID!="P1")*9)
+	$Sprite.region_rect.position.x = (int(PlayerID!="P1")*18)
 
 func P1Move():
 	if Input.is_action_just_pressed("leftP1"):
@@ -91,12 +91,17 @@ func P1Move():
 func P2Move():
 	if Input.is_action_just_pressed("leftP2"):
 		direction.x = -moveDist;
+		$Sprite.rotation_degrees = -90
 	elif Input.is_action_just_pressed("rightP2"):
 		direction.x =moveDist;
+		$Sprite.rotation_degrees = 90
 	elif Input.is_action_just_pressed("downP2"):
 		direction.y = moveDist;
+		$Sprite.rotation_degrees = 180
 	elif Input.is_action_just_pressed("upP2"):
 		direction.y = -moveDist;
+		$Sprite.rotation_degrees = 0
+	get_node(Map).ModulePosition = max(-position.y+2304,get_node(Map).ModulePosition)
 
 #Deprecated, currently un-used and unupdated, will work on as is seen fit
 func cpuMove():

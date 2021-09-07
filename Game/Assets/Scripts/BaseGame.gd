@@ -11,7 +11,7 @@ func _ready():
 		$P1.rect_position.x = 352
 		$Scores/HighScore.rect_position.x = 1024 - 128
 		$Scores/Score0.rect_position.x = 356
-	$Scores/Coins.text = "COINS:\n"+str(GlobalScene.coinCount)
+	$EndScreen/Coins.text = "COINS:\n"+str(GlobalScene.coinCount)
 	##allows you to disable the shader##
 	if GlobalScene.shaderOFF:
 		$Shader.hide()

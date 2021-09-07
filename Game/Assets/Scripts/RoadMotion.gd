@@ -63,4 +63,4 @@ carData[carSize-1][currentCar][3])
 
 func _on_Area2D_body_entered(body):
 	if body.name =="Player":
-		GlobalScene.gameover()
+		GlobalScene.gameover(body.PlayerID)

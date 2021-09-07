@@ -5,7 +5,7 @@
 
 [sub_resource type="Curve2D" id=1]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -128, 0, 0, 0, 0, 0, 640, 0 )
+"points": PoolVector2Array( 0, 0, 0, 0, -128, 0, 0, 0, 0, 0, 832, 0 )
 }
 
 [sub_resource type="RectangleShape2D" id=2]
