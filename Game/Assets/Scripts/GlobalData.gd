@@ -83,7 +83,7 @@ func gameover(x):
 	if canDie && PlayerCount!=2:
 		get_tree().get_nodes_in_group("ENDSCREEN")[0].show()
 		$EndTimer.start()
-		get_tree().get_nodes_in_group("ENDSCREEN")[0].get_child(2).text = 10
+		get_tree().get_nodes_in_group("ENDSCREEN")[0].get_child(2).text = str(10)
 		timerleft = 10
 		get_tree().paused = true
 		canDie = false

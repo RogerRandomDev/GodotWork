@@ -3,7 +3,7 @@ extends Path2D
 
 
 var currentCars = [0,0,0,0,0]
-export var movespeed = 0.25
+export var movespeed = 0.33
 ## movement variables to store car positions and direction of motion
 var moving = true
 var carprogress = [0,0,0,0,0]
@@ -41,7 +41,7 @@ func _process(delta):
 
 var carpos = 0
 func _on_Carmotion_timeout():
-	$Carmotion.wait_time = rand_range(1/movespeed/2,1/movespeed+0.5)
+	$Carmotion.wait_time = rand_range((1/movespeed),(1/movespeed)+1.0)
 	carpos = currentCars.find(0)
 	if carpos != -1:
 			currentCars[carpos] = 1
