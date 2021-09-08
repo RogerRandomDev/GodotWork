@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Assets/Tilesets/Tileset0.tres" type="TileSet" id=1]
-[ext_resource path="res://Assets/Scenes/Sliders.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Scenes/Frog/Sliders.tscn" type="PackedScene" id=2]
 
 [node name="Node2D" type="Node2D"]
 
@@ -10,14 +10,13 @@ scale = Vector2( 64, 64 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 1, 1 )
 format = 1
-tile_data = PoolIntArray( -393216, 3, 0, -393215, 3, 0, -393205, 3, 0, -393204, 3, 0, -327680, 3, 0, -327675, 3, 0, -327674, 3, 0, -327673, 3, 0, -327672, 3, 0, -327668, 3, 0, -131072, 3, 0, -131071, 3, 0, -131066, 3, 0, -131065, 3, 0, -131061, 3, 0, -131060, 3, 0 )
+tile_data = PoolIntArray( -393216, 3, 0, -393215, 3, 0, -393212, 8, 0, -393204, 3, 0, -327680, 3, 0, -327677, 3, 0, -327676, 3, 0, -327675, 3, 0, -327674, 3, 0, -327673, 3, 0, -327672, 3, 0, -327671, 3, 0, -327670, 3, 0, -327668, 3, 0, -131072, 3, 0, -131071, 3, 0, -131066, 3, 0, -131065, 3, 0, -131061, 3, 0, -131060, 3, 0 )
 __meta__ = {
 "_editor_description_": ""
 }
 
 [node name="VehicleMotion" parent="." instance=ExtResource( 2 )]
 position = Vector2( 64, -32 )
-movespeed = 0.33
 
 [node name="VehicleMotion2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 64, -160 )

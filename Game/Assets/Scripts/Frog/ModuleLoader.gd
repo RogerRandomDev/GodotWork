@@ -23,7 +23,7 @@ func _process(delta):
 	##creates new modules when you go up and removes the lowest one to maintain efficiency over time
 	if ModulePosition > nextModule:
 		ModuleID = round(rand_range(0,moduleHeight.size()-1))
-		var Module = load("res://Assets/Scenes/MapModules/"+str(ModuleID)+".tscn").instance()
+		var Module = load("res://Assets/Scenes/Frog/MapModules/"+str(ModuleID)+".tscn").instance()
 		add_child(Module)
 	#positions Modules
 		Module.position.y = -nextModule+32

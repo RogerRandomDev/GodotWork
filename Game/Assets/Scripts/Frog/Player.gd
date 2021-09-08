@@ -62,6 +62,8 @@ func _process(delta):
 	cameraY-=climbRate*delta
 	cameraY = min(self.position.y,cameraY)
 	get_node(cam).position.y = cameraY
+	if position.y-cameraY>512 && GlobalScene.cancontinue:
+		GlobalScene.trueover(PlayerID)
 
 
 func _on_Timer_timeout():

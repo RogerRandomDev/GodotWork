@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Move.wav-88b043cf85a0997763ded4b989fdc15e.sample"
+path="res://.import/Move.wav-f43c602f25882c909bd141ec0a18ab93.sample"
 
 [deps]
 
-source_file="res://Assets/Audio/Move.wav"
-dest_files=[ "res://.import/Move.wav-88b043cf85a0997763ded4b989fdc15e.sample" ]
+source_file="res://Assets/Audio/Frog/Move.wav"
+dest_files=[ "res://.import/Move.wav-f43c602f25882c909bd141ec0a18ab93.sample" ]
 
 [params]
 

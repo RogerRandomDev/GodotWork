@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Scripts/GlobalData.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Audio/InsertCoin.wav" type="AudioStream" id=2]
-[ext_resource path="res://Assets/Audio/Move.wav" type="AudioStream" id=3]
-[ext_resource path="res://Assets/Audio/GameSong.mp3" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Audio/Frog/InsertCoin.wav" type="AudioStream" id=2]
+[ext_resource path="res://Assets/Audio/Frog/Move.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Audio/Frog/GameSong.mp3" type="AudioStream" id=4]
 
 [node name="Node" type="Node"]
 pause_mode = 2
@@ -20,7 +20,6 @@ volume_db = -5.0
 stream = ExtResource( 4 )
 volume_db = -10.0
 pitch_scale = 1.5
-autoplay = true
 
 [node name="RespawnTimer" type="Timer" parent="."]
 wait_time = 5.0

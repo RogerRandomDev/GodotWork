@@ -6,6 +6,9 @@ extends Node2D
 var GameType = 0
 ##Little Neat thing, i made the max 99, to keep with the feel of old arcade games a bit better.
 var currentcoins = 0
+##sets music##
+func _ready():
+	GlobalScene.playmusic("res://Assets/Audio/Frog/GameSong.mp3")
 ##Flips between the Current Coin count to make it flash
 func _on_CoinFlash_timeout():
 	$ViewportContainer/Viewport/Labels/CoinCount.visible = !$ViewportContainer/Viewport/Labels/CoinCount.visible
@@ -33,7 +36,7 @@ func _unhandled_key_input(event):
 		##removes 1 coin and starts game
 		GlobalScene.coinCount -= 1
 # warning-ignore:return_value_discarded
-		get_tree().change_scene("res://Assets/Scenes/BaseGame.tscn")
+		get_tree().change_scene("res://Assets/Scenes/Frog/BaseGame.tscn")
 	##changes player mode##
 	if Input.is_action_just_pressed("leftP1") or Input.is_action_just_pressed("rightP1"):
 		GameType = abs(GameType-1)
