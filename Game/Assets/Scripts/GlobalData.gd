@@ -1,6 +1,5 @@
 extends Node
 
-
 ##allows you to disable the shader
 var shaderOFF = false
 ##sets currentgame##
