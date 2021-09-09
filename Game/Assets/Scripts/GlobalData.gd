@@ -58,7 +58,15 @@ func _unhandled_key_input(event):
 		$EndTimer.stop()
 		if PlayerCount == 2:
 			canDie = true
+			PlayerCount = 1
 			placeholder = get_tree().change_scene("res://Assets/Scenes/Frog/Title.tscn")
+	if Input.is_key_pressed(KEY_ESCAPE):
+		canDie = true
+		get_tree().paused = false
+		$EndTimer.stop()
+		$Music.playing = false
+		PlayerCount = 1
+		get_tree().change_scene("res://Assets/Scenes/MainTitle.tscn")
 ##sets scoreboard and highscore##
 func setScore(value,ID):
 	Score[currentgame][pID[ID]]=value
@@ -130,6 +138,7 @@ func _on_EndTimer_timeout():
 	else:
 		get_tree().paused=false
 		canDie=true
+		PlayerCount = 1
 		placeholder = get_tree().change_scene("res://Assets/Scenes/Frog/Title.tscn")
 ##sets music to play##
 func playmusic(music):
