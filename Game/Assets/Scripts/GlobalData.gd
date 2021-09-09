@@ -8,12 +8,17 @@ var currentgame = 0
 var Score = [[0,0],[0,0],[0,0],[0,0],[0,0]]
 var HighScore = [0,0,0,0,0]
 var PlayerCount = 1
+var gamename = ["Frog","Space","test2","test3","test4"]
+var health = [3,3]
+var pauser = "P1"
 ##Coins in at the moment##
 var coinCount = 0
 ##allows you to survive for 5 seconds after respawing##
 var canDie = true
 var cancontinue = true
 var timerleft = 0
+##limits bullet count to 2##
+var currentbullets = [0,0]
 ##converts player ID to the label for the score##
 const pID = {"P1":0,"P2":1,"CPU":1}
 ##Modulation colors to allow for more variety by just changing pallette essentially between the values##
@@ -46,34 +51,41 @@ func _unhandled_key_input(event):
 		get_tree().get_nodes_in_group("SHADER")[0].visible = !GlobalScene.shaderOFF
 	##lets you restart so long as coins are in the game##
 	if Input.is_key_pressed(KEY_ENTER) && get_tree().paused:
+		health[0] = 3
+		health[1] = 3
 		if coinCount > 0 && cancontinue:
 			coinCount-=1
 			$CoinSound.play(0.0)
+			if get_tree().get_nodes_in_group("pHealth").size() != 0:
+				get_tree().get_nodes_in_group("pHealth")[pID[pauser]].text = "LIVES: "+str(health[pID[pauser]])
 			get_tree().get_nodes_in_group("ENDSCREEN")[0].hide()
 			get_tree().paused=false
 			$RespawnTimer.start()
 			canDie = false
+			$EndTimer.stop()
 		if get_tree().get_nodes_in_group("COINDISPLAY").size()!=0:
 			get_tree().get_nodes_in_group("COINDISPLAY")[0].text = "COINS:\n"+str(coinCount)
-		$EndTimer.stop()
 		if PlayerCount == 2:
 			canDie = true
 			PlayerCount = 1
+			get_tree().paused=false
 			placeholder = get_tree().change_scene("res://Assets/Scenes/Frog/Title.tscn")
+			$EndTimer.stop()
 	if Input.is_key_pressed(KEY_ESCAPE):
 		canDie = true
 		get_tree().paused = false
 		$EndTimer.stop()
 		$Music.playing = false
 		PlayerCount = 1
-		get_tree().change_scene("res://Assets/Scenes/MainTitle.tscn")
+		placeholder = get_tree().change_scene("res://Assets/Scenes/MainTitle.tscn")
 ##sets scoreboard and highscore##
 func setScore(value,ID):
 	Score[currentgame][pID[ID]]=value
 ##gets the scoreboard node, and then gets the scoreboard label for the current ID##
-	for ScoreList in get_tree().get_nodes_in_group("ScoreBoard")[0].get_children():
-		if ScoreList.name=="Score"+str(pID[ID]):
-			ScoreList.text = "Score:" + str(value)
+	if get_tree().get_nodes_in_group("ScoreBoard").size() != 0:
+		for ScoreList in get_tree().get_nodes_in_group("ScoreBoard")[0].get_children():
+			if ScoreList.name=="Score"+str(pID[ID]):
+				ScoreList.text = "Score:" + str(value)
 ##highscore setter##
 ###currently hidden and not visible, will work on where to place high score later##
 	if value > HighScore[currentgame]:
@@ -139,10 +151,19 @@ func _on_EndTimer_timeout():
 		get_tree().paused=false
 		canDie=true
 		PlayerCount = 1
-		placeholder = get_tree().change_scene("res://Assets/Scenes/Frog/Title.tscn")
+		placeholder = get_tree().change_scene("res://Assets/Scenes/"+gamename[currentgame]+"/Title.tscn")
 ##sets music to play##
 func playmusic(music):
 	$Music.stream = load(music)
 	$Music.play(0.0)
 func stopmusic():
 	$Music.stop()
+##adds health to player##
+func addhealth(value,ID):
+	if pID.has(ID):
+		health[pID[ID]]+=value
+		health[pID[ID]]=max(health[pID[ID]],0)
+		get_tree().get_nodes_in_group("pHealth")[pID[ID]].text = "LIVES: "+str(health[pID[ID]])
+		if health[pID[ID]]<=0:
+			pauser = ID
+			gameover(ID)

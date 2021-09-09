@@ -54,6 +54,9 @@ func _unhandled_key_input(event):
 	if Input.is_key_pressed(KEY_ENTER) && currentcoins > 0:
 		##removes 1 coin and starts game
 		GlobalScene.coinCount -= 1
+		##resets current score for this game##
+		GlobalScene.setScore(0,"P1")
+		GlobalScene.setScore(0,"P2")
 # warning-ignore:return_value_discarded
 		get_tree().change_scene("res://Assets/Scenes/"+gamename[GlobalScene.currentgame]+"/BaseGame.tscn")
 	##changes player mode##

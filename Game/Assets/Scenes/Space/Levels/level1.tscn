@@ -1,3 +1,19 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Scenes/Space/Levels/LineMovers.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Scripts/Space/Level.gd" type="Script" id=2]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Path2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 32 )
+
+[node name="Path2D2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 112 )
+
+[node name="Path2D3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 192 )
+
+[node name="Path2D4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 272 )
