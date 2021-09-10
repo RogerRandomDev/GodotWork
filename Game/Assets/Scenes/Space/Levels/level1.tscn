@@ -17,3 +17,9 @@ position = Vector2( 0, 192 )
 
 [node name="Path2D4" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 272 )
+
+[node name="SpawnCharger" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[connection signal="timeout" from="SpawnCharger" to="." method="_on_SpawnCharger_timeout"]

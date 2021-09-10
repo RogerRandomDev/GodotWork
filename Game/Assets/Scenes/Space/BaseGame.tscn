@@ -37,7 +37,7 @@ __meta__ = {
 }
 
 [node name="Viewport" type="Viewport" parent="P1"]
-size = Vector2( 192, 384 )
+size = Vector2( 384, 384 )
 own_world = true
 handle_input_locally = false
 render_target_update_mode = 3
@@ -53,7 +53,7 @@ color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
 [node name="Camera2D" type="Camera2D" parent="P1/Viewport"]
 position = Vector2( 512, -384 )
 current = true
-zoom = Vector2( 5.333, 3 )
+zoom = Vector2( 2.667, 3 )
 smoothing_enabled = true
 smoothing_speed = 15.0
 
@@ -85,7 +85,7 @@ __meta__ = {
 }
 
 [node name="Viewport" type="Viewport" parent="P2"]
-size = Vector2( 192, 384 )
+size = Vector2( 384, 384 )
 own_world = true
 handle_input_locally = false
 render_target_update_mode = 3
@@ -101,7 +101,7 @@ color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
 [node name="Camera2D" type="Camera2D" parent="P2/Viewport"]
 position = Vector2( 512, -384 )
 current = true
-zoom = Vector2( 5.333, 3 )
+zoom = Vector2( 2.667, 3 )
 smoothing_enabled = true
 smoothing_speed = 15.0
 

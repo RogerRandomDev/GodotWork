@@ -10,7 +10,7 @@ var GameType = 0
 var currentcoins = 0
 ##sets music##
 func _ready():
-	#GlobalScene.playmusic("res://Assets/Audio/Frog/GameSong.mp3")
+	GlobalScene.playmusic("res://Assets/Audio/"+gamename[GlobalScene.currentgame]+"/GameSong.mp3")
 	if GlobalScene.coinCount != 0:
 		currentcoins = GlobalScene.coinCount
 				

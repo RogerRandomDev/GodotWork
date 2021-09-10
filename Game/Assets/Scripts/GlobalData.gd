@@ -23,7 +23,11 @@ var currentbullets = [0,0]
 ##converts player ID to the label for the score##
 const pID = {"P1":0,"P2":1,"CPU":1}
 ##Modulation colors to allow for more variety by just changing pallette essentially between the values##
-const ColorValues = [Color8(136,0,0,255),Color8(48,32,152,255),Color8(120,0,92,255),Color8(208,208,80,255)]
+const ColorValues = [Color8(136,0,0,255),
+Color8(48,32,152,255),
+Color8(120,0,92,255),
+Color8(208,208,80,255),
+Color8(15,155,15,255)]
 ##to prevent errors##
 var placeholder
 ##Randomizes random function##
