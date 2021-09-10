@@ -14,7 +14,7 @@ func _physics_process(delta):
 	$Area2D.update()
 	if position.y <= -928 or position.y >= 256:
 		if id < 3:
-			GlobalScene.currentbullets[id] -= 1
+			GlobalScene.currentbullets[id] = max(GlobalScene.currentbullets[id] - 1,0)
 		queue_free()
 
 
@@ -25,7 +25,7 @@ func _on_Area2D_body_entered(body):
 				body.get_parent().get_parent().get_parent().updateChildren()
 			body.get_parent().free()
 			if id < 3:
-				GlobalScene.currentbullets[id] -= 1
+				GlobalScene.currentbullets[id] = max(GlobalScene.currentbullets[id] - 1,0)
 				GlobalScene.setScore(GlobalScene.Score[1][id]+100,idlib[id])
 			self.queue_free()
 		else:

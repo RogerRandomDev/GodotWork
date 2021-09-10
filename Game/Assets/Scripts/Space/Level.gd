@@ -18,5 +18,6 @@ func updateMoversReal():
 	lines -= 1
 	if lines == 0:
 		get_tree().get_nodes_in_group("NextLevel")[0].nextLevel()
-		get_parent().add_child(load("res://Assets/Scenes/Space/Levels/level1.tscn").instance())
+		get_tree().get_nodes_in_group("NextLevel")[0].sceneload = get_parent().get_path()
+		
 		queue_free()

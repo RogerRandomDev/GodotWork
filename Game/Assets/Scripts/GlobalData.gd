@@ -4,6 +4,7 @@ extends Node
 var shaderOFF = false
 ##sets currentgame##
 var currentgame = 0
+var unpausable = true
 ##stores score and HighScore##
 var Score = [[0,0],[0,0],[0,0],[0,0],[0,0]]
 var HighScore = [0,0,0,0,0]
@@ -50,7 +51,7 @@ func _unhandled_key_input(event):
 		GlobalScene.shaderOFF = !GlobalScene.shaderOFF
 		get_tree().get_nodes_in_group("SHADER")[0].visible = !GlobalScene.shaderOFF
 	##lets you restart so long as coins are in the game##
-	if Input.is_key_pressed(KEY_ENTER) && get_tree().paused:
+	if Input.is_key_pressed(KEY_ENTER) && get_tree().paused && unpausable:
 		health[0] = 3
 		health[1] = 3
 		if coinCount > 0 && cancontinue:
@@ -69,7 +70,7 @@ func _unhandled_key_input(event):
 			canDie = true
 			PlayerCount = 1
 			get_tree().paused=false
-			placeholder = get_tree().change_scene("res://Assets/Scenes/Frog/Title.tscn")
+			placeholder = get_tree().change_scene("res://Assets/Scenes/"+gamename[currentgame]+"/Title.tscn")
 			$EndTimer.stop()
 	if Input.is_key_pressed(KEY_ESCAPE):
 		canDie = true

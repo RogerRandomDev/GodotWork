@@ -2,12 +2,11 @@
 
 [ext_resource path="res://Assets/Shaders/crt_material.tres" type="Material" id=1]
 [ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Assets/Fonts/GameFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Scripts/Title.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
-size = 8
+size = 32
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
@@ -17,6 +16,11 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
+size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 8
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
@@ -43,6 +47,12 @@ own_world = true
 handle_input_locally = false
 render_target_update_mode = 3
 
+[node name="ColorRect" type="ColorRect" parent="ViewportContainer/Viewport"]
+show_behind_parent = true
+margin_right = 512.0
+margin_bottom = 600.0
+color = Color( 0.0588235, 0.0588235, 0.0588235, 1 )
+
 [node name="Camera2D" type="Camera2D" parent="ViewportContainer/Viewport"]
 zoom = Vector2( 2, 2 )
 
@@ -66,11 +76,10 @@ color = Color( 0, 0, 0, 1 )
 [node name="Label" type="Label" parent="ViewportContainer/Viewport/Labels"]
 margin_left = 160.0
 margin_top = 24.0
-margin_right = 352.0
-margin_bottom = 59.0
-custom_fonts/font = ExtResource( 3 )
-text = "GAME NAME
-HERE"
+margin_right = 360.0
+margin_bottom = 91.0
+custom_fonts/font = SubResource( 1 )
+text = "Space"
 align = 1
 
 [node name="Release Date" type="Label" parent="ViewportContainer/Viewport/Labels"]
@@ -78,7 +87,7 @@ margin_left = 160.0
 margin_top = 360.0
 margin_right = 352.0
 margin_bottom = 376.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "West-MEC© 2021"
 align = 1
 
@@ -87,7 +96,7 @@ margin_left = 160.0
 margin_top = 320.0
 margin_right = 352.0
 margin_bottom = 350.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "PRESS E TO
 INSERT 
 COINS"
@@ -100,7 +109,7 @@ margin_left = 160.0
 margin_top = 165.0
 margin_right = 352.0
 margin_bottom = 195.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "PRESS ENTER
 TO PLAY"
 align = 1
@@ -111,7 +120,7 @@ margin_left = 144.0
 margin_top = 256.0
 margin_right = 368.0
 margin_bottom = 272.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "<ONE PLAYER>
 TWO PLAYERS
 A<->D"
@@ -121,7 +130,7 @@ align = 1
 margin_top = 32.0
 margin_right = 160.0
 margin_bottom = 384.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "CONTROLS:
 
 PLAYER 1:
@@ -160,3 +169,5 @@ position = Vector2( -1.90735e-06, -3.45707e-06 )
 scale = Vector2( 16, 9.375 )
 texture = ExtResource( 4 )
 flip_v = true
+
+[connection signal="timeout" from="CoinFlash" to="." method="_on_CoinFlash_timeout"]

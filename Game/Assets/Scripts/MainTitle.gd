@@ -7,6 +7,23 @@ var GameType = 0
 var gamename = ["Frog","Space","test2","test3","test4"]
 ##Little Neat thing, i made the max 99, to keep with the feel of old arcade games a bit better.
 var currentcoins = 0
+##sets up start##
+func _ready():
+	GlobalScene.currentgame = 0
+	$ViewportContainer/Viewport/Labels/HighScore.text = "HighScore:\n"+str(GlobalScene.HighScore[0])
+	if GlobalScene.coinCount != 0:
+		currentcoins = GlobalScene.coinCount
+				
+		##shows that the player can now start the game##
+		$ViewportContainer/Viewport/Labels/Play.show()
+		##puts zero before the text when the number is less than 10
+		if currentcoins < 10:
+			$ViewportContainer/Viewport/Labels/CoinCount.text = "0"
+		else:
+			$ViewportContainer/Viewport/Labels/CoinCount.text = ""
+		$ViewportContainer/Viewport/Labels/CoinCount.text += str(currentcoins) +" COINS"
+		##Makes coincount visible
+		$ViewportContainer/Viewport/Labels/CoinCount.visible = true
 ##Flips between the Current Coin count to make it flash
 func _on_CoinFlash_timeout():
 	$ViewportContainer/Viewport/Labels/CoinCount.visible = !$ViewportContainer/Viewport/Labels/CoinCount.visible
@@ -43,9 +60,10 @@ func _unhandled_key_input(event):
 		GameType = GameType+1
 		if GameType > 4:
 			GameType = 0
-		GlobalScene.currentgame = GameType
 		updatemode()
+	GlobalScene.currentgame = GameType
 #updates gamemode text
 func updatemode():
 	$ViewportContainer/Viewport/Labels/CurrentGame.text = gamename[GameType]
+	$ViewportContainer/Viewport/Labels/HighScore.text = "HighScore:\n"+str(GlobalScene.HighScore[GameType])
 	pass
