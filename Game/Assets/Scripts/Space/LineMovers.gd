@@ -30,7 +30,7 @@ func _on_MoveTimer_timeout():
 #continue##
 func _on_movedowntimer_timeout():
 	position.y = position.y+YRate
-	if position.y >= 896:
+	if position.y >= 816:
 		GlobalScene.trueover(id)
 ##updates when a mover is killed, so it can remove itself when there are none left##
 func updateChildren():

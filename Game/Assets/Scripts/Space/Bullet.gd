@@ -30,4 +30,6 @@ func _on_Area2D_body_entered(body):
 			self.queue_free()
 		else:
 			body.hurt()
+			if id < 3:
+				GlobalScene.currentbullets[id] = max(GlobalScene.currentbullets[id] - 1,0)
 			self.queue_free()
