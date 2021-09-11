@@ -9,7 +9,7 @@ var unpausable = true
 var Score = [[0,0],[0,0],[0,0],[0,0],[0,0]]
 var HighScore = [0,0,0,0,0]
 var PlayerCount = 1
-var gamename = ["Frog","Space","test2","test3","test4"]
+var gamename = ["Frog","Space","Tapp","test3","test4"]
 var health = [3,3]
 var pauser = "P1"
 ##Coins in at the moment##

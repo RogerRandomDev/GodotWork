@@ -3,13 +3,17 @@ extends Node2D
 
 ##Does all title screen functions
 ##lets you switch between gamemodes
-var gamename = ["Frog","Space","test2","test3","test4"]
+var gamename = ["Frog","Space","Tapp","test3","test4"]
 ##sets game mode
 var GameType = 0
+var multiplay = [0,1,3,4]
 ##Little Neat thing, i made the max 99, to keep with the feel of old arcade games a bit better.
 var currentcoins = 0
 ##sets music##
 func _ready():
+	if !multiplay.has(GlobalScene.currentgame):
+		$ViewportContainer/Viewport/Labels/PlayerCount.hide()
+		GlobalScene.PlayerCount = 1
 	GlobalScene.playmusic("res://Assets/Audio/"+gamename[GlobalScene.currentgame]+"/GameSong.mp3")
 	if GlobalScene.coinCount != 0:
 		currentcoins = GlobalScene.coinCount
@@ -66,7 +70,11 @@ func _unhandled_key_input(event):
 		updateMode()
 #updates gamemode text
 func updateMode():
-	if GameType == 0:
-		$ViewportContainer/Viewport/Labels/PlayerCount.text = "<ONE PLAYER>\nTWO PLAYERS\nA<->D"
-	if GameType == 1:
-		$ViewportContainer/Viewport/Labels/PlayerCount.text = "<TWO PLAYERS>\nONE PLAYER\nA<->D"
+	if multiplay.has(GlobalScene.currentgame):
+		if GameType == 0:
+			$ViewportContainer/Viewport/Labels/PlayerCount.text = "<ONE PLAYER>\nTWO PLAYERS\nA<->D"
+		if GameType == 1:
+			$ViewportContainer/Viewport/Labels/PlayerCount.text = "<TWO PLAYERS>\nONE PLAYER\nA<->D"
+	else:
+		GameType = 0
+		GlobalScene.PlayerCount = 1
