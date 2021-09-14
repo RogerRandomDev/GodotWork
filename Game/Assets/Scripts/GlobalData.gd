@@ -60,6 +60,8 @@ func _unhandled_key_input(event):
 		health[1] = 3
 		if coinCount > 0 && cancontinue:
 			coinCount-=1
+			if get_tree().get_nodes_in_group("Spills").size() != 0:
+				get_tree().get_nodes_in_group("Spills")[0].text = "SPILLED GLASSES:"+str(3-GlobalScene.health[0])+"/3"
 			$CoinSound.play(0.0)
 			if get_tree().get_nodes_in_group("pHealth").size() != 0:
 				get_tree().get_nodes_in_group("pHealth")[pID[pauser]].text = "LIVES: "+str(health[pID[pauser]])
