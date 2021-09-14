@@ -8,6 +8,11 @@ var unpausable = true
 ##stores score and HighScore##
 var Score = [[0,0],[0,0],[0,0],[0,0],[0,0]]
 var HighScore = [0,0,0,0,0]
+var scoreBoard = [[0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0,0,0,0]]
 var PlayerCount = 1
 var gamename = ["Frog","Space","Tapp","test3","test4"]
 var health = [3,3]
@@ -76,14 +81,17 @@ func _unhandled_key_input(event):
 			canDie = true
 			PlayerCount = 1
 			get_tree().paused=false
+			setScoreBoard(HighScore[currentgame])
 			placeholder = get_tree().change_scene("res://Assets/Scenes/"+gamename[currentgame]+"/Title.tscn")
 			$EndTimer.stop()
 	if Input.is_key_pressed(KEY_ESCAPE):
 		canDie = true
+		health = [3,3]
 		get_tree().paused = false
 		$EndTimer.stop()
 		$Music.playing = false
 		PlayerCount = 1
+		setScoreBoard(HighScore[currentgame])
 		placeholder = get_tree().change_scene("res://Assets/Scenes/MainTitle.tscn")
 ##sets scoreboard and highscore##
 func setScore(value,ID):
@@ -158,6 +166,7 @@ func _on_EndTimer_timeout():
 		get_tree().paused=false
 		canDie=true
 		PlayerCount = 1
+		setScoreBoard(HighScore[currentgame])
 		placeholder = get_tree().change_scene("res://Assets/Scenes/"+gamename[currentgame]+"/Title.tscn")
 ##sets music to play##
 func playmusic(music):
@@ -174,3 +183,24 @@ func addhealth(value,ID):
 		if health[pID[ID]]<=0:
 			pauser = ID
 			gameover(ID)
+##plays sound##
+func playSound0(sound):
+	$sound.stream=load(sound)
+	$sound.play(0.0)
+func playSound1(sound):
+	$sound1.stream=load(sound)
+	$sound1.play(0.0)
+func playSound2(sound):
+	$sound2.stream=load(sound)
+	$sound2.play(0.0)
+	
+func setScoreBoard(value):
+	var canscore=false
+	var currentscore = 9
+	for scores in scoreBoard[currentgame]:
+		if scores<value:
+			currentscore-=1
+			canscore = true
+	scoreBoard[currentgame].sort()
+	if canscore:
+		scoreBoard[currentgame][currentscore]=value

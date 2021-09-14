@@ -11,6 +11,11 @@ var multiplay = [0,1,3,4]
 var currentcoins = 0
 ##sets music##
 func _ready():
+	GlobalScene.HighScore[GlobalScene.currentgame] = 0
+	##sets scoreboard##
+	GlobalScene.scoreBoard[GlobalScene.currentgame].sort()
+	for score in GlobalScene.scoreBoard[GlobalScene.currentgame].size():
+		$ViewportContainer/Viewport/Labels/HighScores.text += "\n"+str(GlobalScene.scoreBoard[GlobalScene.currentgame][9-score])
 	if !multiplay.has(GlobalScene.currentgame):
 		$ViewportContainer/Viewport/Labels/PlayerCount.hide()
 		GlobalScene.PlayerCount = 1

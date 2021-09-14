@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dropped.wav-df81261a529f7f3fecd6a5b3f2b73db9.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Tapp/dropped.wav"
+dest_files=[ "res://.import/dropped.wav-df81261a529f7f3fecd6a5b3f2b73db9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

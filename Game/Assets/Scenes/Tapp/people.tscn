@@ -1,14 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/Tapp/Barrel.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Scripts/Tapp/people.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Textures/Tapp/Counter.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 128, 32 )
+extents = Vector2( 16, 4 )
 
 [sub_resource type="Curve2D" id=2]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 0, -16.1621, 0, 0, 0, 0, 864, -18.667 )
+"points": PoolVector2Array( 0, 0, 0, 0, 0, -12, 0, 0, 0, 0, 108, -12 )
 }
 
 [sub_resource type="Curve2D" id=3]
@@ -17,10 +18,12 @@ _data = {
 }
 
 [node name="People" type="Node2D"]
+z_index = 1
 script = ExtResource( 2 )
 
 [node name="Barrel" type="Sprite" parent="."]
 position = Vector2( 1024, 0 )
+scale = Vector2( 8, 8 )
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -31,17 +34,26 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel/BarrelArea"]
 shape = SubResource( 1 )
 
-[node name="Bar" type="Sprite" parent="."]
-position = Vector2( 0, 10.667 )
-z_index = 1
-texture = ExtResource( 1 )
-centered = false
-offset = Vector2( 0, -32 )
+[node name="Bar" type="NinePatchRect" parent="."]
+margin_top = -16.0
+margin_right = 108.0
+margin_bottom = 48.0
+rect_scale = Vector2( 8, 1 )
+texture = ExtResource( 3 )
+patch_margin_left = 1
+patch_margin_right = 1
+axis_stretch_horizontal = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SlidePath" type="Path2D" parent="Bar"]
+position = Vector2( 0, 28 )
 curve = SubResource( 2 )
 
 [node name="Persons" type="Path2D" parent="."]
+position = Vector2( 0, -16 )
+z_index = -1
 curve = SubResource( 3 )
 
 [node name="personsTimer" type="Timer" parent="."]

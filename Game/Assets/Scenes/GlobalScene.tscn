@@ -26,5 +26,11 @@ one_shot = true
 [node name="EndTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="sound" type="AudioStreamPlayer" parent="."]
+
+[node name="sound1" type="AudioStreamPlayer" parent="."]
+
+[node name="sound2" type="AudioStreamPlayer" parent="."]
+
 [connection signal="timeout" from="RespawnTimer" to="." method="_on_RespawnTimer_timeout"]
 [connection signal="timeout" from="EndTimer" to="." method="_on_EndTimer_timeout"]

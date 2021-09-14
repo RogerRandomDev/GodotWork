@@ -10,7 +10,8 @@ var currentcoins = 0
 ##sets up start##
 func _ready():
 	GlobalScene.currentgame = 0
-	$ViewportContainer/Viewport/Labels/HighScore.text = "HighScore:\n"+str(GlobalScene.HighScore[0])
+	GlobalScene.scoreBoard[GlobalScene.currentgame].sort()
+	$ViewportContainer/Viewport/Labels/HighScore.text = "HighScore:\n"+str(GlobalScene.scoreBoard[GlobalScene.currentgame][0])
 	if GlobalScene.coinCount != 0:
 		currentcoins = GlobalScene.coinCount
 				

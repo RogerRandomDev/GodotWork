@@ -28,7 +28,7 @@ func _ready():
 	connect("CPU",self,"cpuMove")
 	pass
 
-func _process(delta):
+func _process(_delta):
 		direction = Vector2.ZERO
 		##sets Movement Direction
 		emit_signal(PlayerID)
@@ -45,11 +45,18 @@ func P1Move():
 		direction.y += moveDist
 	if Input.is_action_just_pressed("rightP1") and !hasdrink:
 		$Timer.start()
+		$Sprite/glass.offset = Vector2(6,4)
+		$Sprite/glass.flip_h = true
+		$Sprite.flip_h=false
 	if Input.is_action_just_released("rightP1"):
 		$Timer.stop()
+		$Sprite.flip_h=true
+		$Sprite/glass.flip_h = false
+		$Sprite/glass.offset = Vector2(-6,4)
 	if Input.is_action_pressed("leftP1") and hasdrink:
 		get_node(currentLine).placeItem()
 		hasdrink = false
+		$Sprite/glass.hide()
 	if !$Timer.is_stopped():
 		direction = Vector2.ZERO
 
@@ -62,3 +69,5 @@ func P2Move():
 
 func _on_Timer_timeout():
 	hasdrink = true
+	GlobalScene.playSound2("res://Assets/Audio/Tapp/filled.wav")
+	$Sprite/glass.show()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/Tapp/Person0.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Scripts/Tapp/person.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -11,7 +11,9 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 show_behind_parent = true
+scale = Vector2( 8, 8 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -1.5 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=[
 "Person",

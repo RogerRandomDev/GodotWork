@@ -112,6 +112,6 @@ func cpuMove():
 
 func _on_ScoreTimer_timeout():
 	#updates score over time
-	score += 1
+	score += round(-(position.y/6400))+1
 	GlobalScene.setScore(abs(round(score-0.5)),PlayerID)
 	$ScoreTimer.start()
