@@ -54,6 +54,7 @@ PlayerID = "P2"
 
 [node name="Ball" parent="P1/Viewport" instance=ExtResource( 7 )]
 position = Vector2( 0, 304 )
+bonusball = false
 
 [node name="Camera2D" type="Camera2D" parent="P1/Viewport"]
 position = Vector2( 0, 384 )
@@ -143,6 +144,19 @@ margin_bottom = 600.0
 custom_fonts/font = ExtResource( 3 )
 text = "HighScore:
 "
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score2" type="Label" parent="Scores"]
+visible = false
+margin_left = 356.0
+margin_top = 24.0
+margin_right = 668.0
+margin_bottom = 608.0
+custom_fonts/font = ExtResource( 3 )
+text = "WIN        LOSE"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

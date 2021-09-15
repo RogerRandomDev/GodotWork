@@ -4,10 +4,13 @@ extends KinematicBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+const newBall = preload("res://Assets/Scenes/Gnop/Ball.tscn")
 var angle = 0.0
 var angleDir = -1
 var direction = Vector2(512,512)
+var speedmult = 1.0
+var lasthit = 0
+export var bonusball = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	chooseDir()
@@ -15,7 +18,7 @@ func _ready():
 
 ##moves the ball and updates its collisions##
 func _process(delta):
-	move_and_collide(direction*Vector2(sin((angle)),cos((angle)))*delta)
+	move_and_collide(direction*Vector2(sin((angle)),cos((angle)))*delta*speedmult)
 	if position.y >= 640:
 		angle = PI-angle
 		position.y = 639
@@ -27,12 +30,16 @@ func _process(delta):
 	if position.x < -1024:
 		##sets scores##
 		GlobalScene.setScore(GlobalScene.Score[GlobalScene.currentgame][1]+1,"P2")
+		get_tree().get_nodes_in_group("ScoreBoard")[0].get_child(3).show()
 		get_tree().get_nodes_in_group("ScoreBoard")[0].get_child(0).text = str(GlobalScene.Score[GlobalScene.currentgame][0])+":"+str(GlobalScene.Score[GlobalScene.currentgame][1])
+		get_tree().get_nodes_in_group("ScoreBoard")[0].get_child(3).text = "LOSE       WIN"
 		reset()
 	if position.x > 1024:
 		##sets scores##
 		GlobalScene.setScore(GlobalScene.Score[GlobalScene.currentgame][0]+1,"P1")
+		get_tree().get_nodes_in_group("ScoreBoard")[0].get_child(3).show()
 		get_tree().get_nodes_in_group("ScoreBoard")[0].get_child(0).text = str(GlobalScene.Score[GlobalScene.currentgame][0])+":"+str(GlobalScene.Score[GlobalScene.currentgame][1])
+		get_tree().get_nodes_in_group("ScoreBoard")[0].get_child(3).text = "WIN       LOSE"
 		reset()
 
 ##chooses bounce direction##
@@ -44,8 +51,10 @@ func _on_InteractArea_body_entered(body):
 	##bounces when it meets player based on distance to center of paddle##
 	if body.is_in_group("Player"):
 		if body.position.x > 0:
-			angle = (abs((position.angle_to_point(body.position))))*sign(angle)-PI
+			lasthit = 0
+			angle = (abs((position.angle_to_point(body.position))))*sign(angle)-PI*1.5
 		if body.position.x < 0:
+			lasthit = 1
 			angle = (abs((position.angle_to_point(body.position))))*sign(angle)+PI/2
 		#caps the angles to prevent it going near straigh upwards#
 		if rad2deg(abs(angle)) > 135:angle=deg2rad(135*sign(angle))
@@ -55,3 +64,11 @@ func _on_InteractArea_body_entered(body):
 func reset():
 	position = Vector2(0,304)
 	chooseDir()
+	if bonusball:
+		queue_free()
+	if !bonusball:
+		$WinLose.start()
+
+
+func _on_WinLose_timeout():
+	get_tree().get_nodes_in_group("ScoreBoard")[0].get_child(3).hide()
