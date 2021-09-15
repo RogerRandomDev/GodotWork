@@ -3,10 +3,10 @@ extends Node2D
 
 ##Does all title screen functions
 ##lets you switch between gamemodes
-var gamename = ["Frog","Space","Tapp","test3","test4"]
+var gamename = ["Frog","Space","Tapp","Gnop","test4"]
 ##sets game mode
 var GameType = 0
-var multiplay = [0,1,3,4]
+var multiplay = [0,1,4]
 ##Little Neat thing, i made the max 99, to keep with the feel of old arcade games a bit better.
 var currentcoins = 0
 ##sets music##

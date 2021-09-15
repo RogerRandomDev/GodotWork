@@ -23,7 +23,7 @@ var currentcount = 0
 func _on_AngerTimer_timeout():
 	currentcount = 0
 	for child in get_parent().get_children():
-		if child.unit_offset >= unit_offset+0.025 and child.unit_offset < unit_offset+0.125:
+		if child.unit_offset >= unit_offset+0.05 and child.unit_offset < unit_offset+0.125:
 			currentcount += 1
 	if currentcount < 1:
 		unit_offset += 0.05

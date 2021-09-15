@@ -3,6 +3,7 @@ extends Node2D
 ##number of active players##
 export var PlayerCount = 1
 const changegame = [0,1]
+const alwaysmult = [3]
 ##sets up player view based on player count##
 func _ready():
 	if GlobalScene.PlayerCount == 1:
@@ -13,6 +14,9 @@ func _ready():
 			$Scores/HighScore.rect_position.x = 1024 - 128
 			$Scores/Score0.rect_position.x = 356
 	$EndScreen/Coins.text = "COINS:\n"+str(GlobalScene.coinCount)
+	if alwaysmult.has(GlobalScene.currentgame):
+		GlobalScene.PlayerCount = 2
+		PlayerCount = 2
 	##allows you to disable the shader##
 	if GlobalScene.shaderOFF:
 		$Shader.hide()

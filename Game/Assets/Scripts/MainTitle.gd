@@ -4,14 +4,18 @@ extends Node2D
 ##Does all title screen functions
 ##sets game mode
 var GameType = 0
-var gamename = ["Frog","Space","Tapp","test3","test4"]
+var gamename = ["Frog","Space","Tapp","Gnop","test4"]
 ##Little Neat thing, i made the max 99, to keep with the feel of old arcade games a bit better.
 var currentcoins = 0
 ##sets up start##
 func _ready():
 	GlobalScene.currentgame = 0
 	GlobalScene.scoreBoard[GlobalScene.currentgame].sort()
-	$ViewportContainer/Viewport/Labels/HighScore.text = "HighScore:\n"+str(GlobalScene.scoreBoard[GlobalScene.currentgame][0])
+	var highscore = 0
+	for score in GlobalScene.scoreBoard[GlobalScene.currentgame]:
+		if score > highscore:
+			highscore=score
+	$ViewportContainer/Viewport/Labels/HighScore.text = "HighScore:\n"+str(highscore)
 	if GlobalScene.coinCount != 0:
 		currentcoins = GlobalScene.coinCount
 				

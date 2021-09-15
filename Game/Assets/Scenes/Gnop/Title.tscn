@@ -1,39 +1,39 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Assets/Scripts/Title.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Shaders/crt_material.tres" type="Material" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Shaders/crt_material.tres" type="Material" id=2]
+[ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Scripts/Title.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 32
+size = 30
 outline_size = 2
 use_mipmaps = true
 use_filter = true
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 8
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 8
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 8
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 8
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
+font_data = ExtResource( 3 )
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource( 2 )
+script = ExtResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -53,6 +53,12 @@ size = Vector2( 512, 384 )
 own_world = true
 handle_input_locally = false
 render_target_update_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="ViewportContainer/Viewport"]
+show_behind_parent = true
+margin_right = 512.0
+margin_bottom = 600.0
+color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="ViewportContainer/Viewport"]
 zoom = Vector2( 2, 2 )
@@ -78,14 +84,13 @@ color = Color( 0, 0, 0, 1 )
 margin_left = 160.0
 margin_top = 24.0
 margin_right = 352.0
-margin_bottom = 59.0
+margin_bottom = 91.0
 custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.0980392, 0.607843, 0.0980392, 1 )
+custom_colors/font_color = Color( 0.588235, 1, 0.588235, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0.0588235, 0.215686, 0.0588235, 1 )
-custom_constants/shadow_offset_x = 2
-custom_constants/shadow_offset_y = 3
-text = "FROG"
+custom_colors/font_color_shadow = Color( 0.556863, 0, 0, 1 )
+custom_constants/shadow_offset_y = 4
+text = "GNOP"
 align = 1
 
 [node name="Release Date" type="Label" parent="ViewportContainer/Viewport/Labels"]
@@ -121,15 +126,26 @@ TO PLAY"
 align = 1
 valign = 2
 
+[node name="Gnop" type="Label" parent="ViewportContainer/Viewport/Labels/Play"]
+margin_top = 24.0
+margin_right = 192.0
+margin_bottom = 54.0
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.588235, 1, 0.588235, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.556863, 0, 0, 1 )
+custom_constants/shadow_offset_y = 2
+text = "GNOP"
+align = 1
+valign = 2
+
 [node name="PlayerCount" type="Label" parent="ViewportContainer/Viewport/Labels"]
 margin_left = 144.0
 margin_top = 256.0
 margin_right = 368.0
 margin_bottom = 272.0
 custom_fonts/font = SubResource( 3 )
-text = "<ONE PLAYER>
-TWO PLAYERS
-A<->D"
+text = "<TWO PLAYERS>"
 align = 1
 
 [node name="Controls" type="Label" parent="ViewportContainer/Viewport/Labels"]
@@ -142,15 +158,15 @@ text = "CONTROLS:
 PLAYER 1:
 W-UP
 S-DOWN
-A-LEFT
-D-RIGHT
 
 PLAYER 2:
-(NUMPAD)
-UP ARROW-UP
-DOWN ARROW-DOWN
-LEFT ARROW-LEFT
-RIGHT ARROW-RIGHT
+Up Arrow-UP
+Down Arrow-DOWN
+
+
+
+
+
 
 
 
@@ -165,13 +181,14 @@ ENTER-START
 E-INSERT COIN
 TAB-TOGGLE SHADER"
 align = 1
+uppercase = true
 
 [node name="HighScores" type="Label" parent="ViewportContainer/Viewport/Labels"]
 margin_left = 352.0
 margin_top = 32.0
 margin_right = 512.0
 margin_bottom = 384.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "TOP SCORES:"
 align = 1
 uppercase = true
@@ -182,10 +199,8 @@ autostart = true
 [node name="Shader" type="Sprite" parent="." groups=[
 "SHADER",
 ]]
-material = ExtResource( 4 )
-position = Vector2( -1.90735e-06, -0.890903 )
+material = ExtResource( 2 )
+position = Vector2( -1.90735e-06, -3.45707e-06 )
 scale = Vector2( 16, 9.375 )
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 flip_v = true
-
-[connection signal="timeout" from="CoinFlash" to="." method="_on_CoinFlash_timeout"]

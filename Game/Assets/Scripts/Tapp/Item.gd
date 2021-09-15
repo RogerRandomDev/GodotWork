@@ -13,7 +13,7 @@ func _physics_process(_delta):
 	if unit_offset <= 0.0125:
 		GlobalScene.health[0] -= 1
 		get_tree().get_nodes_in_group("Spills")[0].text = "SPILLED GLASSES:"+str(3-GlobalScene.health[0])+"/3"
-		if GlobalScene.health[0]==0:
+		if GlobalScene.health[0]<=0:
 			GlobalScene.gameover("P1")
 		GlobalScene.playSound1("res://Assets/Audio/Tapp/dropped.wav")
 		self.queue_free()

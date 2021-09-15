@@ -14,7 +14,7 @@ var scoreBoard = [[0,0,0,0,0,0,0,0,0,0],
 [0,0,0,0,0,0,0,0,0,0],
 [0,0,0,0,0,0,0,0,0,0]]
 var PlayerCount = 1
-var gamename = ["Frog","Space","Tapp","test3","test4"]
+var gamename = ["Frog","Space","Tapp","Gnop","test4"]
 var health = [3,3]
 var pauser = "P1"
 ##Coins in at the moment##
@@ -38,6 +38,7 @@ var placeholder
 ##Randomizes random function##
 func _ready():
 	randomize()
+	loadsave()
 
 ##Allows you to insert more coins during the game as wanted##
 func _unhandled_key_input(event):
@@ -204,3 +205,24 @@ func setScoreBoard(value):
 	scoreBoard[currentgame].sort()
 	if canscore:
 		scoreBoard[currentgame][currentscore]=value
+	save()
+##loads save files##
+var file = File.new()
+func loadsave():
+	if file.file_exists("user://ArcadeMashUpScores.dat"):
+		file.open("user://ArcadeMashUpScores.dat",File.READ_WRITE)
+		var input = str2var(file.get_as_text().split("\n")[0])
+		scoreBoard = input
+		input = str2var(file.get_as_text().split("\n")[1])
+		HighScore = input
+		
+	elif !file.file_exists("user://ArcadeMashUpScores.dat"):
+		file.open("user://ArcadeMashUpScores.dat",File.WRITE)
+		file.seek(0)
+		file.store_line(var2str(scoreBoard))
+		file.store_line(var2str(HighScore))
+##saves scores##
+func save():
+	file.seek(0)
+	file.store_line(var2str(scoreBoard))
+	file.store_line(var2str(HighScore))
