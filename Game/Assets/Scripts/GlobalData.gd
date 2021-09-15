@@ -198,6 +198,7 @@ func playSound2(sound):
 func setScoreBoard(value):
 	var canscore=false
 	var currentscore = 9
+	print(scoreBoard[currentgame])
 	for scores in scoreBoard[currentgame]:
 		if scores<value:
 			currentscore-=1

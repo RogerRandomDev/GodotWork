@@ -60,13 +60,14 @@ color = Color( 0.588235, 0.392157, 0.392157, 1 )
 polygon = PoolVector2Array( -0.42157, 0.235924, -128, 64, 0, 128, 64, 120, 128, 128, 256, 64, 128, 0, 64, 8 )
 
 [node name="Label" type="Label" parent="P1/Viewport/Polygon2D"]
-margin_left = 24.0
+margin_left = -20.0
 margin_top = 48.0
-margin_right = 240.0
+margin_right = 196.0
 margin_bottom = 76.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.372549, 0.172549, 0.0705882, 1 )
-text = "DUFF"
+text = "Budd-Beer"
+uppercase = true
 
 [node name="Label2" type="Label" parent="P1/Viewport/Polygon2D"]
 margin_left = -4.0
