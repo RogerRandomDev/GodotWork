@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -8,6 +8,20 @@
 [ext_resource path="res://Assets/Scripts/Frog/BaseGame.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Scenes/Gnop/Ball.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Scripts/Gnop/PowerUps.gd" type="Script" id=8]
+
+[sub_resource type="Environment" id=3]
+background_mode = 4
+glow_enabled = true
+glow_strength = 0.8
+glow_bloom = 1.0
+glow_blend_mode = 0
+glow_hdr_luminance_cap = 256.0
+adjustment_enabled = true
+adjustment_contrast = 1.25
+adjustment_saturation = 2.5
+
+[sub_resource type="World" id=4]
+environment = SubResource( 3 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -33,9 +47,13 @@ __meta__ = {
 
 [node name="Viewport" type="Viewport" parent="P1"]
 size = Vector2( 768, 600 )
+world = SubResource( 4 )
 handle_input_locally = false
+disable_3d = true
 usage = 0
 render_target_update_mode = 3
+audio_listener_enable_2d = true
+shadow_atlas_size = 4
 
 [node name="ColorRect" type="ColorRect" parent="P1/Viewport"]
 show_behind_parent = true
@@ -61,7 +79,6 @@ bonusball = false
 position = Vector2( 0, 384 )
 current = true
 zoom = Vector2( 3, 1.333 )
-smoothing_enabled = true
 smoothing_speed = 15.0
 
 [node name="PowerUps" type="Node2D" parent="P1/Viewport"]

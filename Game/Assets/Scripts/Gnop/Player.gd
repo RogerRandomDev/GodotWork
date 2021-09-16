@@ -36,6 +36,7 @@ func _process(delta):
 		move_and_collide(direction*delta)
 		position.y = max(position.y,96)
 		position.y = min(position.y,608)
+		position.x = sign(convID[PlayerID]-0.5)*992
 ##motion scripts##
 func P1Move():
 	if Input.is_action_pressed("downP1"):

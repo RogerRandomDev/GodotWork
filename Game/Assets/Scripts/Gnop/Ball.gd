@@ -55,10 +55,10 @@ func _on_InteractArea_body_entered(body):
 	if body.is_in_group("Player"):
 		if body.position.x > 0:
 			lasthit = 0
-			angle = (abs((position.angle_to_point(body.position+Vector2(64,0)))))*sign(-angle)+PI/2
+			angle = (abs((position.angle_to_point(body.position-Vector2(125,0)))))*sign(angle)-PI/2
 		if body.position.x < 0:
 			lasthit = 1
-			angle = (abs((position.angle_to_point(body.position-Vector2(64,0)))))*sign(angle)+PI/2
+			angle = ((abs((position.angle_to_point(body.position-Vector2(128,0))))))*sign(angle)+PI/2
 		#caps the angles to prevent it going near straigh upwards#
 		if rad2deg(abs(angle)) > 135:angle=deg2rad(135*sign(angle))
 		if rad2deg(abs(angle))<45:angle=deg2rad(45*sign(angle))
