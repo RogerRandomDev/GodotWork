@@ -66,7 +66,7 @@ margin_right = 196.0
 margin_bottom = 76.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.372549, 0.172549, 0.0705882, 1 )
-text = "Budd-Beer"
+text = "Bud-Beer"
 uppercase = true
 
 [node name="Label2" type="Label" parent="P1/Viewport/Polygon2D"]

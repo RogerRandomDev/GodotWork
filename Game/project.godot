@@ -10,9 +10,9 @@ config_version=4
 
 [application]
 
-config/name="Game"
+config/name="ARCADE MEGA-MASH"
 run/main_scene="res://Assets/Scenes/MainTitle.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/Textures/GameLogo.png"
 
 [autoload]
 

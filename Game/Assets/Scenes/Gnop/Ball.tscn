@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Scripts/Gnop/Ball.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 16 )
+extents = Vector2( 14, 14 )
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 24.0
@@ -31,7 +31,9 @@ scale = 0.5
 scale_curve = SubResource( 6 )
 color_ramp = SubResource( 4 )
 
-[node name="Ball" type="KinematicBody2D"]
+[node name="Ball" type="KinematicBody2D" groups=[
+"Ball",
+]]
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -57,5 +59,10 @@ texture = ExtResource( 1 )
 wait_time = 2.0
 one_shot = true
 
+[node name="checkball" type="Timer" parent="."]
+wait_time = 0.25
+
 [connection signal="body_entered" from="InteractArea" to="." method="_on_InteractArea_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_InteractArea_body_exited"]
 [connection signal="timeout" from="WinLose" to="." method="_on_WinLose_timeout"]
+[connection signal="timeout" from="checkball" to="." method="_on_checkball_timeout"]

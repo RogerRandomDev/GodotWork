@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 ##player motion variables##
 export var PlayerID = "P1"
-const moveDist = 512
+const moveDist = 768
 var direction = Vector2.ZERO
 ##sets when motion can be done, so you dont get off of the grid-based motion
 var canMove = true
