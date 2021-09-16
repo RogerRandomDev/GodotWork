@@ -14,7 +14,7 @@ var scoreBoard = [[0,0,0,0,0,0,0,0,0,0],
 [0,0,0,0,0,0,0,0,0,0],
 [0,0,0,0,0,0,0,0,0,0]]
 var PlayerCount = 1
-var gamename = ["Frog","Space","Tapp","Gnop","test4"]
+var gamename = ["Frog","Space","Tapp","Gnop","MashBash"]
 var health = [3,3]
 var pauser = "P1"
 ##Coins in at the moment##

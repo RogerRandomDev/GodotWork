@@ -3,7 +3,7 @@ extends Node2D
 
 ##Does all title screen functions
 ##lets you switch between gamemodes
-var gamename = ["Frog","Space","Tapp","Gnop","test4"]
+var gamename = ["Frog","Space","Tapp","Gnop","MashBash"]
 ##sets game mode
 var GameType = 0
 var multiplay = [0,1,4]

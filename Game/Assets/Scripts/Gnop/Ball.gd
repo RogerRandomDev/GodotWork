@@ -63,7 +63,7 @@ func _on_InteractArea_body_entered(body):
 		if rad2deg(abs(angle)) > 135:angle=deg2rad(135*sign(angle))
 		if rad2deg(abs(angle))<45:angle=deg2rad(45*sign(angle))
 	if body.is_in_group("PowerUp"):
-		call_deferred(powerup(body.get_parent().Powerup))
+		call_deferred('powerup',body.get_parent().Powerup)
 		body.get_parent().queue_free()
 	#prevents balls from hitting eachother#
 	if body.is_in_group("Ball"):

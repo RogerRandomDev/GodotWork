@@ -4,7 +4,7 @@ extends Node2D
 ##Does all title screen functions
 ##sets game mode
 var GameType = 0
-var gamename = ["Frog","Space","Tapp","Gnop","test4"]
+var gamename = ["Frog","Space","Tapp","Gnop","MashBash"]
 ##Little Neat thing, i made the max 99, to keep with the feel of old arcade games a bit better.
 var currentcoins = 0
 ##sets up start##
