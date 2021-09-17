@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Scripts/MashBash/MashBash.gd" type="Script" id=2]
@@ -6,7 +6,8 @@
 [ext_resource path="res://Assets/Fonts/GameFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Assets/Shaders/Glitch_shader.tres" type="Material" id=5]
 [ext_resource path="res://Assets/Shaders/crt_material.tres" type="Material" id=6]
-[ext_resource path="res://Assets/Scenes/Gnop/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Scenes/MashBash/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Tilesets/Tileset0.tres" type="TileSet" id=8]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -34,7 +35,7 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=5]
 resource_name = "MASHBASH boot"
-length = 24.0
+length = 33.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("MashBash/Viewport/RichTextLabel:visible_characters")
 tracks/0/interp = 1
@@ -42,10 +43,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 1.2, 1.3, 1.7, 1.8, 2.3, 2.4, 2.9, 3, 3.5, 3.6, 4.6, 4.7, 5.7, 5.8, 6.8, 6.9, 7.9, 8, 9, 9.1, 9.6, 9.7, 10.2, 10.3, 10.8, 10.9, 11.8, 11.9, 12.8, 12.9, 13.9, 14, 14.9, 15, 15.9, 16, 17.4, 17.5, 18.4, 18.5, 19.4, 19.5, 20.4, 20.5, 21.4, 21.5, 22.5 ),
-"transitions": PoolRealArray( 1, 1, 1e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1, 1e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1, 1e-05, 1, 1, 1 ),
+"times": PoolRealArray( 0, 1, 1.2, 1.3, 1.7, 1.8, 2.3, 2.4, 2.9, 3, 3.5, 3.6, 4.6, 4.7, 5.7, 5.8, 6.8, 6.9, 7.9, 8, 9, 9.1, 9.6, 9.7, 10.2, 10.3, 10.8, 10.9, 11.8, 11.9, 12.8, 12.9, 13.9, 14, 14.9, 15, 15.9, 16, 17.4, 17.5, 18.4, 18.5, 19.4, 19.5, 20.4, 20.5, 21.4, 21.5, 22.5, 22.6 ),
+"transitions": PoolRealArray( 1, 1, 1e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1, 1e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1, 1e-05, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 0, 338, 338, 372, 372, 373, 373, 374, 374, 375, 375, 413, 413, 435, 435, 457, 457, 479, 479, 501, 501, 556, 556, 557, 557, 558, 558, 602, 602, 623, 623, 644, 644, 665, 665, 686, 686, 776, 776, 788, 788, 800, 800, 866, 866, 867, 867, 868, 868 ]
+"values": [ 0, 338, 338, 372, 372, 373, 373, 374, 374, 375, 375, 413, 413, 435, 435, 457, 457, 479, 479, 501, 501, 556, 556, 557, 557, 558, 558, 602, 602, 623, 623, 644, 644, 665, 665, 686, 686, 776, 776, 788, 788, 800, 800, 866, 866, 867, 867, 868, 868, 0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("P1:visible")
@@ -54,7 +55,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 24 ),
+"times": PoolRealArray( 0, 33 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -66,17 +67,80 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 24 ),
+"times": PoolRealArray( 0, 33 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("MashBash/Viewport/Line2D:points")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 23.5, 24, 24.5, 25, 25.5, 26, 26.5, 27, 27.5, 28, 28.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ PoolVector2Array( 640, 416, 608, 416, 576, 416, 544, 416, 512, 416, 480, 416, 448, 416 ), PoolVector2Array( 640, 408, 608, 416, 576, 416, 544, 416, 512, 416, 480, 416, 448, 408 ), PoolVector2Array( 640, 392, 608, 408, 576, 416, 544, 416, 512, 416, 480, 408, 448, 392 ), PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368 ), PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368 ), PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368, 632, 368 ), PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368, 480, 368, 480, 392, 480, 368, 632, 368 ), PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368, 480, 368, 480, 392, 480, 368, 512, 368, 512, 408, 512, 368, 632, 368 ), PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368, 480, 368, 480, 392, 480, 368, 512, 368, 512, 408, 512, 368, 544, 368, 544, 416, 544, 368, 632, 368 ), PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368, 480, 368, 480, 392, 480, 368, 512, 368, 512, 408, 512, 368, 544, 368, 544, 416, 544, 368, 576, 368, 576, 408, 576, 368, 632, 368 ), PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368, 480, 368, 480, 392, 480, 368, 512, 368, 512, 408, 512, 368, 544, 368, 544, 416, 544, 368, 576, 368, 576, 408, 576, 368, 608, 368, 608, 392, 608, 368, 632, 368 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MashBash/Viewport/Node2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 28.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("MashBash/Viewport/Line2D:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 23.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("MashBash/Viewport/Node2D/Label:visible_characters")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 28.5, 30.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 0, 12 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("P1/Viewport/KinematicBody2D:played")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 33 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="DynamicFont" id=6]
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="P1" type="ViewportContainer" parent="."]
-visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
 stretch = true
@@ -90,36 +154,51 @@ world = SubResource( 2 )
 handle_input_locally = false
 disable_3d = true
 usage = 0
-render_target_update_mode = 0
+render_target_update_mode = 3
 audio_listener_enable_2d = true
 shadow_atlas_size = 4
 
-[node name="Glitch" type="Sprite" parent="P1/Viewport"]
-material = ExtResource( 5 )
-scale = Vector2( 16, 9.375 )
-texture = ExtResource( 3 )
-centered = false
+[node name="KinematicBody2D" parent="P1/Viewport" instance=ExtResource( 7 )]
+position = Vector2( 512, 304 )
+played = true
+camera = NodePath("../Camera2D")
 
-[node name="ColorRect" type="ColorRect" parent="P1/Viewport"]
-show_behind_parent = true
-margin_left = -1536.0
-margin_top = -1536.0
-margin_right = 1536.0
-margin_bottom = 2560.0
-color = Color( 0, 0, 0, 1 )
+[node name="Map" type="Node2D" parent="P1/Viewport"]
 
-[node name="Player" parent="P1/Viewport" instance=ExtResource( 7 )]
-position = Vector2( -992, 304 )
+[node name="TileMap" type="TileMap" parent="P1/Viewport/Map"]
+scale = Vector2( 64, 64 )
+tile_set = ExtResource( 8 )
+cell_size = Vector2( 1, 1 )
+format = 1
+tile_data = PoolIntArray( -1, 9, 0, -65536, 9, 0, -65535, 9, 0, -65534, 9, 0, -65533, 9, 0, -65532, 9, 0, -65531, 9, 0, -65530, 9, 0, -65529, 9, 0, -65528, 9, 0, -65527, 9, 0, -65526, 9, 0, -65525, 9, 0, -65524, 9, 0, -65523, 9, 0, -65522, 9, 0, -65521, 9, 0, -65520, 9, 0, 65535, 9, 0, 16, 9, 0, 131071, 9, 0, 65552, 9, 0, 196607, 9, 0, 131088, 9, 0, 262143, 9, 0, 196624, 9, 0, 327679, 9, 0, 262160, 9, 0, 393215, 9, 0, 327696, 9, 0, 458751, 9, 0, 393232, 9, 0, 524287, 9, 0, 458768, 9, 0, 589823, 9, 0, 524304, 9, 0, 655359, 9, 0, 589824, 9, 0, 589825, 9, 0, 589826, 9, 0, 589827, 9, 0, 589828, 9, 0, 589829, 9, 0, 589830, 9, 0, 589831, 9, 0, 589832, 9, 0, 589833, 9, 0, 589834, 9, 0, 589835, 9, 0, 589836, 9, 0, 589837, 9, 0, 589838, 9, 0, 589839, 9, 0, 589840, 9, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="P1/Viewport"]
 position = Vector2( 0, 384 )
+z_index = -1
 current = true
-zoom = Vector2( 3, 1.333 )
+zoom = Vector2( 1.5, 1.5 )
 smoothing_speed = 15.0
+
+[node name="ColorRect" type="ColorRect" parent="P1/Viewport/Camera2D"]
+show_behind_parent = true
+margin_left = -1536.0
+margin_top = -1920.0
+margin_right = 1536.0
+margin_bottom = 2176.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Glitch" type="Sprite" parent="P1/Viewport/Camera2D"]
+material = ExtResource( 5 )
+position = Vector2( -768, -384 )
+scale = Vector2( 32, 18.75 )
+z_index = 2000
+texture = ExtResource( 3 )
+centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 current = true
+smoothing_enabled = true
 
 [node name="Scores" type="Node2D" parent="." groups=[
 "ScoreBoard",
@@ -242,7 +321,6 @@ __meta__ = {
 [node name="Shader" type="Sprite" parent="." groups=[
 "SHADER",
 ]]
-visible = false
 material = ExtResource( 6 )
 scale = Vector2( 16, 9.375 )
 texture = ExtResource( 3 )
@@ -253,6 +331,7 @@ flip_v = true
 "anims/MASHBASH boot" = SubResource( 5 )
 
 [node name="MashBash" type="ViewportContainer" parent="."]
+visible = false
 show_behind_parent = true
 margin_right = 1024.0
 margin_bottom = 600.0
@@ -269,7 +348,7 @@ own_world = true
 handle_input_locally = false
 disable_3d = true
 usage = 0
-render_target_update_mode = 3
+render_target_update_mode = 0
 
 [node name="ColorRect" type="ColorRect" parent="MashBash/Viewport"]
 show_behind_parent = true
@@ -288,10 +367,44 @@ custom_fonts/font = ExtResource( 4 )
 custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
 text = "easdw"
 uppercase = true
+percent_visible = 0.0
 
 [node name="Camera2D" type="Camera2D" parent="MashBash/Viewport"]
 anchor_mode = 0
 current = true
+
+[node name="Node2D" type="Node2D" parent="MashBash/Viewport"]
+visible = false
+
+[node name="Line2D2" type="Line2D" parent="MashBash/Viewport/Node2D"]
+points = PoolVector2Array( 448, 192, 448, 256 )
+width = 8.0
+default_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
+
+[node name="Line2D3" type="Line2D" parent="MashBash/Viewport/Node2D"]
+position = Vector2( -128, 0 )
+points = PoolVector2Array( 448, 192, 448, 256 )
+width = 8.0
+default_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
+
+[node name="Label" type="Label" parent="MashBash/Viewport/Node2D"]
+margin_left = 256.0
+margin_top = 480.0
+margin_right = 512.0
+margin_bottom = 494.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
+text = "Hello, HUMAN"
+align = 1
+uppercase = true
+percent_visible = 0.0
+
+[node name="Line2D" type="Line2D" parent="MashBash/Viewport"]
+visible = false
+position = Vector2( -160, 0 )
+points = PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368, 480, 368, 480, 392, 480, 368, 512, 368, 512, 408, 512, 368, 544, 368, 544, 416, 544, 368, 576, 368, 576, 408, 576, 368, 608, 368, 608, 392, 608, 368, 632, 368 )
+width = 8.0
+default_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
 
 [node name="Glitch" type="Sprite" parent="MashBash/Viewport"]
 material = ExtResource( 5 )
