@@ -3,7 +3,7 @@
 [ext_resource path="res://Assets/Shaders/FinalShader.shader" type="Shader" id=1]
 
 [resource]
-render_priority = 1
+render_priority = 4
 shader = ExtResource( 1 )
 shader_param/tape_wave_amount = 0.002
 shader_param/tape_crease_amount = 0.25

@@ -19,3 +19,8 @@ func _ready():
 	##allows you to disable the shader##
 	if GlobalScene.shaderOFF:
 		$Shader.hide()
+	##sets BIOS text##
+	var file = File.new()
+	file.open("res://Assets/Scripts/MashBash/MashBash.dat",File.READ)
+	$MashBash/Viewport/RichTextLabel.text=file.get_as_text()
+	$MashBashAnim.play("MASHBASH boot")

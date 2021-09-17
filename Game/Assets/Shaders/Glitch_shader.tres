@@ -5,7 +5,7 @@
 [resource]
 render_priority = 1
 shader = ExtResource( 1 )
-shader_param/shake_power = 0.01
+shader_param/shake_power = 0.025
 shader_param/shake_rate = 0.125
 shader_param/shake_speed = 8.0
 shader_param/shake_block_size = 32.0

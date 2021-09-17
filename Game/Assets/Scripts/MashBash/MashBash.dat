@@ -1,0 +1,44 @@
+----------------------------------------------------------
+___  ___  ___   _____  _   _ ______   ___   _____  _   _ 
+|  \/  | / _ \ /  ___|| | | || ___ \ / _ \ /  ___|| | | |
+| .  . |/ /_\ \\ `--. | |_| || |_/ // /_\ \\ `--. | |_| |
+| |\/| ||  _  | `--. \|  _  || ___ \|  _  | `--. \|  _  |
+| |  | || | | |/\__/ /| | | || |_/ /| | | |/\__/ /| | | |
+\_|  |_/\_| |_/\____/ \_| |_/\____/ \_| |_/\____/ \_| |_/
+----------------------------------------------------------
+										
+C:/SYSTEM.ROOT/MASHBASH.CD: BOOTING...
+ERROR MASHBASH.CD Encrypted
+DECRYPTING...
+FAIL (1/5)
+DECRYPTING...
+FAIL (2/5)
+DECRYPTING...
+FAIL (3/5)
+DECRYPTING...
+FAIL (4/5)
+DECRYPTING...
+MASHBASH.CD Decrypted
+C:/SYSTEM.ROOT/MASHBASH.CD: BOOTING...
+ERROR FILE CORRUPT
+Attempting repair
+REPAIRING...
+FAIL(1/5)
+REPAIRING...
+FAIL(2/5)
+REPAIRING...
+FAIL(3/5)
+REPAIRING...
+FAIL(4/5)
+REPAIRING...
+FAIL(5/5)
+Cannot repair MASHBASH.CD
+C:/SYSTEM.ROOT/REBUILD.CD: Attempting Reconstruction
+Attempt 1
+FAIL
+Attempt 2
+FAIL
+Attempt 3
+SUCCESS
+Reconstructed MASHBASH.CD
+C:/SYSTEM.ROOT/MASHBASH.CD: BOOTING...
