@@ -23,4 +23,4 @@ func _ready():
 	var file = File.new()
 	file.open("res://Assets/Scripts/MashBash/MashBash.dat",File.READ)
 	$MashBash/Viewport/RichTextLabel.text=file.get_as_text()
-	#$MashBashAnim.play("MASHBASH boot")
+	$MashBashAnim.play("MASHBASH boot")

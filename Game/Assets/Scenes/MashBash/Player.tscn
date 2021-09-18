@@ -17,3 +17,11 @@ modulate = Color( 0, 1, 1, 1 )
 scale = Vector2( 4, 5.35 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, 1.172 )
+
+[node name="right" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 24, 0 )
+
+[node name="left" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -24, 0 )
