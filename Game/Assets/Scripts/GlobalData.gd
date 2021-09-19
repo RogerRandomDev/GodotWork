@@ -6,7 +6,7 @@ var shaderOFF = false
 
 ########change this variable when not testing game so you cant close while in mashbash############333333
 var testing = true
-
+var hastalked = false
 
 ##sets currentgame##
 var currentgame = 0
@@ -100,6 +100,12 @@ func _unhandled_key_input(event):
 		PlayerCount = 1
 		setScoreBoard(HighScore[currentgame])
 		placeholder = get_tree().change_scene("res://Assets/Scenes/MainTitle.tscn")
+	if Input.is_key_pressed(KEY_ESCAPE) and currentgame ==4 and get_tree().get_nodes_in_group("BottomText")[0].canchange:
+			get_tree().get_nodes_in_group("BottomText")[0].currentset = 7
+			get_tree().get_nodes_in_group("BottomText")[0].currenttextset = 0
+			get_tree().get_nodes_in_group("BottomText")[0].prepText()
+			get_tree().get_nodes_in_group("BottomText")[0].loadText()
+			hastalked = true
 ##sets scoreboard and highscore##
 func setScore(value,ID):
 	Score[currentgame][pID[ID]]=value

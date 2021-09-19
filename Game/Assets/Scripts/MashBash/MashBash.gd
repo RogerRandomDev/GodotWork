@@ -24,3 +24,6 @@ func _ready():
 	file.open("res://Assets/Scripts/MashBash/MashBash.dat",File.READ)
 	$MashBash/Viewport/RichTextLabel.text=file.get_as_text()
 	$MashBashAnim.play("MASHBASH boot")
+	GlobalScene.stopmusic()
+func resetmusic():
+	GlobalScene.playmusic("res://Assets/Audio/MashBash/GameSong.mp3")

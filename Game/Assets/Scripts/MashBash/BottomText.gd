@@ -4,7 +4,7 @@ var currentset = 0
 var currenttext = 0
 export var currenttextset = 0
 var file = File.new()
-var canchange = true
+var canchange = false
 export var faceanims:NodePath
 func _ready():
 	file.open("res://Assets/Scripts/MashBash/AItext.tres",File.READ)
