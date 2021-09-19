@@ -1,26 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Assets/Scripts/MashBash/airparticles.gd" type="Script" id=1]
 
-[sub_resource type="ParticlesMaterial" id=1]
-emission_shape = 1
-emission_sphere_radius = 16.0
-flag_disable_z = true
-direction = Vector3( 0, -1, 0 )
-spread = 15.0
-gravity = Vector3( 0, 98, 0 )
-initial_velocity = 30.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 4.0
-color = Color( 0, 0.882353, 0.882353, 0.411765 )
-
-[node name="airparticles" type="Particles2D"]
+[node name="airparticles" type="CPUParticles2D"]
 emitting = false
 amount = 32
 lifetime = 1.5
 one_shot = true
 explosiveness = 1.0
 local_coords = false
-process_material = SubResource( 1 )
+emission_shape = 1
+emission_sphere_radius = 16.0
+direction = Vector2( 0, -1 )
+spread = 15.0
+initial_velocity = 30.0
+scale_amount = 8.0
+color = Color( 0, 0.882353, 0.882353, 0.137255 )
 script = ExtResource( 1 )

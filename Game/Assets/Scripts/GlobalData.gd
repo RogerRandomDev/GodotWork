@@ -50,7 +50,7 @@ func _ready():
 func _unhandled_key_input(event):
 	if str(event) == "0":
 		pass
-	if Input.is_key_pressed(KEY_E):
+	if Input.is_key_pressed(KEY_E) and currentgame != 4:
 	##increments coins by 1 and sets text of coin count to it and a space with COINS after it
 		coinCount+=1
 	##plays coin sound when coins are less then 100 when you insert one##
@@ -63,7 +63,7 @@ func _unhandled_key_input(event):
 			get_tree().get_nodes_in_group("COINDISPLAY")[0].text = "COINS:\n"+str(coinCount)
 	
 	##Lets you disable the shaders
-	if Input.is_key_pressed(KEY_TAB):
+	if Input.is_key_pressed(KEY_TAB) and currentgame != 4:
 		GlobalScene.shaderOFF = !GlobalScene.shaderOFF
 		get_tree().get_nodes_in_group("SHADER")[0].visible = !GlobalScene.shaderOFF
 	##lets you restart so long as coins are in the game##
@@ -91,7 +91,7 @@ func _unhandled_key_input(event):
 			setScoreBoard(HighScore[currentgame])
 			placeholder = get_tree().change_scene("res://Assets/Scenes/"+gamename[currentgame]+"/Title.tscn")
 			$EndTimer.stop()
-	if Input.is_key_pressed(KEY_ESCAPE) and currentgame != 4 and not testing:
+	if Input.is_key_pressed(KEY_ESCAPE) and currentgame != 4:
 		canDie = true
 		health = [3,3]
 		get_tree().paused = false
@@ -100,12 +100,13 @@ func _unhandled_key_input(event):
 		PlayerCount = 1
 		setScoreBoard(HighScore[currentgame])
 		placeholder = get_tree().change_scene("res://Assets/Scenes/MainTitle.tscn")
-	if Input.is_key_pressed(KEY_ESCAPE) and currentgame ==4 and get_tree().get_nodes_in_group("BottomText")[0].canchange:
-			get_tree().get_nodes_in_group("BottomText")[0].currentset = 7
-			get_tree().get_nodes_in_group("BottomText")[0].currenttextset = 0
-			get_tree().get_nodes_in_group("BottomText")[0].prepText()
-			get_tree().get_nodes_in_group("BottomText")[0].loadText()
-			hastalked = true
+	if Input.is_key_pressed(KEY_ESCAPE) and currentgame == 4 and get_tree().get_nodes_in_group("BottomText").size() > 0:
+			if get_tree().get_nodes_in_group("BottomText")[0].canchange:
+				get_tree().get_nodes_in_group("BottomText")[0].currentset = 7
+				get_tree().get_nodes_in_group("BottomText")[0].currenttextset = 0
+				get_tree().get_nodes_in_group("BottomText")[0].prepText()
+				get_tree().get_nodes_in_group("BottomText")[0].loadText()
+				hastalked = true
 ##sets scoreboard and highscore##
 func setScore(value,ID):
 	Score[currentgame][pID[ID]]=value

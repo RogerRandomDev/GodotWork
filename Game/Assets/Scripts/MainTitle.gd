@@ -54,7 +54,19 @@ func _unhandled_key_input(event):
 		$CoinFlash.start()
 	if Input.is_key_pressed(KEY_ENTER):
 # warning-ignore:return_value_discarded
-		get_tree().change_scene("res://Assets/Scenes/"+gamename[GameType]+"/Title.tscn")
+		if GameType != 4:
+			get_tree().change_scene("res://Assets/Scenes/"+gamename[GameType]+"/Title.tscn")
+		else:
+			var playedgames = true
+			var complete = 0
+			for game in GlobalScene.scoreBoard:
+				if game.count(0) == 10:
+					complete += 1
+			if complete > 2:
+				playedgames = false
+			if playedgames:
+# warning-ignore:return_value_discarded
+				get_tree().change_scene("res://Assets/Scenes/"+gamename[GameType]+"/Title.tscn")
 	##changes player mode##
 	if Input.is_action_just_pressed("leftP1"):
 		GameType = GameType-1
@@ -71,4 +83,7 @@ func _unhandled_key_input(event):
 func updatemode():
 	$ViewportContainer/Viewport/Labels/CurrentGame.text = gamename[GameType]
 	$ViewportContainer/Viewport/Labels/HighScore.text = "HighScore:\n"+str(GlobalScene.HighScore[GameType])
-	pass
+	if GameType == 4:
+		$ViewportContainer/Viewport/Labels/MashBash.show()
+	else:
+		$ViewportContainer/Viewport/Labels/MashBash.hide()
