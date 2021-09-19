@@ -10,6 +10,7 @@ func _on_Area2D_body_entered(body):
 	
 	if body.name=="Player":
 		$movetimer.start()
+		$Sprite.modulate = Color.red
 		player = body.get_path()
 		$Area2D/CollisionShape2D.shape.radius = 384
 
@@ -26,4 +27,5 @@ func _on_movetimer_timeout():
 func _on_Area2D_body_exited(body):
 	if body.name =="Player":
 		$movetimer.stop()
+		$Sprite.modulate = Color.white
 		$Area2D/CollisionShape2D.shape.radius = 256
