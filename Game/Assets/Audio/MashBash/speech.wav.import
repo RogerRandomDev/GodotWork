@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/speech.wav-8677ce2a4aa7b5c5a9317e3d3fa9e6b8.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/MashBash/speech.wav"
+dest_files=[ "res://.import/speech.wav-8677ce2a4aa7b5c5a9317e3d3fa9e6b8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

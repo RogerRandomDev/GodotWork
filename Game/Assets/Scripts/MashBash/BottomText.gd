@@ -29,6 +29,8 @@ func _on_Timer_timeout():
 	visible_characters = currenttext
 	if visible_characters == get_total_character_count():
 		$doneload.start()
+	if visible_characters <= get_total_character_count():
+		GlobalScene.playSound2('res://Assets/Audio/MashBash/speech.wav')
 
 
 func _on_doneload_timeout():

@@ -27,17 +27,20 @@ func get_input():
 			doublejump = false
 		offFloor = true
 		$jumpleeway.stop()
+		GlobalScene.playSound0("res://Assets/Audio/MashBash/jump.wav")
 		air()
 	if jumping and not justjumped:
 		if $left.is_colliding():
 			velocity.y = jump_speed*0.975
 			lastwall = 0
 			velocity.x = run_speed
+			GlobalScene.playSound0("res://Assets/Audio/MashBash/jump.wav")
 			air()
 		if $right.is_colliding():
 			velocity.y = jump_speed*0.975
 			lastwall = 1
 			velocity.x = -run_speed
+			GlobalScene.playSound0("res://Assets/Audio/MashBash/jump.wav")
 			air()
 	if lastwall == -1:
 		velocity.x += (int(Input.is_action_pressed("rightP1"))-int(Input.is_action_pressed("leftP1")))*run_speed*acelrate*get_physics_process_delta_time()
