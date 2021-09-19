@@ -2,6 +2,12 @@ extends Node
 
 ##allows you to disable the shader
 var shaderOFF = false
+
+
+########change this variable when not testing game so you cant close while in mashbash############333333
+var testing = true
+
+
 ##sets currentgame##
 var currentgame = 0
 var unpausable = true
@@ -85,7 +91,7 @@ func _unhandled_key_input(event):
 			setScoreBoard(HighScore[currentgame])
 			placeholder = get_tree().change_scene("res://Assets/Scenes/"+gamename[currentgame]+"/Title.tscn")
 			$EndTimer.stop()
-	if Input.is_key_pressed(KEY_ESCAPE):
+	if Input.is_key_pressed(KEY_ESCAPE) and currentgame != 4 and not testing:
 		canDie = true
 		health = [3,3]
 		get_tree().paused = false
