@@ -13,8 +13,6 @@ func _ready():
 	get_node(faceanims).play(file.get_as_text().split("newset")[currentset].split("(newline)")[currenttextset].split("(curface)")[1])
 
 func prepText():
-	if currentset == 0:
-		map = get_tree().get_nodes_in_group("map")[0].get_path()
 	$doneload.stop()
 	text = file.get_as_text().split("(newset)")[currentset].split("(newline)")[currenttextset].split("(curface)")[0]
 	get_node(faceanims).play(file.get_as_text().split("newset")[currentset].split("(newline)")[currenttextset].split("(curface)")[1])
@@ -48,6 +46,7 @@ func _on_doneload_timeout():
 		get_parent().hide()
 		canchange = true
 		if currentset == 0:
+			map = get_path_to(get_tree().get_nodes_in_group("map")[0])
 			get_node(map).set_cellv(Vector2(61,8),-1)
 	else:
 		get_node(faceanims).play(newtext.split("(curface)")[1])

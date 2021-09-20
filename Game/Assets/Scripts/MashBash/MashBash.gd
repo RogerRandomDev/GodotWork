@@ -25,8 +25,8 @@ func _ready():
 	$MashBash/Viewport/RichTextLabel.text=file.get_as_text()
 	$MashBashAnim.play("MASHBASH boot")
 	GlobalScene.stopmusic()
-	var map = get_node("Map")
-	remove_child($Map)
-	$P1/Viewport.add_child(map)
+	var Map = get_tree().get_nodes_in_group("map")[0].get_parent()
+	remove_child(Map)
+	$P1/Viewport.add_child(Map)
 func resetmusic():
 	GlobalScene.playmusic("res://Assets/Audio/MashBash/GameSong.mp3")
