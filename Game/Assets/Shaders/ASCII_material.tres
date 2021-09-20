@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Shaders/ASCII.shader" type="Shader" id=1]
+[ext_resource path="res://Assets/Shaders/ascii.png" type="Texture" id=2]
+
+[resource]
+render_priority = 6
+shader = ExtResource( 1 )
+shader_param/ascii_size = Vector2( 8, 16 )
+shader_param/available_columns = 80
+shader_param/max_columns = 128
+shader_param/ascii_tex = ExtResource( 2 )

@@ -8,7 +8,7 @@ var deathparticles = preload("res://Assets/Scenes/MashBash/entities/deathparticl
 
 func _on_Area2D_body_entered(body):
 	
-	if body.name=="Player":
+	if body.name=="Player" && $DieTimer.is_stopped():
 		$movetimer.start()
 		$Sprite.modulate = Color.red
 		player = body.get_path()
@@ -21,10 +21,8 @@ func _on_movetimer_timeout():
 # warning-ignore:return_value_discarded
 	move_and_collide(direction*movespeed*0.125)
 	if (position-get_node(player).position).length() < 48:
-		var death = deathparticles.instance()
-		get_parent().add_child(death)
-		death.position = self.position
-		queue_free()
+		$DieTimer.start()
+		$movetimer.stop()
 
 
 func _on_Area2D_body_exited(body):
@@ -32,3 +30,10 @@ func _on_Area2D_body_exited(body):
 		$movetimer.stop()
 		$Sprite.modulate = Color.white
 		$Area2D/CollisionShape2D.shape.radius = 256
+
+
+func _on_DieTimer_timeout():
+		var death = deathparticles.instance()
+		get_parent().add_child(death)
+		death.position = self.position
+		queue_free()
