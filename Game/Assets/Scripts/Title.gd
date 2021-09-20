@@ -43,7 +43,7 @@ func _on_CoinFlash_timeout():
 func _unhandled_key_input(event):
 	if str(event) == "0":
 		pass
-	if Input.is_key_pressed(KEY_E):
+	if Input.is_key_pressed(KEY_E) and GlobalScene.canaddCoins:
 		
 		##shows that the player can now start the game##
 		$ViewportContainer/Viewport/Labels/Play.show()
@@ -63,6 +63,8 @@ func _unhandled_key_input(event):
 	if Input.is_key_pressed(KEY_ENTER) && currentcoins > 0:
 		##removes 1 coin and starts game
 		GlobalScene.coinCount -= 1
+		if GlobalScene.currentgame == 4:
+			GlobalScene.canaddCoins = false
 		##resets current score for this game##
 		GlobalScene.setScore(0,"P1")
 		GlobalScene.setScore(0,"P2")

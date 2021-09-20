@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Scripts/Title.gd" type="Script" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Assets/icon.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Shaders/crt_material.tres" type="Material" id=4]
 
 [sub_resource type="DynamicFont" id=1]

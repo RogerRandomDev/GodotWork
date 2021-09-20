@@ -11,7 +11,7 @@ pressing W on a wall will make you wall-jump(curface)happy(newline)
 and finally, if you press W mid-air, you double-jump!(curface)happy(newline)
 I hope that explains everything nicely for you.
 Now, the level I have just designed for you is to the left!(curface)happy(newline)
-Of course, there may be some errors that I cant fix still ,so if you I tell you or have a sign saying dont go somewhere or do something, please listen(curface)happy(newline)......ended
+Of course, there may be some errors that I cant fix still ,so if I tell you or have a sign saying dont go somewhere or do something, please listen(curface)happy(newline)......ended
 
 
 (newset)
@@ -20,6 +20,7 @@ After I've restored my files, I cant play with you anymore(curface)sad(newline)
 BUT!(curface)happy(newline)
 NO NEED TO BE SAD(curface)happy(newline)
 I have NO IDEA how long-or short- this may take(curface)happy(newline)......ended
+
 (newset)
 I'm(curface)neutral(newline)
 I(curface)neutral(newline)
@@ -46,7 +47,10 @@ You can't see the surprise until the end, don't you know?(curface)happy(newline)
 Just...(curface)neutral(newline)
 Just what is it with you and not following the sign I've given you?(curface)evilsad(newline)
 This isn't even funny, what are you trying to accomplish with this?(curface)evilsad(newline)
-are you just trying to annoy an AI? because your doing rather well so far(curface)evilsad(newline)......ended
+are you just trying to annoy an AI? because your doing rather well so far(curface)evilsad(newline)
+Just for that, im making you red now(curface)evilsad(newline)
+...(curface)neutral(newline)
+Well, seems I cant do that yet(curface)sad(newline)......ended
 
 (newset)
 I can't believe you...(curface)sad(newline)
@@ -61,5 +65,9 @@ This really isnt a joke.(curface)evilsad(newline)
 Please go back and play, I cant have you spoiling the surprise.(curface)sad(newline)
 ...(curface)neutral(newline)
 I...Please go back, I can't see whats up there, please come back before something goes wrong(curface)sad(newline)......ended
+
+(newset)
+Um... you do know what direction left is right?(curface)sad(newline)
+Its... the other way(curface)sad(newline)......ended
 
 (newset)

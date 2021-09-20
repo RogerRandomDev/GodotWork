@@ -4,7 +4,7 @@ extends KinematicBody2D
 var movespeed = 128
 var direction=Vector2.ZERO
 var player:NodePath
-
+var deathparticles = preload("res://Assets/Scenes/MashBash/entities/deathparticles.tscn")
 
 func _on_Area2D_body_entered(body):
 	
@@ -21,6 +21,9 @@ func _on_movetimer_timeout():
 # warning-ignore:return_value_discarded
 	move_and_collide(direction*movespeed*0.125)
 	if (position-get_node(player).position).length() < 48:
+		var death = deathparticles.instance()
+		get_parent().add_child(death)
+		death.position = self.position
 		queue_free()
 
 

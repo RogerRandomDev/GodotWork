@@ -29,6 +29,7 @@ var coinCount = 0
 var canDie = true
 var cancontinue = true
 var timerleft = 0
+var canaddCoins = true
 ##limits bullet count to 2##
 var currentbullets = [0,0]
 ##converts player ID to the label for the score##
@@ -50,7 +51,7 @@ func _ready():
 func _unhandled_key_input(event):
 	if str(event) == "0":
 		pass
-	if Input.is_key_pressed(KEY_E) and currentgame != 4:
+	if Input.is_key_pressed(KEY_E) and canaddCoins:
 	##increments coins by 1 and sets text of coin count to it and a space with COINS after it
 		coinCount+=1
 	##plays coin sound when coins are less then 100 when you insert one##
