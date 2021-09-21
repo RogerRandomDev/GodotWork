@@ -758,7 +758,6 @@ centered = false
 flip_v = true
 
 [node name="MashBashAnim" type="AnimationPlayer" parent="."]
-playback_speed = 50.0
 "anims/MASHBASH boot" = SubResource( 7 )
 
 [node name="MashBash" type="ViewportContainer" parent="."]
