@@ -16,6 +16,9 @@ var offFloor = false
 var airparticles = preload("res://Assets/Scenes/MashBash/airparticles.tscn")
 export var camera:NodePath
 func get_input():
+	if Input.is_action_just_pressed("downP1") and $dash.time_left == 0 and $dashdelay.time_left == 0:
+		$dash.start()
+		$dashdelay.start()
 	var justjumped = false
 	jumping =  Input.is_action_just_pressed("upP1")
 	if jumping and !offFloor or jumping and !doublejump:
@@ -43,10 +46,14 @@ func get_input():
 			GlobalScene.playSound0("res://Assets/Audio/MashBash/jump.wav")
 			air()
 	if lastwall == -1:
-		velocity.x += (int(Input.is_action_pressed("rightP1"))-int(Input.is_action_pressed("leftP1")))*run_speed*acelrate*get_physics_process_delta_time()
+		velocity.x += (int(Input.is_action_pressed("rightP1"))-int(Input.is_action_pressed("leftP1")))*run_speed*acelrate*get_physics_process_delta_time()/max((0.75-$dash.time_left),0.125)
 	else:
-		velocity.x += (int(Input.is_action_pressed("rightP1"))-int(Input.is_action_pressed("leftP1")))*run_speed*acelrate*get_physics_process_delta_time()*0.1
-	velocity.x = min(abs(velocity.x),run_speed)*sign(velocity.x)
+		velocity.x += (int(Input.is_action_pressed("rightP1"))-int(Input.is_action_pressed("leftP1")))*run_speed*acelrate*get_physics_process_delta_time()*0.125
+	if $dash.time_left>0:
+		velocity.x = min(abs(velocity.x),run_speed/max((0.75-$dash.time_left),0.25))*sign(velocity.x)
+		
+	else:
+		velocity.x = min(abs(velocity.x),run_speed)*sign(velocity.x)
 	if is_on_floor():
 		lastwall = -1
 		doublejump = false

@@ -6,7 +6,6 @@
 [ext_resource path="res://Assets/Scripts/Title.gd" type="Script" id=4]
 [ext_resource path="res://Assets/Shaders/Glitch_shader.tres" type="Material" id=5]
 
-
 [sub_resource type="Environment" id=1]
 background_mode = 4
 glow_enabled = true

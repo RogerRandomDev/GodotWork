@@ -59,7 +59,7 @@ void fragment( )
 render_priority = 1
 shader = SubResource( 1 )
 shader_param/shake_power = 0.013
-shader_param/shake_rate = 0.005
-shader_param/shake_speed = 16.0
+shader_param/shake_rate = 0.003
+shader_param/shake_speed = 8.0
 shader_param/shake_block_size = 32.0
 shader_param/shake_color_rate = 0.001

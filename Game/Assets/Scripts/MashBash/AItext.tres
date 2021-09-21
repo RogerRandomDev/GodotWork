@@ -71,3 +71,9 @@ Um... you do know what direction left is right?(curface)sad(newline)
 Its... the other way(curface)sad(newline)......ended
 
 (newset)
+.(curface)neutral(newline)
+..(curface)sad(newline)
+...(curface)evilsad(newline)
+WeLl ThEn, I gUeSs We CaN't ReAd NoW, cAn We?(curface)evilsad(newline)......ended
+
+(newset)

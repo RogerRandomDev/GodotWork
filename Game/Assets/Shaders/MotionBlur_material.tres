@@ -5,4 +5,4 @@
 [resource]
 shader = ExtResource( 1 )
 shader_param/dir = Vector2( 0, 0 )
-shader_param/quality = 4
+shader_param/quality = 8

@@ -50,4 +50,12 @@ process_material = SubResource( 2 )
 wait_time = 0.25
 one_shot = true
 
+[node name="dash" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="dashdelay" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="timeout" from="jumpleeway" to="." method="_on_jumpleeway_timeout"]
