@@ -21,9 +21,9 @@ func _ready():
 		$Shader.hide()
 	##sets BIOS text##
 	var file = File.new()
-	file.open("res://Assets/Scripts/MashBash/MashBash.dat",File.READ)
+	file.open("res://Assets/Scripts/MashBash/MashBash.tres",File.READ)
 	$MashBash/Viewport/RichTextLabel.text=file.get_as_text()
-	#$MashBashAnim.play("MASHBASH boot")
+	$MashBashAnim.play("MASHBASH boot")
 	GlobalScene.stopmusic()
 	var Map = get_tree().get_nodes_in_group("map")[0].get_parent()
 	remove_child(Map)
