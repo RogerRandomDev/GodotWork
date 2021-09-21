@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Node2D.gd" type="Script" id=1]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="skeleton" type="SkeletonIK" parent="."]
+process_priority = 1
+root_bone = "Bone2D"
+tip_bone = "Bone2D4"
+interpolation = 0.5
+target_node = NodePath("target")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="skeleton"]
+rotation = 0.00407117
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="Bone2D" type="Bone2D" parent="skeleton/Skeleton2D"]
+position = Vector2( 16, 0 )
+rotation = -0.0346625
+rest = Transform2D( 1, 0, 0, 1, 16, 0 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Bone2D2" type="Bone2D" parent="skeleton/Skeleton2D/Bone2D"]
+position = Vector2( 16, 0 )
+rotation = -0.0186989
+rest = Transform2D( 1, 0, 0, 1, 16, 0 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Bone2D3" type="Bone2D" parent="skeleton/Skeleton2D/Bone2D/Bone2D2"]
+position = Vector2( 16, 0 )
+rotation = 0.124804
+rest = Transform2D( 1, 0, 0, 1, 16, 0 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Bone2D4" type="Bone2D" parent="skeleton/Skeleton2D/Bone2D/Bone2D2/Bone2D3"]
+position = Vector2( 16, 0 )
+rotation = -0.078342
+rest = Transform2D( 1, 0, 0, 1, 16, 0 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="target" type="Node2D" parent="skeleton"]
+position = Vector2( 96, 8 )
+rotation = 0.00407117
