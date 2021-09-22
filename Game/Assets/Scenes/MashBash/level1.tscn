@@ -646,9 +646,9 @@ color = 17
 [node name="ColorRect" type="ColorRect" parent="Map/Entities"]
 material = ExtResource( 11 )
 margin_left = 3456.0
-margin_top = 576.0
+margin_top = 608.0
 margin_right = 3968.0
-margin_bottom = 801.0
+margin_bottom = 833.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
