@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Scripts/MashBash/MashBash.gd" type="Script" id=2]
@@ -11,8 +11,9 @@
 [ext_resource path="res://Assets/Scripts/MashBash/BottomText.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Scenes/MashBash/LoadEvent1.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Scenes/MashBash/entities/enemy0.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Scenes/MashBash/entities/platform.tscn" type="PackedScene" id=12]
 
-[sub_resource type="Environment" id=16]
+[sub_resource type="Environment" id=1]
 background_mode = 4
 glow_enabled = true
 glow_strength = 0.8
@@ -24,7 +25,7 @@ adjustment_contrast = 1.5
 adjustment_saturation = 3.0
 
 [sub_resource type="World" id=2]
-environment = SubResource( 16 )
+environment = SubResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0, 0, 0, 1 )
@@ -758,6 +759,7 @@ centered = false
 flip_v = true
 
 [node name="MashBashAnim" type="AnimationPlayer" parent="."]
+playback_speed = 50.0
 "anims/MASHBASH boot" = SubResource( 7 )
 
 [node name="MashBash" type="ViewportContainer" parent="."]
@@ -987,6 +989,7 @@ __meta__ = {
 }
 
 [node name="Entities" type="Node2D" parent="Map"]
+position = Vector2( -24, -24 )
 
 [node name="Enemy" parent="Map/Entities" instance=ExtResource( 11 )]
 position = Vector2( 2128, -1104 )
@@ -999,6 +1002,13 @@ position = Vector2( 2256, -1104 )
 
 [node name="Enemy4" parent="Map/Entities" instance=ExtResource( 11 )]
 position = Vector2( 2320, -1104 )
+
+[node name="Platform" parent="Map/Entities" instance=ExtResource( 12 )]
+position = Vector2( 1528, 376 )
+scale = Vector2( 3, 1 )
+direction = Vector2( 128, 0 )
+time = 3.0
+color = 14
 
 [connection signal="timeout" from="P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Timer" to="P1/Viewport/Camera2D/Node2D/TextBox/BottomText" method="_on_Timer_timeout"]
 [connection signal="timeout" from="P1/Viewport/Camera2D/Node2D/TextBox/BottomText/doneload" to="P1/Viewport/Camera2D/Node2D/TextBox/BottomText" method="_on_doneload_timeout"]
