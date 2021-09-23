@@ -14,7 +14,7 @@ func _ready():
 	set_constant_linear_velocity(direction)
 func _physics_process(delta):
 	position+=constant_linear_velocity*delta
-	if position.distance_to(startpos)>moveDistance or position.distance_to(startpos) <= 0.125:
+	if position.distance_to(startpos)>moveDistance*sign(moveDistance) or position.distance_to(startpos) <= 0.125:
 		set_constant_linear_velocity(-constant_linear_velocity)
 		if position.distance_to(startpos) < 0.125:
 			position = startpos
