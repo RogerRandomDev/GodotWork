@@ -42,6 +42,7 @@ Color8(208,208,80,255),
 Color8(15,155,15,255)]
 ##to prevent errors##
 var placeholder
+var havedied = false
 ##Randomizes random function##
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

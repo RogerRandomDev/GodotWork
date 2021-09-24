@@ -6,13 +6,12 @@
 [sub_resource type="PhysicsMaterial" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32, 32 )
+extents = Vector2( 31, 31 )
 
 [node name="Platform" type="StaticBody2D"]
 physics_material_override = SubResource( 1 )
 script = ExtResource( 1 )
 direction = Vector2( 32, 0 )
-time = 1.5
 color = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -26,5 +25,6 @@ region_enabled = true
 region_rect = Rect2( 1, 18, 1, 1 )
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

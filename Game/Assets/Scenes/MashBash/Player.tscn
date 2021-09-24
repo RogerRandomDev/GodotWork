@@ -58,4 +58,8 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="timeout" from="jumpleeway" to="." method="_on_jumpleeway_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

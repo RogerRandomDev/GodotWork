@@ -49,7 +49,7 @@ func get_input():
 	if lastwall == -1:
 		velocity.x += (int(Input.is_action_pressed("rightP1"))-int(Input.is_action_pressed("leftP1")))*run_speed*acelrate*get_physics_process_delta_time()/max((0.75-$dash.time_left),0.125)
 	else:
-		velocity.x += (int(Input.is_action_pressed("rightP1"))-int(Input.is_action_pressed("leftP1")))*run_speed*acelrate*get_physics_process_delta_time()*0.0975
+		velocity.x += (int(Input.is_action_pressed("rightP1"))-int(Input.is_action_pressed("leftP1")))*run_speed*acelrate*get_physics_process_delta_time()*0.0675
 	if $dash.time_left>0:
 		velocity.x = min(abs(velocity.x),run_speed/max((0.75-$dash.time_left),0.25))*sign(velocity.x)
 		
@@ -95,3 +95,17 @@ func _on_jumpleeway_timeout():
 	offFloor = true
 func _ready():
 	checkpoint = position
+func rtc():
+	visible = false
+	played = false
+	var death = load("res://Assets/Scenes/MashBash/entities/deathparticles.tscn").instance()
+	get_parent().add_child(death)
+	death.position = position
+	$Timer.start()
+
+
+func _on_Timer_timeout():
+	visible = true
+	played = true
+	position = checkpoint
+	velocity = Vector2.ZERO

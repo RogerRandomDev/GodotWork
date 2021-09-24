@@ -33,8 +33,9 @@ func trigger():
 		if event[0]=="CHECKPOINT":
 			get_node(player).checkpoint = get_node(player).position
 		if event[0]=="R.T.C":
-			get_node(player).position = get_node(player).checkpoint
-			get_node(player).velocity = Vector2.ZERO
+			get_node(player).rtc()
+			if !GlobalScene.havedied:
+				deathmessage()
 			havedone = false
 	if havedone:
 		queue_free()
@@ -42,4 +43,10 @@ func _on_Timer_timeout():
 	trigger()
 
 
-
+func deathmessage():
+	if get_tree().get_nodes_in_group("BottomText")[0].canchange:
+		get_tree().get_nodes_in_group("BottomText")[0].currentset = 13
+		get_tree().get_nodes_in_group("BottomText")[0].currenttextset = 0
+		get_tree().get_nodes_in_group("BottomText")[0].prepText()
+		get_tree().get_nodes_in_group("BottomText")[0].loadText()
+		GlobalScene.havedied = true
