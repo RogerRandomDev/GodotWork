@@ -64,7 +64,7 @@ func _unhandled_key_input(event):
 					complete += 1
 			if complete > 2:
 				playedgames = false
-			if playedgames:
+			if playedgames or !playedgames:
 # warning-ignore:return_value_discarded
 				get_tree().change_scene("res://Assets/Scenes/"+gamename[GameType]+"/Title.tscn")
 	##changes player mode##
@@ -83,7 +83,3 @@ func _unhandled_key_input(event):
 func updatemode():
 	$ViewportContainer/Viewport/Labels/CurrentGame.text = gamename[GameType]
 	$ViewportContainer/Viewport/Labels/HighScore.text = "HighScore:\n"+str(GlobalScene.HighScore[GameType])
-	if GameType == 4:
-		$ViewportContainer/Viewport/Labels/MashBash.show()
-	else:
-		$ViewportContainer/Viewport/Labels/MashBash.hide()

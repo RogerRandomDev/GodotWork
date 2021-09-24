@@ -17,9 +17,6 @@ const alwaysmult = [3]
 export var mashbash:NodePath
 ##sets up player view based on player count##
 func _ready():
-	##allows you to disable the shader##
-	if GlobalScene.shaderOFF:
-		$Shader.hide()
 	##sets BIOS text##
 	var file = File.new()
 	if get_node_or_null(mashbash) != null:

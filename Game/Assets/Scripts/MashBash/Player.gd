@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 var run_speed = 256
 var jump_speed = -544
-var decelrate = 5
-var acelrate = 15
+var decelrate = 10
+var acelrate = 20
 var gravity = 768
 var angle = 0
 var velocity = Vector2.ZERO
@@ -15,6 +15,7 @@ var lastwall = -1
 var offFloor = false
 var airparticles = preload("res://Assets/Scenes/MashBash/airparticles.tscn")
 export var camera:NodePath
+var checkpoint= Vector2.ZERO
 func get_input():
 	if Input.is_action_just_pressed("downP1") and $dash.time_left == 0 and $dashdelay.time_left == 0:
 		$dash.start()
@@ -48,7 +49,7 @@ func get_input():
 	if lastwall == -1:
 		velocity.x += (int(Input.is_action_pressed("rightP1"))-int(Input.is_action_pressed("leftP1")))*run_speed*acelrate*get_physics_process_delta_time()/max((0.75-$dash.time_left),0.125)
 	else:
-		velocity.x += (int(Input.is_action_pressed("rightP1"))-int(Input.is_action_pressed("leftP1")))*run_speed*acelrate*get_physics_process_delta_time()*0.125
+		velocity.x += (int(Input.is_action_pressed("rightP1"))-int(Input.is_action_pressed("leftP1")))*run_speed*acelrate*get_physics_process_delta_time()*0.0975
 	if $dash.time_left>0:
 		velocity.x = min(abs(velocity.x),run_speed/max((0.75-$dash.time_left),0.25))*sign(velocity.x)
 		
@@ -92,3 +93,5 @@ func air():
 
 func _on_jumpleeway_timeout():
 	offFloor = true
+func _ready():
+	checkpoint = position

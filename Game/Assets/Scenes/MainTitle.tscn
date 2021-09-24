@@ -180,7 +180,6 @@ autostart = true
 [node name="Shader" type="Sprite" parent="." groups=[
 "SHADER",
 ]]
-visible = false
 material = ExtResource( 3 )
 position = Vector2( -1.90735e-06, -3.45707e-06 )
 scale = Vector2( 16, 9.375 )

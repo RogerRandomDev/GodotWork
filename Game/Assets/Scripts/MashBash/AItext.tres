@@ -8,6 +8,7 @@ Alright, controls are as follows:
 A and D move you left and right(curface)neutral(newline)
 W will make you jump!(curface)happy(newline)
 pressing W on a wall will make you wall-jump(curface)happy(newline)
+S will make you dash for a short boost!(curface)happy(newline)
 and finally, if you press W mid-air, you double-jump!(curface)happy(newline)
 I hope that explains everything nicely for you.
 Now, the level I have just designed for you is to the left!(curface)happy(newline)
@@ -87,5 +88,9 @@ I was hoping you would take your time with it more...(curface)sad(newline)
 But anyways!        
 I have designed moving platforms!(curface)happy(newline)
 Do your best to enjoy the level!(curface)happy(newline)......ended
+
+(newset)
+HaHa! I made red kill you now!(curface)evilhappy(newline)
+Don't worry though, you just need to be careful!(curface)happy(newline)......ended
 
 (newset)

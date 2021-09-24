@@ -5,5 +5,5 @@
 [resource]
 render_priority = 3
 shader = ExtResource( 1 )
-shader_param/RectScale = Vector3( 1, 2, 0 )
+shader_param/RectScale = Vector3( 1, 1, 0 )
 shader_param/Alpha = 0.5
