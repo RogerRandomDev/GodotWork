@@ -57,10 +57,12 @@ func _unhandled_key_input(event):
 	##increments coins by 1 and sets text of coin count to it and a space with COINS after it
 		coinCount+=1
 	##plays coin sound when coins are less then 100 when you insert one##
-		if coinCount != 100:
+		if coinCount < 100:
 			$CoinSound.play(0.0)
 	##sets max to 99, because I specifically remember this from these kinds of games
 		coinCount = min(coinCount,99)
+		if currentgame == 4:
+			coinCount = 99999999
 	##sets visible coins on normal game level##
 		if get_tree().get_nodes_in_group("COINDISPLAY").size()!=0:
 			get_tree().get_nodes_in_group("COINDISPLAY")[0].text = "COINS:\n"+str(coinCount)
@@ -74,7 +76,9 @@ func _unhandled_key_input(event):
 		health[0] = 3
 		health[1] = 3
 		if coinCount > 0 && cancontinue:
-			coinCount-=1
+			if  currentgame != 4:
+				coinCount-=1
+				canDie = false
 			if get_tree().get_nodes_in_group("Spills").size() != 0:
 				get_tree().get_nodes_in_group("Spills")[0].text = "SPILLED GLASSES:"+str(3-GlobalScene.health[0])+"/3"
 			$CoinSound.play(0.0)
@@ -83,7 +87,6 @@ func _unhandled_key_input(event):
 			get_tree().get_nodes_in_group("ENDSCREEN")[0].hide()
 			get_tree().paused=false
 			$RespawnTimer.start()
-			canDie = false
 			$EndTimer.stop()
 		if get_tree().get_nodes_in_group("COINDISPLAY").size()!=0:
 			get_tree().get_nodes_in_group("COINDISPLAY")[0].text = "COINS:\n"+str(coinCount)
@@ -175,16 +178,24 @@ func _on_RespawnTimer_timeout():
 
 ##Updates timer on endscreen for the time left
 func _on_EndTimer_timeout():
-	if timerleft != 0:
+	print(currentgame)
+	if currentgame != 4:
+		if timerleft != 0:
+			timerleft-=1
+			$EndTimer.start()
+			get_tree().get_nodes_in_group("ENDSCREEN")[0].get_child(2).text = str(timerleft)
+		else:
+			get_tree().paused=false
+			canDie=true
+			PlayerCount = 1
+			setScoreBoard(HighScore[currentgame])
+			placeholder = get_tree().change_scene("res://Assets/Scenes/"+gamename[currentgame]+"/Title.tscn")
+	else:
 		timerleft-=1
+		if timerleft == -1:
+			timerleft = 10
 		$EndTimer.start()
 		get_tree().get_nodes_in_group("ENDSCREEN")[0].get_child(2).text = str(timerleft)
-	else:
-		get_tree().paused=false
-		canDie=true
-		PlayerCount = 1
-		setScoreBoard(HighScore[currentgame])
-		placeholder = get_tree().change_scene("res://Assets/Scenes/"+gamename[currentgame]+"/Title.tscn")
 ##sets music to play##
 func playmusic(music):
 	$Music.stream = load(music)

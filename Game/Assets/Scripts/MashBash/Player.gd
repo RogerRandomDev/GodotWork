@@ -9,6 +9,7 @@ var angle = 0
 var velocity = Vector2.ZERO
 var jumping = false
 var anglemult = 1
+export var hpbar:NodePath
 export var played = false
 var doublejump = false
 var lastwall = -1
@@ -96,16 +97,22 @@ func _on_jumpleeway_timeout():
 func _ready():
 	checkpoint = position
 func rtc():
-	visible = false
-	played = false
-	var death = load("res://Assets/Scenes/MashBash/entities/deathparticles.tscn").instance()
-	get_parent().add_child(death)
-	death.position = position
-	$Timer.start()
+	if $Timer.is_stopped():
+		visible = false
+		played = false
+		GlobalScene.health[0] -= 1
+		get_node(hpbar).value = GlobalScene.health[0]
+		if GlobalScene.health[0] == 0:
+			GlobalScene.gameover("P1")
+		var death = load("res://Assets/Scenes/MashBash/entities/deathparticles.tscn").instance()
+		get_parent().add_child(death)
+		death.position = position
+		$Timer.start()
 
 
 func _on_Timer_timeout():
 	visible = true
 	played = true
 	position = checkpoint
+	get_node(hpbar).value = GlobalScene.health[0]
 	velocity = Vector2.ZERO

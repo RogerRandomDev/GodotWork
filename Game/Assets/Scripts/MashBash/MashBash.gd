@@ -17,6 +17,10 @@ const alwaysmult = [3]
 export var mashbash:NodePath
 ##sets up player view based on player count##
 func _ready():
+	GlobalScene.currentgame = 4
+	GlobalScene.coinCount = 99999
+	if get_tree().get_nodes_in_group("COINDISPLAY").size()!=0:
+		get_tree().get_nodes_in_group("COINDISPLAY")[0].text = "COINS:\n"+str(GlobalScene.coinCount)
 	##sets BIOS text##
 	var file = File.new()
 	if get_node_or_null(mashbash) != null:

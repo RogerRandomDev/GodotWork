@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Assets/Scripts/MashBash/BottomText.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Assets/Scripts/MashBash/MashBash.gd" type="Script" id=10]
 [ext_resource path="res://Assets/Scenes/MashBash/LoadEvent1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Textures/Cake.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Textures/Health.png" type="Texture" id=13]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -38,6 +39,13 @@ border_color = Color( 0.215686, 0.215686, 0.215686, 1 )
 [sub_resource type="DynamicFont" id=4]
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 17, 6 )
+axis_stretch_horizontal = 1
+
+[sub_resource type="StyleBoxEmpty" id=14]
 
 [sub_resource type="DynamicFont" id=5]
 size = 24
@@ -378,6 +386,7 @@ shadow_atlas_size = 4
 
 [node name="Player" parent="P1/Viewport" instance=ExtResource( 7 )]
 position = Vector2( 4096, 432 )
+hpbar = NodePath("../Camera2D/Node2D/HealthBar")
 played = true
 camera = NodePath("../Camera2D")
 
@@ -472,6 +481,21 @@ margin_top = -72.0
 margin_right = 1464.0
 margin_bottom = 152.0
 custom_styles/panel = SubResource( 3 )
+
+[node name="HealthBar" type="ProgressBar" parent="P1/Viewport/Camera2D/Node2D" groups=[
+"hpbar",
+]]
+margin_left = -700.0
+margin_top = -426.0
+margin_right = -682.0
+margin_bottom = -412.0
+rect_scale = Vector2( 6, 6 )
+custom_styles/fg = SubResource( 13 )
+custom_styles/bg = SubResource( 14 )
+max_value = 3.0
+step = 1.0
+value = 3.0
+percent_visible = false
 
 [node name="Glitch" type="Sprite" parent="P1/Viewport/Camera2D"]
 visible = false
@@ -632,7 +656,7 @@ cell_size = Vector2( 1, 1 )
 cell_quadrant_size = 32
 compatibility_mode = true
 format = 1
-tile_data = PoolIntArray( -2097122, 9, 0, -2097121, 9, 0, -2097120, 9, 0, -2097119, 9, 0, -2097118, 9, 0, -2097117, 9, 0, -2097116, 9, 0, -2097115, 9, 0, -2097114, 9, 0, -2097113, 9, 0, -2031586, 9, 0, -2031577, 9, 0, -1966050, 9, 0, -1966041, 9, 0, -1900516, 9, 0, -1900515, 9, 0, -1900514, 9, 0, -1900505, 9, 0, -1834980, 9, 0, -1834978, 9, 0, -1834969, 9, 0, -1769444, 9, 0, -1769433, 9, 0, -1703908, 9, 0, -1703906, 9, 0, -1703905, 9, 0, -1703904, 9, 0, -1703903, 9, 0, -1703902, 9, 0, -1703901, 9, 0, -1703900, 9, 0, -1703899, 9, 0, -1703898, 9, 0, -1703897, 9, 0, -1638372, 9, 0, -1638370, 9, 0, -1572836, 9, 0, -1572834, 9, 0, -1507300, 9, 0, -1507298, 9, 0, -1441764, 9, 0, -1441762, 9, 0, -1376228, 9, 0, -1376226, 9, 0, -1310692, 9, 0, -1310690, 9, 0, -1245156, 9, 0, -1245154, 9, 0, -1179620, 9, 0, -1179618, 9, 0, -1114084, 9, 0, -1114082, 9, 0, -1048548, 9, 0, -1048546, 9, 0, -983012, 9, 0, -983010, 9, 0, -917476, 9, 0, -917474, 9, 0, -851940, 9, 0, -851938, 9, 0, -786404, 9, 0, -786402, 9, 0, -720868, 9, 0, -720866, 9, 0, -655332, 9, 0, -655330, 9, 0, -589796, 9, 0, -589794, 9, 0, -524260, 9, 0, -524258, 9, 0, -458724, 9, 0, -458722, 9, 0, -393188, 9, 0, -393186, 9, 0, -327652, 9, 0, -327650, 9, 0, -196624, 9, 0, -196623, 9, 0, -196622, 9, 0, -196621, 9, 0, -196620, 9, 0, -196619, 9, 0, -196618, 9, 0, -196617, 9, 0, -196616, 9, 0, -196615, 9, 0, -196614, 9, 0, -196613, 9, 0, -196612, 9, 0, -196611, 9, 0, -196610, 9, 0, -196609, 9, 0, -262144, 9, 0, -262143, 9, 0, -262142, 9, 0, -262141, 9, 0, -262140, 9, 0, -262139, 9, 0, -262138, 9, 0, -262137, 9, 0, -262136, 9, 0, -262135, 9, 0, -262134, 9, 0, -262133, 9, 0, -262132, 9, 0, -262131, 9, 0, -262130, 9, 0, -262129, 9, 0, -262128, 9, 0, -262127, 9, 0, -262126, 9, 0, -262125, 9, 0, -262124, 9, 0, -262123, 9, 0, -262122, 9, 0, -262121, 9, 0, -262120, 9, 0, -262119, 9, 0, -262118, 9, 0, -262117, 9, 0, -262116, 9, 0, -262114, 9, 0, -262113, 9, 0, -262112, 9, 0, -262111, 9, 0, -262110, 9, 0, -262109, 9, 0, -262108, 9, 0, -262107, 9, 0, -262106, 9, 0, -262105, 9, 0, -262104, 9, 0, -262103, 9, 0, -262102, 9, 0, -262101, 9, 0, -262100, 9, 0, -262099, 9, 0, -262098, 9, 0, -262097, 9, 0, -262096, 9, 0, -262095, 9, 0, -262094, 9, 0, -262093, 9, 0, -262092, 9, 0, -262091, 9, 0, -262090, 9, 0, -262089, 9, 0, -262088, 9, 0, -262087, 9, 0, -262086, 9, 0, -262085, 9, 0, -262084, 9, 0, -262083, 0, 0, -262082, 0, 0, -262081, 0, 0, -262080, 0, 0, -262079, 0, 0, -262078, 0, 0, -262077, 0, 0, -131088, 9, 0, -196580, 9, 0, -196547, 0, 0, -196541, 0, 0, -65552, 9, 0, -131044, 9, 0, -131011, 0, 0, -131005, 0, 0, -16, 9, 0, -65508, 9, 0, -65475, 0, 0, -65469, 0, 0, 65520, 9, 0, 28, 9, 0, 61, 0, 0, 67, 0, 0, 131056, 9, 0, 65553, 9, 0, 65555, 9, 0, 65557, 9, 0, 65559, 9, 0, 65561, 9, 0, 65562, 9, 0, 65563, 9, 0, 65564, 9, 0, 65597, 0, 0, 65603, 0, 0, 196592, 9, 0, 131100, 9, 0, 131133, 0, 0, 131139, 0, 0, 262128, 9, 0, 196675, 0, 0, 327664, 9, 0, 262161, 9, 0, 262162, 9, 0, 262163, 9, 0, 262164, 9, 0, 262165, 9, 0, 262166, 9, 0, 262167, 9, 0, 262168, 9, 0, 262169, 9, 0, 262170, 9, 0, 262171, 9, 0, 262172, 9, 0, 262211, 0, 0, 393200, 9, 0, 327708, 9, 0, 327747, 0, 0, 458736, 9, 0, 393244, 9, 0, 393283, 0, 0, 524272, 9, 0, 458780, 9, 0, 458813, 0, 0, 458819, 0, 0, 589808, 9, 0, 524316, 9, 0, 524349, 0, 0, 524355, 0, 0, 655344, 9, 0, 655345, -2147483639, 0, 655346, -2147483639, 0, 655347, -2147483639, 0, 655348, -2147483639, 0, 655349, -2147483639, 0, 655350, -2147483639, 0, 655351, -2147483639, 0, 655352, -2147483639, 0, 655353, -2147483639, 0, 655354, -2147483639, 0, 655355, -2147483639, 0, 655356, -2147483639, 0, 655357, -2147483639, 0, 655358, -2147483639, 0, 655359, -2147483639, 0, 589824, -2147483639, 0, 589825, -2147483639, 0, 589826, -2147483639, 0, 589827, -2147483639, 0, 589828, -2147483639, 0, 589829, -2147483639, 0, 589830, -2147483639, 0, 589831, -2147483639, 0, 589832, -2147483639, 0, 589833, -2147483639, 0, 589834, -2147483639, 0, 589835, -2147483639, 0, 589836, -2147483639, 0, 589837, -2147483639, 0, 589838, -2147483639, 0, 589839, -2147483639, 0, 589840, -2147483639, 0, 589841, -2147483639, 0, 589842, -2147483639, 0, 589843, -2147483639, 0, 589844, -2147483639, 0, 589845, -2147483639, 0, 589846, -2147483639, 0, 589847, -2147483639, 0, 589848, -2147483639, 0, 589849, -2147483639, 0, 589850, -2147483639, 0, 589851, -2147483639, 0, 589852, -2147483639, 0, 589853, 6, 0, 589854, 6, 0, 589855, 6, 0, 589856, 6, 0, 589857, 6, 0, 589858, 6, 0, 589859, 6, 0, 589860, 6, 0, 589861, 6, 0, 589862, 6, 0, 589863, 6, 0, 589864, 6, 0, 589865, 6, 0, 589866, 6, 0, 589867, 6, 0, 589868, 6, 0, 589869, 6, 0, 589870, 6, 0, 589871, 6, 0, 589872, 6, 0, 589873, 6, 0, 589874, 6, 0, 589875, 6, 0, 589876, 6, 0, 589877, 6, 0, 589878, 6, 0, 589879, 6, 0, 589880, 6, 0, 589881, 6, 0, 589882, 6, 0, 589883, 6, 0, 589884, 6, 0, 589885, 0, 0, 589886, 0, 0, 589887, 0, 0, 589888, 0, 0, 589889, 0, 0, 589890, 0, 0, 589891, 0, 0 )
+tile_data = PoolIntArray( -2097122, 9, 0, -2097121, 9, 0, -2097120, 9, 0, -2097119, 9, 0, -2097118, 9, 0, -2097117, 9, 0, -2097116, 9, 0, -2097115, 9, 0, -2097114, 9, 0, -2097113, 9, 0, -2031586, 9, 0, -2031577, 9, 0, -1966050, 9, 0, -1966041, 9, 0, -1900516, 9, 0, -1900515, 9, 0, -1900514, 9, 0, -1900505, 9, 0, -1834980, 9, 0, -1834978, 9, 0, -1834969, 9, 0, -1769444, 9, 0, -1769433, 9, 0, -1703908, 9, 0, -1703906, 9, 0, -1703905, 9, 0, -1703904, 9, 0, -1703903, 9, 0, -1703902, 9, 0, -1703901, 9, 0, -1703900, 9, 0, -1703899, 9, 0, -1703898, 9, 0, -1703897, 9, 0, -1638372, 9, 0, -1638370, 9, 0, -1572836, 9, 0, -1572834, 9, 0, -1507300, 9, 0, -1507298, 9, 0, -1441764, 9, 0, -1441762, 9, 0, -1376228, 9, 0, -1376226, 9, 0, -1310692, 9, 0, -1310690, 9, 0, -1245156, 9, 0, -1245154, 9, 0, -1179620, 9, 0, -1179618, 9, 0, -1114084, 9, 0, -1114082, 9, 0, -1048548, 9, 0, -1048546, 9, 0, -983012, 9, 0, -983010, 9, 0, -917476, 9, 0, -917474, 9, 0, -851940, 9, 0, -851938, 9, 0, -786404, 9, 0, -786402, 9, 0, -720868, 9, 0, -720866, 9, 0, -655332, 9, 0, -655330, 9, 0, -589796, 9, 0, -589794, 9, 0, -524260, 9, 0, -524258, 9, 0, -458724, 9, 0, -458722, 9, 0, -393188, 9, 0, -393186, 9, 0, -327652, 9, 0, -327650, 9, 0, -196631, 9, 0, -196630, 9, 0, -196629, 9, 0, -262132, 9, 0, -262131, 9, 0, -262130, 9, 0, -262129, 9, 0, -262128, 9, 0, -262127, 9, 0, -262126, 9, 0, -262125, 9, 0, -262124, 9, 0, -262123, 9, 0, -262122, 9, 0, -262121, 9, 0, -262120, 9, 0, -262119, 9, 0, -262118, 9, 0, -262117, 9, 0, -262116, 9, 0, -262114, 9, 0, -262113, 9, 0, -262112, 9, 0, -262111, 9, 0, -262110, 9, 0, -262109, 9, 0, -262108, 9, 0, -262107, 9, 0, -262106, 9, 0, -262105, 9, 0, -262104, 9, 0, -262103, 9, 0, -262102, 9, 0, -262101, 9, 0, -262100, 9, 0, -262099, 9, 0, -262098, 9, 0, -262097, 9, 0, -262096, 9, 0, -262095, 9, 0, -262094, 9, 0, -262093, 9, 0, -262092, 9, 0, -262091, 9, 0, -262090, 9, 0, -262089, 9, 0, -262088, 9, 0, -262087, 9, 0, -262086, 9, 0, -262085, 9, 0, -262084, 9, 0, -262083, 0, 0, -262082, 0, 0, -262081, 0, 0, -262080, 0, 0, -262079, 0, 0, -262078, 0, 0, -262077, 0, 0, -131095, 9, 0, -196593, 9, 0, -196580, 9, 0, -196547, 0, 0, -196541, 0, 0, -65559, 9, 0, -131057, 9, 0, -131044, 9, 0, -131011, 0, 0, -131005, 0, 0, -23, 9, 0, -21, 9, 0, -20, 9, 0, -19, 9, 0, -18, 9, 0, -17, 9, 0, -16, 9, 0, -15, 9, 0, -14, 9, 0, -13, 9, 0, -12, 9, 0, -11, 9, 0, -10, 9, 0, -9, 9, 0, -8, 9, 0, -7, 9, 0, -6, 9, 0, -5, 9, 0, -4, 9, 0, -3, 9, 0, -2, 9, 0, -1, 9, 0, -65536, 9, 0, -65535, 9, 0, -65534, 9, 0, -65533, 9, 0, -65532, 9, 0, -65531, 9, 0, -65530, 9, 0, -65529, 9, 0, -65528, 9, 0, -65527, 9, 0, -65526, 9, 0, -65525, 9, 0, -65524, 9, 0, -65521, 9, 0, -65508, 9, 0, -65475, 0, 0, -65469, 0, 0, 65513, 9, 0, 65527, 9, 0, 12, 9, 0, 15, 9, 0, 28, 9, 0, 61, 0, 0, 67, 0, 0, 131049, 9, 0, 131050, 9, 0, 131051, 9, 0, 131052, 9, 0, 131053, 9, 0, 131054, 9, 0, 131055, 9, 0, 131056, 9, 0, 131057, 9, 0, 131058, 9, 0, 131059, 9, 0, 131060, 9, 0, 131061, 9, 0, 131063, 9, 0, 65548, 9, 0, 65551, 9, 0, 65552, 9, 0, 65561, 9, 0, 65562, 9, 0, 65563, 9, 0, 65564, 9, 0, 65597, 0, 0, 65603, 0, 0, 196592, 9, 0, 196597, 9, 0, 196599, 9, 0, 131084, 9, 0, 131100, 9, 0, 131133, 0, 0, 131139, 0, 0, 262128, 9, 0, 262133, 9, 0, 262135, 9, 0, 196620, 9, 0, 196675, 0, 0, 327664, 9, 0, 262156, 9, 0, 262159, 9, 0, 262160, 9, 0, 262161, 9, 0, 262162, 9, 0, 262163, 9, 0, 262164, 9, 0, 262165, 9, 0, 262166, 9, 0, 262167, 9, 0, 262168, 9, 0, 262169, 9, 0, 262170, 9, 0, 262171, 9, 0, 262172, 9, 0, 262211, 0, 0, 393200, 9, 0, 327692, 9, 0, 327695, 9, 0, 327708, 9, 0, 327747, 0, 0, 458736, 9, 0, 393227, 9, 0, 393228, 9, 0, 393231, 9, 0, 393244, 9, 0, 393283, 0, 0, 524272, 9, 0, 458767, 9, 0, 458780, 9, 0, 458813, 0, 0, 458819, 0, 0, 589808, 9, 0, 524303, 9, 0, 524316, 9, 0, 524349, 0, 0, 524355, 0, 0, 655344, 9, 0, 655345, -2147483639, 0, 655346, -2147483639, 0, 655347, -2147483639, 0, 655348, -2147483639, 0, 655349, -2147483639, 0, 655350, -2147483639, 0, 655351, -2147483639, 0, 655352, -2147483639, 0, 655353, -2147483639, 0, 655354, -2147483639, 0, 655355, -2147483639, 0, 655356, -2147483639, 0, 655357, -2147483639, 0, 655358, -2147483639, 0, 655359, -2147483639, 0, 589824, -2147483639, 0, 589825, -2147483639, 0, 589826, -2147483639, 0, 589827, -2147483639, 0, 589828, -2147483639, 0, 589829, -2147483639, 0, 589830, -2147483639, 0, 589831, -2147483639, 0, 589832, -2147483639, 0, 589833, -2147483639, 0, 589834, -2147483639, 0, 589835, -2147483639, 0, 589836, -2147483639, 0, 589837, -2147483639, 0, 589838, -2147483639, 0, 589839, -2147483639, 0, 589840, -2147483639, 0, 589841, -2147483639, 0, 589842, -2147483639, 0, 589843, -2147483639, 0, 589844, -2147483639, 0, 589845, -2147483639, 0, 589846, -2147483639, 0, 589847, -2147483639, 0, 589848, -2147483639, 0, 589849, -2147483639, 0, 589850, -2147483639, 0, 589851, -2147483639, 0, 589852, -2147483639, 0, 589853, 6, 0, 589854, 6, 0, 589855, 6, 0, 589856, 6, 0, 589857, 6, 0, 589858, 6, 0, 589859, 6, 0, 589860, 6, 0, 589861, 6, 0, 589862, 6, 0, 589863, 6, 0, 589864, 6, 0, 589865, 6, 0, 589866, 6, 0, 589867, 6, 0, 589868, 6, 0, 589869, 6, 0, 589870, 6, 0, 589871, 6, 0, 589872, 6, 0, 589873, 6, 0, 589874, 6, 0, 589875, 6, 0, 589876, 6, 0, 589877, 6, 0, 589878, 6, 0, 589879, 6, 0, 589880, 6, 0, 589881, 6, 0, 589882, 6, 0, 589883, 6, 0, 589884, 6, 0, 589885, 0, 0, 589886, 0, 0, 589887, 0, 0, 589888, 0, 0, 589889, 0, 0, 589890, 0, 0, 589891, 0, 0 )
 
 [node name="TileMap2" type="TileMap" parent="Map"]
 scale = Vector2( 5.333, 5.333 )
@@ -680,6 +704,21 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="LoadEvent8" parent="Map/Events" instance=ExtResource( 11 )]
 position = Vector2( 2208, -1696 )
 eventDATA = [ [ "AI.TEXT", 15 ] ]
+
+[node name="LoadEvent9" parent="Map/Events" instance=ExtResource( 11 )]
+position = Vector2( 992, 192 )
+scale = Vector2( 1, 2 )
+eventDATA = [ [ "AI.TEXT", 16 ] ]
+
+[node name="LoadEvent10" parent="Map/Events" instance=ExtResource( 11 )]
+position = Vector2( 800, -128 )
+scale = Vector2( 1, 2 )
+eventDATA = [ [ "AI.TEXT", 18 ], [ "CHANGE.TILE", [ Vector3( 13, -1, 1 ), Vector3( 14, -1, 1 ) ] ], [ "CHECKPOINT" ] ]
+
+[node name="LoadEvent11" parent="Map/Events" instance=ExtResource( 11 )]
+position = Vector2( 736, 512 )
+scale = Vector2( 1, 2 )
+eventDATA = [ [ "AI.TEXT", 17 ], [ "CHANGE.TILE", [ Vector3( 13, 4, 1 ), Vector3( 14, 4, 1 ) ] ] ]
 
 [node name="Entities" type="Node2D" parent="Map"]
 
@@ -734,11 +773,10 @@ moveDistance = 128
 color = 15
 
 [node name="LoadEvent4" parent="Map/Entities/Platform6" instance=ExtResource( 11 )]
-scale = Vector2( 1.125, 1.043 )
 eventDATA = [ [ "R.T.C" ] ]
 
 [node name="Platform8" parent="Map/Entities" instance=ExtResource( 9 )]
-position = Vector2( 1312, 32 )
+position = Vector2( 1440, 32 )
 scale = Vector2( 1, 3 )
 direction = Vector2( 0, 128 )
 time = 1.0
@@ -746,11 +784,10 @@ moveDistance = 128
 color = 15
 
 [node name="LoadEvent4" parent="Map/Entities/Platform8" instance=ExtResource( 11 )]
-scale = Vector2( 1.125, 1.043 )
 eventDATA = [ [ "R.T.C" ] ]
 
 [node name="Platform7" parent="Map/Entities" instance=ExtResource( 9 )]
-position = Vector2( 1440, 160 )
+position = Vector2( 1504, 160 )
 scale = Vector2( 1, 3 )
 direction = Vector2( 0, -128 )
 time = 1.0
@@ -758,11 +795,10 @@ moveDistance = 128
 color = 15
 
 [node name="LoadEvent4" parent="Map/Entities/Platform7" instance=ExtResource( 11 )]
-scale = Vector2( 1.125, 1.043 )
 eventDATA = [ [ "R.T.C" ] ]
 
 [node name="Platform9" parent="Map/Entities" instance=ExtResource( 9 )]
-position = Vector2( 1184, 160 )
+position = Vector2( 1376, 160 )
 scale = Vector2( 1, 3 )
 direction = Vector2( 0, -128 )
 time = 1.0
@@ -770,7 +806,402 @@ moveDistance = 128
 color = 15
 
 [node name="LoadEvent4" parent="Map/Entities/Platform9" instance=ExtResource( 11 )]
-scale = Vector2( 1.125, 1.043 )
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform10" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( 1312, 32 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, 128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform10" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform11" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( 1184, 32 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, 128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform11" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform12" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( 1248, 160 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, -128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform12" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform13" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( 1120, 160 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, -128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform13" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform14" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( 736, -288 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, 128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform14" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform15" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( 608, -288 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, 128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform15" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform16" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( 672, -160 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, -128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform16" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform17" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( 544, -160 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, -128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform17" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform18" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( 480, -288 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, 128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform18" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform19" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( 352, -288 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, 128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform19" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform20" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( 416, -160 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, -128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform20" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform21" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( 288, -160 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, -128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform21" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform22" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( 224, -288 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, 128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform22" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform23" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( 96, -288 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, 128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform23" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform24" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( 160, -160 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, -128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform24" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform25" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( 32, -160 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, -128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform25" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform26" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -32, -288 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, 128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform26" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform27" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -160, -288 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, 128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform27" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform28" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -96, -160 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, -128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform28" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform29" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -224, -160 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, -128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform29" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform30" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -288, -288 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, 128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform30" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform31" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -416, -288 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, 128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform31" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform32" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -352, -160 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, -128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform32" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform33" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -480, -160 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, -128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform33" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform34" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -544, -288 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, 128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform34" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform35" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -672, -288 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, 128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform35" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform36" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -608, -160 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, -128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform36" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform37" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -736, -160 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, -128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform37" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform38" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -800, -288 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, 128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform38" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform39" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -928, -288 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, 128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform39" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform40" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -864, -160 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, -128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform40" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform41" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -992, -160 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, -128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform41" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform42" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -1056, -288 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, 128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform42" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform43" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -1184, -288 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, 128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform43" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform44" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -1120, -160 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, -128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform44" instance=ExtResource( 11 )]
+eventDATA = [ [ "R.T.C" ] ]
+
+[node name="Platform45" parent="Map/Entities" instance=ExtResource( 9 )]
+position = Vector2( -1248, -160 )
+scale = Vector2( 1, 3 )
+direction = Vector2( 0, -128 )
+time = 1.0
+moveDistance = 128
+color = 15
+
+[node name="LoadEvent4" parent="Map/Entities/Platform45" instance=ExtResource( 11 )]
 eventDATA = [ [ "R.T.C" ] ]
 
 [node name="Cake" type="Sprite" parent="Map/Entities"]

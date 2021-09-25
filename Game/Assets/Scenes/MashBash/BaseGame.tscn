@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Scripts/MashBash/MashBash.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Assets/Scenes/MashBash/LoadEvent1.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Scenes/MashBash/entities/enemy0.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Scenes/MashBash/entities/platform.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Textures/Health.png" type="Texture" id=13]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -39,6 +40,13 @@ border_color = Color( 0.215686, 0.215686, 0.215686, 1 )
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
+[sub_resource type="StyleBoxTexture" id=17]
+texture = ExtResource( 13 )
+region_rect = Rect2( 0, 0, 17, 6 )
+axis_stretch_horizontal = 1
+
+[sub_resource type="StyleBoxEmpty" id=18]
+
 [sub_resource type="DynamicFont" id=5]
 size = 24
 outline_color = Color( 0, 0, 0, 1 )
@@ -50,7 +58,7 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=7]
-length = 33.0
+length = 17.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("MashBash/Viewport/RichTextLabel:visible_characters")
 tracks/0/interp = 1
@@ -58,7 +66,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 1.2, 1.3, 1.7, 1.8, 2.3, 2.4, 2.9, 3, 3.5, 3.6, 4.6, 4.7, 5.7, 5.8, 6.8, 6.9, 7.9, 8, 9, 9.1, 9.6, 9.7, 10.2, 10.3, 10.8, 10.9, 11.8, 11.9, 12.8, 12.9, 13.9, 14, 14.9, 15, 15.9, 16, 17.4, 17.5, 18.4, 18.5, 19.4, 19.5, 20.4, 20.5, 21.4, 21.5, 22.5, 22.6 ),
+"times": PoolRealArray( 0, 0.5, 0.6, 0.65, 0.85, 0.9, 1.15, 1.2, 1.45, 1.5, 1.75, 1.8, 2.3, 2.35, 2.85, 2.9, 3.4, 3.45, 3.95, 4, 4.5, 4.55, 4.8, 4.85, 5.1, 5.15, 5.4, 5.45, 5.9, 5.95, 6.4, 6.45, 6.95, 7, 7.45, 7.5, 7.95, 8, 8.7, 8.75, 9.2, 9.25, 9.7, 9.75, 10.2, 10.25, 10.7, 10.75, 11.25, 11.3 ),
 "transitions": PoolRealArray( 1, 1, 1e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1, 1e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1, 1e-05, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 0, 338, 338, 372, 372, 373, 373, 374, 374, 375, 375, 413, 413, 435, 435, 457, 457, 479, 479, 501, 501, 556, 556, 557, 557, 558, 558, 602, 602, 623, 623, 644, 644, 665, 665, 686, 686, 776, 776, 788, 788, 800, 800, 866, 866, 867, 867, 868, 868, 0 ]
@@ -70,7 +78,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 33 ),
+"times": PoolRealArray( 0, 16.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -82,110 +90,98 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 33 ),
+"times": PoolRealArray( 0, 16.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("MashBash/Viewport/Line2D:points")
+tracks/3/path = NodePath("MashBash/Viewport/Line2D:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 23.5, 24, 24.5, 25, 25.5, 26, 26.5, 27, 27.5, 28, 28.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 11.3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ PoolVector2Array( 640, 416, 608, 416, 576, 416, 544, 416, 512, 416, 480, 416, 448, 416 ), PoolVector2Array( 640, 408, 608, 416, 576, 416, 544, 416, 512, 416, 480, 416, 448, 408 ), PoolVector2Array( 640, 392, 608, 408, 576, 416, 544, 416, 512, 416, 480, 408, 448, 392 ), PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368 ), PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368 ), PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368, 632, 368 ), PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368, 480, 368, 480, 392, 480, 368, 632, 368 ), PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368, 480, 368, 480, 392, 480, 368, 512, 368, 512, 408, 512, 368, 632, 368 ), PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368, 480, 368, 480, 392, 480, 368, 512, 368, 512, 408, 512, 368, 544, 368, 544, 416, 544, 368, 632, 368 ), PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368, 480, 368, 480, 392, 480, 368, 512, 368, 512, 408, 512, 368, 544, 368, 544, 416, 544, 368, 576, 368, 576, 408, 576, 368, 632, 368 ), PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368, 480, 368, 480, 392, 480, 368, 512, 368, 512, 408, 512, 368, 544, 368, 544, 416, 544, 368, 576, 368, 576, 408, 576, 368, 608, 368, 608, 392, 608, 368, 632, 368 ) ]
+"values": [ false, true ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("MashBash/Viewport/Node2D:visible")
+tracks/4/path = NodePath("MashBash/Viewport/Node2D/Label:visible_characters")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 28.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
+"times": PoolRealArray( 11.5, 14.25, 15.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 0, 12 ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("MashBash/Viewport/Line2D:visible")
+tracks/5/path = NodePath("P1/Viewport/Player:played")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 23.5 ),
+"times": PoolRealArray( 0, 16.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("MashBash/Viewport/Node2D/Label:visible_characters")
+tracks/6/type = "method"
+tracks/6/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 28.5, 30.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0, 0, 12 ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("P1/Viewport/Player:played")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 0, 33 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/8/type = "method"
-tracks/8/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 33 ),
+"times": PoolRealArray( 16.5 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "prepText"
 } ]
 }
-tracks/9/type = "value"
-tracks/9/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText:currenttextset")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 33 ),
+tracks/7/type = "value"
+tracks/7/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText:currenttextset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 16.5 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 0 ]
 }
-tracks/10/type = "method"
-tracks/10/path = NodePath(".")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 33 ),
+tracks/8/type = "method"
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 16.5 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "resetmusic"
 } ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("MashBash/Viewport/Node2D:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 11.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
 [sub_resource type="DynamicFont" id=8]
@@ -533,6 +529,7 @@ shadow_atlas_size = 4
 
 [node name="Player" parent="P1/Viewport" instance=ExtResource( 7 )]
 position = Vector2( 4096, 432 )
+hpbar = NodePath("../Camera2D/Node2D/HealthBar")
 camera = NodePath("../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="P1/Viewport"]
@@ -626,6 +623,21 @@ margin_right = 1464.0
 margin_bottom = 152.0
 custom_styles/panel = SubResource( 3 )
 
+[node name="HealthBar" type="ProgressBar" parent="P1/Viewport/Camera2D/Node2D" groups=[
+"hpbar",
+]]
+margin_left = -700.0
+margin_top = -426.0
+margin_right = -682.0
+margin_bottom = -412.0
+rect_scale = Vector2( 6, 6 )
+custom_styles/fg = SubResource( 17 )
+custom_styles/bg = SubResource( 18 )
+max_value = 3.0
+step = 1.0
+value = 3.0
+percent_visible = false
+
 [node name="Glitch" type="Sprite" parent="P1/Viewport/Camera2D"]
 material = ExtResource( 5 )
 scale = Vector2( 32, 18.75 )
@@ -640,6 +652,7 @@ smoothing_enabled = true
 [node name="Scores" type="Node2D" parent="." groups=[
 "ScoreBoard",
 ]]
+visible = false
 
 [node name="Score0" type="Label" parent="Scores"]
 visible = false
