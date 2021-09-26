@@ -2,10 +2,12 @@ extends Area2D
 
 export var startpoint = false
 export var final = false
+export var start:NodePath
+var cando = true
 export (Array,Array) var finalevent
 func _on_LinePuzzle_body_entered(body):
 	if body.name == "Player":
-		if !body.linepuzzle and startpoint:
+		if !body.linepuzzle and startpoint and cando:
 			body.linepuzzle = true
 			var line = load("res://Assets/Scenes/MashBash/line.tscn").instance()
 			get_parent().add_child(line)
@@ -19,6 +21,7 @@ func _on_LinePuzzle_body_entered(body):
 				body.linepuzzle = false
 				get_node(line).addpoint(position-Vector2(56*sin(-rotation),56*cos(-rotation)))
 				get_node(line).done=true
+				get_node(start).cando = false
 				trigger()
 			elif !get_tree().get_nodes_in_group("LinePuzzle")[0].prevpoints.has(get_path()) and !startpoint and get_tree().get_nodes_in_group("LinePuzzle")[0].default_color != Color.red:
 				var line = get_tree().get_nodes_in_group("LinePuzzle")[0].get_path()
