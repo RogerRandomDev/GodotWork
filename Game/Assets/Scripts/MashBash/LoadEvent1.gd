@@ -21,15 +21,21 @@ func trigger():
 			havedone = false
 			if event.size() <= 2:
 				$Timer.start()
+		#Tile change events##
 		if event[0]=="REMOVE.TILE" and havedone:
 			for pos in event[1]:
 				get_tree().get_nodes_in_group("map")[0].set_cellv(pos,-1)
 		if event[0]=="CHANGE.TILE" and havedone:
+			get_tree().get_nodes_in_group("BottomText")[0].removeCellLine = event[2]
+			get_tree().get_nodes_in_group("BottomText")[0].removeCells = event[1]
+		if event[0]=="CHANGE.TILE.NOW":
 			for pos in event[1]:
 				get_tree().get_nodes_in_group("map")[0].set_cellv(Vector2(pos.x,pos.y),pos.z)
+		##level change##
 		if event[0]=="CHANGE.LEVEL":
 # warning-ignore:return_value_discarded
 			get_tree().change_scene(event[1])
+		#checkpoint and return to checkpoint##
 		if event[0]=="CHECKPOINT":
 			get_node(player).checkpoint = get_node(player).position
 		if event[0]=="R.T.C":
@@ -37,6 +43,9 @@ func trigger():
 			if !GlobalScene.havedied:
 				deathmessage()
 			havedone = false
+		#remove other events#
+		if event[0]=="REMOVE.EVENT":
+			get_node(event[1]).queue_free()
 	if havedone:
 		queue_free()
 func _on_Timer_timeout():

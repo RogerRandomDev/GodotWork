@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Assets/Scripts/MashBash/BottomText.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Assets/Scenes/MashBash/LoadEvent1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Textures/Cake.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Textures/Health.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Scenes/MashBash/LinePuzzle.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -40,124 +41,22 @@ border_color = Color( 0.215686, 0.215686, 0.215686, 1 )
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxTexture" id=13]
+[sub_resource type="StyleBoxTexture" id=5]
 texture = ExtResource( 13 )
 region_rect = Rect2( 0, 0, 17, 6 )
 axis_stretch_horizontal = 1
 
-[sub_resource type="StyleBoxEmpty" id=14]
+[sub_resource type="StyleBoxEmpty" id=6]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=7]
 size = 24
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=8]
 size = 40
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
-
-[sub_resource type="Animation" id=7]
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/mouth:points")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ PoolVector2Array( -16, -8, -8, 0, 8, 0, 16, -8 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/LEye:points")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ PoolVector2Array( -10, -14.5, -10, -20.5, -14, -24.5, -6, -16.5 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/REye:points")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ PoolVector2Array( 10, -14.5, 10, -20.5, 14, -24.5, 6, -16.5 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, -15.0, 0.0, 15.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=8]
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/mouth:points")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ PoolVector2Array( -16, 0, -8, -8, 8, -8, 16, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/LEye:points")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ PoolVector2Array( -10, -14.5, -10, -20.5, -14, -24.5, -6, -16.5 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/REye:points")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ PoolVector2Array( 10, -14.5, 10, -20.5, 14, -24.5, 6, -16.5 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, -15.0, 0.0, 15.0, 0.0 ]
-}
 
 [sub_resource type="Animation" id=9]
 loop = true
@@ -183,7 +82,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ PoolVector2Array( -10, -14.5, -10, -20.5 ) ]
+"values": [ PoolVector2Array( -10, -14.5, -10, -20.5, -14, -24.5, -6, -16.5 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/REye:points")
@@ -195,7 +94,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ PoolVector2Array( 10, -14.5, 10, -20.5 ) ]
+"values": [ PoolVector2Array( 10, -14.5, 10, -20.5, 14, -24.5, 6, -16.5 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face:rotation_degrees")
@@ -222,7 +121,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ PoolVector2Array( -16, 0, -8, 0, 8, 0, 16, 0 ) ]
+"values": [ PoolVector2Array( -16, 0, -8, -8, 8, -8, 16, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/LEye:points")
@@ -234,7 +133,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ PoolVector2Array( -10, -14.5, -10, -20.5 ) ]
+"values": [ PoolVector2Array( -10, -14.5, -10, -20.5, -14, -24.5, -6, -16.5 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/REye:points")
@@ -246,7 +145,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ PoolVector2Array( 10, -14.5, 10, -20.5 ) ]
+"values": [ PoolVector2Array( 10, -14.5, 10, -20.5, 14, -24.5, 6, -16.5 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face:rotation_degrees")
@@ -273,7 +172,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ PoolVector2Array( -16, 0, -8, -8, 8, -8, 16, 0 ) ]
+"values": [ PoolVector2Array( -16, -8, -8, 0, 8, 0, 16, -8 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/LEye:points")
@@ -324,6 +223,108 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
+"values": [ PoolVector2Array( -16, 0, -8, 0, 8, 0, 16, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/LEye:points")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( -10, -14.5, -10, -20.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/REye:points")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( 10, -14.5, 10, -20.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -15.0, 0.0, 15.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=13]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/mouth:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( -16, 0, -8, -8, 8, -8, 16, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/LEye:points")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( -10, -14.5, -10, -20.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/REye:points")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( 10, -14.5, 10, -20.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -15.0, 0.0, 15.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=14]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/mouth:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
 "values": [ PoolVector2Array( -16, 0, -8, -8, 8, -8, 16, 0 ) ]
 }
 tracks/1/type = "value"
@@ -363,6 +364,11 @@ tracks/3/keys = {
 "values": [ 0.0, -15.0, 0.0, 15.0, 0.0 ]
 }
 
+[sub_resource type="DynamicFont" id=15]
+size = 24
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 10 )
 
@@ -385,7 +391,7 @@ audio_listener_enable_2d = true
 shadow_atlas_size = 4
 
 [node name="Player" parent="P1/Viewport" instance=ExtResource( 7 )]
-position = Vector2( 4096, 432 )
+position = Vector2( -1504, 192 )
 hpbar = NodePath("../Camera2D/Node2D/HealthBar")
 played = true
 camera = NodePath("../Camera2D")
@@ -490,8 +496,8 @@ margin_top = -426.0
 margin_right = -682.0
 margin_bottom = -412.0
 rect_scale = Vector2( 6, 6 )
-custom_styles/fg = SubResource( 13 )
-custom_styles/bg = SubResource( 14 )
+custom_styles/fg = SubResource( 5 )
+custom_styles/bg = SubResource( 6 )
 max_value = 3.0
 step = 1.0
 value = 3.0
@@ -562,7 +568,7 @@ position = Vector2( 352, 172 )
 [node name="Label" type="Label" parent="EndScreen"]
 margin_right = 320.0
 margin_bottom = 128.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 7 )
 text = "-----------
 GAME OVER
 -----------
@@ -592,7 +598,7 @@ margin_left = 32.0
 margin_top = 144.0
 margin_right = 288.0
 margin_bottom = 184.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
 text = "10"
 align = 1
 
@@ -605,7 +611,7 @@ position = Vector2( 352, 172 )
 [node name="Label" type="Label" parent="WINSCREEN"]
 margin_right = 320.0
 margin_bottom = 128.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 7 )
 text = "-
 -
 -
@@ -619,7 +625,7 @@ __meta__ = {
 margin_top = 144.0
 margin_right = 320.0
 margin_bottom = 272.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 7 )
 text = "PRESS ENTER
 TO RETURN"
 align = 1
@@ -637,17 +643,18 @@ centered = false
 flip_v = true
 
 [node name="FaceAnims" type="AnimationPlayer" parent="."]
-anims/evilhappy = SubResource( 7 )
-anims/evilsad = SubResource( 8 )
-anims/happy = SubResource( 9 )
-anims/neutral = SubResource( 10 )
-anims/sad = SubResource( 11 )
-anims/worried = SubResource( 12 )
+anims/evilhappy = SubResource( 9 )
+anims/evilsad = SubResource( 10 )
+anims/happy = SubResource( 11 )
+anims/neutral = SubResource( 12 )
+anims/sad = SubResource( 13 )
+anims/worried = SubResource( 14 )
 
 [node name="Map" type="Node2D" parent="."]
 z_index = 1
 
 [node name="TileMap" type="TileMap" parent="Map" groups=[
+"Walls",
 "map",
 ]]
 scale = Vector2( 64, 64 )
@@ -656,22 +663,24 @@ cell_size = Vector2( 1, 1 )
 cell_quadrant_size = 32
 compatibility_mode = true
 format = 1
-tile_data = PoolIntArray( -2097122, 9, 0, -2097121, 9, 0, -2097120, 9, 0, -2097119, 9, 0, -2097118, 9, 0, -2097117, 9, 0, -2097116, 9, 0, -2097115, 9, 0, -2097114, 9, 0, -2097113, 9, 0, -2031586, 9, 0, -2031577, 9, 0, -1966050, 9, 0, -1966041, 9, 0, -1900516, 9, 0, -1900515, 9, 0, -1900514, 9, 0, -1900505, 9, 0, -1834980, 9, 0, -1834978, 9, 0, -1834969, 9, 0, -1769444, 9, 0, -1769433, 9, 0, -1703908, 9, 0, -1703906, 9, 0, -1703905, 9, 0, -1703904, 9, 0, -1703903, 9, 0, -1703902, 9, 0, -1703901, 9, 0, -1703900, 9, 0, -1703899, 9, 0, -1703898, 9, 0, -1703897, 9, 0, -1638372, 9, 0, -1638370, 9, 0, -1572836, 9, 0, -1572834, 9, 0, -1507300, 9, 0, -1507298, 9, 0, -1441764, 9, 0, -1441762, 9, 0, -1376228, 9, 0, -1376226, 9, 0, -1310692, 9, 0, -1310690, 9, 0, -1245156, 9, 0, -1245154, 9, 0, -1179620, 9, 0, -1179618, 9, 0, -1114084, 9, 0, -1114082, 9, 0, -1048548, 9, 0, -1048546, 9, 0, -983012, 9, 0, -983010, 9, 0, -917476, 9, 0, -917474, 9, 0, -851940, 9, 0, -851938, 9, 0, -786404, 9, 0, -786402, 9, 0, -720868, 9, 0, -720866, 9, 0, -655332, 9, 0, -655330, 9, 0, -589796, 9, 0, -589794, 9, 0, -524260, 9, 0, -524258, 9, 0, -458724, 9, 0, -458722, 9, 0, -393188, 9, 0, -393186, 9, 0, -327652, 9, 0, -327650, 9, 0, -196631, 9, 0, -196630, 9, 0, -196629, 9, 0, -262132, 9, 0, -262131, 9, 0, -262130, 9, 0, -262129, 9, 0, -262128, 9, 0, -262127, 9, 0, -262126, 9, 0, -262125, 9, 0, -262124, 9, 0, -262123, 9, 0, -262122, 9, 0, -262121, 9, 0, -262120, 9, 0, -262119, 9, 0, -262118, 9, 0, -262117, 9, 0, -262116, 9, 0, -262114, 9, 0, -262113, 9, 0, -262112, 9, 0, -262111, 9, 0, -262110, 9, 0, -262109, 9, 0, -262108, 9, 0, -262107, 9, 0, -262106, 9, 0, -262105, 9, 0, -262104, 9, 0, -262103, 9, 0, -262102, 9, 0, -262101, 9, 0, -262100, 9, 0, -262099, 9, 0, -262098, 9, 0, -262097, 9, 0, -262096, 9, 0, -262095, 9, 0, -262094, 9, 0, -262093, 9, 0, -262092, 9, 0, -262091, 9, 0, -262090, 9, 0, -262089, 9, 0, -262088, 9, 0, -262087, 9, 0, -262086, 9, 0, -262085, 9, 0, -262084, 9, 0, -262083, 0, 0, -262082, 0, 0, -262081, 0, 0, -262080, 0, 0, -262079, 0, 0, -262078, 0, 0, -262077, 0, 0, -131095, 9, 0, -196593, 9, 0, -196580, 9, 0, -196547, 0, 0, -196541, 0, 0, -65559, 9, 0, -131057, 9, 0, -131044, 9, 0, -131011, 0, 0, -131005, 0, 0, -23, 9, 0, -21, 9, 0, -20, 9, 0, -19, 9, 0, -18, 9, 0, -17, 9, 0, -16, 9, 0, -15, 9, 0, -14, 9, 0, -13, 9, 0, -12, 9, 0, -11, 9, 0, -10, 9, 0, -9, 9, 0, -8, 9, 0, -7, 9, 0, -6, 9, 0, -5, 9, 0, -4, 9, 0, -3, 9, 0, -2, 9, 0, -1, 9, 0, -65536, 9, 0, -65535, 9, 0, -65534, 9, 0, -65533, 9, 0, -65532, 9, 0, -65531, 9, 0, -65530, 9, 0, -65529, 9, 0, -65528, 9, 0, -65527, 9, 0, -65526, 9, 0, -65525, 9, 0, -65524, 9, 0, -65521, 9, 0, -65508, 9, 0, -65475, 0, 0, -65469, 0, 0, 65513, 9, 0, 65527, 9, 0, 12, 9, 0, 15, 9, 0, 28, 9, 0, 61, 0, 0, 67, 0, 0, 131049, 9, 0, 131050, 9, 0, 131051, 9, 0, 131052, 9, 0, 131053, 9, 0, 131054, 9, 0, 131055, 9, 0, 131056, 9, 0, 131057, 9, 0, 131058, 9, 0, 131059, 9, 0, 131060, 9, 0, 131061, 9, 0, 131063, 9, 0, 65548, 9, 0, 65551, 9, 0, 65552, 9, 0, 65561, 9, 0, 65562, 9, 0, 65563, 9, 0, 65564, 9, 0, 65597, 0, 0, 65603, 0, 0, 196592, 9, 0, 196597, 9, 0, 196599, 9, 0, 131084, 9, 0, 131100, 9, 0, 131133, 0, 0, 131139, 0, 0, 262128, 9, 0, 262133, 9, 0, 262135, 9, 0, 196620, 9, 0, 196675, 0, 0, 327664, 9, 0, 262156, 9, 0, 262159, 9, 0, 262160, 9, 0, 262161, 9, 0, 262162, 9, 0, 262163, 9, 0, 262164, 9, 0, 262165, 9, 0, 262166, 9, 0, 262167, 9, 0, 262168, 9, 0, 262169, 9, 0, 262170, 9, 0, 262171, 9, 0, 262172, 9, 0, 262211, 0, 0, 393200, 9, 0, 327692, 9, 0, 327695, 9, 0, 327708, 9, 0, 327747, 0, 0, 458736, 9, 0, 393227, 9, 0, 393228, 9, 0, 393231, 9, 0, 393244, 9, 0, 393283, 0, 0, 524272, 9, 0, 458767, 9, 0, 458780, 9, 0, 458813, 0, 0, 458819, 0, 0, 589808, 9, 0, 524303, 9, 0, 524316, 9, 0, 524349, 0, 0, 524355, 0, 0, 655344, 9, 0, 655345, -2147483639, 0, 655346, -2147483639, 0, 655347, -2147483639, 0, 655348, -2147483639, 0, 655349, -2147483639, 0, 655350, -2147483639, 0, 655351, -2147483639, 0, 655352, -2147483639, 0, 655353, -2147483639, 0, 655354, -2147483639, 0, 655355, -2147483639, 0, 655356, -2147483639, 0, 655357, -2147483639, 0, 655358, -2147483639, 0, 655359, -2147483639, 0, 589824, -2147483639, 0, 589825, -2147483639, 0, 589826, -2147483639, 0, 589827, -2147483639, 0, 589828, -2147483639, 0, 589829, -2147483639, 0, 589830, -2147483639, 0, 589831, -2147483639, 0, 589832, -2147483639, 0, 589833, -2147483639, 0, 589834, -2147483639, 0, 589835, -2147483639, 0, 589836, -2147483639, 0, 589837, -2147483639, 0, 589838, -2147483639, 0, 589839, -2147483639, 0, 589840, -2147483639, 0, 589841, -2147483639, 0, 589842, -2147483639, 0, 589843, -2147483639, 0, 589844, -2147483639, 0, 589845, -2147483639, 0, 589846, -2147483639, 0, 589847, -2147483639, 0, 589848, -2147483639, 0, 589849, -2147483639, 0, 589850, -2147483639, 0, 589851, -2147483639, 0, 589852, -2147483639, 0, 589853, 6, 0, 589854, 6, 0, 589855, 6, 0, 589856, 6, 0, 589857, 6, 0, 589858, 6, 0, 589859, 6, 0, 589860, 6, 0, 589861, 6, 0, 589862, 6, 0, 589863, 6, 0, 589864, 6, 0, 589865, 6, 0, 589866, 6, 0, 589867, 6, 0, 589868, 6, 0, 589869, 6, 0, 589870, 6, 0, 589871, 6, 0, 589872, 6, 0, 589873, 6, 0, 589874, 6, 0, 589875, 6, 0, 589876, 6, 0, 589877, 6, 0, 589878, 6, 0, 589879, 6, 0, 589880, 6, 0, 589881, 6, 0, 589882, 6, 0, 589883, 6, 0, 589884, 6, 0, 589885, 0, 0, 589886, 0, 0, 589887, 0, 0, 589888, 0, 0, 589889, 0, 0, 589890, 0, 0, 589891, 0, 0 )
+tile_data = PoolIntArray( -2097122, 9, 0, -2097121, 9, 0, -2097120, 9, 0, -2097119, 9, 0, -2097118, 9, 0, -2097117, 9, 0, -2097116, 9, 0, -2097115, 9, 0, -2097114, 9, 0, -2097113, 9, 0, -2031586, 9, 0, -2031577, 9, 0, -1966050, 9, 0, -1966041, 9, 0, -1900516, 9, 0, -1900515, 9, 0, -1900514, 9, 0, -1900505, 9, 0, -1834980, 9, 0, -1834978, 9, 0, -1834969, 9, 0, -1769444, 9, 0, -1769433, 9, 0, -1703908, 9, 0, -1703906, 9, 0, -1703905, 9, 0, -1703904, 9, 0, -1703903, 9, 0, -1703902, 9, 0, -1703901, 9, 0, -1703900, 9, 0, -1703899, 9, 0, -1703898, 9, 0, -1703897, 9, 0, -1638372, 9, 0, -1638370, 9, 0, -1572836, 9, 0, -1572834, 9, 0, -1507300, 9, 0, -1507298, 9, 0, -1441764, 9, 0, -1441762, 9, 0, -1376228, 9, 0, -1376226, 9, 0, -1310692, 9, 0, -1310690, 9, 0, -1245156, 9, 0, -1245154, 9, 0, -1179620, 9, 0, -1179618, 9, 0, -1114084, 9, 0, -1114082, 9, 0, -1048548, 9, 0, -1048546, 9, 0, -983012, 9, 0, -983010, 9, 0, -917476, 9, 0, -917474, 9, 0, -851940, 9, 0, -851938, 9, 0, -786404, 9, 0, -786402, 9, 0, -720868, 9, 0, -720866, 9, 0, -655332, 9, 0, -655330, 9, 0, -589796, 9, 0, -589794, 9, 0, -524260, 9, 0, -524258, 9, 0, -458724, 9, 0, -458722, 9, 0, -393188, 9, 0, -393186, 9, 0, -327652, 9, 0, -327650, 9, 0, -196652, -1610612723, 0, -196651, -1610612723, 0, -196650, -1610612723, 0, -196649, -1610612723, 0, -196648, -1610612723, 0, -196647, -1610612723, 0, -196646, -1610612723, 0, -196645, -1610612723, 0, -196644, -1610612723, 0, -196643, -1610612723, 0, -196642, -1610612723, 0, -196641, -1610612723, 0, -196640, -1610612723, 0, -196639, -1610612723, 0, -196638, -1610612723, 0, -196637, -1610612723, 0, -196636, -1610612723, 0, -196635, -1610612723, 0, -196634, -1610612723, 0, -196633, -1610612723, 0, -196632, -1610612723, 0, -196631, 9, 0, -196630, 9, 0, -196629, 9, 0, -262132, 9, 0, -262131, 9, 0, -262130, 9, 0, -262129, 9, 0, -262128, 9, 0, -262127, 9, 0, -262126, 9, 0, -262125, 9, 0, -262124, 9, 0, -262123, 9, 0, -262122, 9, 0, -262121, 9, 0, -262120, 9, 0, -262119, 9, 0, -262118, 9, 0, -262117, 9, 0, -262116, 9, 0, -262114, 9, 0, -262113, 9, 0, -262112, 9, 0, -262111, 9, 0, -262110, 9, 0, -262109, 9, 0, -262108, 9, 0, -262107, 9, 0, -262106, 9, 0, -262105, 9, 0, -262104, 9, 0, -262103, 9, 0, -262102, 9, 0, -262101, 9, 0, -262100, 9, 0, -262099, 9, 0, -262098, 9, 0, -262097, 9, 0, -262096, 9, 0, -262095, 9, 0, -262094, 9, 0, -262093, 9, 0, -262092, 9, 0, -262091, 9, 0, -262090, 9, 0, -262089, 9, 0, -262088, 9, 0, -262087, 9, 0, -262086, 9, 0, -262085, 9, 0, -262084, 9, 0, -262083, 0, 0, -262082, 0, 0, -262081, 0, 0, -262080, 0, 0, -262079, 0, 0, -262078, 0, 0, -262077, 0, 0, -131116, -1610612723, 0, -131110, -1610612723, 0, -131105, -1610612723, 0, -131104, -1610612723, 0, -131103, -1610612723, 0, -131096, -1610612723, 0, -131095, 9, 0, -196593, 9, 0, -196580, 9, 0, -196547, 0, 0, -196541, 0, 0, -65580, -1610612723, 0, -65571, -1610612723, 0, -65569, -1610612723, 0, -65568, -1610612723, 0, -65567, -1610612723, 0, -65560, -1610612723, 0, -65559, 9, 0, -131057, 9, 0, -131044, 9, 0, -131011, 0, 0, -131005, 0, 0, -44, -1610612723, 0, -40, -1610612723, 0, -39, -1610612723, 0, -38, -1610612723, 0, -37, -1610612723, 0, -36, -1610612723, 0, -35, -1610612723, 0, -24, -1610612723, 0, -23, 9, 0, -21, 9, 0, -20, 9, 0, -19, 9, 0, -18, 9, 0, -17, 9, 0, -16, 9, 0, -15, 9, 0, -14, 9, 0, -13, 9, 0, -12, 9, 0, -11, 9, 0, -10, 9, 0, -9, 9, 0, -8, 13, 0, -7, 13, 0, -6, 13, 0, -5, 13, 0, -4, 13, 0, -3, 13, 0, -2, 13, 0, -1, 13, 0, -65536, 13, 0, -65535, 13, 0, -65534, 13, 0, -65533, 13, 0, -65532, 13, 0, -65531, 13, 0, -65530, 13, 0, -65529, 13, 0, -65528, 13, 0, -65527, 13, 0, -65526, 13, 0, -65525, 13, 0, -65524, 13, 0, -65521, 9, 0, -65508, 9, 0, -65475, 0, 0, -65469, 0, 0, 65492, -1610612723, 0, 65496, -1610612723, 0, 65501, -1610612723, 0, 65502, -1610612723, 0, 65503, -1610612723, 0, 65510, -1610612723, 0, 65512, -1610612723, 0, 65513, 9, 0, 65527, 9, 0, 65529, 13, 0, 65530, 13, 0, 65535, 13, 0, 0, 13, 0, 1, 13, 0, 2, 13, 0, 12, 13, 0, 15, 9, 0, 28, 9, 0, 61, 0, 0, 67, 0, 0, 131028, -1610612723, 0, 131030, -1610612723, 0, 131032, -1610612723, 0, 131037, -1610612723, 0, 131048, -1610612723, 0, 131049, -1610612726, 0, 131050, -1610612726, 0, 131051, -1610612726, 0, 131052, -1610612726, 0, 131053, -1610612726, 0, 131054, -1610612726, 0, 131055, -1610612726, 0, 131056, -1610612726, 0, 131057, -1610612726, 0, 131058, -1610612726, 0, 131059, -1610612726, 0, 131060, -1610612726, 0, 131061, -1610612726, 0, 131063, -1610612726, 0, 131068, 13, 0, 131069, 13, 0, 65538, 13, 0, 65540, 13, 0, 65542, 13, 0, 65545, 13, 0, 65547, 13, 0, 65548, 13, 0, 65549, 9, 0, 65550, 9, 0, 65551, 9, 0, 65552, 9, 0, 65553, -1610612727, 0, 65554, -1610612727, 0, 65555, -1610612727, 0, 65556, -1610612727, 0, 65561, 9, 0, 65562, 9, 0, 65563, 9, 0, 65564, 9, 0, 65597, 0, 0, 65603, 0, 0, 196564, -1610612723, 0, 196568, -1610612723, 0, 196573, -1610612723, 0, 196585, -1610612726, 0, 196597, -1610612726, 0, 196599, -1610612726, 0, 196600, 13, 0, 196601, 13, 0, 196602, 13, 0, 196604, 13, 0, 196605, 13, 0, 196606, 13, 0, 131072, 13, 0, 131074, 13, 0, 131076, 13, 0, 131078, 13, 0, 131079, 13, 0, 131081, 13, 0, 131084, 13, 0, 131100, 9, 0, 131133, 0, 0, 131139, 0, 0, 262100, -1610612723, 0, 262104, -1610612723, 0, 262113, -1610612723, 0, 262116, -1610612723, 0, 262120, -1610612723, 0, 262121, -1610612726, 0, 262122, -1610612726, 0, 262123, -1610612726, 0, 262124, -1610612726, 0, 262125, -1610612726, 0, 262126, -1610612726, 0, 262127, -1610612726, 0, 262128, -1610612726, 0, 262129, -1610612726, 0, 262130, -1610612726, 0, 262131, -1610612726, 0, 262133, -1610612726, 0, 262134, -1610612726, 0, 262135, -1610612726, 0, 262136, 13, 0, 262138, 13, 0, 196612, 13, 0, 196617, 13, 0, 196618, 13, 0, 196620, 13, 0, 196669, 0, 0, 196675, 0, 0, 327636, -1610612723, 0, 327640, -1610612723, 0, 327648, -1610612723, 0, 327653, -1610612723, 0, 327654, -1610612723, 0, 327656, -1610612723, 0, 327657, -1610612726, 0, 327669, -1610612726, 0, 327672, 13, 0, 327674, 13, 0, 327675, 13, 0, 327676, 13, 0, 327678, 13, 0, 327679, 13, 0, 262144, 13, 0, 262145, 13, 0, 262146, 13, 0, 262148, 13, 0, 262149, 13, 0, 262150, 13, 0, 262151, 13, 0, 262153, 13, 0, 262156, 13, 0, 262157, 9, 0, 262158, 9, 0, 262159, 9, 0, 262160, 9, 0, 262161, 9, 0, 262162, 9, 0, 262163, 9, 0, 262164, 9, 0, 262165, 9, 0, 262166, 9, 0, 262167, 9, 0, 262168, 9, 0, 262169, 9, 0, 262170, 9, 0, 262171, 9, 0, 262172, 9, 0, 262205, 0, 0, 262211, 0, 0, 393172, -1610612723, 0, 393175, -1610612723, 0, 393176, -1610612723, 0, 393177, -1610612723, 0, 393178, -1610612723, 0, 393182, -1610612723, 0, 393183, -1610612723, 0, 393190, -1610612723, 0, 393192, -1610612723, 0, 393193, -1610612726, 0, 393195, -1610612726, 0, 393205, -1610612726, 0, 393208, 13, 0, 393214, 13, 0, 327682, 13, 0, 327686, 13, 0, 327689, 13, 0, 327691, 13, 0, 327692, 9, 0, 327695, 9, 0, 327708, 9, 0, 327741, 0, 0, 327747, 0, 0, 458708, -1610612723, 0, 458718, -1610612723, 0, 458721, -1610612723, 0, 458722, -1610612723, 0, 458723, -1610612723, 0, 458724, -1610612723, 0, 458725, -1610612723, 0, 458726, -1610612723, 0, 458728, -1610612723, 0, 458729, -1610612726, 0, 458731, -1610612726, 0, 458732, -1610612726, 0, 458733, -1610612726, 0, 458734, -1610612726, 0, 458735, -1610612726, 0, 458736, -1610612726, 0, 458737, -1610612726, 0, 458738, -1610612726, 0, 458739, -1610612726, 0, 458740, -1610612726, 0, 458741, -1610612726, 0, 458744, 13, 0, 458745, 13, 0, 458746, 13, 0, 458747, 13, 0, 458748, 13, 0, 458749, 13, 0, 458750, 13, 0, 393216, 13, 0, 393218, 13, 0, 393219, 13, 0, 393220, 13, 0, 393222, 13, 0, 393224, 13, 0, 393225, 13, 0, 393227, 13, 0, 393228, 9, 0, 393231, 9, 0, 393244, 9, 0, 393277, 0, 0, 393283, 0, 0, 524244, -1610612723, 0, 524250, -1610612723, 0, 524254, -1610612723, 0, 524257, -1610612723, 0, 524262, -1610612723, 0, 524264, -1610612723, 0, 524265, -1610612726, 0, 458752, 13, 0, 458761, 13, 0, 458767, 9, 0, 458780, 9, 0, 458813, 0, 0, 458819, 0, 0, 589780, -1610612723, 0, 589786, -1610612723, 0, 589798, -1610612723, 0, 589800, -1610612723, 0, 589801, -1610612726, 0, 589816, 13, 0, 589817, 13, 0, 589818, 13, 0, 589819, 13, 0, 589820, 13, 0, 589821, 13, 0, 589822, 13, 0, 524289, 13, 0, 524290, 13, 0, 524291, 13, 0, 524292, 13, 0, 524293, 13, 0, 524294, 13, 0, 524295, 13, 0, 524296, 13, 0, 524297, 13, 0, 524303, 9, 0, 524316, 9, 0, 524349, 0, 0, 524355, 0, 0, 655316, -1610612723, 0, 655317, -1610612723, 0, 655318, -1610612723, 0, 655319, -1610612723, 0, 655320, -1610612723, 0, 655321, -1610612723, 0, 655322, -1610612723, 0, 655323, -1610612723, 0, 655324, -1610612723, 0, 655325, -1610612723, 0, 655326, -1610612723, 0, 655327, -1610612723, 0, 655328, -1610612723, 0, 655329, -1610612723, 0, 655330, -1610612723, 0, 655331, -1610612723, 0, 655332, -1610612723, 0, 655333, -1610612723, 0, 655334, -1610612723, 0, 655335, -1610612723, 0, 655336, -1610612723, 0, 655337, -1610612726, 0, 655338, -1610612726, 0, 655339, -1610612726, 0, 655340, -1610612726, 0, 655341, -1610612726, 0, 655342, -1610612726, 0, 655343, -1610612726, 0, 655344, -1610612726, 0, 655345, -1610612726, 0, 655346, -1610612726, 0, 655347, -1610612726, 0, 655348, -1610612726, 0, 655349, -1610612726, 0, 655350, -1610612726, 0, 655351, -1610612726, 0, 655352, 13, 0, 655353, 13, 0, 655354, 13, 0, 655355, 13, 0, 655356, 13, 0, 655357, 13, 0, 655358, 13, 0, 655359, 13, 0, 589824, 13, 0, 589825, 13, 0, 589826, 13, 0, 589827, 13, 0, 589828, 13, 0, 589829, 13, 0, 589830, 13, 0, 589831, 13, 0, 589832, 13, 0, 589833, 13, 0, 589834, 13, 0, 589835, 13, 0, 589836, -2147483639, 0, 589837, -2147483639, 0, 589838, -2147483639, 0, 589839, -2147483639, 0, 589840, -2147483639, 0, 589841, -2147483639, 0, 589842, -2147483639, 0, 589843, -2147483639, 0, 589844, -2147483639, 0, 589845, -2147483639, 0, 589846, -2147483639, 0, 589847, -2147483639, 0, 589848, -2147483639, 0, 589849, -2147483639, 0, 589850, -2147483639, 0, 589851, -2147483639, 0, 589852, -2147483639, 0, 589853, 6, 0, 589854, 6, 0, 589855, 6, 0, 589856, 6, 0, 589857, 6, 0, 589858, 6, 0, 589859, 6, 0, 589860, 6, 0, 589861, 6, 0, 589862, 6, 0, 589863, 6, 0, 589864, 6, 0, 589865, 6, 0, 589866, 6, 0, 589867, 6, 0, 589868, 6, 0, 589869, 6, 0, 589870, 6, 0, 589871, 6, 0, 589872, 6, 0, 589873, 6, 0, 589874, 6, 0, 589875, 6, 0, 589876, 6, 0, 589877, 6, 0, 589878, 6, 0, 589879, 6, 0, 589880, 6, 0, 589881, 6, 0, 589882, 6, 0, 589883, 6, 0, 589884, 6, 0, 589885, 0, 0, 589886, 0, 0, 589887, 0, 0, 589888, 0, 0, 589889, 0, 0, 589890, 0, 0, 589891, 0, 0, 720852, -1610612735, 0, 720853, -1610612735, 0, 720854, -1610612735, 0, 720855, -1610612735, 0, 720856, -1610612735, 0, 720857, -1610612735, 0, 720858, -1610612735, 0, 720859, -1610612735, 0, 720860, -1610612735, 0, 720861, -1610612735, 0, 720862, -1610612735, 0, 720863, -1610612735, 0, 720864, -1610612735, 0, 720865, -1610612735, 0, 720866, -1610612735, 0, 720868, -1610612735, 0, 720869, -1610612735, 0, 720870, -1610612735, 0, 720871, -1610612735, 0, 720872, -1610612735, 0, 786388, -1610612735, 0, 786408, -1610612735, 0, 851924, -1610612735, 0, 851944, -1610612735, 0, 917460, -1610612735, 0, 917480, -1610612735, 0, 982996, -1610612735, 0, 983016, -1610612735, 0, 1048532, -1610612735, 0, 1048552, -1610612735, 0, 1114068, -1610612735, 0, 1114088, -1610612735, 0, 1179604, -1610612735, 0, 1179624, -1610612735, 0, 1245140, -1610612735, 0, 1245160, -1610612735, 0, 1310676, -1610612735, 0, 1310696, -1610612735, 0, 1376212, -1610612735, 0, 1376232, -1610612735, 0, 1441748, -1610612735, 0, 1441768, -1610612735, 0, 1507284, -1610612735, 0, 1507304, -1610612735, 0, 1572820, -1610612735, 0, 1572840, -1610612735, 0, 1638356, -1610612735, 0, 1638357, -1610612735, 0, 1638358, -1610612735, 0, 1638359, -1610612735, 0, 1638360, -1610612735, 0, 1638361, -1610612735, 0, 1638362, -1610612735, 0, 1638363, -1610612735, 0, 1638364, -1610612735, 0, 1638365, -1610612735, 0, 1638366, -1610612735, 0, 1638367, -1610612735, 0, 1638368, -1610612735, 0, 1638369, -1610612735, 0, 1638370, -1610612735, 0, 1638371, -1610612735, 0, 1638372, -1610612735, 0, 1638373, -1610612735, 0, 1638374, -1610612735, 0, 1638375, -1610612735, 0, 1638376, -1610612735, 0 )
 
-[node name="TileMap2" type="TileMap" parent="Map"]
+[node name="TileMap2" type="TileMap" parent="Map" groups=[
+"Walls",
+]]
 scale = Vector2( 5.333, 5.333 )
 tile_set = ExtResource( 4 )
 cell_size = Vector2( 12, 12 )
 cell_quadrant_size = 32
 format = 1
-tile_data = PoolIntArray( -1834979, 19, 0, -196564, 19, 0, -196542, 18, 0, -131006, 18, 0, -65470, 18, 0, 66, 18, 0, 65602, 18, 0, 131138, 18, 0, 196674, 18, 0, 262210, 18, 0, 327746, 18, 0, 393282, 18, 0, 458818, 18, 0, 524354, 18, 0 )
+tile_data = PoolIntArray( -1834979, 19, 0, -196564, 19, 0 )
 
 [node name="Events" type="Node2D" parent="Map"]
 
 [node name="LoadEvent" parent="Map/Events" instance=ExtResource( 11 )]
 position = Vector2( 4096, 512 )
 scale = Vector2( 2, 2 )
-eventDATA = [ [ "AI.TEXT", 12 ] ]
+eventDATA = [ [ "AI.TEXT", 12 ], [ "CHANGE.TILE", [ Vector3( 61, 3, -1 ), Vector3( 61, 4, -1 ), Vector3( 61, 5, -1 ), Vector3( 61, 6, -1 ) ], 4 ] ]
 
 [node name="LoadEvent2" parent="Map/Events" instance=ExtResource( 11 )]
 position = Vector2( 3904, 192 )
@@ -686,11 +695,6 @@ eventDATA = [ [ "CHECKPOINT" ], [ "AI.TEXT", 14 ] ]
 [node name="LoadEvent3" parent="Map/Events" instance=ExtResource( 11 )]
 position = Vector2( 2880, 592 )
 scale = Vector2( 32, 1 )
-eventDATA = [ [ "R.T.C" ] ]
-
-[node name="LoadEvent4" parent="Map/Events" instance=ExtResource( 11 )]
-position = Vector2( 4256, 192 )
-scale = Vector2( 1, 12 )
 eventDATA = [ [ "R.T.C" ] ]
 
 [node name="LoadEvent5" parent="Map/Events" instance=ExtResource( 11 )]
@@ -708,17 +712,26 @@ eventDATA = [ [ "AI.TEXT", 15 ] ]
 [node name="LoadEvent9" parent="Map/Events" instance=ExtResource( 11 )]
 position = Vector2( 992, 192 )
 scale = Vector2( 1, 2 )
-eventDATA = [ [ "AI.TEXT", 16 ] ]
+eventDATA = [ [ "AI.TEXT", 16 ], [ "CHANGE.TILE", [ Vector3( 13, 1, -1 ), Vector3( 14, 1, -1 ), Vector3( 13, 4, -1 ), Vector3( 14, 4, -1 ) ], 5 ] ]
 
 [node name="LoadEvent10" parent="Map/Events" instance=ExtResource( 11 )]
 position = Vector2( 800, -128 )
 scale = Vector2( 1, 2 )
-eventDATA = [ [ "AI.TEXT", 18 ], [ "CHANGE.TILE", [ Vector3( 13, -1, 1 ), Vector3( 14, -1, 1 ) ] ], [ "CHECKPOINT" ] ]
+eventDATA = [ [ "AI.TEXT", 18 ], [ "CHECKPOINT" ], [ "REMOVE.EVENT", NodePath("../LoadEvent11") ] ]
+
+[node name="LoadEvent12" parent="Map/Events" instance=ExtResource( 11 )]
+position = Vector2( -1280, 32 )
+eventDATA = [ [ "AI.TEXT", 19 ], [ "CHECKPOINT" ], [ "REMOVE.TILE", Vector2( -10, 3 ) ] ]
+
+[node name="LoadEvent13" parent="Map/Events" instance=ExtResource( 11 )]
+position = Vector2( -576, 448 )
+scale = Vector2( 1, 2 )
+eventDATA = [ [ "AI.TEXT", 20 ], [ "CHECKPOINT" ] ]
 
 [node name="LoadEvent11" parent="Map/Events" instance=ExtResource( 11 )]
 position = Vector2( 736, 512 )
 scale = Vector2( 1, 2 )
-eventDATA = [ [ "AI.TEXT", 17 ], [ "CHANGE.TILE", [ Vector3( 13, 4, 1 ), Vector3( 14, 4, 1 ) ] ] ]
+eventDATA = [ [ "AI.TEXT", 17 ], [ "CHANGE.TILE.NOW", [ Vector3( 13, 4, 1 ), Vector3( 14, 4, 1 ) ] ], [ "CHECKPOINT" ], [ "REMOVE.EVENT", NodePath("../LoadEvent10") ] ]
 
 [node name="Entities" type="Node2D" parent="Map"]
 
@@ -808,54 +821,10 @@ color = 15
 [node name="LoadEvent4" parent="Map/Entities/Platform9" instance=ExtResource( 11 )]
 eventDATA = [ [ "R.T.C" ] ]
 
-[node name="Platform10" parent="Map/Entities" instance=ExtResource( 9 )]
-position = Vector2( 1312, 32 )
-scale = Vector2( 1, 3 )
-direction = Vector2( 0, 128 )
-time = 1.0
-moveDistance = 128
-color = 15
-
-[node name="LoadEvent4" parent="Map/Entities/Platform10" instance=ExtResource( 11 )]
-eventDATA = [ [ "R.T.C" ] ]
-
-[node name="Platform11" parent="Map/Entities" instance=ExtResource( 9 )]
-position = Vector2( 1184, 32 )
-scale = Vector2( 1, 3 )
-direction = Vector2( 0, 128 )
-time = 1.0
-moveDistance = 128
-color = 15
-
-[node name="LoadEvent4" parent="Map/Entities/Platform11" instance=ExtResource( 11 )]
-eventDATA = [ [ "R.T.C" ] ]
-
-[node name="Platform12" parent="Map/Entities" instance=ExtResource( 9 )]
-position = Vector2( 1248, 160 )
-scale = Vector2( 1, 3 )
-direction = Vector2( 0, -128 )
-time = 1.0
-moveDistance = 128
-color = 15
-
-[node name="LoadEvent4" parent="Map/Entities/Platform12" instance=ExtResource( 11 )]
-eventDATA = [ [ "R.T.C" ] ]
-
-[node name="Platform13" parent="Map/Entities" instance=ExtResource( 9 )]
-position = Vector2( 1120, 160 )
-scale = Vector2( 1, 3 )
-direction = Vector2( 0, -128 )
-time = 1.0
-moveDistance = 128
-color = 15
-
-[node name="LoadEvent4" parent="Map/Entities/Platform13" instance=ExtResource( 11 )]
-eventDATA = [ [ "R.T.C" ] ]
-
 [node name="Platform14" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( 736, -288 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, 128 )
+direction = Vector2( 0, 32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -866,7 +835,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform15" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( 608, -288 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, 128 )
+direction = Vector2( 0, 32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -877,7 +846,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform16" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( 672, -160 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, -128 )
+direction = Vector2( 0, -32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -888,7 +857,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform17" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( 544, -160 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, -128 )
+direction = Vector2( 0, -32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -899,7 +868,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform18" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( 480, -288 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, 128 )
+direction = Vector2( 0, 32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -910,7 +879,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform19" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( 352, -288 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, 128 )
+direction = Vector2( 0, 32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -921,7 +890,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform20" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( 416, -160 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, -128 )
+direction = Vector2( 0, -32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -932,7 +901,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform21" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( 288, -160 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, -128 )
+direction = Vector2( 0, -32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -943,7 +912,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform22" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( 224, -288 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, 128 )
+direction = Vector2( 0, 32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -954,7 +923,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform23" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( 96, -288 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, 128 )
+direction = Vector2( 0, 32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -965,7 +934,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform24" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( 160, -160 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, -128 )
+direction = Vector2( 0, -32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -976,7 +945,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform25" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( 32, -160 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, -128 )
+direction = Vector2( 0, -32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -987,7 +956,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform26" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -32, -288 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, 128 )
+direction = Vector2( 0, 32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -998,7 +967,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform27" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -160, -288 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, 128 )
+direction = Vector2( 0, 32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -1009,7 +978,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform28" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -96, -160 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, -128 )
+direction = Vector2( 0, -32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -1020,7 +989,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform29" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -224, -160 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, -128 )
+direction = Vector2( 0, -32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -1031,7 +1000,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform30" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -288, -288 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, 128 )
+direction = Vector2( 0, 32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -1042,7 +1011,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform31" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -416, -288 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, 128 )
+direction = Vector2( 0, 32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -1053,7 +1022,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform32" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -352, -160 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, -128 )
+direction = Vector2( 0, -32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -1064,7 +1033,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform33" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -480, -160 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, -128 )
+direction = Vector2( 0, -32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -1075,7 +1044,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform34" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -544, -288 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, 128 )
+direction = Vector2( 0, 32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -1086,7 +1055,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform35" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -672, -288 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, 128 )
+direction = Vector2( 0, 32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -1097,7 +1066,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform36" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -608, -160 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, -128 )
+direction = Vector2( 0, -32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -1108,7 +1077,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform37" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -736, -160 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, -128 )
+direction = Vector2( 0, -32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -1119,7 +1088,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform38" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -800, -288 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, 128 )
+direction = Vector2( 0, 32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -1130,7 +1099,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform39" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -928, -288 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, 128 )
+direction = Vector2( 0, 32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -1141,7 +1110,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform40" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -864, -160 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, -128 )
+direction = Vector2( 0, -32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -1152,7 +1121,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform41" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -992, -160 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, -128 )
+direction = Vector2( 0, -32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -1163,7 +1132,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform42" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -1056, -288 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, 128 )
+direction = Vector2( 0, 32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -1174,7 +1143,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform43" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -1184, -288 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, 128 )
+direction = Vector2( 0, 32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -1185,7 +1154,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform44" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -1120, -160 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, -128 )
+direction = Vector2( 0, -32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -1196,7 +1165,7 @@ eventDATA = [ [ "R.T.C" ] ]
 [node name="Platform45" parent="Map/Entities" instance=ExtResource( 9 )]
 position = Vector2( -1248, -160 )
 scale = Vector2( 1, 3 )
-direction = Vector2( 0, -128 )
+direction = Vector2( 0, -32 )
 time = 1.0
 moveDistance = 128
 color = 15
@@ -1221,6 +1190,167 @@ text = "FREE
 CAKE"
 __meta__ = {
 "_edit_use_anchors_": false
+}
+
+[node name="puzzles" type="Node2D" parent="Map"]
+
+[node name="linepuzzle" type="Node2D" parent="Map/puzzles"]
+z_index = -2
+
+[node name="LinePuzzle" parent="Map/puzzles/linepuzzle" instance=ExtResource( 14 )]
+position = Vector2( -544, 576 )
+startpoint = true
+
+[node name="Label" type="Label" parent="Map/puzzles/linepuzzle/LinePuzzle"]
+margin_left = -30.0
+margin_top = -96.0
+margin_right = 90.0
+margin_bottom = -61.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 15 )
+text = "START"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="LinePuzzle2" parent="Map/puzzles/linepuzzle" instance=ExtResource( 14 )]
+position = Vector2( -864, 576 )
+
+[node name="LinePuzzle3" parent="Map/puzzles/linepuzzle" instance=ExtResource( 14 )]
+position = Vector2( -1408, 480 )
+rotation = 1.5708
+
+[node name="LinePuzzle4" parent="Map/puzzles/linepuzzle" instance=ExtResource( 14 )]
+position = Vector2( -1376, 232 )
+rotation = 3.14159
+
+[node name="LinePuzzle5" parent="Map/puzzles/linepuzzle" instance=ExtResource( 14 )]
+position = Vector2( -704, 352 )
+rotation = 4.71239
+
+[node name="LinePuzzle6" parent="Map/puzzles/linepuzzle" instance=ExtResource( 14 )]
+position = Vector2( -720, 128 )
+rotation = 3.14159
+
+[node name="LinePuzzle7" parent="Map/puzzles/linepuzzle" instance=ExtResource( 14 )]
+position = Vector2( -1376, 192 )
+final = true
+finalevent = [ [ "AI.TEXT", 21 ], [ "CHANGE.TILE", [ Vector3( -23, 2, -1 ) ], 4 ] ]
+
+[node name="Label" type="Label" parent="Map/puzzles/linepuzzle/LinePuzzle7"]
+margin_left = 12.0
+margin_top = -64.0
+margin_right = 156.0
+margin_bottom = -29.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 15 )
+text = "FINISH"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="linepuzzle2" type="Node2D" parent="Map/puzzles"]
+z_index = -2
+
+[node name="LinePuzzle" parent="Map/puzzles/linepuzzle2" instance=ExtResource( 14 )]
+position = Vector2( -1568, 576 )
+startpoint = true
+
+[node name="Label" type="Label" parent="Map/puzzles/linepuzzle2/LinePuzzle"]
+margin_left = -30.0
+margin_top = -96.0
+margin_right = 90.0
+margin_bottom = -61.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 15 )
+text = "START"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="LinePuzzle2" parent="Map/puzzles/linepuzzle2" instance=ExtResource( 14 )]
+position = Vector2( -1632, 8 )
+rotation = 1.5708
+
+[node name="LinePuzzle3" parent="Map/puzzles/linepuzzle2" instance=ExtResource( 14 )]
+position = Vector2( -1760, -224 )
+rotation = 3.14159
+
+[node name="LinePuzzle4" parent="Map/puzzles/linepuzzle2" instance=ExtResource( 14 )]
+position = Vector2( -2784, 528 )
+rotation = 1.5708
+
+[node name="LinePuzzle5" parent="Map/puzzles/linepuzzle2" instance=ExtResource( 14 )]
+position = Vector2( -2144, 344 )
+
+[node name="LinePuzzle10" parent="Map/puzzles/linepuzzle2" instance=ExtResource( 14 )]
+position = Vector2( -2656, 96 )
+
+[node name="LinePuzzle11" parent="Map/puzzles/linepuzzle2" instance=ExtResource( 14 )]
+position = Vector2( -2536, 96 )
+rotation = -1.5708
+
+[node name="LinePuzzle12" parent="Map/puzzles/linepuzzle2" instance=ExtResource( 14 )]
+position = Vector2( -2408, -144 )
+rotation = -1.5708
+
+[node name="LinePuzzle13" parent="Map/puzzles/linepuzzle2" instance=ExtResource( 14 )]
+position = Vector2( -2400, -32 )
+
+[node name="LinePuzzle14" parent="Map/puzzles/linepuzzle2" instance=ExtResource( 14 )]
+position = Vector2( -2216, -224 )
+rotation = 3.14159
+
+[node name="LinePuzzle15" parent="Map/puzzles/linepuzzle2" instance=ExtResource( 14 )]
+position = Vector2( -2096, -96 )
+rotation = -1.5708
+
+[node name="LinePuzzle16" parent="Map/puzzles/linepuzzle2" instance=ExtResource( 14 )]
+position = Vector2( -2064, -80 )
+rotation = 3.14159
+
+[node name="LinePuzzle17" parent="Map/puzzles/linepuzzle2" instance=ExtResource( 14 )]
+position = Vector2( -1760, 248 )
+rotation = 3.14159
+
+[node name="LinePuzzle18" parent="Map/puzzles/linepuzzle2" instance=ExtResource( 14 )]
+position = Vector2( -2072, 352 )
+rotation = 1.5708
+
+[node name="LinePuzzle19" parent="Map/puzzles/linepuzzle2" instance=ExtResource( 14 )]
+position = Vector2( -2080, 592 )
+
+[node name="LinePuzzle6" parent="Map/puzzles/linepuzzle2" instance=ExtResource( 14 )]
+position = Vector2( -2504, 176 )
+rotation = 1.5708
+
+[node name="LinePuzzle8" parent="Map/puzzles/linepuzzle2" instance=ExtResource( 14 )]
+position = Vector2( -2144, 392 )
+rotation = -1.5708
+
+[node name="LinePuzzle9" parent="Map/puzzles/linepuzzle2" instance=ExtResource( 14 )]
+position = Vector2( -2480, 344 )
+rotation = 3.14159
+
+[node name="LinePuzzle7" parent="Map/puzzles/linepuzzle2" instance=ExtResource( 14 )]
+position = Vector2( -1728, 584 )
+final = true
+finalevent = [ [ "CHANGE.TILE.NOW", [ Vector3( -29, 9, -1 ) ] ] ]
+
+[node name="Label2" type="Label" parent="Map/puzzles/linepuzzle2/LinePuzzle7"]
+margin_left = -34.0
+margin_top = -96.0
+margin_right = 110.0
+margin_bottom = -61.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 15 )
+text = "FINISH"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
 }
 
 [connection signal="timeout" from="P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Timer" to="P1/Viewport/Camera2D/Node2D/TextBox/BottomText" method="_on_Timer_timeout"]

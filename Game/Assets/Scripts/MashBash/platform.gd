@@ -8,6 +8,7 @@ export var color:int
 var startpos
 func _ready():
 	startpos = position
+# warning-ignore:integer_division
 	$Sprite.region_rect=Rect2(1+(color%4)*2,16+(color-(color%4))/4,1,1)
 	if time > 0:
 		$Timer.wait_time = time

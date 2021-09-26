@@ -7,6 +7,8 @@ var file = File.new()
 var canchange = false
 export var faceanims:NodePath
 var map
+var removeCellLine = 0
+var removeCells = []
 func _ready():
 	file.open("res://Assets/Scripts/MashBash/AItext.tres",File.READ)
 	text = file.get_as_text().split("newset")[currentset].split("(newline)")[currenttextset].split("(curface)")[0]
@@ -38,10 +40,15 @@ func _on_doneload_timeout():
 	currenttextset +=1
 	visible_characters = 0
 	loadText()
+	if removeCellLine == currenttextset:
+		for cell in removeCells:
+			map = get_path_to(get_tree().get_nodes_in_group("map")[0])
+			get_node(map).set_cell(cell.x,cell.y,cell.z)
 	var newtext =file.get_as_text().split("newset")[currentset].split("(newline)")[currenttextset]
 	text = newtext.split("(curface)")[0]
 	if newtext.find('......ended') != -1:
 		$Timer.stop()
+		removeCellLine = -1
 		$Face.hide()
 		get_parent().hide()
 		canchange = true

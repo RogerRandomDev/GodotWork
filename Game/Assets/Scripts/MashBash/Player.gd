@@ -9,6 +9,7 @@ var angle = 0
 var velocity = Vector2.ZERO
 var jumping = false
 var anglemult = 1
+var linepuzzle = false
 export var hpbar:NodePath
 export var played = false
 var doublejump = false
