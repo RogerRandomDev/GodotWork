@@ -6,6 +6,7 @@ export var time = 0.0
 export var moveDistance:int
 export var color:int
 var startpos
+var newdir
 func _ready():
 	startpos = position
 # warning-ignore:integer_division
@@ -19,6 +20,8 @@ func _physics_process(delta):
 		position+=constant_linear_velocity*delta
 		if position.distance_to(startpos)>moveDistance*sign(moveDistance) or position.distance_to(startpos) <= 0.125:
 			if time != 0:
+				newdir = -constant_linear_velocity
+				set_constant_linear_velocity(Vector2.ZERO)
 				$Timer.start()
 			else:
 				set_constant_linear_velocity(-constant_linear_velocity)
@@ -28,5 +31,5 @@ func _physics_process(delta):
 
 
 func _on_Timer_timeout():
-	set_constant_linear_velocity(-constant_linear_velocity)
+	set_constant_linear_velocity(newdir)
 	$Timer.stop()

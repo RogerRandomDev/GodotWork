@@ -14,20 +14,20 @@ func _on_LinePuzzle_body_entered(body):
 			line.latestpoint = get_path()
 			line.player = body.get_path()
 			line.position = position
-			line.points[0] = Vector2(-56*sin(-rotation),-56*cos(-rotation))
+			line.points[0] = Vector2(-60*sin(-rotation),-60*cos(-rotation))
 			line.prevpoints.append(get_path())
 		elif body.linepuzzle:
 			if final and get_tree().get_nodes_in_group("LinePuzzle")[0].default_color != Color.red and !get_tree().get_nodes_in_group("LinePuzzle")[0].stopped:
 				var line = get_tree().get_nodes_in_group("LinePuzzle")[0].get_path()
 				body.linepuzzle = false
-				get_node(line).addpoint(position-Vector2(56*sin(-rotation),56*cos(-rotation)))
+				get_node(line).addpoint(position-Vector2(60*sin(-rotation),60*cos(-rotation)))
 				get_node(line).done=true
 				get_node(start).cando = false
 				trigger()
 			elif !get_tree().get_nodes_in_group("LinePuzzle")[0].prevpoints.has(get_path()) and !startpoint and get_tree().get_nodes_in_group("LinePuzzle")[0].default_color != Color.red or get_tree().get_nodes_in_group("LinePuzzle")[0].latestpoint == get_path() and get_tree().get_nodes_in_group("LinePuzzle")[0].stopped:
 				var line = get_tree().get_nodes_in_group("LinePuzzle")[0].get_path()
 				if not get_node(line).stopped:
-					get_node(line).addpoint(position-Vector2(56*sin(-rotation),56*cos(-rotation)))
+					get_node(line).addpoint(position-Vector2(60*sin(-rotation),60*cos(-rotation)))
 					get_node(line).prevpoints.append(get_path())
 					get_node(line).latestpoint = get_path()
 				else:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Scripts/MashBash/BottomText.gd" type="Script" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://Assets/Tilesets/Tileset0.tres" type="TileSet" id=7]
 [ext_resource path="res://Assets/Shaders/Glitch_shader.tres" type="Material" id=8]
 [ext_resource path="res://Assets/Scenes/MashBash/Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Scenes/MashBash/LinePuzzle.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Scripts/MashBash/MashBash.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Scenes/MashBash/entities/platform.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -359,7 +362,18 @@ tracks/3/keys = {
 "values": [ 0.0, -15.0, 0.0, 15.0, 0.0 ]
 }
 
+[sub_resource type="DynamicFont" id=15]
+size = 24
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 24
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 11 )
 
 [node name="P1" type="ViewportContainer" parent="."]
 margin_right = 1024.0
@@ -380,7 +394,7 @@ audio_listener_enable_2d = true
 shadow_atlas_size = 4
 
 [node name="Player" parent="P1/Viewport" instance=ExtResource( 9 )]
-position = Vector2( 4096, 448 )
+position = Vector2( 5568, -384 )
 hpbar = NodePath("../Camera2D/Node2D/HealthBar")
 played = true
 camera = NodePath("../Camera2D")
@@ -652,7 +666,7 @@ cell_size = Vector2( 1, 1 )
 cell_quadrant_size = 32
 compatibility_mode = true
 format = 1
-tile_data = PoolIntArray( -589780, 0, 0, -589779, 0, 0, -589778, 0, 0, -589777, 0, 0, -589776, 0, 0, -589775, 0, 0, -589774, 0, 0, -589773, 0, 0, -589772, 0, 0, -589771, 0, 0, -589770, 0, 0, -589769, 0, 0, -589768, 0, 0, -589767, 0, 0, -589766, 0, 0, -589765, 0, 0, -589764, 0, 0, -589763, 0, 0, -589762, 0, 0, -589761, 0, 0, -589760, 0, 0, -589759, 0, 0, -589758, 0, 0, -589757, 0, 0, -589756, 0, 0, -589755, 0, 0, -589754, 0, 0, -589753, 0, 0, -589752, 0, 0, -589751, 0, 0, -589750, 0, 0, -589749, 0, 0, -589748, 0, 0, -589747, 0, 0, -589746, 0, 0, -589745, 0, 0, -589744, 0, 0, -589743, 0, 0, -589742, 0, 0, -589741, 0, 0, -524244, 0, 0, -524205, 0, 0, -458708, 0, 0, -458669, 0, 0, -393172, 0, 0, -393133, 0, 0, -327636, 0, 0, -327597, 0, 0, -262100, 0, 0, -262061, 0, 0, -196564, 0, 0, -196525, 0, 0, -131028, 0, 0, -130989, 0, 0, -65492, 0, 0, -65453, 0, 0, 44, 0, 0, 83, 0, 0, 65580, 0, 0, 65619, 0, 0, 131116, 0, 0, 131155, 0, 0, 196652, 0, 0, 196691, 0, 0, 262188, 0, 0, 262227, 0, 0, 327724, 0, 0, 327763, 0, 0, 393260, 0, 0, 393299, 0, 0, 458796, 0, 0, 458835, 0, 0, 524332, 0, 0, 524371, 0, 0, 589868, 0, 0, 589869, 0, 0, 589870, 0, 0, 589871, 0, 0, 589872, 0, 0, 589873, 0, 0, 589874, 0, 0, 589875, 0, 0, 589876, 0, 0, 589877, 0, 0, 589878, 0, 0, 589879, 0, 0, 589880, 0, 0, 589881, 0, 0, 589882, 0, 0, 589883, 0, 0, 589884, 0, 0, 589885, 0, 0, 589886, 0, 0, 589887, 0, 0, 589888, 0, 0, 589889, 0, 0, 589890, 0, 0, 589891, 0, 0, 589892, 0, 0, 589893, 0, 0, 589894, 0, 0, 589895, 0, 0, 589896, 0, 0, 589897, 0, 0, 589898, 0, 0, 589899, 0, 0, 589900, 0, 0, 589901, 0, 0, 589902, 0, 0, 589903, 0, 0, 589904, 0, 0, 589905, 0, 0, 589906, 0, 0, 589907, 0, 0 )
+tile_data = PoolIntArray( -589780, 12, 0, -589779, 12, 0, -589778, 12, 0, -589777, 12, 0, -589776, 12, 0, -589775, 12, 0, -589774, 12, 0, -589773, 12, 0, -589772, 12, 0, -589771, 12, 0, -589770, 12, 0, -589769, 12, 0, -589768, 12, 0, -589767, 12, 0, -589766, 12, 0, -589765, 12, 0, -589764, 12, 0, -589763, 12, 0, -589762, 12, 0, -589761, 12, 0, -589760, 12, 0, -589759, 12, 0, -589758, 12, 0, -589757, 12, 0, -589756, 12, 0, -589755, 12, 0, -589754, 12, 0, -589753, 12, 0, -589752, 12, 0, -589751, 12, 0, -589750, 12, 0, -589749, 12, 0, -589748, 12, 0, -589747, 12, 0, -589746, 12, 0, -589745, 12, 0, -589744, 12, 0, -589743, 12, 0, -589742, 12, 0, -589741, 12, 0, -589740, 14, 0, -589739, 14, 0, -589738, 14, 0, -589737, 14, 0, -589736, 14, 0, -589735, 14, 0, -589734, 14, 0, -589733, 14, 0, -589732, 14, 0, -589731, 14, 0, -589730, 14, 0, -589729, 14, 0, -589728, 14, 0, -589727, 14, 0, -589726, 14, 0, -589725, 14, 0, -589724, 14, 0, -589723, 14, 0, -589722, 14, 0, -589721, 14, 0, -589720, 14, 0, -589719, 14, 0, -589718, 14, 0, -589717, 14, 0, -589716, 14, 0, -589715, 14, 0, -589714, 14, 0, -589713, 14, 0, -589712, 14, 0, -589711, 14, 0, -589710, 14, 0, -589709, 14, 0, -589708, 14, 0, -589707, 14, 0, -589706, 14, 0, -589705, 14, 0, -589704, 14, 0, -589703, 14, 0, -589702, 14, 0, -589701, 14, 0, -524244, 12, 0, -524239, 12, 0, -524233, 12, 0, -524226, 12, 0, -524205, 12, 0, -524186, 14, 0, -524173, 14, 0, -524165, 14, 0, -458708, 12, 0, -458703, 12, 0, -458697, 12, 0, -458690, 12, 0, -458669, 12, 0, -458650, 14, 0, -458638, -1073741810, 0, -458637, 14, 0, -458629, 14, 0, -393172, 12, 0, -393167, 12, 0, -393158, 12, 0, -393133, 12, 0, -393117, 14, 0, -393115, 14, 0, -393093, 14, 0, -327636, 12, 0, -327627, 12, 0, -327621, 12, 0, -327612, 12, 0, -327611, 12, 0, -327610, 12, 0, -327609, 12, 0, -327608, 12, 0, -327607, 12, 0, -327606, 12, 0, -327605, 12, 0, -327604, 12, 0, -327603, 12, 0, -327602, 12, 0, -327601, 12, 0, -327600, 12, 0, -327599, 12, 0, -327598, 12, 0, -327597, 12, 0, -327596, 14, 0, -327595, 14, 0, -327594, 14, 0, -327593, 14, 0, -327592, 14, 0, -327591, 14, 0, -327588, 14, 0, -327587, 14, 0, -327586, 14, 0, -327581, 14, 0, -327557, 14, 0, -262100, 12, 0, -262091, 12, 0, -262084, 12, 0, -262076, 12, 0, -262061, 12, 0, -262055, -1073741810, 0, -262050, 14, 0, -262045, 14, 0, -262021, 14, 0, -196564, 12, 0, -196559, 12, 0, -196558, 12, 0, -196557, 12, 0, -196556, 12, 0, -196555, 12, 0, -196554, 12, 0, -196553, 12, 0, -196552, 12, 0, -196551, 12, 0, -196550, 12, 0, -196549, 12, 0, -196548, 12, 0, -196547, 12, 0, -196546, 12, 0, -196545, 12, 0, -196544, 12, 0, -196543, 12, 0, -196542, 12, 0, -196541, 12, 0, -196540, 12, 0, -196525, 12, 0, -196519, -1073741810, 0, -196514, 14, 0, -196509, 14, 0, -196508, 14, 0, -196491, -1073741810, 0, -196485, 14, 0, -131028, 12, 0, -131027, 12, 0, -131026, 12, 0, -131023, 12, 0, -131017, 12, 0, -131014, 12, 0, -131004, 12, 0, -130989, 12, 0, -130983, -1073741810, 0, -130978, 14, 0, -130972, -1073741810, 0, -130970, -1073741810, 0, -130969, -1073741810, 0, -130960, -1073741810, 0, -130955, -1073741810, 0, -130949, 14, 0, -65492, 12, 0, -65468, 12, 0, -65453, 12, 0, -65447, -1073741810, 0, -65442, 14, 0, -65435, -1073741810, 0, -65434, -1073741810, 0, -65425, -1073741810, 0, -65420, -1073741810, 0, -65413, 14, 0, 44, 12, 0, 57, 12, 0, 68, 12, 0, 83, 12, 0, 89, -1073741810, 0, 94, 14, 0, 109, 14, 0, 110, 14, 0, 115, -1073741810, 0, 116, 14, 0, 117, -1073741810, 0, 123, 14, 0, 65580, 12, 0, 65587, 12, 0, 65589, 12, 0, 65593, 12, 0, 65598, 12, 0, 65604, 12, 0, 65619, 12, 0, 65625, -1073741810, 0, 65630, 14, 0, 65644, 14, 0, 65654, -1073741810, 0, 65655, -1073741810, 0, 65659, 14, 0, 131116, 12, 0, 131137, 12, 0, 131140, 12, 0, 131155, 12, 0, 131161, -1073741810, 0, 131166, 14, 0, 131180, -1073741810, 0, 131187, -1073741810, 0, 131191, -1073741810, 0, 131195, 14, 0, 196652, 12, 0, 196673, 12, 0, 196676, 12, 0, 196691, 12, 0, 196697, -1073741810, 0, 196702, 14, 0, 196715, -1073741810, 0, 196719, 14, 0, 196720, 14, 0, 196721, 14, 0, 196722, 14, 0, 196723, 14, 0, 196724, 14, 0, 196731, 14, 0, 262188, 12, 0, 262208, 12, 0, 262209, 12, 0, 262220, 12, 0, 262221, 12, 0, 262222, 12, 0, 262223, 12, 0, 262224, 12, 0, 262225, 12, 0, 262227, 12, 0, 262233, -1073741810, 0, 262238, 14, 0, 262239, -1073741810, 0, 262240, -1073741810, 0, 262241, -1073741810, 0, 262242, -1073741810, 0, 262243, -1073741810, 0, 262244, -1073741810, 0, 262258, -1073741810, 0, 262260, -1073741810, 0, 262267, 14, 0, 327724, 12, 0, 327756, 12, 0, 327763, 12, 0, 327769, -1073741810, 0, 327774, 14, 0, 327794, -1073741810, 0, 327796, -1073741810, 0, 327800, -1073741810, 0, 327801, -1073741810, 0, 327802, -1073741810, 0, 327803, 14, 0, 393260, 12, 0, 393284, 12, 0, 393292, 12, 0, 393299, 12, 0, 393305, -1073741810, 0, 393310, 14, 0, 393311, -1073741810, 0, 393312, -1073741810, 0, 393313, -1073741810, 0, 393314, -1073741810, 0, 393315, -1073741810, 0, 393316, -1073741810, 0, 393317, -1073741810, 0, 393322, -1073741810, 0, 393323, -1073741810, 0, 393324, -1073741810, 0, 393339, 14, 0, 458796, 12, 0, 458820, 12, 0, 458828, 12, 0, 458835, 12, 0, 458841, -1073741810, 0, 458846, 14, 0, 458861, -1073741810, 0, 458875, 14, 0, 524332, 12, 0, 524356, 12, 0, 524364, 12, 0, 524371, 12, 0, 524377, -1073741810, 0, 524382, 14, 0, 524411, 14, 0, 589868, 12, 0, 589869, 12, 0, 589870, 12, 0, 589871, 12, 0, 589872, 12, 0, 589873, 12, 0, 589874, 12, 0, 589875, 12, 0, 589876, 12, 0, 589877, 12, 0, 589878, 12, 0, 589879, 12, 0, 589880, 12, 0, 589881, 12, 0, 589882, 12, 0, 589883, 12, 0, 589884, 12, 0, 589885, 12, 0, 589886, 12, 0, 589887, 12, 0, 589888, 12, 0, 589889, 12, 0, 589890, 12, 0, 589891, 12, 0, 589892, 12, 0, 589893, 12, 0, 589894, 12, 0, 589895, 12, 0, 589896, 12, 0, 589897, 12, 0, 589898, 12, 0, 589899, 12, 0, 589900, 12, 0, 589901, 12, 0, 589902, 12, 0, 589903, 12, 0, 589904, 12, 0, 589905, 12, 0, 589906, 12, 0, 589907, 12, 0, 589913, -1073741810, 0, 589918, 14, 0, 589933, 14, 0, 589937, 14, 0, 589947, 14, 0, 655449, -1073741810, 0, 655454, 14, 0, 655467, 14, 0, 655469, 14, 0, 655473, -1073741810, 0, 655476, -1073741810, 0, 655483, 14, 0, 720985, -1073741810, 0, 720990, 14, 0, 720991, -1073741810, 0, 721003, 14, 0, 721013, -1073741810, 0, 721016, -1073741810, 0, 721017, -1073741810, 0, 721018, -1073741810, 0, 721019, 14, 0, 786521, -1073741810, 0, 786526, 14, 0, 786542, -1073741810, 0, 786543, -1073741810, 0, 786544, -1073741810, 0, 786548, -1073741810, 0, 786555, 14, 0, 852057, -1073741810, 0, 852062, 14, 0, 852081, -1073741810, 0, 852091, 14, 0, 917593, -1073741810, 0, 917612, -1073741810, 0, 917613, -1073741810, 0, 917622, -1073741810, 0, 917623, -1073741810, 0, 917624, -1073741810, 0, 917627, 14, 0, 983129, -1073741810, 0, 983162, -1073741810, 0, 983163, 14, 0, 1048665, -1073741810, 0, 1048666, -1073741810, 0, 1048667, -1073741810, 0, 1048668, -1073741810, 0, 1048669, -1073741810, 0, 1048670, 14, 0, 1048671, 14, 0, 1048672, 14, 0, 1048673, 14, 0, 1048674, 14, 0, 1048675, 14, 0, 1048676, 14, 0, 1048677, 14, 0, 1048678, 14, 0, 1048679, 14, 0, 1048680, 14, 0, 1048681, 14, 0, 1048682, 14, 0, 1048683, 14, 0, 1048684, 14, 0, 1048685, 14, 0, 1048686, 14, 0, 1048687, 14, 0, 1048688, 14, 0, 1048689, 14, 0, 1048690, 14, 0, 1048691, 14, 0, 1048692, 14, 0, 1048693, 14, 0, 1048694, 14, 0, 1048695, 14, 0, 1048696, 14, 0, 1048697, 14, 0, 1048698, 14, 0, 1048699, 14, 0 )
 
 [node name="TileMap2" type="TileMap" parent="Map" groups=[
 "Walls",
@@ -670,6 +684,269 @@ format = 1
 [node name="puzzles" type="Node2D" parent="Map"]
 
 [node name="LinePuzzle" type="Node2D" parent="Map/puzzles"]
+z_index = -2
+
+[node name="LinePuzzle" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 5280, 576 )
+startpoint = true
+
+[node name="Label" type="Label" parent="Map/puzzles/LinePuzzle/LinePuzzle"]
+margin_left = -30.0
+margin_top = -96.0
+margin_right = 90.0
+margin_bottom = -61.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 15 )
+text = "START"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="LinePuzzle2" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 5312, -224 )
+rotation = -1.5708
+
+[node name="LinePuzzle3" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 4912, 255.998 )
+
+[node name="LinePuzzle4" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 4432, 592 )
+
+[node name="LinePuzzle5" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 4896, 448 )
+rotation = -1.5708
+
+[node name="LinePuzzle7" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 4376, 104 )
+rotation = -1.5708
+
+[node name="LinePuzzle8" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 3984, -136 )
+rotation = 3.14159
+
+[node name="LinePuzzle10" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 3616, -144 )
+rotation = 3.14159
+
+[node name="LinePuzzle20" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 3760, -536 )
+rotation = 3.14159
+
+[node name="LinePuzzle21" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 4008, -192 )
+
+[node name="LinePuzzle22" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 4384, -320 )
+
+[node name="LinePuzzle23" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 5216, -320 )
+final = true
+start = NodePath("../LinePuzzle")
+finalevent = [ [ "CHANGE.TILE", [ Vector3( 83, -6, -1 ), Vector3( 83, -7, -1 ), Vector3( 83, -8, -1 ) ], 5 ], [ "AI.TEXT", 23 ], [ "CHECKPOINT" ] ]
+
+[node name="Label2" type="Label" parent="Map/puzzles/LinePuzzle/LinePuzzle23"]
+margin_left = -34.0
+margin_top = -96.0
+margin_right = 110.0
+margin_bottom = -61.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 16 )
+text = "FINISH"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="LinePuzzle11" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 3440, 96 )
+rotation = 1.5708
+
+[node name="LinePuzzle12" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 3536, -96 )
+rotation = -1.5708
+
+[node name="LinePuzzle13" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 3280, 104 )
+rotation = -1.5708
+
+[node name="LinePuzzle14" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 3152, -112 )
+rotation = -1.5708
+
+[node name="LinePuzzle15" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 2864, -280 )
+rotation = 1.5708
+
+[node name="LinePuzzle17" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 3200, -488 )
+rotation = 1.5708
+
+[node name="LinePuzzle18" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 3752, -192 )
+
+[node name="LinePuzzle19" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 3424, -216 )
+rotation = 1.5708
+
+[node name="LinePuzzle16" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 3360, -192 )
+
+[node name="LinePuzzle9" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 3984, 96 )
+rotation = -1.5708
+
+[node name="LinePuzzle6" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 10 )]
+position = Vector2( 4216, 232 )
+rotation = 1.5708
+
+[node name="Platform" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 12 )]
+position = Vector2( 5216, 160 )
+scale = Vector2( 3, 1 )
+direction = Vector2( -32, 0 )
+time = 1.0
+moveDistance = 64
+color = 5
+
+[node name="Platform2" parent="Map/puzzles/LinePuzzle" instance=ExtResource( 12 )]
+position = Vector2( 4064, 160 )
+scale = Vector2( 3, 1 )
+direction = Vector2( -128, 0 )
+time = 1.0
+moveDistance = 1088
+color = 5
+
+[node name="LinePuzzle2" type="Node2D" parent="Map/puzzles"]
+z_index = -2
+
+[node name="LinePuzzle" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 5928, -320 )
+startpoint = true
+
+[node name="Label" type="Label" parent="Map/puzzles/LinePuzzle2/LinePuzzle"]
+margin_left = -30.0
+margin_top = -96.0
+margin_right = 90.0
+margin_bottom = -61.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 15 )
+text = "START"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="LinePuzzle23" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 6080, 352 )
+rotation = 1.5708
+final = true
+start = NodePath("../LinePuzzle")
+
+[node name="Label2" type="Label" parent="Map/puzzles/LinePuzzle2/LinePuzzle23"]
+margin_left = -11.0
+margin_top = -96.0
+margin_right = 133.0
+margin_bottom = -61.0
+rect_rotation = -90.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 16 )
+text = "FINISH"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="LinePuzzle6" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 6432, -512 )
+rotation = 3.14159
+
+[node name="LinePuzzle8" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 7264, -512 )
+rotation = 3.14159
+
+[node name="LinePuzzle22" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 7728, -512 )
+rotation = 3.14159
+
+[node name="LinePuzzle24" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 6816, 380 )
+
+[node name="LinePuzzle25" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 7392, 216 )
+rotation = 3.14159
+
+[node name="LinePuzzle9" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 7264, 200 )
+
+[node name="LinePuzzle10" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 7000, 64 )
+rotation = 3.14159
+
+[node name="LinePuzzle11" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 7232, 672 )
+rotation = -1.5708
+
+[node name="LinePuzzle12" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 6904, 744 )
+rotation = 1.5708
+
+[node name="LinePuzzle13" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 6920, 448 )
+rotation = 3.14159
+
+[node name="LinePuzzle15" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 6936, 944 )
+rotation = 3.14159
+
+[node name="LinePuzzle16" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 7712, 952 )
+rotation = 3.14159
+
+[node name="LinePuzzle17" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 7872, 864 )
+rotation = -1.5708
+
+[node name="LinePuzzle18" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 7520, 720 )
+rotation = 1.5708
+
+[node name="LinePuzzle19" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 7472, 232 )
+rotation = 1.5708
+
+[node name="LinePuzzle20" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 7872, 232 )
+rotation = -1.5708
+
+[node name="LinePuzzle21" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 7664, 80 )
+rotation = 0.785398
+
+[node name="LinePuzzle14" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 6072, 816 )
+rotation = 1.5708
+
+[node name="LinePuzzle7" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 10 )]
+position = Vector2( 6400, -216 )
+rotation = 1.5708
+
+[node name="Platform2" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 12 )]
+position = Vector2( 5824, -288 )
+scale = Vector2( 2, 1 )
+z_index = 5
+direction = Vector2( 0, 256 )
+time = 2.0
+moveDistance = 1344
+color = 5
+
+[node name="Platform3" parent="Map/puzzles/LinePuzzle2" instance=ExtResource( 12 )]
+position = Vector2( 6560, -160 )
+scale = Vector2( 3, 1 )
+z_index = 5
+direction = Vector2( 128, 0 )
+time = 1.5
+moveDistance = 832
+color = 5
 
 [connection signal="timeout" from="P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Timer" to="P1/Viewport/Camera2D/Node2D/TextBox/BottomText" method="_on_Timer_timeout"]
 [connection signal="timeout" from="P1/Viewport/Camera2D/Node2D/TextBox/BottomText/doneload" to="P1/Viewport/Camera2D/Node2D/TextBox/BottomText" method="_on_doneload_timeout"]

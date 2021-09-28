@@ -114,7 +114,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 11.5, 14.25, 15.2 ),
+"times": PoolRealArray( 11.2, 14.25, 15.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 0, 0, 12 ]
@@ -182,6 +182,30 @@ tracks/9/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("MashBash/Viewport/Node2D/Line2D2:points")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 11.3, 11.8, 12, 12.6, 12.8, 13.2, 13.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 416, 224, 480, 224 ), PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 416, 224, 480, 224 ), PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 416, 224, 480, 224 ), PoolVector2Array( 448, 192, 448, 256 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("MashBash/Viewport/Node2D/Line2D3:points")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 11.3, 11.8, 12, 12.6, 12.8, 13.2, 13.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 480, 224, 416, 224 ), PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 480, 224, 416, 224 ), PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 480, 224, 416, 224 ), PoolVector2Array( 448, 192, 448, 256 ) ]
 }
 
 [sub_resource type="DynamicFont" id=10]
@@ -509,7 +533,6 @@ script = ExtResource( 2 )
 mashbash = NodePath("MashBash")
 
 [node name="P1" type="ViewportContainer" parent="."]
-visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
 stretch = true
@@ -523,13 +546,14 @@ world = SubResource( 2 )
 handle_input_locally = false
 disable_3d = true
 usage = 0
-render_target_update_mode = 0
+render_target_update_mode = 3
 audio_listener_enable_2d = true
 shadow_atlas_size = 4
 
 [node name="Player" parent="P1/Viewport" instance=ExtResource( 7 )]
 position = Vector2( 4096, 432 )
 hpbar = NodePath("../Camera2D/Node2D/HealthBar")
+played = true
 camera = NodePath("../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="P1/Viewport"]
@@ -781,6 +805,7 @@ flip_v = true
 "anims/MASHBASH boot" = SubResource( 9 )
 
 [node name="MashBash" type="ViewportContainer" parent="."]
+visible = false
 show_behind_parent = true
 margin_right = 1024.0
 margin_bottom = 600.0
@@ -797,7 +822,7 @@ own_world = true
 handle_input_locally = false
 disable_3d = true
 usage = 0
-render_target_update_mode = 3
+render_target_update_mode = 0
 
 [node name="ColorRect" type="ColorRect" parent="MashBash/Viewport"]
 show_behind_parent = true
@@ -823,7 +848,6 @@ anchor_mode = 0
 current = true
 
 [node name="Node2D" type="Node2D" parent="MashBash/Viewport"]
-visible = false
 
 [node name="Line2D2" type="Line2D" parent="MashBash/Viewport/Node2D"]
 points = PoolVector2Array( 448, 192, 448, 256 )
@@ -846,12 +870,11 @@ custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
 text = "Hello, there"
 align = 1
 uppercase = true
-percent_visible = 0.0
+percent_visible = 1.09091
 
 [node name="Line2D" type="Line2D" parent="MashBash/Viewport"]
-visible = false
 position = Vector2( -160, 0 )
-points = PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368, 480, 368, 480, 392, 480, 368, 512, 368, 512, 408, 512, 368, 544, 368, 544, 416, 544, 368, 576, 368, 576, 408, 576, 368, 608, 368, 608, 392, 608, 368, 632, 368 )
+points = PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368, 480, 392, 512, 408, 544, 416, 576, 408, 608, 392, 632, 368 )
 width = 8.0
 default_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
 
