@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Assets/Scripts/MashBash/BottomText.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Assets/Textures/Cake.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Textures/Health.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Scenes/MashBash/LinePuzzle.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Assets/Scenes/MashBash/entities/follow.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -509,6 +510,9 @@ material = ExtResource( 8 )
 scale = Vector2( 32, 18.75 )
 z_index = 2000
 texture = ExtResource( 5 )
+
+[node name="Buddy" parent="P1/Viewport" instance=ExtResource( 15 )]
+follow = NodePath("../Player")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

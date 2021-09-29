@@ -253,3 +253,5 @@ func save():
 	file.seek(0)
 	file.store_line(var2str(scoreBoard))
 	file.store_line(var2str(HighScore))
+func setvolume(vol):
+	$Music.volume_db = vol

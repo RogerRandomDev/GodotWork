@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Tilesets/Tileset0.tres" type="TileSet" id=1]
+[ext_resource path="res://Assets/Scenes/MashBash/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Scenes/MashBash/entities/follow.tscn" type="PackedScene" id=3]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 376, 296 )
+played = true
+camera = NodePath("../Camera2D")
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 64, 64 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 1, 1 )
+format = 1
+tile_data = PoolIntArray( 458751, 11, 0, 393216, 11, 0, 393217, 11, 0, 393218, 11, 0, 393219, 11, 0, 393220, 11, 0, 393221, 11, 0, 393222, 11, 0, 393223, 11, 0, 393224, 11, 0, 393225, 11, 0, 393226, 11, 0, 393227, 11, 0, 393228, 11, 0, 393229, 11, 0, 393230, 11, 0, 393231, 11, 0, 393232, 11, 0 )
+
+[node name="Buddy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 584, 264 )
+follow = NodePath("../Player")
+
+[node name="Camera2D" type="Camera2D" parent="."]

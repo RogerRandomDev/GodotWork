@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Scripts/MashBash/MashBash.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Assets/Scenes/MashBash/entities/enemy0.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Scenes/MashBash/entities/platform.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Assets/Textures/Health.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Scenes/MashBash/entities/follow.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -668,6 +669,10 @@ scale = Vector2( 32, 18.75 )
 z_index = 2000
 texture = ExtResource( 3 )
 
+[node name="Buddy" parent="P1/Viewport" instance=ExtResource( 14 )]
+position = Vector2( 4184, 424 )
+follow = NodePath("../Player")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 current = true
@@ -1032,16 +1037,40 @@ __meta__ = {
 position = Vector2( -24, -24 )
 
 [node name="Enemy" parent="Map/Entities" instance=ExtResource( 11 )]
-position = Vector2( 2128, -1104 )
+position = Vector2( 2128, -1080 )
 
 [node name="Enemy2" parent="Map/Entities" instance=ExtResource( 11 )]
-position = Vector2( 2192, -1104 )
+position = Vector2( 2192, -1080 )
 
 [node name="Enemy3" parent="Map/Entities" instance=ExtResource( 11 )]
-position = Vector2( 2256, -1104 )
+position = Vector2( 2256, -1080 )
 
-[node name="Enemy4" parent="Map/Entities" instance=ExtResource( 11 )]
-position = Vector2( 2320, -1104 )
+[node name="Enemy5" parent="Map/Entities" instance=ExtResource( 11 )]
+position = Vector2( 2128, -1112 )
+
+[node name="Enemy6" parent="Map/Entities" instance=ExtResource( 11 )]
+position = Vector2( 2192, -1112 )
+
+[node name="Enemy7" parent="Map/Entities" instance=ExtResource( 11 )]
+position = Vector2( 2256, -1112 )
+
+[node name="Enemy9" parent="Map/Entities" instance=ExtResource( 11 )]
+position = Vector2( 2128, -1144 )
+
+[node name="Enemy10" parent="Map/Entities" instance=ExtResource( 11 )]
+position = Vector2( 2192, -1144 )
+
+[node name="Enemy11" parent="Map/Entities" instance=ExtResource( 11 )]
+position = Vector2( 2256, -1144 )
+
+[node name="Enemy13" parent="Map/Entities" instance=ExtResource( 11 )]
+position = Vector2( 2128, -1176 )
+
+[node name="Enemy14" parent="Map/Entities" instance=ExtResource( 11 )]
+position = Vector2( 2192, -1176 )
+
+[node name="Enemy15" parent="Map/Entities" instance=ExtResource( 11 )]
+position = Vector2( 2256, -1176 )
 
 [node name="Platform" parent="Map/Entities" instance=ExtResource( 12 )]
 position = Vector2( 1400, -520 )
