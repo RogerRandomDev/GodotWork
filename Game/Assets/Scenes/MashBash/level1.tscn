@@ -721,7 +721,7 @@ eventDATA = [ [ "AI.TEXT", 18 ], [ "CHECKPOINT" ], [ "REMOVE.EVENT", NodePath(".
 
 [node name="LoadEvent12" parent="Map/Events" instance=ExtResource( 11 )]
 position = Vector2( -1280, 32 )
-eventDATA = [ [ "AI.TEXT", 19 ], [ "CHECKPOINT" ], [ "REMOVE.TILE", Vector2( -10, 3 ) ] ]
+eventDATA = [ [ "AI.TEXT", 19 ], [ "CHECKPOINT" ], [ "REMOVE.TILE", [ Vector2( -10, 3 ) ] ] ]
 
 [node name="LoadEvent13" parent="Map/Events" instance=ExtResource( 11 )]
 position = Vector2( -576, 448 )

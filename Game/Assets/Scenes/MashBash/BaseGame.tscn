@@ -870,7 +870,6 @@ custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
 text = "Hello, there"
 align = 1
 uppercase = true
-percent_visible = 1.09091
 
 [node name="Line2D" type="Line2D" parent="MashBash/Viewport"]
 position = Vector2( -160, 0 )
