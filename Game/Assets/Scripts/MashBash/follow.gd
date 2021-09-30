@@ -18,4 +18,5 @@ func _process(delta):
 	hoverDir.y += hoverForce*sin(hoverTime*PI)
 	if hoverTime >= 1: hoverTime = 0
 	hoverTime+=delta
+# warning-ignore:return_value_discarded
 	move_and_collide(-hoverDir*delta)
