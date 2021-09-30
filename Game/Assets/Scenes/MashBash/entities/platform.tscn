@@ -6,7 +6,7 @@
 [sub_resource type="PhysicsMaterial" id=1]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 31, 31 )
+extents = Vector2( 32, 32 )
 
 [node name="Platform" type="StaticBody2D"]
 physics_material_override = SubResource( 1 )

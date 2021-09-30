@@ -15,6 +15,7 @@ export var PlayerCount = 1
 const changegame = [0,1]
 const alwaysmult = [3]
 export var mashbash:NodePath
+export var newSong:String
 ##sets up player view based on player count##
 func _ready():
 	GlobalScene.currentgame = 4
@@ -29,15 +30,27 @@ func _ready():
 		$MashBashAnim.play("MASHBASH boot")
 	else:
 		$P1/Viewport/Camera2D/Node2D/TextBox/BottomText.canchange = true
-	GlobalScene.stopmusic()
 	var Map = get_tree().get_nodes_in_group("map")[0].get_parent()
 	remove_child(Map)
 	$P1/Viewport.add_child(Map)
-	setmusic("res://Assets/Audio/MashBash/MashBashSong0.mp3")
-	setvolume(-5)
+	if newSong != "":
+		GlobalScene.playmusic(newSong)
+		GlobalScene.setnoise(-10)
+		GlobalScene.stopmusic()
+	else:
+		GlobalScene.playmusic("res://Assets/Audio/MashBash/MashBashSong0.mp3")
+		GlobalScene.stopmusic()
+	GlobalScene.setvolume(-5)
+	GlobalScene.stopmusic()
 func resetmusic():
-	GlobalScene.playmusic("res://Assets/Audio/MashBash/GameSong.mp3")
+	if newSong != "":
+		setmusic(newSong)
+		GlobalScene.setnoise(-10)
+		GlobalScene.stopmusic()
+	else:
+		GlobalScene.playmusic("res://Assets/Audio/MashBash/MashBashSong0.mp3")
 func setmusic(music):
 	GlobalScene.playmusic(music)
-func setvolume(vol):
-	GlobalScene.setvolume(vol)
+	GlobalScene.stopmusic()
+func stop():
+	GlobalScene.stopmusic()

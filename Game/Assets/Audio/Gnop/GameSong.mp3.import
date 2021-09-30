@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GameSong.mp3-114649af45f1c0a93d56c45d4cd0aad2.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Gnop/GameSong.mp3"
+dest_files=[ "res://.import/GameSong.mp3-114649af45f1c0a93d56c45d4cd0aad2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Assets/Scripts/MashBash/MashBash.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Scenes/MashBash/entities/follow.tscn" type="PackedScene" id=2]
@@ -11,6 +11,9 @@
 [ext_resource path="res://Assets/Shaders/Glitch_shader.tres" type="Material" id=9]
 [ext_resource path="res://icon.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Assets/Scenes/MashBash/entities/platform.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Scenes/MashBash/LoadEvent1.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Scenes/MashBash/LinePuzzle.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -208,6 +211,110 @@ tracks/3/keys = {
 "values": [ 0.0, -15.0, 0.0, 15.0, 0.0 ]
 }
 
+[sub_resource type="Animation" id=17]
+resource_name = "happytalk"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/mouth:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( -16, -8, -8, 0, 8, 0, 16, -8 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/LEye:points")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( -10, -14.5, -10, -20.5, -14, -16.5, -6, -24.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/REye:points")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( 10, -14.5, 10, -20.5, 14, -16.5, 6, -24.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -15.0, 0.0, 15.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "happytalkslice"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/mouth:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( -16, -8, -8, 0, 8, 0, 16, -8 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/LEye:points")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( -14, -16.5, -6, -24.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/REye:points")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( 14, -16.5, 6, -24.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -15.0, 0.0, 15.0, 0.0 ]
+}
+
 [sub_resource type="Animation" id=12]
 loop = true
 tracks/0/type = "value"
@@ -310,6 +417,58 @@ tracks/3/keys = {
 "values": [ 0.0, -15.0, 0.0, 15.0, 0.0 ]
 }
 
+[sub_resource type="Animation" id=16]
+resource_name = "sadtalk"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/mouth:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( -16, 0, -8, -8, 8, -8, 16, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/LEye:points")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( -10, -14.5, -10, -20.5, -14, -16.5, -6, -24.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/REye:points")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( 10, -14.5, 10, -20.5, 14, -16.5, 6, -24.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -15.0, 0.0, 15.0, 0.0 ]
+}
+
 [sub_resource type="Animation" id=14]
 loop = true
 tracks/0/type = "value"
@@ -361,8 +520,19 @@ tracks/3/keys = {
 "values": [ 0.0, -15.0, 0.0, 15.0, 0.0 ]
 }
 
+[sub_resource type="DynamicFont" id=19]
+size = 24
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 24
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 11 )
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
+newSong = "res://Assets/Audio/MashBash/MashBashSong2.mp3"
 
 [node name="P1" type="ViewportContainer" parent="."]
 margin_right = 1024.0
@@ -383,6 +553,7 @@ audio_listener_enable_2d = true
 shadow_atlas_size = 4
 
 [node name="Player" parent="P1/Viewport" instance=ExtResource( 3 )]
+position = Vector2( -64, 0 )
 hpbar = NodePath("../Camera2D/Node2D/HealthBar")
 played = true
 camera = NodePath("../Camera2D")
@@ -453,7 +624,7 @@ round_precision = 4
 
 [node name="LEye" type="Line2D" parent="P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face"]
 position = Vector2( 0, 8 )
-points = PoolVector2Array( -10, -14.5, -10, -20.5, -14, -24.5, -6, -16.5 )
+points = PoolVector2Array( -10, -14.5, -10, -20.5, -14, -16.5, -6, -24.5 )
 width = 2.0
 default_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
 joint_mode = 2
@@ -463,7 +634,7 @@ round_precision = 4
 
 [node name="REye" type="Line2D" parent="P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face"]
 position = Vector2( 0, 8 )
-points = PoolVector2Array( 10, -14.5, 10, -20.5, 14, -24.5, 6, -16.5 )
+points = PoolVector2Array( 10, -14.5, 10, -20.5, 14, -16.5, 6, -24.5 )
 width = 2.0
 default_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
 joint_mode = 2
@@ -640,8 +811,11 @@ flip_v = true
 anims/evilhappy = SubResource( 9 )
 anims/evilsad = SubResource( 10 )
 anims/happy = SubResource( 11 )
+anims/happytalk = SubResource( 17 )
+anims/happytalkslice = SubResource( 18 )
 anims/neutral = SubResource( 12 )
 anims/sad = SubResource( 13 )
+anims/sadtalk = SubResource( 16 )
 anims/worried = SubResource( 14 )
 
 [node name="Map" type="Node2D" parent="."]
@@ -657,6 +831,7 @@ cell_size = Vector2( 1, 1 )
 cell_quadrant_size = 32
 compatibility_mode = true
 format = 1
+tile_data = PoolIntArray( -1048560, 9, 0, -983024, 9, 0, -917488, 9, 0, -851952, 9, 0, -786416, 9, 0, -720880, 9, 0, -655344, 9, 0, -589808, 9, 0, -524272, 9, 0, -458736, 9, 0, -393200, 9, 0, -327676, 9, 0, -327675, 9, 0, -327674, 9, 0, -327673, 9, 0, -327672, 9, 0, -327671, 9, 0, -327670, 9, 0, -327669, 9, 0, -327668, 9, 0, -327667, 9, 0, -327666, 9, 0, -327664, 9, 0, -262140, 9, 0, -262133, 9, 0, -262130, 9, 0, -262129, 9, 0, -262128, 9, 0, -196604, 9, 0, -196597, 9, 0, -196594, 9, 0, -65541, 9, 0, -65540, 9, 0, -65539, 9, 0, -65538, 9, 0, -65537, 9, 0, -131072, 9, 0, -131071, 9, 0, -131070, 9, 0, -131069, 9, 0, -131068, 9, 0, -131058, 9, 0, -131056, 9, 0, -5, 9, 0, -65527, 9, 0, -65520, 9, 0, 65531, 9, 0, 9, 9, 0, 16, 9, 0, 131067, 9, 0, 131068, 9, 0, 131069, 9, 0, 131070, 9, 0, 131071, 9, 0, 65536, 9, 0, 65537, 9, 0, 65538, 9, 0, 65539, 9, 0, 65540, 9, 0, 65541, 9, 0, 65542, 9, 0, 65543, 9, 0, 65544, 9, 0, 65545, 9, 0, 65546, 9, 0, 65547, 9, 0, 65548, 9, 0, 65549, 9, 0, 65550, 9, 0, 65551, 9, 0, 65552, 9, 0 )
 
 [node name="TileMap2" type="TileMap" parent="Map" groups=[
 "Walls",
@@ -669,9 +844,214 @@ format = 1
 
 [node name="Events" type="Node2D" parent="Map"]
 
+[node name="LoadEvent" parent="Map/Events" instance=ExtResource( 13 )]
+position = Vector2( 32, 0 )
+scale = Vector2( 2, 2 )
+eventDATA = [ [ "TOGGLE", NodePath("../../Entities/Platform") ] ]
+
+[node name="LoadEvent2" parent="Map/Events" instance=ExtResource( 13 )]
+position = Vector2( -128, 0 )
+scale = Vector2( 2, 2 )
+eventDATA = [ [ "AI.TEXT", 24 ] ]
+
 [node name="Entities" type="Node2D" parent="Map"]
 
+[node name="Platform" parent="Map/Entities" instance=ExtResource( 12 )]
+position = Vector2( 32, 0 )
+scale = Vector2( 1, 2 )
+z_index = -1
+direction = Vector2( 0, -512 )
+time = 1.0
+moveDistance = 128
+color = 19
+toggle = true
+
+[node name="Platform3" parent="Map/Entities" instance=ExtResource( 12 )]
+position = Vector2( 3136, 96 )
+scale = Vector2( 64, 1 )
+z_index = -1
+direction = Vector2( 64, 0 )
+color = 16
+stationary = true
+
+[node name="Platform2" parent="Map/Entities" instance=ExtResource( 12 )]
+position = Vector2( 928, 0 )
+scale = Vector2( 1, 2 )
+z_index = -1
+direction = Vector2( 0, -512 )
+time = 1.0
+moveDistance = 128
+color = 19
+toggle = true
+
+[node name="EndText" type="Node2D" parent="Map/Entities"]
+
+[node name="Label" type="Label" parent="Map/Entities/EndText"]
+margin_left = 1088.0
+margin_top = -312.0
+margin_right = 1456.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
+text = "CREDITS:
+
+
+
+
+
+
+
+
+
+
+
+
+VCONVEYOR BELTV"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Label2" type="Label" parent="Map/Entities/EndText"]
+margin_left = 1472.0
+margin_top = -312.0
+margin_right = 1912.0
+margin_bottom = 144.0
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
+text = "------------------
+|     TEAM:      |
+|                |
+|ROGER T. GRANGE |
+|                |
+|JASON           |
+|                |
+|                |
+|                |
+|WEST-MEC  CODING|
+------------------"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Label3" type="Label" parent="Map/Entities/EndText"]
+margin_left = 1944.0
+margin_top = -344.0
+margin_right = 2384.0
+margin_bottom = 112.0
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
+text = "------------------
+|SCRIPTS:  ROGER |
+------------------
+------------------
+|ART:      JASON |
+------------------
+------------------
+|MUSIC:    ROGER |
+------------------
+------------------
+|LEVELS:   ROGER |
+------------------
+------------------
+|A.I.SPEECH:ROGER|
+------------------"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Label4" type="Label" parent="Map/Entities/EndText"]
+margin_left = 2408.0
+margin_top = -344.0
+margin_right = 2848.0
+margin_bottom = 112.0
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
+text = "------------------
+|    CONCEPTS    |
+|FROG:      ROGER|
+|SPACE:     ROGER|
+|TAPP:      ROGER|
+|GNOP:      JASON|
+|MASHBASH:  ROGER|
+------------------"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Label5" type="Label" parent="Map/Entities/EndText"]
+margin_left = 2928.0
+margin_top = -344.0
+margin_right = 3368.0
+margin_bottom = 112.0
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
+text = "------------------
+|     MUSIC      |
+|FROG:Boing      |
+|SPACE:ship      |
+|TAPP:drunkards  |
+|MASHBASH:       |
+|Well, Hello.    |
+|Whats on now:   |
+|Parting Ways    |
+------------------"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
 [node name="puzzles" type="Node2D" parent="Map"]
+
+[node name="linepuzzle" type="Node2D" parent="Map/puzzles"]
+
+[node name="LinePuzzle" parent="Map/puzzles/linepuzzle" instance=ExtResource( 14 )]
+position = Vector2( 352, 64 )
+startpoint = true
+
+[node name="Label" type="Label" parent="Map/puzzles/linepuzzle/LinePuzzle"]
+margin_left = -30.0
+margin_top = -96.0
+margin_right = 90.0
+margin_bottom = -61.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 15 )
+text = "START"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="LinePuzzle2" parent="Map/puzzles/linepuzzle" instance=ExtResource( 14 )]
+position = Vector2( 608, -256 )
+rotation = -3.14159
+
+[node name="LinePuzzle3" parent="Map/puzzles/linepuzzle" instance=ExtResource( 14 )]
+position = Vector2( 736, 61.331 )
+final = true
+start = NodePath("../LinePuzzle")
+finalevent = [ [ "TOGGLE", NodePath("../../../Entities/Platform2") ] ]
+
+[node name="Label" type="Label" parent="Map/puzzles/linepuzzle/LinePuzzle3"]
+margin_left = -34.0
+margin_top = -96.0
+margin_right = 110.0
+margin_bottom = -61.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 15 )
+text = "FINISH"
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
 
 [connection signal="timeout" from="P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Timer" to="P1/Viewport/Camera2D/Node2D/TextBox/BottomText" method="_on_Timer_timeout"]
 [connection signal="timeout" from="P1/Viewport/Camera2D/Node2D/TextBox/BottomText/doneload" to="P1/Viewport/Camera2D/Node2D/TextBox/BottomText" method="_on_doneload_timeout"]

@@ -255,3 +255,7 @@ func save():
 	file.store_line(var2str(HighScore))
 func setvolume(vol):
 	$Music.volume_db = vol
+func setnoise(vol):
+	$sound.volume_db = vol
+	$sound1.volume_db = vol
+	$sound2.volume_db = vol

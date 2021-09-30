@@ -9,6 +9,7 @@ var GameType = 0
 var multiplay = [0,1,4]
 ##Little Neat thing, i made the max 99, to keep with the feel of old arcade games a bit better.
 var currentcoins = 0
+export var volume=0
 ##sets music##
 func _ready():
 	GlobalScene.HighScore[GlobalScene.currentgame] = 0
@@ -36,7 +37,8 @@ func _ready():
 		##Resets the flashing to keep it smoother
 		$CoinFlash.stop()
 		$CoinFlash.start()
-	pass
+	if volume != 0:
+		GlobalScene.setvolume(volume)
 ##Flips between the Current Coin count to make it flash
 func _on_CoinFlash_timeout():
 	$ViewportContainer/Viewport/Labels/CoinCount.visible = !$ViewportContainer/Viewport/Labels/CoinCount.visible

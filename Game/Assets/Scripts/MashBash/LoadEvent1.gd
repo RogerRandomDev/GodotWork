@@ -46,6 +46,10 @@ func trigger():
 		#remove other events#
 		if event[0]=="REMOVE.EVENT":
 			get_node(event[1]).queue_free()
+		#toggle#
+		if event[0]=="TOGGLE":
+			get_node(event[1]).toggled = !get_node(event[1]).toggled
+			havedone = false
 	if havedone:
 		queue_free()
 func _on_Timer_timeout():
@@ -59,3 +63,12 @@ func deathmessage():
 		get_tree().get_nodes_in_group("BottomText")[0].prepText()
 		get_tree().get_nodes_in_group("BottomText")[0].loadText()
 		GlobalScene.havedied = true
+
+
+func _on_LoadEvent_body_exited(body):
+	if body.name =="Player":
+		player = body.get_path()
+		for event in eventDATA:
+			if event[0]=="TOGGLE":
+				get_node(event[1]).toggled = !get_node(event[1]).toggled
+				

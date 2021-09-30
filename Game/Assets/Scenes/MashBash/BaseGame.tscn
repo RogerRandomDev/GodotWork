@@ -165,9 +165,18 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 16.5 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.1, 0.3, 16.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "values": [ {
+"args": [  ],
+"method": "stop"
+}, {
+"args": [  ],
+"method": "stop"
+}, {
+"args": [  ],
+"method": "stop"
+}, {
 "args": [  ],
 "method": "resetmusic"
 } ]
@@ -534,6 +543,7 @@ script = ExtResource( 2 )
 mashbash = NodePath("MashBash")
 
 [node name="P1" type="ViewportContainer" parent="."]
+visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
 stretch = true
@@ -547,14 +557,13 @@ world = SubResource( 2 )
 handle_input_locally = false
 disable_3d = true
 usage = 0
-render_target_update_mode = 3
+render_target_update_mode = 0
 audio_listener_enable_2d = true
 shadow_atlas_size = 4
 
 [node name="Player" parent="P1/Viewport" instance=ExtResource( 7 )]
 position = Vector2( 4096, 432 )
 hpbar = NodePath("../Camera2D/Node2D/HealthBar")
-played = true
 camera = NodePath("../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="P1/Viewport"]
@@ -810,7 +819,6 @@ flip_v = true
 "anims/MASHBASH boot" = SubResource( 9 )
 
 [node name="MashBash" type="ViewportContainer" parent="."]
-visible = false
 show_behind_parent = true
 margin_right = 1024.0
 margin_bottom = 600.0
@@ -827,7 +835,7 @@ own_world = true
 handle_input_locally = false
 disable_3d = true
 usage = 0
-render_target_update_mode = 0
+render_target_update_mode = 3
 
 [node name="ColorRect" type="ColorRect" parent="MashBash/Viewport"]
 show_behind_parent = true
@@ -853,6 +861,7 @@ anchor_mode = 0
 current = true
 
 [node name="Node2D" type="Node2D" parent="MashBash/Viewport"]
+visible = false
 
 [node name="Line2D2" type="Line2D" parent="MashBash/Viewport/Node2D"]
 points = PoolVector2Array( 448, 192, 448, 256 )
@@ -877,6 +886,7 @@ align = 1
 uppercase = true
 
 [node name="Line2D" type="Line2D" parent="MashBash/Viewport"]
+visible = false
 position = Vector2( -160, 0 )
 points = PoolVector2Array( 632, 368, 608, 392, 576, 408, 544, 416, 512, 408, 480, 392, 448, 368, 480, 392, 512, 408, 544, 416, 576, 408, 608, 392, 632, 368 )
 width = 8.0

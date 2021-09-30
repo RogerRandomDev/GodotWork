@@ -61,6 +61,9 @@ func trigger():
 		#remove other events#
 		if event[0]=="REMOVE.EVENT":
 			get_node(event[1]).queue_free()
+		#toggles
+		if event[0]=="TOGGLE":
+			get_node(event[1]).toggled = true
 	if havedone:
 		$Timer.stop()
 		set_process(false)

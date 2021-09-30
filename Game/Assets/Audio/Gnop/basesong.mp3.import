@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/basesong.mp3-142ca143da5311d1e1f831c478f977b9.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Gnop/basesong.mp3"
+dest_files=[ "res://.import/basesong.mp3-142ca143da5311d1e1f831c478f977b9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -5,7 +5,6 @@
 [ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/Scripts/Title.gd" type="Script" id=4]
 
-
 [sub_resource type="Environment" id=1]
 background_mode = 4
 glow_enabled = true
