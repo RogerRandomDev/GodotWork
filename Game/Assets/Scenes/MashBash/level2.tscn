@@ -15,7 +15,7 @@
 [ext_resource path="res://Assets/Scenes/MashBash/entities/follow.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Scenes/MashBash/LoadEvent1.tscn" type="PackedScene" id=14]
 
-[sub_resource type="Environment" id=17]
+[sub_resource type="Environment" id=1]
 background_mode = 4
 glow_enabled = true
 glow_strength = 0.8
@@ -27,7 +27,7 @@ adjustment_contrast = 1.5
 adjustment_saturation = 3.0
 
 [sub_resource type="World" id=2]
-environment = SubResource( 17 )
+environment = SubResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0, 0, 0, 1 )

@@ -27,6 +27,7 @@ one_shot = true
 one_shot = true
 
 [node name="sound" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
 
 [node name="sound1" type="AudioStreamPlayer" parent="."]
 
