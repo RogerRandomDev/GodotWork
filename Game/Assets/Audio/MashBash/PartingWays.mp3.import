@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PartingWays.mp3-53da8972e48645ad08c2db1d68983569.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/MashBash/PartingWays.mp3"
+dest_files=[ "res://.import/PartingWays.mp3-53da8972e48645ad08c2db1d68983569.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TillNextTime.mp3-cc2faaaf44b2938dafc51876ac6d142d.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/MashBash/TillNextTime.mp3"
+dest_files=[ "res://.import/TillNextTime.mp3-cc2faaaf44b2938dafc51876ac6d142d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

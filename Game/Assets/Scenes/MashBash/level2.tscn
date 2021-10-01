@@ -396,7 +396,7 @@ audio_listener_enable_2d = true
 shadow_atlas_size = 4
 
 [node name="Player" parent="P1/Viewport" instance=ExtResource( 9 )]
-position = Vector2( 5440, 1152 )
+position = Vector2( 5120, 448 )
 hpbar = NodePath("../Camera2D/Node2D/HealthBar")
 played = true
 camera = NodePath("../Camera2D")
@@ -516,6 +516,7 @@ z_index = 2000
 texture = ExtResource( 4 )
 
 [node name="Buddy" parent="P1/Viewport" instance=ExtResource( 13 )]
+position = Vector2( 5120, 448 )
 follow = NodePath("../Player")
 
 [node name="Camera2D" type="Camera2D" parent="."]
