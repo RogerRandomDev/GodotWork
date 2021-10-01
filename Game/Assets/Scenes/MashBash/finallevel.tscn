@@ -852,7 +852,7 @@ eventDATA = [ [ "TOGGLE", NodePath("../../Entities/Platform") ] ]
 [node name="LoadEvent3" parent="Map/Events" instance=ExtResource( 13 )]
 position = Vector2( 5248, 960 )
 scale = Vector2( 2, 2 )
-eventDATA = [ [ "CHANGE.LEVEL", "res://Assets/Scenes/BonusLevel.tscn" ] ]
+eventDATA = [ [ "CHANGE.LEVEL", "res://Assets/Scenes/MainTitle.tscn" ] ]
 
 [node name="LoadEvent2" parent="Map/Events" instance=ExtResource( 13 )]
 position = Vector2( -128, 0 )

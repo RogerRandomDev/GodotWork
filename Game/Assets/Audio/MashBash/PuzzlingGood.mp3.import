@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/PuzzlingGood.mp3-e536b62595684a9e8e229af001ab9c22.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/MashBash/PuzzlingGood.mp3"
+dest_files=[ "res://.import/PuzzlingGood.mp3-e536b62595684a9e8e229af001ab9c22.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -3,6 +3,8 @@
 [ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Scripts/bonuslevel.gd" type="Script" id=2]
 
+[sub_resource type="StyleBoxEmpty" id=1]
+
 [sub_resource type="StyleBoxEmpty" id=2]
 
 [sub_resource type="StyleBoxEmpty" id=3]
@@ -11,10 +13,7 @@
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
-[sub_resource type="StyleBoxEmpty" id=6]
-
-[sub_resource type="DynamicFont" id=1]
-size = 24
+[sub_resource type="DynamicFont" id=6]
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
@@ -38,10 +37,10 @@ __meta__ = {
 }
 
 [node name="ColorRect2" type="ColorRect" parent="Camera2D"]
-margin_left = -128.0
-margin_top = -128.0
-margin_right = 128.0
-margin_bottom = 128.0
+margin_left = -160.0
+margin_top = -160.0
+margin_right = 160.0
+margin_bottom = 160.0
 color = Color( 0.215686, 0.215686, 0.215686, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -55,12 +54,12 @@ margin_left = -448.0
 margin_top = -200.0
 margin_right = -314.0
 margin_bottom = -176.0
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/disabled = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
-custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "SONGS"
 align = 1
 __meta__ = {
@@ -72,12 +71,12 @@ margin_left = 176.0
 margin_top = -208.0
 margin_right = 358.0
 margin_bottom = -184.0
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/focus = SubResource( 4 )
-custom_styles/disabled = SubResource( 5 )
-custom_styles/normal = SubResource( 6 )
-custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 text = "SPRITES"
 align = 1
 __meta__ = {
@@ -92,9 +91,26 @@ margin_left = -160.0
 margin_top = -280.0
 margin_right = 160.0
 margin_bottom = -256.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 6 )
 text = "BONUS STUFF
 ESC TO LEAVE"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = -160.0
+margin_top = 192.0
+margin_right = 160.0
+margin_bottom = 284.0
+custom_fonts/font = SubResource( 6 )
+text = "Includes un-used
+Songs and Sprites
+Feel free to see
+it since we already
+made it"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false,
