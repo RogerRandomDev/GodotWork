@@ -38,10 +38,10 @@ func _ready():
 		GlobalScene.setnoise(-10)
 		GlobalScene.stopmusic()
 	else:
-		GlobalScene.playmusic("res://Assets/Audio/MashBash/MashBashSong0.mp3")
-		GlobalScene.stopmusic()
+		GlobalScene.playmusic("res://Assets/Audio/MashBash/WellHello.mp3")
 	GlobalScene.setvolume(-5)
-	GlobalScene.stopmusic()
+	if get_node_or_null(mashbash) != null:
+		GlobalScene.stopmusic()
 func resetmusic():
 	if newSong != "":
 		setmusic(newSong)

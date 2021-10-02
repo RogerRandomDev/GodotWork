@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MashBashsong6.mp3-753638354a59b2715fc52f9cd91a9529.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/MashBash/MashBashsong6.mp3"
+dest_files=[ "res://.import/MashBashsong6.mp3-753638354a59b2715fc52f9cd91a9529.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
