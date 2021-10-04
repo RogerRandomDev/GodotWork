@@ -1,0 +1,134 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type spatial;
+
+// Raymarching constants
+const float SURFACE_DST = 0.01;
+const int MAX_STEPS = 128;
+const float MAX_DISTANCE = 256f;
+const float NORMAL_STEP = .001f;
+uniform vec4 Size;
+uniform vec3 WRotation;
+uniform vec3 Rotation;
+uniform vec4 WPosition;
+uniform float CurrentW;
+varying float time;
+uniform int ObjectCount;
+void vertex() {
+	time = TIME;
+}
+vec4 getfD(vec3 p,vec3 Rot, vec3 WRot, vec4 WPos){
+	vec4 p4d = vec4(p.x,p.y,p.z,CurrentW)-WPos;
+	p4d.xz = p4d.xz*mat2(vec2(cos(Rot.y), sin(Rot.y)),vec2( -sin(Rot.y), cos(Rot.y)));
+	p4d.yz = p4d.yz*mat2(vec2(cos(Rot.x), -sin(Rot.x)),vec2( sin(Rot.x), cos(Rot.x)));
+	p4d.xy = p4d.xy*mat2(vec2(cos(Rot.z), -sin(Rot.z)),vec2( sin(Rot.z), cos(Rot.z)));
+
+	p4d.xw = p4d.xw*mat2(vec2(cos(WRot.x), sin(WRot.x)), vec2(-sin(WRot.x), cos(WRot.x)));
+	p4d.zw = p4d.zw*mat2(vec2(cos(WRot.z), -sin(WRot.z)), vec2(sin(WRot.z), cos(WRot.z)));
+	p4d.yw = p4d.yw*mat2(vec2(cos(WRot.y), -sin(WRot.y)), vec2(sin(WRot.y), cos(WRot.y)));
+	return p4d;
+}
+// Rotation matrix from angle
+mat3 rotate(vec3 theta) {
+    float cy = cos(theta.y);
+    float sy = sin(theta.y);
+	float cx = cos(theta.x);
+	float sx = sin(theta.x);
+	float cz = cos(theta.z);
+	float sz = sin(theta.z);
+    return mat3(
+        vec3(cy+cz, sz, sy),
+        vec3(-sz, 1.0+cx+cz, sx),
+        vec3(-sy, -sx, cy+cx)
+    );
+}
+
+float HyperCube(vec3 p, vec4 size, vec3 rot, vec3 wrot, vec4 wpos){
+	vec4 p4d = getfD(p, rot, wrot, wpos);
+	vec4 d = abs(p4d)-(size+vec4(0,0,0,CurrentW));
+	return min(max(d.x,max(d.y,max(d.z,d.w))),0.0) + length(max(d,0.0));
+}
+
+// Sample the whole scene, you can mix multiple shapes here
+float Scene(vec3 pos,float W) {
+	//Objects
+	float dst = 
+	HyperCube(pos,
+	Size,
+	Rotation,
+	WRotation,
+	WPosition);
+	//Returns distance between objects
+	return dst;
+}
+
+// The actual raymarching function
+float RayMarch(vec3 ro, vec3 rd,float W) {
+	float d = 0f;
+	vec3 pos;
+	for (int i = 0; i < MAX_STEPS; i++) {
+		W = length(pos)-length(ro + rd * d);
+		pos = ro + rd * d;
+		float sceneDst = Scene(pos,W);
+		
+		d += sceneDst;
+		
+		// Only stop if distance is higher than MAX_DISTANCE or sampled distance
+		// is less that surface threshold
+		if (d > MAX_DISTANCE || abs(sceneDst) <= SURFACE_DST) break;
+	}
+	return d;
+}
+
+// Sample the world normal in the contact position
+vec3 Normal(vec3 pos,float W) {
+	float d = Scene(pos,W);
+	vec2 e = vec2(NORMAL_STEP, 0.0);
+	vec3 n = d - vec3(
+		Scene(pos - e.xyy, W),
+		Scene(pos - e.yxy, W),
+		Scene(pos - e.yyx, W));
+	return normalize(n);
+}
+
+void fragment() {
+	// Get the pixel world coordinates
+	vec3 world = (CAMERA_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	// Get the camera position
+	vec3 camera = (CAMERA_MATRIX * vec4(0.0, 0.0, 0.0, 1.0)).xyz;
+	// Raymarching direction
+	vec3 dir = normalize(world - camera);
+	
+	// Starts just a bit off the mesh surface
+	vec3 ro = world - dir * SURFACE_DST;
+	float newW=CurrentW;
+	vec3 rd = dir;
+	
+	// Raymarch
+	float d = RayMarch(ro, rd,newW);
+	// Set the world position from the raymarching output
+	world = ro + rd * d;
+	
+	if (d >= MAX_DISTANCE) discard;
+	
+	// Samples world normal
+	vec3 n = Normal(world,newW);
+	// Set the local normal relative to the view
+	NORMAL = (INV_CAMERA_MATRIX * vec4(n, 0f)).xyz;
+	
+	// Depth calculation, this makes possible for other meshes intersect
+	// properly with the geometry
+	vec4 ndc = PROJECTION_MATRIX * INV_CAMERA_MATRIX * vec4(world, 1f);
+	float depth = (ndc.z / ndc.w) * .5f + .5f;
+	DEPTH = depth;
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/Size = Plane( 1, 1, 1, 1 )
+shader_param/WRotation = Vector3( 0, 0, 0 )
+shader_param/Rotation = Vector3( 2.548, 2.234, 3.724 )
+shader_param/WPosition = Plane( 0, 0, 0, 0 )
+shader_param/CurrentW = 0.0
+shader_param/ObjectCount = null
