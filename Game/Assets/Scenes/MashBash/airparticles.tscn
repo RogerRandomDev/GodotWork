@@ -1,10 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Assets/Scripts/MashBash/airparticles.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Textures/BoingWords.png" type="Texture" id=2]
 
 [node name="airparticles" type="CPUParticles2D"]
 emitting = false
-amount = 32
+amount = 1
 lifetime = 1.5
 one_shot = true
 explosiveness = 1.0
@@ -15,5 +16,25 @@ direction = Vector2( 0, -1 )
 spread = 15.0
 initial_velocity = 30.0
 scale_amount = 8.0
-color = Color( 0, 0.882353, 0.882353, 0.137255 )
+color = Color( 0, 0.882353, 0.882353, 0 )
 script = ExtResource( 1 )
+
+[node name="boingword" type="CPUParticles2D" parent="."]
+z_index = 5
+emitting = false
+amount = 1
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.63
+local_coords = false
+texture = ExtResource( 2 )
+emission_shape = 2
+emission_rect_extents = Vector2( 16, 1 )
+direction = Vector2( 0, -1 )
+spread = 60.0
+gravity = Vector2( 0, 9.8 )
+initial_velocity = 16.0
+initial_velocity_random = 0.5
+damping = 8.0
+scale_amount = 3.0
+color = Color( 1, 0.639216, 0.47451, 0.392157 )
