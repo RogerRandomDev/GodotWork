@@ -56,6 +56,14 @@ margin_bottom = -1.0
 text = "W ROTATION
 X"
 
+[node name="Button" type="Button" parent="HSlider"]
+margin_left = 264.0
+margin_top = 8.0
+margin_right = 307.0
+margin_bottom = 28.0
+toggle_mode = true
+text = "Loop"
+
 [node name="HSlider2" type="HSlider" parent="."]
 margin_top = 72.0
 margin_right = 256.0
@@ -77,6 +85,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Button2" type="Button" parent="HSlider2"]
+margin_left = 264.0
+margin_top = 8.0
+margin_right = 307.0
+margin_bottom = 28.0
+toggle_mode = true
+text = "Loop"
+
 [node name="HSlider3" type="HSlider" parent="."]
 margin_top = 104.0
 margin_right = 256.0
@@ -94,6 +110,17 @@ margin_top = -16.0
 margin_right = 40.0
 margin_bottom = 15.0
 text = "Z"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="HSlider3"]
+margin_left = 264.0
+margin_top = 8.0
+margin_right = 307.0
+margin_bottom = 28.0
+toggle_mode = true
+text = "Loop"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -119,7 +146,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_left = 832.0
+margin_right = 1024.0
+margin_bottom = 20.0
+text = "CHOOSE SHAPE"
+align = 1
+items = [ "CHOOSE SHAPE", null, false, -1, null, "HYPERCUBE", null, false, 0, null, "HYPERHEDRON", null, false, 1, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="toggled" from="HSlider/Button" to="." method="_on_Button_toggled"]
 [connection signal="value_changed" from="HSlider2" to="." method="_on_HSlider2_value_changed"]
+[connection signal="toggled" from="HSlider2/Button2" to="." method="_on_Button2_toggled"]
 [connection signal="value_changed" from="HSlider3" to="." method="_on_HSlider3_value_changed"]
+[connection signal="toggled" from="HSlider3/Button3" to="." method="_on_Button3_toggled"]
 [connection signal="value_changed" from="HSlider4" to="." method="_on_HSlider4_value_changed"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]

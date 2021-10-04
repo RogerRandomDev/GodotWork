@@ -15,9 +15,11 @@ uniform vec4 WPosition;
 uniform float CurrentW;
 varying float time;
 uniform int ObjectCount;
+uniform int chosen = 0;
 void vertex() {
 	time = TIME;
 }
+
 vec4 getfD(vec3 p,vec3 Rot, vec3 WRot, vec4 WPos){
 	vec4 p4d = vec4(p.x,p.y,p.z,CurrentW)-WPos;
 	p4d.xz = p4d.xz*mat2(vec2(cos(Rot.y), sin(Rot.y)),vec2( -sin(Rot.y), cos(Rot.y)));
@@ -43,22 +45,39 @@ mat3 rotate(vec3 theta) {
         vec3(-sy, -sx, cy+cx)
     );
 }
-
+float HyperHedron( vec3 p, vec4 size, vec3 rot, vec3 wrot, vec4 wpos)
+{
+	vec4 p4d = getfD(p, rot, wrot, wpos);
+	p4d = abs(p4d);
+	return (p4d.x+p4d.y+p4d.z+p4d.w-length(Size))*0.57735027;
+}
 float HyperCube(vec3 p, vec4 size, vec3 rot, vec3 wrot, vec4 wpos){
 	vec4 p4d = getfD(p, rot, wrot, wpos);
 	vec4 d = abs(p4d)-(size+vec4(0,0,0,CurrentW));
 	return min(max(d.x,max(d.y,max(d.z,d.w))),0.0) + length(max(d,0.0));
 }
-
+float getshape(int chose, vec3 pos){
+	float dst = 0.0;
+	if(chose == 0){
+		dst = HyperCube(pos,
+		Size,
+		Rotation,
+		WRotation,
+		WPosition);
+	}
+	if(chose == 1){
+		dst = HyperHedron(pos,
+		Size,
+		Rotation,
+		WRotation,
+		WPosition);
+	}
+	return dst;
+	}
 // Sample the whole scene, you can mix multiple shapes here
 float Scene(vec3 pos,float W) {
 	//Objects
-	float dst = 
-	HyperCube(pos,
-	Size,
-	Rotation,
-	WRotation,
-	WPosition);
+	float dst = getshape(chosen, pos);
 	//Returns distance between objects
 	return dst;
 }
@@ -132,3 +151,4 @@ shader_param/Rotation = Vector3( 2.548, 2.234, 3.724 )
 shader_param/WPosition = Plane( 0, 0, 0, 0 )
 shader_param/CurrentW = 0.0
 shader_param/ObjectCount = null
+shader_param/chosen = 0
