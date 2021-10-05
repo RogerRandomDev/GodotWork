@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+[gd_resource type="ShaderMaterial" load_steps=4 format=2]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type spatial;
@@ -6,20 +6,33 @@ code = "shader_type spatial;
 // Raymarching constants
 const float SURFACE_DST = 0.01;
 const int MAX_STEPS = 128;
-const float MAX_DISTANCE = 256f;
+const float MAX_DISTANCE = 1024f;
 const float NORMAL_STEP = .001f;
-uniform vec4 Size;
-uniform vec3 WRotation;
-uniform vec3 Rotation;
-uniform vec4 WPosition;
-uniform float CurrentW;
-varying float time;
-uniform int ObjectCount;
-uniform int chosen = 0;
-void vertex() {
-	time = TIME;
-}
+uniform float CurrentW=0f;
+uniform sampler2D Data;
+uniform int DataSize;
 
+///////////////////////
+// Boolean Operators
+///////////////////////
+ 
+float intersectSDF(float distA, float distB) {
+    return max(distA, distB);
+}
+ 
+float unionSDF(float distA, float distB) {
+    return min(distA, distB);
+}
+ 
+float differenceSDF(float distA, float distB) {
+    return max(distA, -distB);
+}
+float Booleans(int val,float ldst, float dst){
+	if(val == 0){return dst;} 
+	if(val == 1){return intersectSDF(ldst,dst);}
+	if(val == 2){return unionSDF(ldst,dst);}
+	if(val == 3){return differenceSDF(ldst,dst);}
+}
 vec4 getfD(vec3 p,vec3 Rot, vec3 WRot, vec4 WPos){
 	vec4 p4d = vec4(p.x,p.y,p.z,CurrentW)-WPos;
 	p4d.xz = p4d.xz*mat2(vec2(cos(Rot.y), sin(Rot.y)),vec2( -sin(Rot.y), cos(Rot.y)));
@@ -49,15 +62,21 @@ float HyperHedron( vec3 p, vec4 size, vec3 rot, vec3 wrot, vec4 wpos)
 {
 	vec4 p4d = getfD(p, rot, wrot, wpos);
 	p4d = abs(p4d);
-	return (p4d.x+p4d.y+p4d.z+p4d.w-length(Size))*0.57735027;
+	return (p4d.x+p4d.y+p4d.z+p4d.w-length(size))*0.57735027;
 }
 float HyperCube(vec3 p, vec4 size, vec3 rot, vec3 wrot, vec4 wpos){
 	vec4 p4d = getfD(p, rot, wrot, wpos);
 	vec4 d = abs(p4d)-(size+vec4(0,0,0,CurrentW));
 	return min(max(d.x,max(d.y,max(d.z,d.w))),0.0) + length(max(d,0.0));
 }
-float getshape(int chose, vec3 pos){
+float getshape(float start,vec3 pos){
 	float dst = 0.0;
+	vec4 Size = texture(Data,vec2(0.125,start)).rgba*255.0;
+	vec4 WPosition = texture(Data,vec2(0.375,start)).rgba*255.0;
+	vec3 Rotation = -texture(Data,vec2(0.625,start)).rgb*510.0;
+	vec4 WRot = texture(Data,vec2(0.875,start)).rgba*255.0;
+	vec3 WRotation = WRot.xyz;
+	int chose = int(WRot.w);
 	if(chose == 0){
 		dst = HyperCube(pos,
 		Size,
@@ -73,11 +92,21 @@ float getshape(int chose, vec3 pos){
 		WPosition);
 	}
 	return dst;
-	}
+}
 // Sample the whole scene, you can mix multiple shapes here
 float Scene(vec3 pos,float W) {
 	//Objects
-	float dst = getshape(chosen, pos);
+	float dst = getshape(float((float(1)+0.5)/float(DataSize)),pos);
+	float lastdst;
+	int Boolean =-1;
+	for(int i = 0; i<DataSize; i++){
+		lastdst = dst;
+		dst=min(dst,
+		getshape(float((float(i)+0.5)/float(DataSize)),pos)
+		);
+		Boolean = int(texture(Data,vec2(0.625,float((float(i)+0.5)/float(DataSize)))).a*255.0);
+		dst = max(Booleans(Boolean,lastdst,dst),dst);
+	}
 	//Returns distance between objects
 	return dst;
 }
@@ -143,12 +172,21 @@ void fragment() {
 	DEPTH = depth;
 }"
 
+[sub_resource type="Image" id=2]
+data = {
+"data": PoolByteArray( 129, 128, 128, 60, 129, 128, 128, 60, 129, 128, 128, 60, 129, 128, 128, 59, 251, 250, 250, 62, 249, 248, 248, 62, 185, 184, 56, 63, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 129, 128, 128, 59, 129, 128, 128, 59, 129, 128, 128, 59, 129, 128, 128, 59, 253, 252, 252, 62, 130, 129, 1, 63, 186, 185, 57, 63, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 29, 160, 59, 197, 8, 20, 187, 81, 112, 117, 187, 0, 0, 0, 0 ),
+"format": "RGBAFloat",
+"height": 2,
+"mipmaps": false,
+"width": 4
+}
+
+[sub_resource type="ImageTexture" id=3]
+image = SubResource( 2 )
+size = Vector2( 4, 2 )
+
 [resource]
 shader = SubResource( 1 )
-shader_param/Size = Plane( 1, 1, 1, 1 )
-shader_param/WRotation = Vector3( 0, 0, 0 )
-shader_param/Rotation = Vector3( 2.548, 2.234, 3.724 )
-shader_param/WPosition = Plane( 0, 0, 0, 0 )
 shader_param/CurrentW = 0.0
-shader_param/ObjectCount = null
-shader_param/chosen = 0
+shader_param/DataSize = 2
+shader_param/Data = SubResource( 3 )

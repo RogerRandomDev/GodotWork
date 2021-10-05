@@ -16,7 +16,7 @@ config/icon="res://icon.png"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/4D/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [physics]
 
