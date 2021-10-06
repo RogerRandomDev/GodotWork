@@ -6,7 +6,6 @@
 [ext_resource path="res://4dObject.gd" type="Script" id=4]
 
 [sub_resource type="PlaneMesh" id=1]
-size = Vector2( 8, 8 )
 
 [node name="Node2D" type="Node2D" groups=[
 "Loader",
@@ -23,7 +22,7 @@ __meta__ = {
 }
 
 [node name="Viewport" type="Viewport" parent="ViewportContainer"]
-size = Vector2( 1024, 600 )
+size = Vector2( 512, 300 )
 handle_input_locally = false
 msaa = 4
 render_target_update_mode = 3
@@ -36,7 +35,7 @@ current = true
 script = ExtResource( 2 )
 
 [node name="ImmediateGeometry2" type="MeshInstance" parent="ViewportContainer/Viewport/Spatial/Camera"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.75 )
+transform = Transform( 1, 0, 0, 0, -8.9407e-08, -1, 0, 1, -8.9407e-08, 0, 0, -0.75 )
 material_override = ExtResource( 1 )
 generate_lightmap = false
 mesh = SubResource( 1 )
@@ -45,17 +44,78 @@ material/0 = ExtResource( 1 )
 [node name="Spatial" type="Spatial" parent="ViewportContainer/Viewport/Spatial" groups=[
 "4DObject",
 ]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 125, 124, 184 )
+transform = Transform( 0.0252013, -0.986642, -0.160943, -0.0647562, 0.159045, -0.985145, 0.997583, 0.035249, -0.059883, 126.115, 111.91, 162.084 )
 script = ExtResource( 4 )
-Size = [ 4, 4, 4, 1 ]
+Size = [ 4.0, 2.0, 3.0, 1.0 ]
+wRotation = Vector3( 0.574, -0.637, -2.759 )
+Boolean = 2
+type = 1
 
 [node name="Spatial2" type="Spatial" parent="ViewportContainer/Viewport/Spatial" groups=[
 "4DObject",
 ]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 126, 129, 185 )
+transform = Transform( 0.911058, 0.412278, 0, -0.412278, 0.911058, 0, 0, 0, 1, 126.551, 110.606, 168.964 )
 script = ExtResource( 4 )
 __meta__ = {
 "_editor_description_": ""
 }
-Size = [ 1, 1, 1, 1 ]
-wRotation = Vector3( 1.246, -0.576, -0.955 )
+Size = [ 2.0, 4.0, 3.0, 1.0 ]
+wRotation = Vector3( -0.74, 0.376, 1.244 )
+type = 1
+
+[node name="Spatial3" type="Spatial" parent="ViewportContainer/Viewport/Spatial" groups=[
+"4DObject",
+]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 126.569, 107.775, 168.964 )
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": ""
+}
+Size = [ 6.0, 2.0, 6.0, 1.0 ]
+wRotation = Vector3( 0.253, 0, 0.277 )
+
+[node name="Spatial4" type="Spatial" parent="ViewportContainer/Viewport/Spatial" groups=[
+"4DObject",
+]]
+transform = Transform( 0.819525, -0.537622, -0.198346, 0.567901, 0.808234, 0.155711, 0.0765969, -0.24025, 0.967684, 134.603, 110.482, 168.964 )
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": ""
+}
+Size = [ 3.0, 2.0, 5.0, 1.0 ]
+wRotation = Vector3( 2.885, -3.131, 0.256 )
+
+[node name="Spatial5" type="Spatial" parent="ViewportContainer/Viewport/Spatial" groups=[
+"4DObject",
+]]
+transform = Transform( 0.819525, -0.537622, -0.198346, 0.567901, 0.808234, 0.155711, 0.0765969, -0.24025, 0.967684, 132.109, 115.147, 167.326 )
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": ""
+}
+Size = [ 2.0, 3.0, 2.0, 1.0 ]
+wRotation = Vector3( 5.458, -4.579, 1.038 )
+type = 1
+
+[node name="Spatial6" type="Spatial" parent="ViewportContainer/Viewport/Spatial" groups=[
+"4DObject",
+]]
+transform = Transform( 0.819525, -0.537622, -0.198346, 0.567901, 0.808234, 0.155711, 0.0765969, -0.24025, 0.967684, 119.938, 115.147, 170.441 )
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": ""
+}
+Size = [ 4.0, 2.0, 1.0, 1.0 ]
+wRotation = Vector3( 5.733, -3.25, 0.291 )
+
+[node name="HSlider" type="HSlider" parent="."]
+margin_right = 256.0
+margin_bottom = 16.0
+min_value = -5.0
+max_value = 5.0
+step = 0.063
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]

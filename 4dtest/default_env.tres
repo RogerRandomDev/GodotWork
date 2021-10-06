@@ -5,3 +5,12 @@
 [resource]
 background_mode = 2
 background_sky = SubResource( 1 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+glow_enabled = true
+glow_intensity = 5.62
+glow_strength = 0.45
+glow_bloom = 0.02
+glow_blend_mode = 0
+glow_hdr_threshold = 0.84
+glow_hdr_luminance_cap = 58.8
+glow_hdr_scale = 2.43

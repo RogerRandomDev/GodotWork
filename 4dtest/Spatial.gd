@@ -46,3 +46,7 @@ func makeTexture(width, vectors): # vectors is array of Color objects
 		var tex = ImageTexture.new()
 		tex.create_from_image(img)
 		return tex
+
+
+func _on_HSlider_value_changed(value):
+	get_node(shader).material_override.set_shader_param("CurrentW",value)

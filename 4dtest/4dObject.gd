@@ -1,7 +1,7 @@
 extends Spatial
 
 tool
-export var Size=[0,0,0,0] setget usize
+export (Array,float) var Size=[1.0,1.0,1.0,1.0] setget usize
 export var wRotation=Vector3.ZERO setget urot
 export var Boolean=0 setget ubool
 export var type=0 setget utype
