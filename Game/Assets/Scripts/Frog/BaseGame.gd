@@ -20,3 +20,8 @@ func _ready():
 	##allows you to disable the shader##
 	if GlobalScene.shaderOFF:
 		$Shader.hide()
+	if GlobalScene.inVR:
+		GlobalScene.setvolume(20)
+		GlobalScene.setnoise(10)
+func setfree():
+	self.queue_free()

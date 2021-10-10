@@ -58,166 +58,6 @@ size = 40
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=9]
-length = 17.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("MashBash/Viewport/RichTextLabel:visible_characters")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 0.6, 0.65, 0.85, 0.9, 1.15, 1.2, 1.45, 1.5, 1.75, 1.8, 2.3, 2.35, 2.85, 2.9, 3.4, 3.45, 3.95, 4, 4.5, 4.55, 4.8, 4.85, 5.1, 5.15, 5.4, 5.45, 5.9, 5.95, 6.4, 6.45, 6.95, 7, 7.45, 7.5, 7.95, 8, 8.7, 8.75, 9.2, 9.25, 9.7, 9.75, 10.2, 10.25, 10.7, 10.75, 11.25, 11.3 ),
-"transitions": PoolRealArray( 1, 1, 1e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1, 1e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1, 1e-05, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0, 338, 338, 372, 372, 373, 373, 374, 374, 375, 375, 413, 413, 435, 435, 457, 457, 479, 479, 501, 501, 556, 556, 557, 557, 558, 558, 602, 602, 623, 623, 644, 644, 665, 665, 686, 686, 776, 776, 788, 788, 800, 800, 866, 866, 867, 867, 868, 868, 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("P1:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 16.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("MashBash:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 16.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("MashBash/Viewport/Line2D:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 11.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("MashBash/Viewport/Node2D/Label:visible_characters")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"times": PoolRealArray( 11.2, 14.25, 15.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0, 0, 12 ]
-}
-tracks/5/type = "value"
-tracks/5/path = NodePath("P1/Viewport/Player:played")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"times": PoolRealArray( 0, 16.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/6/type = "method"
-tracks/6/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 16.5 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "prepText"
-} ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText:currenttextset")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 16.5 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/8/type = "method"
-tracks/8/path = NodePath(".")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"times": PoolRealArray( 0, 0.1, 0.3, 16.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "stop"
-}, {
-"args": [  ],
-"method": "stop"
-}, {
-"args": [  ],
-"method": "stop"
-}, {
-"args": [  ],
-"method": "resetmusic"
-} ]
-}
-tracks/9/type = "value"
-tracks/9/path = NodePath("MashBash/Viewport/Node2D:visible")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"times": PoolRealArray( 0, 11.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/10/type = "value"
-tracks/10/path = NodePath("MashBash/Viewport/Node2D/Line2D2:points")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"times": PoolRealArray( 11.3, 11.8, 12, 12.6, 12.8, 13.2, 13.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 416, 224, 480, 224 ), PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 416, 224, 480, 224 ), PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 416, 224, 480, 224 ), PoolVector2Array( 448, 192, 448, 256 ) ]
-}
-tracks/11/type = "value"
-tracks/11/path = NodePath("MashBash/Viewport/Node2D/Line2D3:points")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
-"times": PoolRealArray( 11.3, 11.8, 12, 12.6, 12.8, 13.2, 13.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 480, 224, 416, 224 ), PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 480, 224, 416, 224 ), PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 480, 224, 416, 224 ), PoolVector2Array( 448, 192, 448, 256 ) ]
-}
-
 [sub_resource type="DynamicFont" id=10]
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
@@ -538,9 +378,147 @@ size = 8
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
+[sub_resource type="Animation" id=9]
+length = 17.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("MashBash/Viewport/RichTextLabel:visible_characters")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 0.65, 0.85, 0.9, 1.15, 1.2, 1.45, 1.5, 1.75, 1.8, 2.3, 2.35, 2.85, 2.9, 3.4, 3.45, 3.95, 4, 4.5, 4.55, 4.8, 4.85, 5.1, 5.15, 5.4, 5.45, 5.9, 5.95, 6.4, 6.45, 6.95, 7, 7.45, 7.5, 7.95, 8, 8.7, 8.75, 9.2, 9.25, 9.7, 9.75, 10.2, 10.25, 10.7, 10.75, 11.25, 11.3 ),
+"transitions": PoolRealArray( 1, 1, 1e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 2.63902e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1e-05, 1, 1e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1.03526e-05, 1, 1e-05, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 338, 338, 372, 372, 373, 373, 374, 374, 375, 375, 413, 413, 435, 435, 457, 457, 479, 479, 501, 501, 556, 556, 557, 557, 558, 558, 602, 602, 623, 623, 644, 644, 665, 665, 686, 686, 776, 776, 788, 788, 800, 800, 866, 866, 867, 867, 868, 868, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("P1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 16.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MashBash:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 16.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MashBash/Viewport/Line2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 11.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MashBash/Viewport/Node2D/Label:visible_characters")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 11.2, 14.25, 15.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 12 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("P1/Viewport/Player:played")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 16.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 16.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "prepText"
+} ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText:currenttextset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 16.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("MashBash/Viewport/Node2D:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 11.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("MashBash/Viewport/Node2D/Line2D2:points")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 11.3, 11.8, 12, 12.6, 12.8, 13.2, 13.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 416, 224, 480, 224 ), PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 416, 224, 480, 224 ), PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 416, 224, 480, 224 ), PoolVector2Array( 448, 192, 448, 256 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("MashBash/Viewport/Node2D/Line2D3:points")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 11.3, 11.8, 12, 12.6, 12.8, 13.2, 13.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 480, 224, 416, 224 ), PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 480, 224, 416, 224 ), PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 480, 224, 416, 224 ), PoolVector2Array( 448, 192, 448, 256 ) ]
+}
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
 mashbash = NodePath("MashBash")
+newSong = "res://Assets/Audio/MashBash/WellHello.mp3"
 
 [node name="P1" type="ViewportContainer" parent="."]
 visible = false
@@ -815,9 +793,6 @@ texture = ExtResource( 3 )
 centered = false
 flip_v = true
 
-[node name="MashBashAnim" type="AnimationPlayer" parent="."]
-"anims/MASHBASH boot" = SubResource( 9 )
-
 [node name="MashBash" type="ViewportContainer" parent="."]
 show_behind_parent = true
 margin_right = 1024.0
@@ -831,7 +806,6 @@ __meta__ = {
 arvr = true
 size = Vector2( 768, 640 )
 size_override_stretch = true
-own_world = true
 handle_input_locally = false
 disable_3d = true
 usage = 0
@@ -884,6 +858,7 @@ custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
 text = "Hello, there"
 align = 1
 uppercase = true
+percent_visible = -0.0909091
 
 [node name="Line2D" type="Line2D" parent="MashBash/Viewport"]
 visible = false
@@ -1101,6 +1076,13 @@ align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
+}
+
+[node name="MashBashAnim" type="AnimationPlayer" parent="."]
+process_priority = -1
+"anims/MASHBASH boot" = SubResource( 9 )
+__meta__ = {
+"_editor_description_": ""
 }
 
 [connection signal="timeout" from="P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Timer" to="P1/Viewport/Camera2D/Node2D/TextBox/BottomText" method="_on_Timer_timeout"]

@@ -40,6 +40,7 @@ font_data = ExtResource( 2 )
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 5 )
 volume = -10
+curgame = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

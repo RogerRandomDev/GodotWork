@@ -76,31 +76,35 @@ func _on_Timer_timeout():
 	$Sprite.region_rect.position.x = (int(PlayerID!="P1")*18)
 
 func P1Move():
-	if Input.is_action_just_pressed("leftP1"):
+	if Input.is_action_pressed("leftP1"):
 		direction.x = -moveDist;
 		$Sprite.rotation_degrees = -90
-	elif Input.is_action_just_pressed("rightP1"):
+	elif Input.is_action_pressed("rightP1"):
 		direction.x =moveDist;
 		$Sprite.rotation_degrees = 90
-	elif Input.is_action_just_pressed("downP1"):
+	elif Input.is_action_pressed("downP1"):
 		direction.y = moveDist;
 		$Sprite.rotation_degrees = 180
-	elif Input.is_action_just_pressed("upP1"):
+	elif Input.is_action_pressed("upP1"):
 		direction.y = -moveDist;
 		$Sprite.rotation_degrees = 0
+	Input.action_release("downP1")
+	Input.action_release("upP1")
+	Input.action_release("leftP1")
+	Input.action_release("rightP1")
 	get_node(Map).ModulePosition = max(-position.y+2304,get_node(Map).ModulePosition)
 
 func P2Move():
-	if Input.is_action_just_pressed("leftP2"):
+	if Input.is_action_pressed("leftP2"):
 		direction.x = -moveDist;
 		$Sprite.rotation_degrees = -90
-	elif Input.is_action_just_pressed("rightP2"):
+	elif Input.is_action_pressed("rightP2"):
 		direction.x =moveDist;
 		$Sprite.rotation_degrees = 90
-	elif Input.is_action_just_pressed("downP2"):
+	elif Input.is_action_pressed("downP2"):
 		direction.y = moveDist;
 		$Sprite.rotation_degrees = 180
-	elif Input.is_action_just_pressed("upP2"):
+	elif Input.is_action_pressed("upP2"):
 		direction.y = -moveDist;
 		$Sprite.rotation_degrees = 0
 	get_node(Map).ModulePosition = max(-position.y+2304,get_node(Map).ModulePosition)

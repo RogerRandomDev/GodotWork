@@ -39,6 +39,7 @@ font_data = ExtResource( 3 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 4 )
+curgame = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

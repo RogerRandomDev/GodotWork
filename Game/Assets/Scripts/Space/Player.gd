@@ -48,6 +48,9 @@ func P1Move():
 		direction.x += moveDist
 	if Input.is_action_just_pressed("upP1") && GlobalScene.currentbullets[0] < 1:
 		shoot()
+	if GlobalScene.inVR:
+		Input.action_release("downP1")
+		Input.action_release("upP1")
 func P2Move():
 	if Input.is_action_pressed("leftP2"):
 		direction.x -= moveDist
