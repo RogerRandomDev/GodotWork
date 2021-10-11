@@ -20,6 +20,7 @@ surfaces/0 = {
 }
 
 [sub_resource type="SpatialMaterial" id=2]
+flags_unshaded = true
 albedo_color = Color( 0.317647, 0.235294, 0.156863, 1 )
 albedo_texture = ExtResource( 2 )
 
