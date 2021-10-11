@@ -36,5 +36,5 @@ surfaces/1 = {
 
 [node name="Cube" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
-material/0 = null
-material/1 = null
+material/0 = ExtResource( 1 )
+material/1 = ExtResource( 2 )

@@ -14,6 +14,7 @@ export var volume=0
 export var curgame = 0
 ##sets music##
 func _ready():
+	GlobalScene.playmusic("res://Assets/Audio/"+gamename[GlobalScene.currentgame]+"/GameSong.mp3")
 	Input.action_release("enter")
 	GlobalScene.HighScore[GlobalScene.currentgame] = 0
 	##sets scoreboard##
@@ -23,7 +24,6 @@ func _ready():
 	if !multiplay.has(GlobalScene.currentgame):
 		$ViewportContainer/Viewport/Labels/PlayerCount.hide()
 		GlobalScene.PlayerCount = 1
-	GlobalScene.playmusic("res://Assets/Audio/"+gamename[GlobalScene.currentgame]+"/GameSong.mp3")
 	$ViewportContainer/Viewport/Labels/Play.show()
 	currentcoins = min(GlobalScene.coinCount+1,99)
 		
@@ -43,6 +43,7 @@ func _ready():
 	if GlobalScene.inVR:
 		GlobalScene.setvolume(10)
 		GlobalScene.setnoise(0)
+	playsong()
 ##Flips between the Current Coin count to make it flash
 func _on_CoinFlash_timeout():
 	$ViewportContainer/Viewport/Labels/CoinCount.visible = !$ViewportContainer/Viewport/Labels/CoinCount.visible
@@ -104,3 +105,5 @@ func start():
 	cango = true
 func setfree():
 	self.queue_free()
+func playsong():
+	GlobalScene.playmusic("res://Assets/Audio/"+gamename[GlobalScene.currentgame]+"/GameSong.mp3")

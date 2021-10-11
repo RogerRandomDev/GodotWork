@@ -33,31 +33,25 @@ func _ready():
 	else:
 		$P1/Viewport/Camera2D/Node2D/TextBox/BottomText.canchange = true
 	if GlobalScene.inVR:
-		$MashBash.rect_scale = Vector2(2,2)
-		$MashBash.hide()
-		$P1.show()
-		$P1/Viewport/Player.played = true
-		$P1/Viewport/Camera2D/Node2D/TextBox/BottomText.currenttextset = 0
-		$P1/Viewport/Camera2D/Node2D/TextBox/BottomText.prepText()
-	else:
-		$MashBashAnim.play("MASHBASH boot")
+		$MashBash.rect_scale = Vector2(1,1)
+	$MashBashAnim.play("MASHBASH boot")
 	var Map = get_tree().get_nodes_in_group("map")[0].get_parent()
 	remove_child(Map)
 	$P1/Viewport.add_child(Map)
 	if newSong != "":
 		GlobalScene.playmusic(newSong)
-		GlobalScene.setnoise(-10)
 		GlobalScene.stopmusic()
 	else:
 		GlobalScene.playmusic("res://Assets/Audio/MashBash/WellHello.mp3")
-	GlobalScene.setvolume(-5)
+	GlobalScene.setvolume(5)
+	GlobalScene.setnoise(0)
 	if get_node_or_null(mashbash) != null:
 		GlobalScene.stopmusic()
 
 func resetmusic():
 	if newSong != "":
 		setmusic(newSong)
-		GlobalScene.setnoise(-10)
+		
 		GlobalScene.stopmusic()
 	else:
 		GlobalScene.playmusic("res://Assets/Audio/MashBash/MashBashSong0.mp3")
@@ -66,9 +60,18 @@ func setmusic(music):
 	GlobalScene.stopmusic()
 func stop():
 	GlobalScene.stopmusic()
+# warning-ignore:unused_argument
 func _process(delta):
 	if $MashBashAnim.is_playing():
 		stop()
 	elif ! reset:
 		resetmusic()
 		reset = true
+
+
+# warning-ignore:unused_argument
+func _on_MashBashAnim_animation_finished(anim_name):
+	$P1/Viewport/Camera2D/Node2D/TextBox/BottomText.currenttextset = 0
+	$P1/Viewport/Camera2D/Node2D/TextBox/BottomText.prepText()
+	$P1.visible=true
+	$MashBash.visible = false

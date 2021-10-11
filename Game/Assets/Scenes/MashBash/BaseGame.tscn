@@ -58,11 +58,11 @@ size = 40
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=9]
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/mouth:points")
@@ -113,7 +113,7 @@ tracks/3/keys = {
 "values": [ 0.0, -15.0, 0.0, 15.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/mouth:points")
@@ -164,7 +164,7 @@ tracks/3/keys = {
 "values": [ 0.0, -15.0, 0.0, 15.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=12]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/mouth:points")
@@ -215,7 +215,7 @@ tracks/3/keys = {
 "values": [ 0.0, -15.0, 0.0, 15.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=13]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/mouth:points")
@@ -228,6 +228,57 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ PoolVector2Array( -16, 0, -8, 0, 8, 0, 16, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/LEye:points")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( -10, -14.5, -10, -20.5 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/REye:points")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( 10, -14.5, 10, -20.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -15.0, 0.0, 15.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=14]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/mouth:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ PoolVector2Array( -16, 0, -8, -8, 8, -8, 16, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/LEye:points")
@@ -290,57 +341,6 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ PoolVector2Array( -10, -14.5, -10, -20.5 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/REye:points")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ PoolVector2Array( 10, -14.5, 10, -20.5 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, -15.0, 0.0, 15.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=16]
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/mouth:points")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ PoolVector2Array( -16, 0, -8, -8, 8, -8, 16, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Face/LEye:points")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
 "values": [ PoolVector2Array( -10, -14.5, -10, -20.5, -6, -24.5, -14, -16.5 ) ]
 }
 tracks/2/type = "value"
@@ -368,17 +368,17 @@ tracks/3/keys = {
 "values": [ 0.0, -15.0, 0.0, 15.0, 0.0 ]
 }
 
+[sub_resource type="DynamicFont" id=16]
+size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=17]
 size = 8
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=18]
-size = 8
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
-
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=18]
 length = 17.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("MashBash/Viewport/RichTextLabel:visible_characters")
@@ -393,122 +393,72 @@ tracks/0/keys = {
 "values": [ 0, 338, 338, 372, 372, 373, 373, 374, 374, 375, 375, 413, 413, 435, 435, 457, 457, 479, 479, 501, 501, 556, 556, 557, 557, 558, 558, 602, 602, 623, 623, 644, 644, 665, 665, 686, 686, 776, 776, 788, 788, 800, 800, 866, 866, 867, 867, 868, 868, 0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("P1:visible")
+tracks/1/path = NodePath("MashBash/Viewport/Line2D:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 16.5 ),
+"times": PoolRealArray( 0, 11.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("MashBash:visible")
+tracks/2/path = NodePath("MashBash/Viewport/Node2D/Label:visible_characters")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 16.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("MashBash/Viewport/Line2D:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 11.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/4/type = "value"
-tracks/4/path = NodePath("MashBash/Viewport/Node2D/Label:visible_characters")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
 "times": PoolRealArray( 11.2, 14.25, 15.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 0, 12 ]
 }
-tracks/5/type = "value"
-tracks/5/path = NodePath("P1/Viewport/Player:played")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
+tracks/3/type = "value"
+tracks/3/path = NodePath("P1/Viewport/Player:played")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 0, 16.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
-tracks/6/type = "method"
-tracks/6/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"times": PoolRealArray( 16.5 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "prepText"
-} ]
-}
-tracks/7/type = "value"
-tracks/7/path = NodePath("P1/Viewport/Camera2D/Node2D/TextBox/BottomText:currenttextset")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"times": PoolRealArray( 16.5 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 0 ]
-}
-tracks/8/type = "value"
-tracks/8/path = NodePath("MashBash/Viewport/Node2D:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
+tracks/4/type = "value"
+tracks/4/path = NodePath("MashBash/Viewport/Node2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 0, 11.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
-tracks/9/type = "value"
-tracks/9/path = NodePath("MashBash/Viewport/Node2D/Line2D2:points")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
+tracks/5/type = "value"
+tracks/5/path = NodePath("MashBash/Viewport/Node2D/Line2D2:points")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
 "times": PoolRealArray( 11.3, 11.8, 12, 12.6, 12.8, 13.2, 13.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 416, 224, 480, 224 ), PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 416, 224, 480, 224 ), PoolVector2Array( 448, 192, 448, 256 ), PoolVector2Array( 416, 224, 480, 224 ), PoolVector2Array( 448, 192, 448, 256 ) ]
 }
-tracks/10/type = "value"
-tracks/10/path = NodePath("MashBash/Viewport/Node2D/Line2D3:points")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
+tracks/6/type = "value"
+tracks/6/path = NodePath("MashBash/Viewport/Node2D/Line2D3:points")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
 "times": PoolRealArray( 11.3, 11.8, 12, 12.6, 12.8, 13.2, 13.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
@@ -531,6 +481,7 @@ __meta__ = {
 
 [node name="Viewport" type="Viewport" parent="P1"]
 size = Vector2( 1024, 600 )
+own_world = true
 world = SubResource( 2 )
 handle_input_locally = false
 disable_3d = true
@@ -803,9 +754,9 @@ __meta__ = {
 }
 
 [node name="Viewport" type="Viewport" parent="MashBash"]
-arvr = true
 size = Vector2( 768, 640 )
 size_override_stretch = true
+own_world = true
 handle_input_locally = false
 disable_3d = true
 usage = 0
@@ -853,12 +804,11 @@ margin_left = 256.0
 margin_top = 480.0
 margin_right = 512.0
 margin_bottom = 494.0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
 text = "Hello, there"
 align = 1
 uppercase = true
-percent_visible = -0.0909091
 
 [node name="Line2D" type="Line2D" parent="MashBash/Viewport"]
 visible = false
@@ -874,12 +824,12 @@ texture = ExtResource( 3 )
 centered = false
 
 [node name="FaceAnims" type="AnimationPlayer" parent="."]
-anims/evilhappy = SubResource( 11 )
-anims/evilsad = SubResource( 12 )
-anims/happy = SubResource( 13 )
-anims/neutral = SubResource( 14 )
-anims/sad = SubResource( 15 )
-anims/worried = SubResource( 16 )
+anims/evilhappy = SubResource( 10 )
+anims/evilsad = SubResource( 11 )
+anims/happy = SubResource( 12 )
+anims/neutral = SubResource( 13 )
+anims/sad = SubResource( 14 )
+anims/worried = SubResource( 15 )
 
 [node name="Map" type="Node2D" parent="."]
 z_index = 1
@@ -906,7 +856,7 @@ margin_left = -96.0
 margin_right = 96.0
 margin_bottom = 48.0
 rect_scale = Vector2( 1, 1.5 )
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
 text = "Absolutely
 Nothing Here"
@@ -944,7 +894,7 @@ margin_left = -32.0
 margin_top = -32.0
 margin_right = 32.0
 margin_bottom = 32.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
 text = "DO
 NOT
@@ -984,7 +934,7 @@ margin_left = -32.0
 margin_top = -32.0
 margin_right = 32.0
 margin_bottom = 32.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
 text = "DONT YOU
 DARE"
@@ -1000,7 +950,7 @@ margin_top = -4672.0
 margin_right = 2208.0
 margin_bottom = -4540.0
 rect_scale = Vector2( 2, 2 )
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
 text = "Z.R Ivxliw
 RW: NZHSYZHS
@@ -1030,33 +980,6 @@ position = Vector2( 2192, -1080 )
 [node name="Enemy3" parent="Map/Entities" instance=ExtResource( 11 )]
 position = Vector2( 2256, -1080 )
 
-[node name="Enemy5" parent="Map/Entities" instance=ExtResource( 11 )]
-position = Vector2( 2128, -1112 )
-
-[node name="Enemy6" parent="Map/Entities" instance=ExtResource( 11 )]
-position = Vector2( 2192, -1112 )
-
-[node name="Enemy7" parent="Map/Entities" instance=ExtResource( 11 )]
-position = Vector2( 2256, -1112 )
-
-[node name="Enemy9" parent="Map/Entities" instance=ExtResource( 11 )]
-position = Vector2( 2128, -1144 )
-
-[node name="Enemy10" parent="Map/Entities" instance=ExtResource( 11 )]
-position = Vector2( 2192, -1144 )
-
-[node name="Enemy11" parent="Map/Entities" instance=ExtResource( 11 )]
-position = Vector2( 2256, -1144 )
-
-[node name="Enemy13" parent="Map/Entities" instance=ExtResource( 11 )]
-position = Vector2( 2128, -1176 )
-
-[node name="Enemy14" parent="Map/Entities" instance=ExtResource( 11 )]
-position = Vector2( 2192, -1176 )
-
-[node name="Enemy15" parent="Map/Entities" instance=ExtResource( 11 )]
-position = Vector2( 2256, -1176 )
-
 [node name="Platform" parent="Map/Entities" instance=ExtResource( 12 )]
 position = Vector2( 1400, -520 )
 scale = Vector2( 3, 1 )
@@ -1069,7 +992,7 @@ margin_left = -32.0
 margin_top = -32.0
 margin_right = 32.0
 margin_bottom = 32.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 17 )
 text = "LEVEL TO
 LEFT"
 align = 1
@@ -1080,10 +1003,12 @@ __meta__ = {
 
 [node name="MashBashAnim" type="AnimationPlayer" parent="."]
 process_priority = -1
-"anims/MASHBASH boot" = SubResource( 9 )
+playback_process_mode = 0
+"anims/MASHBASH boot" = SubResource( 18 )
 __meta__ = {
 "_editor_description_": ""
 }
 
 [connection signal="timeout" from="P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Timer" to="P1/Viewport/Camera2D/Node2D/TextBox/BottomText" method="_on_Timer_timeout"]
 [connection signal="timeout" from="P1/Viewport/Camera2D/Node2D/TextBox/BottomText/doneload" to="P1/Viewport/Camera2D/Node2D/TextBox/BottomText" method="_on_doneload_timeout"]
+[connection signal="animation_finished" from="MashBashAnim" to="." method="_on_MashBashAnim_animation_finished"]

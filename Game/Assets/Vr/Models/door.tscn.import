@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/sofa.glb-b6110b0f7745f72006b842fa5ffb2851.scn"
+path="res://.import/door.dae-785e08af7aebe7830d43467567874a86.scn"
 
 [deps]
 
-source_file="res://Assets/Vr/Models/sofa.glb"
-dest_files=[ "res://.import/sofa.glb-b6110b0f7745f72006b842fa5ffb2851.scn" ]
+source_file="res://Assets/Vr/Models/door.dae"
+dest_files=[ "res://.import/door.dae-785e08af7aebe7830d43467567874a86.scn" ]
 
 [params]
 

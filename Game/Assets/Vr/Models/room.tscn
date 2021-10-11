@@ -34,27 +34,20 @@ surfaces/1 = {
 "vertex_count": 4
 }
 
-[sub_resource type="SpatialMaterial" id=2]
-params_diffuse_mode = 2
-params_cull_mode = 1
+[sub_resource type="SpatialMaterial" id=4]
+flags_unshaded = true
+params_cull_mode = 2
 albedo_texture = ExtResource( 4 )
 
 [sub_resource type="SpatialMaterial" id=3]
-params_diffuse_mode = 4
-params_specular_mode = 3
-params_cull_mode = 1
-params_depth_draw_mode = 2
+flags_unshaded = true
+params_cull_mode = 2
 albedo_texture = ExtResource( 3 )
-emission_enabled = true
-emission = Color( 1, 1, 1, 1 )
-emission_energy = 0.1
-emission_operator = 0
-emission_on_uv2 = false
 uv1_scale = Vector3( 4, 4, 2 )
 
 [node name="room" type="Spatial"]
 
 [node name="Cube" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+material/0 = SubResource( 4 )
 material/1 = SubResource( 3 )
