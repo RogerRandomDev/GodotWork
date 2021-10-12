@@ -18,6 +18,9 @@ signal CPU
 var score = 0
 var convID = {"P1":0,"P2":1}
 func _ready():
+	if GlobalScene.inVR:
+		get_tree().get_nodes_in_group("VIEWPORT")[0].get_parent().get_parent().loadscene("res://Assets/Scenes/MainTitle.tscn")
+		get_parent().get_parent().get_parent().queue_free()
 # warning-ignore:return_value_discarded
 	connect("P1",self,"P1Move")
 # warning-ignore:return_value_discarded

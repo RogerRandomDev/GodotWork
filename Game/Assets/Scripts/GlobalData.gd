@@ -11,6 +11,7 @@ var hastalked = false
 ##sets currentgame##
 var currentgame = 0
 var unpausable = true
+var inVR = false
 ##stores score and HighScore##
 var Score = [[0,0],[0,0],[0,0],[0,0],[0,0]]
 var HighScore = [0,0,0,0,0]
@@ -34,6 +35,7 @@ var canaddCoins = true
 var currentbullets = [0,0]
 ##converts player ID to the label for the score##
 const pID = {"P1":0,"P2":1,"CPU":1}
+var ingame = false
 ##Modulation colors to allow for more variety by just changing pallette essentially between the values##
 const ColorValues = [Color8(136,0,0,255),
 Color8(48,32,152,255),
@@ -50,10 +52,10 @@ func _ready():
 	loadsave()
 
 ##Allows you to insert more coins during the game as wanted##
-func _unhandled_key_input(event):
+func _input(event):
 	if str(event) == "0":
 		pass
-	if Input.is_key_pressed(KEY_E) and canaddCoins:
+	if Input.is_action_just_pressed("insertcoin") and canaddCoins:
 	##increments coins by 1 and sets text of coin count to it and a space with COINS after it
 		coinCount+=1
 	##plays coin sound when coins are less then 100 when you insert one##
@@ -62,7 +64,7 @@ func _unhandled_key_input(event):
 	##sets max to 99, because I specifically remember this from these kinds of games
 		coinCount = min(coinCount,99)
 		if currentgame == 4:
-			coinCount = 99999999
+			coinCount = 99
 	##sets visible coins on normal game level##
 		if get_tree().get_nodes_in_group("COINDISPLAY").size()!=0:
 			get_tree().get_nodes_in_group("COINDISPLAY")[0].text = "COINS:\n"+str(coinCount)
@@ -72,7 +74,7 @@ func _unhandled_key_input(event):
 		GlobalScene.shaderOFF = !GlobalScene.shaderOFF
 		get_tree().get_nodes_in_group("SHADER")[0].visible = !GlobalScene.shaderOFF
 	##lets you restart so long as coins are in the game##
-	if Input.is_key_pressed(KEY_ENTER) && get_tree().paused && unpausable:
+	if Input.is_action_just_pressed("enter") && get_tree().paused && unpausable:
 		health[0] = 3
 		health[1] = 3
 		if coinCount > 0 && cancontinue:
@@ -95,9 +97,14 @@ func _unhandled_key_input(event):
 			PlayerCount = 1
 			get_tree().paused=false
 			setScoreBoard(HighScore[currentgame])
-			placeholder = get_tree().change_scene("res://Assets/Scenes/"+gamename[currentgame]+"/Title.tscn")
+			if inVR:
+				get_tree().get_nodes_in_group("VIEWPORT")[0].get_parent().get_parent().loadscene("res://Assets/Scenes/"+gamename[currentgame]+"/Title.tscn")
+				ingame = true
+			else:
+				placeholder = get_tree().change_scene("res://Assets/Scenes/"+gamename[currentgame]+"/Title.tscn")
+				ingame = true
 			$EndTimer.stop()
-	if Input.is_key_pressed(KEY_ESCAPE) and currentgame != 4:
+	if Input.is_action_just_pressed("escape") and currentgame != 4:
 		canDie = true
 		health = [3,3]
 		get_tree().paused = false
@@ -105,8 +112,14 @@ func _unhandled_key_input(event):
 		$Music.playing = false
 		PlayerCount = 1
 		setScoreBoard(HighScore[currentgame])
-		placeholder = get_tree().change_scene("res://Assets/Scenes/MainTitle.tscn")
-	if Input.is_key_pressed(KEY_ESCAPE) and currentgame == 4 and get_tree().get_nodes_in_group("BottomText").size() > 0:
+		if inVR:
+				get_tree().get_nodes_in_group("VIEWPORT")[0].get_child(0).setfree()
+				get_tree().get_nodes_in_group("VIEWPORT")[0].get_parent().get_parent().loadscene("res://Assets/Scenes/MainTitle.tscn")
+				ingame = false
+		if !inVR:
+			placeholder = get_tree().change_scene("res://Assets/Scenes/MainTitle.tscn")
+			ingame = false
+	if Input.is_action_just_pressed("escape") and currentgame == 4 and get_tree().get_nodes_in_group("BottomText").size() > 0:
 			if get_tree().get_nodes_in_group("BottomText")[0].canchange:
 				get_tree().get_nodes_in_group("BottomText")[0].currentset = 7
 				get_tree().get_nodes_in_group("BottomText")[0].currenttextset = 0
@@ -125,7 +138,8 @@ func setScore(value,ID):
 ###currently hidden and not visible, will work on where to place high score later##
 	if value > HighScore[currentgame]:
 		HighScore[currentgame] = Score[currentgame][pID[ID]]
-		get_tree().get_nodes_in_group("ScoreBoard")[0].get_child(PlayerCount).text = "HighScore:\n" + str(value)
+		if get_tree().get_nodes_in_group("ScoreBoard").size() > 0:
+			get_tree().get_nodes_in_group("ScoreBoard")[0].get_child(PlayerCount).text = "HighScore:\n" + str(value)
 
 ###
 ##Need to add functionality here, preferrable a screen prompting you to continue for 1 Coin
@@ -178,7 +192,6 @@ func _on_RespawnTimer_timeout():
 
 ##Updates timer on endscreen for the time left
 func _on_EndTimer_timeout():
-	print(currentgame)
 	if currentgame != 4:
 		if timerleft != 0:
 			timerleft-=1
@@ -189,7 +202,12 @@ func _on_EndTimer_timeout():
 			canDie=true
 			PlayerCount = 1
 			setScoreBoard(HighScore[currentgame])
-			placeholder = get_tree().change_scene("res://Assets/Scenes/"+gamename[currentgame]+"/Title.tscn")
+			if inVR:
+				get_tree().get_nodes_in_group("VIEWPORT")[0].get_parent().get_parent().loadscene("res://Assets/Scenes/"+gamename[currentgame]+"/Title.tscn")
+				ingame = true
+			else:
+				placeholder = get_tree().change_scene("res://Assets/Scenes/"+gamename[currentgame]+"/Title.tscn")
+				ingame = true
 	else:
 		timerleft-=1
 		if timerleft == -1:

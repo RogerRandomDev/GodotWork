@@ -9,6 +9,8 @@ var gamename = ["Frog","Space","Tapp","Gnop","MashBash"]
 var currentcoins = 0
 ##sets up start##
 func _ready():
+	GlobalScene.ingame = false
+	Input.action_release("escape")
 	GlobalScene.currentgame = 0
 	GlobalScene.scoreBoard[GlobalScene.currentgame].sort()
 	var highscore = 0
@@ -32,10 +34,10 @@ func _ready():
 ##Flips between the Current Coin count to make it flash
 func _on_CoinFlash_timeout():
 	$ViewportContainer/Viewport/Labels/CoinCount.visible = !$ViewportContainer/Viewport/Labels/CoinCount.visible
-func _unhandled_key_input(event):
+func _input(event):
 	if str(event) == "0":
 		pass
-	if Input.is_key_pressed(KEY_E):
+	if Input.is_action_pressed("insertcoin"):
 		
 		##shows that the player can now start the game##
 		$ViewportContainer/Viewport/Labels/Play.show()
@@ -52,33 +54,32 @@ func _unhandled_key_input(event):
 		##Resets the flashing to keep it smoother
 		$CoinFlash.stop()
 		$CoinFlash.start()
-	if Input.is_key_pressed(KEY_ENTER):
+	if Input.is_action_just_pressed("enter"):
 # warning-ignore:return_value_discarded
-		if GameType != 4:
+		Input.action_release("enter")
+		if GlobalScene.inVR:
+			get_tree().get_nodes_in_group("VIEWPORT")[0].get_parent().get_parent().loadscene("res://Assets/Scenes/"+gamename[GameType]+"/Title.tscn")
+			GlobalScene.ingame = true
+			self.queue_free()
+			pass
+		if not GlobalScene.inVR:
 			get_tree().change_scene("res://Assets/Scenes/"+gamename[GameType]+"/Title.tscn")
-		else:
-			var playedgames = true
-			var complete = 0
-			for game in GlobalScene.scoreBoard:
-				if game.count(0) == 10:
-					complete += 1
-			if complete > 2:
-				playedgames = false
-			if playedgames or !playedgames:
-# warning-ignore:return_value_discarded
-				get_tree().change_scene("res://Assets/Scenes/"+gamename[GameType]+"/Title.tscn")
+			GlobalScene.ingame = true
 	##changes player mode##
 	if Input.is_action_just_pressed("leftP1"):
 		GameType = GameType-1
 		if GameType < 0:
 			GameType = 4
 		updatemode()
+		Input.action_release("leftP1")
 	if Input.is_action_just_pressed("rightP1"):
 		GameType = GameType+1
 		if GameType > 4:
 			GameType = 0
+		Input.action_release("rightP1")
 		updatemode()
 	GlobalScene.currentgame = GameType
+
 #updates gamemode text
 func updatemode():
 	$ViewportContainer/Viewport/Labels/CurrentGame.text = gamename[GameType]
@@ -87,3 +88,5 @@ func updatemode():
 		$ViewportContainer/Viewport/Labels/MashBash.show()
 	else:
 		$ViewportContainer/Viewport/Labels/MashBash.hide()
+func setfree():
+	self.queue_free()

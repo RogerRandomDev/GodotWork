@@ -40,7 +40,7 @@ func _on_doneload_timeout():
 	currenttextset +=1
 	visible_characters = 0
 	loadText()
-	if removeCellLine == currenttextset:
+	if removeCellLine == currenttextset: 
 		for cell in removeCells:
 			map = get_path_to(get_tree().get_nodes_in_group("map")[0])
 			get_node(map).set_cell(cell.x,cell.y,cell.z)

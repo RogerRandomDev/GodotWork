@@ -34,7 +34,11 @@ func trigger():
 		##level change##
 		if event[0]=="CHANGE.LEVEL":
 # warning-ignore:return_value_discarded
-			get_tree().change_scene(event[1])
+			if GlobalScene.inVR:
+				get_tree().get_nodes_in_group("VIEWPORT")[0].get_parent().get_parent().loadscene(event[1])
+				self.queue_free()
+			if not GlobalScene.inVR:
+				get_tree().change_scene(event[1])
 		#checkpoint and return to checkpoint##
 		if event[0]=="CHECKPOINT":
 			get_node(player).checkpoint = get_node(player).position
