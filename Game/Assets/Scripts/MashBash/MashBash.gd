@@ -16,6 +16,7 @@ const changegame = [0,1]
 const alwaysmult = [3]
 export var mashbash:NodePath
 export var newSong:String
+export var havemash = false
 var reset = false
 ##sets up player view based on player count##
 func _ready():
@@ -34,7 +35,8 @@ func _ready():
 		$P1/Viewport/Camera2D/Node2D/TextBox/BottomText.canchange = true
 	if GlobalScene.inVR:
 		$MashBash.rect_scale = Vector2(1,1)
-	$MashBashAnim.play("MASHBASH boot")
+	if havemash:
+		$MashBashAnim.play("MASHBASH boot")
 	var Map = get_tree().get_nodes_in_group("map")[0].get_parent()
 	remove_child(Map)
 	$P1/Viewport.add_child(Map)
@@ -60,13 +62,6 @@ func setmusic(music):
 	GlobalScene.stopmusic()
 func stop():
 	GlobalScene.stopmusic()
-# warning-ignore:unused_argument
-func _process(delta):
-	if $MashBashAnim.is_playing():
-		stop()
-	elif ! reset:
-		resetmusic()
-		reset = true
 
 
 # warning-ignore:unused_argument
@@ -75,3 +70,8 @@ func _on_MashBashAnim_animation_finished(anim_name):
 	$P1/Viewport/Camera2D/Node2D/TextBox/BottomText.prepText()
 	$P1.visible=true
 	$MashBash.visible = false
+	resetmusic()
+
+
+func _on_MashBashAnim_animation_started(anim_name):
+	stop()

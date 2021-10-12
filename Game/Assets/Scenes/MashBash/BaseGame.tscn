@@ -469,6 +469,7 @@ tracks/6/keys = {
 script = ExtResource( 2 )
 mashbash = NodePath("MashBash")
 newSong = "res://Assets/Audio/MashBash/WellHello.mp3"
+havemash = true
 
 [node name="P1" type="ViewportContainer" parent="."]
 visible = false
@@ -1012,3 +1013,4 @@ __meta__ = {
 [connection signal="timeout" from="P1/Viewport/Camera2D/Node2D/TextBox/BottomText/Timer" to="P1/Viewport/Camera2D/Node2D/TextBox/BottomText" method="_on_Timer_timeout"]
 [connection signal="timeout" from="P1/Viewport/Camera2D/Node2D/TextBox/BottomText/doneload" to="P1/Viewport/Camera2D/Node2D/TextBox/BottomText" method="_on_doneload_timeout"]
 [connection signal="animation_finished" from="MashBashAnim" to="." method="_on_MashBashAnim_animation_finished"]
+[connection signal="animation_started" from="MashBashAnim" to="." method="_on_MashBashAnim_animation_started"]
