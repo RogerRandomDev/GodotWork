@@ -54,15 +54,20 @@ func resetmusic():
 	if newSong != "":
 		setmusic(newSong)
 		
-		GlobalScene.stopmusic()
 	else:
-		GlobalScene.playmusic("res://Assets/Audio/MashBash/MashBashSong0.mp3")
+		GlobalScene.playmusic("res://Assets/Audio/MashBash/WellHello.mp3")
 func setmusic(music):
 	GlobalScene.playmusic(music)
 	GlobalScene.stopmusic()
 func stop():
 	GlobalScene.stopmusic()
-
+func _process(_delta):
+	if havemash:
+		if $MashBashAnim.is_playing():
+			stop()
+		elif !reset:
+			GlobalScene.playmusic("res://Assets/Audio/MashBash/WellHello.mp3")
+			reset = true
 
 # warning-ignore:unused_argument
 func _on_MashBashAnim_animation_finished(anim_name):
