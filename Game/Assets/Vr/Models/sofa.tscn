@@ -4,7 +4,6 @@
 
 [sub_resource type="SpatialMaterial" id=3]
 flags_unshaded = true
-vertex_color_use_as_albedo = true
 albedo_color = Color( 0.756863, 0.505882, 0.313726, 1 )
 albedo_texture = ExtResource( 2 )
 
