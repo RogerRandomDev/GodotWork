@@ -78,5 +78,6 @@ func _on_MashBashAnim_animation_finished(anim_name):
 	resetmusic()
 
 
+# warning-ignore:unused_argument
 func _on_MashBashAnim_animation_started(anim_name):
 	stop()
