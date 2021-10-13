@@ -30,8 +30,9 @@ func _process(delta):
 			if !checkmoved.has(GlobalScene.currentgame):
 				Input.action_release("leftP1")
 				Input.action_release("rightP1")
-			Input.action_release("upP1")
-			Input.action_release("downP1")
+			if !checkbenefit.has(GlobalScene.currentgame):
+				Input.action_release("upP1")
+				Input.action_release("downP1")
 		if joystick_vector.length() > 0.125 and !havemoved:
 			if abs(joystick_vector.x) > 0.125:
 				if joystick_vector.x < 0:
