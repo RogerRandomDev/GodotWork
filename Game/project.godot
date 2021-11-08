@@ -131,7 +131,6 @@ common/physics_fps=90
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 quality/shadow_atlas/size.mobile=512
 environment/default_clear_color=Color( 0.580392, 0.533333, 0.878431, 1 )

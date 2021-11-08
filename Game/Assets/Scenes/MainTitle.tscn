@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Shaders/crt_material.tres" type="Material" id=3]
 [ext_resource path="res://Assets/Fonts/GameFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Assets/Scripts/MainTitle.gd" type="Script" id=5]
+[ext_resource path="res://loadAnim.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -190,6 +191,11 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_y = 2
 text = "ARCADE MEGA-MASH"
 align = 1
+
+[node name="Node2D" parent="ViewportContainer/Viewport" instance=ExtResource( 6 )]
+position = Vector2( 32, 262.5 )
+scale = Vector2( 2, 2 )
+z_index = 32
 
 [node name="CoinFlash" type="Timer" parent="."]
 autostart = true

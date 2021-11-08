@@ -48,17 +48,22 @@ func P1Move():
 		direction.y += moveDist
 	elif Input.is_action_just_pressed("downP1"):
 		direction.y += moveDist
-	if Input.is_action_pressed("rightP1") and !hasdrink:
+	if Input.is_action_just_pressed("rightP1") and !hasdrink:
 		$Timer.start()
 		$Sprite/glass.offset = Vector2(6,4)
 		$Sprite/glass.flip_h = true
 		$Sprite.flip_h=false
 		freebie = true
-	elif !Input.is_action_pressed("rightP1") and !GlobalScene.inVR:
+	elif !Input.is_action_pressed("rightP1") and GlobalScene.inVR and !hasdrink:
+			hasdrink = true
 			$Timer.stop()
 			$Sprite.flip_h=true
 			$Sprite/glass.flip_h = false
 			$Sprite/glass.offset = Vector2(-6,4)
+	if Input.is_action_just_released('rightP1'):
+		$Sprite.flip_h = true
+		$Sprite/glass.flip_h = false
+		$Sprite/glass.offset = Vector2(-6,4)
 	if Input.is_action_pressed("leftP1") and hasdrink:
 		get_node(currentLine).placeItem()
 		hasdrink = false
