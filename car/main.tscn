@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Car.tscn" type="PackedScene" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( -1864, 232, -1568, -1152, -824, -1976, 1032, -3384, 2168, -2976, 3264, -2152, 2768, -1368, 4392, -1440, 5008, -456, 4728, 464, 4008, 1288, 3392, 1800, 2728, 1440, 2288, 648, 1512, 144, 0, 1208, -1864, 232 )
+width = 768.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Car" parent="." instance=ExtResource( 1 )]
+position = Vector2( 173, 101 )
+mode = 2
+linear_damp = 32.0
+decel_rate = 5.0
