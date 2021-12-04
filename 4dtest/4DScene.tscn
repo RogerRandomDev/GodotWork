@@ -44,7 +44,7 @@ material/0 = ExtResource( 1 )
 [node name="Spatial" type="Spatial" parent="ViewportContainer/Viewport/Spatial" groups=[
 "4DObject",
 ]]
-transform = Transform( 0.0252013, -0.986642, -0.160943, -0.0647562, 0.159045, -0.985145, 0.997583, 0.035249, -0.059883, 126.115, 111.91, 162.084 )
+transform = Transform( 0.0252013, -0.986642, -0.160943, -0.0647562, 0.159045, -0.985145, 0.997583, 0.035249, -0.059883, 124.806, 111.91, 162.084 )
 script = ExtResource( 4 )
 Size = [ 4.0, 2.0, 3.0, 1.0 ]
 wRotation = Vector3( 0.574, -0.637, -2.759 )
@@ -107,6 +107,17 @@ __meta__ = {
 }
 Size = [ 4.0, 2.0, 1.0, 1.0 ]
 wRotation = Vector3( 5.733, -3.25, 0.291 )
+
+[node name="Spatial7" type="Spatial" parent="ViewportContainer/Viewport/Spatial" groups=[
+"4DObject",
+]]
+transform = Transform( 0.819525, -0.537622, -0.198346, 0.567901, 0.808234, 0.155711, 0.0765969, -0.24025, 0.967684, 109.247, 115.147, 165 )
+script = ExtResource( 4 )
+__meta__ = {
+"_editor_description_": ""
+}
+Size = [ 5.0, 3.0, 2.0, 1.0 ]
+wRotation = Vector3( 6.335, -3.38, 2.578 )
 
 [node name="HSlider" type="HSlider" parent="."]
 margin_right = 256.0

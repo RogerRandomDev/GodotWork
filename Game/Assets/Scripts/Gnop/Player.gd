@@ -40,15 +40,16 @@ func _process(delta):
 		position.y = max(position.y,96)
 		position.y = min(position.y,608)
 		position.x = sign(convID[PlayerID]-0.5)*992
+
+
 ##motion scripts##
 func P1Move():
-	if Input.is_action_pressed("downP1"):
-		direction.y += moveDist
-	if Input.is_action_pressed("upP1"):
-		direction.y -= moveDist
+	if Input.is_action_pressed("downP1"):direction.y += moveDist
+	if Input.is_action_pressed("upP1"):direction.y -= moveDist
 
 func P2Move():
-	if Input.is_action_pressed("downP2"):
-		direction.y += moveDist
-	if Input.is_action_pressed("upP2"):
-		direction.y -= moveDist
+	if Input.is_action_pressed("downP2"):direction.y += moveDist
+	if Input.is_action_pressed("upP2"):direction.y -= moveDist
+
+#most of the logic here goes to the ball, so that is the spaghetti code.
+#imma sorry, i like'a my code italiano

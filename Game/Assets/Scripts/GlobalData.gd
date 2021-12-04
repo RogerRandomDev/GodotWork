@@ -7,12 +7,13 @@ var shaderOFF = false
 ########change this variable when not testing game so you cant close while in mashbash############333333
 var testing = true
 var hastalked = false
-
+var cur_mashbash_text = 0
 ##sets currentgame##
 var currentgame = 0
 var unpausable = true
 var inVR = false
 ##stores score and HighScore##
+
 var Score = [[0,0],[0,0],[0,0],[0,0],[0,0]]
 var HighScore = [0,0,0,0,0]
 var scoreBoard = [[0,0,0,0,0,0,0,0,0,0],

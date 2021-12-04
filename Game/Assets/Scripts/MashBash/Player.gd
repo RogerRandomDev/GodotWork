@@ -1,20 +1,14 @@
 extends KinematicBody2D
 
-var run_speed = 256
-var jump_speed = -544
-var decelrate = 10
-var acelrate = 20
-var gravity = 768
-var angle = 0
+var run_speed = 256;var jump_speed = -544
+var decelrate = 10;var acelrate = 20
+var gravity = 768;var angle = 0
 var velocity = Vector2.ZERO
-var jumping = false
-var anglemult = 1
-var linepuzzle = false
+var jumping = false;var doublejump = false
 export var hpbar:NodePath
 export var played = false
-var doublejump = false
-var lastwall = -1
-var offFloor = false
+var lastwall = -1;var anglemult = 1
+var offFloor = false;var linepuzzle = false
 var airparticles = preload("res://Assets/Scenes/MashBash/airparticles.tscn")
 export var camera:NodePath
 var checkpoint= Vector2.ZERO
@@ -24,17 +18,17 @@ func get_input():
 		$dashdelay.start()
 	var justjumped = false
 	jumping =  Input.is_action_just_pressed("upP1")
+	#enables jumps if can jump and have yet to double jump
 	if jumping and !offFloor or jumping and !doublejump:
-		doublejump = true
-		lastwall = -1
-		velocity.y = jump_speed
-		justjumped = true
-		if !offFloor:
-			doublejump = false
+		doublejump = true;lastwall = -1
+		velocity.y = jump_speed;justjumped = true
+		if !offFloor:doublejump = false
 		offFloor = true
 		$jumpleeway.stop()
 		GlobalScene.playSound0("res://Assets/Audio/MashBash/jump.wav")
 		air()
+	#this should be obvious.
+	#but SOMEONE will have aproblem so: this allows walljumps
 	if jumping and not justjumped:
 		if $left.is_colliding():
 			velocity.y = jump_speed*0.975
@@ -57,46 +51,51 @@ func get_input():
 		
 	else:
 		velocity.x = min(abs(velocity.x),run_speed)*sign(velocity.x)
+	#resets walljump and doublejump
 	if is_on_floor():
 		lastwall = -1
 		doublejump = false
 
 func _physics_process(delta):
-	if played:
-		if is_on_floor():
-			if Input.is_action_pressed("leftP1") or Input.is_action_pressed("rightP1"):
-				$walkparticles.emitting = true
-			else:
-				$walkparticles.emitting = false
-			velocity.x -= velocity.x*delta*decelrate
-			offFloor = false
-		else:
-			$walkparticles.emitting = false
-			if not offFloor and $jumpleeway.is_stopped():
-				$jumpleeway.start()
-		get_input()
-		velocity.y += gravity * delta
-		if jumping and is_on_floor():
-			jumping = false
-		velocity = move_and_slide(velocity, Vector2(0, -1))
-		angle += (velocity.x/128)*anglemult
-		if abs(angle) > 25 or abs(angle) < -25:
-			anglemult = -anglemult
-			angle = min(angle,25)
-			angle = max(angle,-25)
-		$Sprite.rotation_degrees = angle
-		get_node(camera).position = position
+	#by the power of LEARNING, this is faster than the everything is in the if
+	if !played:return
+	#emit walking particles when moving.
+	#gotta go FAST
+	if is_on_floor():
+		if Input.is_action_pressed("leftP1") or Input.is_action_pressed("rightP1"):$walkparticles.emitting = true
+		else:$walkparticles.emitting = false
+		velocity.x -= velocity.x*delta*decelrate
+		offFloor = false
+	else:
+		$walkparticles.emitting = false
+		if not offFloor and $jumpleeway.is_stopped():$jumpleeway.start()
+	
+	get_input()
+	#applys gravity
+	velocity.y += gravity * delta
+	if jumping and is_on_floor():jumping = false
+	
+	velocity = move_and_slide(velocity, Vector2(0, -1))
+	angle += (velocity.x/128)*anglemult
+	if abs(angle) > 25 or abs(angle) < -25:
+		anglemult = -anglemult
+		angle = min(angle,25)
+		angle = max(angle,-25)
+	$Sprite.rotation_degrees = angle
+	get_node(camera).position = position
+
 ##loads air particles:
 func air():
 	var newair = airparticles.instance()
-	add_child(newair)
-	newair.position = Vector2(0,16)
+	add_child(newair);newair.position = Vector2(0,16)
 
+#a bit of leeway to jump after leaving the floor, cause im not a monster
+func _on_jumpleeway_timeout():offFloor = true
 
-func _on_jumpleeway_timeout():
-	offFloor = true
-func _ready():
-	checkpoint = position
+#default checkpoint is spawn point
+func _ready():checkpoint = position
+
+#allows you to die
 func rtc():
 	if $Timer.is_stopped():
 		visible = false
@@ -110,10 +109,8 @@ func rtc():
 		death.position = position
 		$Timer.start()
 
-
+#after dying, go to the checkpoint
 func _on_Timer_timeout():
-	visible = true
-	played = true
-	position = checkpoint
+	visible = true;played = true
+	position = checkpoint;velocity = Vector2.ZERO
 	get_node(hpbar).value = GlobalScene.health[0]
-	velocity = Vector2.ZERO

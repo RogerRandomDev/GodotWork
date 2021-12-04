@@ -30,6 +30,7 @@ func _ready():
 	connect("CPU",self,"cpuMove")
 	pass
 
+#when player is active, allows motion$
 func _process(delta):
 	if canMove:
 		direction = Vector2.ZERO
@@ -38,6 +39,7 @@ func _process(delta):
 		
 # warning-ignore:return_value_discarded
 		move_and_collide(direction*delta)
+		#caps position between the range of x = 32, x = 98
 		position.x = min(position.x,998)
 		position.x = max(position.x,32)
 ##motion scripts##

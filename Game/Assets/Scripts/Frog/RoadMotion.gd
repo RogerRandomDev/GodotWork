@@ -54,7 +54,8 @@ func _on_Carmotion_timeout():
 ##Leaving last comment aside, I set up my own textures in the style, and am using it in the same manner
 ##as before, since it has proved to be rather effective at what it is meant to do.
 ###
-			get_child(carpos).get_child(0).region_rect = Rect2(carData[carSize-1][currentCar][0],
+			get_child(carpos).get_child(0).region_rect = Rect2(
+carData[carSize-1][currentCar][0],
 carData[carSize-1][currentCar][1],
 carData[carSize-1][currentCar][2],
 carData[carSize-1][currentCar][3])

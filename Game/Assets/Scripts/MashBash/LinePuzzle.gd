@@ -73,3 +73,7 @@ func trigger():
 
 func _on_Timer_timeout():
 	trigger()
+
+
+func _on_LinePuzzle_body_exited(body):
+	_on_LinePuzzle_body_entered(body)

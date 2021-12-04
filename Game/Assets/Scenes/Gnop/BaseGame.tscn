@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Fonts/GameFont.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Scripts/Frog/BaseGame.gd" type="Script" id=2]
@@ -24,6 +24,11 @@ adjustment_saturation = 2.5
 environment = SubResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 12
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
@@ -174,13 +179,12 @@ __meta__ = {
 }
 
 [node name="Score2" type="Label" parent="Scores"]
-visible = false
-margin_left = 512.0
+margin_left = 418.0
 margin_top = 24.0
-margin_right = 824.0
+margin_right = 730.0
 margin_bottom = 608.0
-custom_fonts/font = ExtResource( 4 )
-text = "SCORE:
+custom_fonts/font = SubResource( 6 )
+text = "LOSE        WIN
 "
 __meta__ = {
 "_edit_use_anchors_": false

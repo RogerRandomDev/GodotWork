@@ -9,9 +9,9 @@ const powerups = []
 func _ready():
 	pass
 
-
+#loads powerups
 func _on_Timer_timeout():
-	if rand_range(0.0,1.0) > 0.9 and get_child_count()<7:
+	if rand_range(0.0,1.0) > 0.9 and get_child_count()<13:
 		var pUP = pBase.instance()
 		add_child(pUP)
 		pUP.position = Vector2(round(rand_range(-512,512)),round(rand_range(256,512)))

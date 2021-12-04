@@ -7,8 +7,28 @@ var GameType = 0
 var gamename = ["Frog","Space","Tapp","Gnop","MashBash"]
 ##Little Neat thing, i made the max 99, to keep with the feel of old arcade games a bit better.
 var currentcoins = 0
+
+var show_mashbash_instead = false
+var can_change = true
+var mashbash_texts = ["Try mashbash instead!","Why don't you try out mashbash?","MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH","Play MASHBASH. this is no longer a request."]
 ##sets up start##
 func _ready():
+	#mashbash popup text here#
+	show_mashbash_instead = rand_range(0.0,100.0) >= 75.0
+	if show_mashbash_instead:
+		$ViewportContainer/Viewport/Labels/mashtext.text = mashbash_texts[GlobalScene.cur_mashbash_text]
+		if rand_range(0.0,10.0) > 7.5:GlobalScene.cur_mashbash_text = GlobalScene.cur_mashbash_text+1
+		if GlobalScene.cur_mashbash_text >= 4:
+			GlobalScene.cur_mashbash_text = 3
+#			can_change = false
+			GameType = 4
+			updatemode()
+	if GlobalScene.cur_mashbash_text >= 3:
+#			can_change = false
+			GameType = 4
+			updatemode()
+			$ViewportContainer/Viewport/Labels/mashtext2.show()
+	#base setup of scene#
 	GlobalScene.ingame = false
 	Input.action_release("escape")
 	GlobalScene.currentgame = 0
@@ -66,18 +86,19 @@ func _input(event):
 			get_tree().change_scene("res://Assets/Scenes/"+gamename[GameType]+"/Title.tscn")
 			GlobalScene.ingame = true
 	##changes player mode##
-	if Input.is_action_just_pressed("leftP1"):
-		GameType = GameType-1
-		if GameType < 0:
-			GameType = 4
-		updatemode()
-		Input.action_release("leftP1")
-	if Input.is_action_just_pressed("rightP1"):
-		GameType = GameType+1
-		if GameType > 4:
-			GameType = 0
-		Input.action_release("rightP1")
-		updatemode()
+	if can_change:
+		if Input.is_action_just_pressed("leftP1"):
+			GameType = GameType-1
+			if GameType < 0:
+				GameType = 4
+			updatemode()
+			Input.action_release("leftP1")
+		if Input.is_action_just_pressed("rightP1"):
+			GameType = GameType+1
+			if GameType > 4:
+				GameType = 0
+			Input.action_release("rightP1")
+			updatemode()
 	GlobalScene.currentgame = GameType
 
 #updates gamemode text

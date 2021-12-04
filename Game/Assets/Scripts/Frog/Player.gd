@@ -29,8 +29,10 @@ signal CPU
 ##current score
 var score = 0
 
+#prepares player functions
 func _ready():
 	PrevPos = position
+	#not obvious, so ill say it here: moves the player sprite to ensure it centers on P2
 	$Sprite.region_rect.position.x = (int(PlayerID!="P1")*18)
 # warning-ignore:return_value_discarded
 	connect("P1",self,"P1Move")
@@ -40,6 +42,7 @@ func _ready():
 	connect("CPU",self,"cpuMove")
 	pass
 
+#only moves when possible according to canMove
 func _process(delta):
 	if canMove:
 		direction = Vector2.ZERO
@@ -88,10 +91,9 @@ func P1Move():
 	elif Input.is_action_pressed("upP1"):
 		direction.y = -moveDist;
 		$Sprite.rotation_degrees = 0
-	Input.action_release("downP1")
-	Input.action_release("upP1")
-	Input.action_release("leftP1")
-	Input.action_release("rightP1")
+	#releases the pressed key to make you not continue your motion at the end
+	Input.action_release("downP1");Input.action_release("upP1")
+	Input.action_release("leftP1");Input.action_release("rightP1")
 	get_node(Map).ModulePosition = max(-position.y+2304,get_node(Map).ModulePosition)
 
 func P2Move():
@@ -107,6 +109,9 @@ func P2Move():
 	elif Input.is_action_pressed("upP2"):
 		direction.y = -moveDist;
 		$Sprite.rotation_degrees = 0
+	#releases the pressed key to make you not continue your motion at the end
+	Input.action_release("downP2");Input.action_release("upP2")
+	Input.action_release("leftP2");Input.action_release("rightP2")
 	get_node(Map).ModulePosition = max(-position.y+2304,get_node(Map).ModulePosition)
 
 #Deprecated, currently un-used and unupdated, will work on as is seen fit

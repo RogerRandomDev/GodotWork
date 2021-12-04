@@ -44,6 +44,7 @@ GlobalScene="*res://Assets/Scenes/GlobalScene.tscn"
 
 window/vsync/use_vsync=false
 window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [gdnative]
 
@@ -136,3 +137,4 @@ quality/shadow_atlas/size.mobile=512
 environment/default_clear_color=Color( 0.580392, 0.533333, 0.878431, 1 )
 quality/filters/msaa=6
 environment/default_environment="res://default_env.tres"
+quality/dynamic_fonts/use_oversampling=false

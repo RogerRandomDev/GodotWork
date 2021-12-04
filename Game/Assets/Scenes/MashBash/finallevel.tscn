@@ -930,7 +930,7 @@ text = "------------------
 |                |
 |ROGER T. GRANGE |
 |                |
-|JASON Hernandez |
+|LOGAN RUBENSTEIN|
 |                |
 |                |
 |                |
@@ -953,7 +953,7 @@ text = "------------------
 |SCRIPTS:  ROGER |
 ------------------
 ------------------
-|ART:      JASON |
+|ART:      LOGAN |
 ------------------
 ------------------
 |MUSIC:    ROGER |
@@ -982,7 +982,7 @@ text = "------------------
 |FROG:      ROGER|
 |SPACE:     ROGER|
 |TAPP:      ROGER|
-|GNOP:      JASON|
+|GNOP:      ROGER|
 |MASHBASH:  ROGER|
 ------------------"
 autowrap = true
@@ -1000,7 +1000,7 @@ custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
 text = "------------------
 |IDEAS N FEATURES|
-|JASON HERNANDEZ |
+|Logan Rubenstein|
 ------------------"
 autowrap = true
 __meta__ = {

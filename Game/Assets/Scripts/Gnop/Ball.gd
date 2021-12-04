@@ -35,14 +35,14 @@ func _process(delta):
 		GlobalScene.setScore(GlobalScene.Score[GlobalScene.currentgame][1]+1,"P2")
 		get_tree().get_nodes_in_group("ScoreBoard")[0].get_child(3).show()
 		get_tree().get_nodes_in_group("ScoreBoard")[0].get_child(0).text = str(GlobalScene.Score[GlobalScene.currentgame][0])+":"+str(GlobalScene.Score[GlobalScene.currentgame][1])
-		get_tree().get_nodes_in_group("ScoreBoard")[0].get_child(3).text = "LOSE       WIN"
+		get_tree().get_nodes_in_group("ScoreBoard")[0].get_child(3).text = "LOSE        WIN"
 		reset()
 	if position.x > 1024:
 		##sets scores##
 		GlobalScene.setScore(GlobalScene.Score[GlobalScene.currentgame][0]+1,"P1")
 		get_tree().get_nodes_in_group("ScoreBoard")[0].get_child(3).show()
 		get_tree().get_nodes_in_group("ScoreBoard")[0].get_child(0).text = str(GlobalScene.Score[GlobalScene.currentgame][0])+":"+str(GlobalScene.Score[GlobalScene.currentgame][1])
-		get_tree().get_nodes_in_group("ScoreBoard")[0].get_child(3).text = "WIN       LOSE"
+		get_tree().get_nodes_in_group("ScoreBoard")[0].get_child(3).text = "WIN        LOSE"
 		reset()
 
 ##chooses bounce direction##
