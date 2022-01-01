@@ -135,9 +135,7 @@ smoothing_speed = 15.0
 anchor_mode = 0
 current = true
 
-[node name="Scores" type="Node2D" parent="." groups=[
-"ScoreBoard",
-]]
+[node name="Scores" type="Node2D" parent="." groups=["ScoreBoard"]]
 
 [node name="Score0" type="Label" parent="Scores"]
 margin_left = 356.0
@@ -179,6 +177,7 @@ __meta__ = {
 }
 
 [node name="Score2" type="Label" parent="Scores"]
+visible = false
 margin_left = 418.0
 margin_top = 24.0
 margin_right = 730.0
@@ -203,9 +202,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EndScreen" type="Node2D" parent="." groups=[
-"ENDSCREEN",
-]]
+[node name="EndScreen" type="Node2D" parent="." groups=["ENDSCREEN"]]
 visible = false
 position = Vector2( 352, 172 )
 
@@ -223,9 +220,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Coins" type="Label" parent="EndScreen" groups=[
-"COINDISPLAY",
-]]
+[node name="Coins" type="Label" parent="EndScreen" groups=["COINDISPLAY"]]
 margin_left = 96.0
 margin_top = 192.0
 margin_right = 224.0
@@ -246,9 +241,7 @@ custom_fonts/font = SubResource( 5 )
 text = "10"
 align = 1
 
-[node name="WINSCREEN" type="Node2D" parent="." groups=[
-"WINSCREEN",
-]]
+[node name="WINSCREEN" type="Node2D" parent="." groups=["WINSCREEN"]]
 visible = false
 position = Vector2( 352, 172 )
 
@@ -277,9 +270,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Shader" type="Sprite" parent="." groups=[
-"SHADER",
-]]
+[node name="Shader" type="Sprite" parent="." groups=["SHADER"]]
 material = ExtResource( 6 )
 scale = Vector2( 16, 9.375 )
 texture = ExtResource( 3 )
