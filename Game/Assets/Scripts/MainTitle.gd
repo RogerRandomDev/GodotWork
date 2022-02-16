@@ -11,32 +11,43 @@ var currentcoins = 0
 var show_mashbash_instead = false
 var can_change = true
 var mashbash_texts = ["Try mashbash instead!","Why don't you try out mashbash?","MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH MASHBASH","Play MASHBASH. this is no longer a request."]
+
+
 ##sets up start##
 func _ready():
 	#mashbash popup text here#
 	show_mashbash_instead = rand_range(0.0,100.0) >= 75.0
 	if show_mashbash_instead:
+		
 		$ViewportContainer/Viewport/Labels/mashtext.text = mashbash_texts[GlobalScene.cur_mashbash_text]
 		if rand_range(0.0,10.0) > 7.5:GlobalScene.cur_mashbash_text = GlobalScene.cur_mashbash_text+1
+		
 		if GlobalScene.cur_mashbash_text >= 4:
 			GlobalScene.cur_mashbash_text = 3
 #			can_change = false
 			GameType = 4
 			updatemode()
+	
+	
 	if GlobalScene.cur_mashbash_text >= 3:
 #			can_change = false
 			GameType = 4
 			updatemode()
 			$ViewportContainer/Viewport/Labels/mashtext2.show()
+	
 	#base setup of scene#
 	GlobalScene.ingame = false
 	Input.action_release("escape")
 	GlobalScene.currentgame = 0
 	GlobalScene.scoreBoard[GlobalScene.currentgame].sort()
 	var highscore = 0
+	
+	
 	for score in GlobalScene.scoreBoard[GlobalScene.currentgame]:
+		
 		if score > highscore:
 			highscore=score
+	
 	$ViewportContainer/Viewport/Labels/HighScore.text = "HighScore:\n"+str(highscore)
 	if GlobalScene.coinCount != 0:
 		currentcoins = GlobalScene.coinCount
@@ -44,16 +55,22 @@ func _ready():
 		##shows that the player can now start the game##
 		$ViewportContainer/Viewport/Labels/Play.show()
 		##puts zero before the text when the number is less than 10
+		
 		if currentcoins < 10:
 			$ViewportContainer/Viewport/Labels/CoinCount.text = "0"
 		else:
 			$ViewportContainer/Viewport/Labels/CoinCount.text = ""
+		
 		$ViewportContainer/Viewport/Labels/CoinCount.text += str(currentcoins) +" COINS"
 		##Makes coincount visible
 		$ViewportContainer/Viewport/Labels/CoinCount.visible = true
+
+
 ##Flips between the Current Coin count to make it flash
 func _on_CoinFlash_timeout():
 	$ViewportContainer/Viewport/Labels/CoinCount.visible = !$ViewportContainer/Viewport/Labels/CoinCount.visible
+
+
 func _input(event):
 	if str(event) == "0":
 		pass
