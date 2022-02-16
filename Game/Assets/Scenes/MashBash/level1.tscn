@@ -692,7 +692,7 @@ eventDATA = [ [ "R.T.C" ] ]
 
 [node name="LoadEvent8" parent="Map/Events" instance=ExtResource( 11 )]
 position = Vector2( 2208, -1696 )
-eventDATA = [ [ "AI.TEXT", 15 ] ]
+eventDATA = [ [ "AI.TEXT", 15 ], [ "GRAB.CAKE", 1 ] ]
 
 [node name="LoadEvent9" parent="Map/Events" instance=ExtResource( 11 )]
 position = Vector2( 992, 192 )

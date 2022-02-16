@@ -54,6 +54,14 @@ func trigger():
 			"TOGGLE":
 				get_node(event[1]).toggled = !get_node(event[1]).toggled
 				havedone = false
+		#cake gets grabbed
+			"GRAB.CAKE":
+				GlobalScene.grabbed_cake=true
+		#you dare not follow my rules?
+		#changes the outcome of the game
+			"DONT.FOLLOW.MY.RULES":
+				if havedone:
+					GlobalScene.annoyances_triggered+=1
 	if havedone:
 		queue_free()
 func _on_Timer_timeout():

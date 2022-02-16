@@ -32,14 +32,19 @@ func _ready():
 		$MashBash/Viewport/RichTextLabel.text=file.get_as_text()
 		
 	else:
+		#allows the text to be changed
 		$P1/Viewport/Camera2D/Node2D/TextBox/BottomText.canchange = true
 	if GlobalScene.inVR:
+		#vr mode
 		$MashBash.rect_scale = Vector2(1,1)
 	if havemash:
+		#plays the boot animation
 		$MashBashAnim.play("MASHBASH boot")
 	var Map = get_tree().get_nodes_in_group("map")[0].get_parent()
+	#moves map to viewport, kept out otherwise so i can actually make it
 	remove_child(Map)
 	$P1/Viewport.add_child(Map)
+	#plays the music for the game
 	if newSong != "":
 		GlobalScene.playmusic(newSong)
 		GlobalScene.stopmusic()
@@ -81,3 +86,20 @@ func _on_MashBashAnim_animation_finished(anim_name):
 # warning-ignore:unused_argument
 func _on_MashBashAnim_animation_started(anim_name):
 	stop()
+
+#text on the final level has more options so we can give a bit more creativity
+#a few too many for normal, so i put them here to make it easier to add endings
+func final_level_text():
+	var set = [24,25,26,27]
+	if GlobalScene.time_in_game>1800:
+		get_tree().get_nodes_in_group("BottomText")[0].currentset = set[0]
+	else:
+		get_tree().get_nodes_in_group("BottomText")[0].currentset = set[1]
+	
+	if GlobalScene.triggered_annoyances >=3:
+		get_tree().get_nodes_in_group("BottomText")[0].currentset = set[2]
+		if GlobalScene.cake:
+			get_tree().get_nodes_in_group("BottomText")[0].currentset = set[3]
+	get_tree().get_nodes_in_group("BottomText")[0].currenttextset = 0
+	get_tree().get_nodes_in_group("BottomText")[0].prepText()
+	get_tree().get_nodes_in_group("BottomText")[0].loadText()

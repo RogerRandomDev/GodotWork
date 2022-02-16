@@ -530,7 +530,7 @@ size = 24
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 11 )
 
-[node name="Node2D" type="Node2D"]
+[node name="finallevel" type="Node2D"]
 script = ExtResource( 1 )
 newSong = "res://Assets/Audio/MashBash/YoullBeMissed.mp3"
 
@@ -584,15 +584,13 @@ margin_right = 520.0
 margin_bottom = 426.0
 custom_styles/panel = SubResource( 3 )
 
-[node name="BottomText" type="Label" parent="P1/Viewport/Camera2D/Node2D/TextBox" groups=[
-"BottomText",
-]]
+[node name="BottomText" type="Label" parent="P1/Viewport/Camera2D/Node2D/TextBox" groups=["BottomText"]]
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 1232.0
 margin_bottom = 144.0
-custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
+custom_fonts/font = SubResource( 4 )
 text = "It's been a while since i was last active."
 autowrap = true
 script = ExtResource( 4 )
@@ -650,9 +648,7 @@ margin_right = 1464.0
 margin_bottom = 152.0
 custom_styles/panel = SubResource( 3 )
 
-[node name="HealthBar" type="ProgressBar" parent="P1/Viewport/Camera2D/Node2D" groups=[
-"hpbar",
-]]
+[node name="HealthBar" type="ProgressBar" parent="P1/Viewport/Camera2D/Node2D" groups=["hpbar"]]
 margin_left = -700.0
 margin_top = -426.0
 margin_right = -682.0
@@ -680,9 +676,7 @@ anchor_mode = 0
 current = true
 smoothing_enabled = true
 
-[node name="Scores" type="Node2D" parent="." groups=[
-"ScoreBoard",
-]]
+[node name="Scores" type="Node2D" parent="." groups=["ScoreBoard"]]
 
 [node name="Score0" type="Label" parent="Scores"]
 visible = false
@@ -724,9 +718,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EndScreen" type="Node2D" parent="." groups=[
-"ENDSCREEN",
-]]
+[node name="EndScreen" type="Node2D" parent="." groups=["ENDSCREEN"]]
 visible = false
 position = Vector2( 352, 172 )
 
@@ -744,9 +736,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Coins" type="Label" parent="EndScreen" groups=[
-"COINDISPLAY",
-]]
+[node name="Coins" type="Label" parent="EndScreen" groups=["COINDISPLAY"]]
 margin_left = 96.0
 margin_top = 192.0
 margin_right = 224.0
@@ -767,9 +757,7 @@ custom_fonts/font = SubResource( 8 )
 text = "10"
 align = 1
 
-[node name="WINSCREEN" type="Node2D" parent="." groups=[
-"WINSCREEN",
-]]
+[node name="WINSCREEN" type="Node2D" parent="." groups=["WINSCREEN"]]
 visible = false
 position = Vector2( 352, 172 )
 
@@ -798,9 +786,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Shader" type="Sprite" parent="." groups=[
-"SHADER",
-]]
+[node name="Shader" type="Sprite" parent="." groups=["SHADER"]]
 material = ExtResource( 5 )
 scale = Vector2( 16, 9.375 )
 texture = ExtResource( 10 )
@@ -821,10 +807,7 @@ anims/worried = SubResource( 17 )
 [node name="Map" type="Node2D" parent="."]
 z_index = 1
 
-[node name="TileMap" type="TileMap" parent="Map" groups=[
-"Walls",
-"map",
-]]
+[node name="TileMap" type="TileMap" parent="Map" groups=["Walls", "map"]]
 scale = Vector2( 64, 64 )
 tile_set = ExtResource( 7 )
 cell_size = Vector2( 1, 1 )
@@ -833,9 +816,7 @@ compatibility_mode = true
 format = 1
 tile_data = PoolIntArray( -1048560, 9, 0, -1048493, 9, 0, -983024, 9, 0, -982957, 9, 0, -917488, 9, 0, -917421, 9, 0, -851952, 9, 0, -851885, 9, 0, -786416, 9, 0, -786349, 9, 0, -720880, 9, 0, -720813, 9, 0, -655344, 9, 0, -655277, 9, 0, -589808, 9, 0, -589741, 9, 0, -524272, 9, 0, -524205, 9, 0, -458736, 9, 0, -458669, 9, 0, -393200, 9, 0, -393133, 9, 0, -327676, 9, 0, -327675, 9, 0, -327674, 9, 0, -327673, 9, 0, -327672, 9, 0, -327671, 9, 0, -327670, 9, 0, -327669, 9, 0, -327668, 9, 0, -327667, 9, 0, -327666, 9, 0, -327664, 9, 0, -327597, 9, 0, -262140, 9, 0, -262133, 9, 0, -262130, 9, 0, -262129, 9, 0, -262128, 9, 0, -262061, 9, 0, -196604, 9, 0, -196597, 9, 0, -196594, 9, 0, -196525, 9, 0, -65541, 9, 0, -65540, 9, 0, -65539, 9, 0, -65538, 9, 0, -65537, 9, 0, -131072, 9, 0, -131071, 9, 0, -131070, 9, 0, -131069, 9, 0, -131068, 9, 0, -131058, 9, 0, -131056, 9, 0, -130989, 9, 0, -5, 9, 0, -65527, 9, 0, -65520, 9, 0, -65453, 9, 0, 65531, 9, 0, 9, 9, 0, 16, 9, 0, 83, 9, 0, 131067, 9, 0, 131068, 9, 0, 131069, 9, 0, 131070, 9, 0, 131071, 9, 0, 65536, 9, 0, 65537, 9, 0, 65538, 9, 0, 65539, 9, 0, 65540, 9, 0, 65541, 9, 0, 65542, 9, 0, 65543, 9, 0, 65544, 9, 0, 65545, 9, 0, 65546, 9, 0, 65547, 9, 0, 65548, 9, 0, 65549, 9, 0, 65550, 9, 0, 65551, 9, 0, 65552, 9, 0, 65619, 9, 0, 131152, 9, 0, 131155, 9, 0, 196688, 9, 0, 196691, 9, 0, 262224, 9, 0, 262227, 9, 0, 327760, 9, 0, 327763, 9, 0, 393296, 9, 0, 393299, 9, 0, 458832, 9, 0, 458835, 9, 0, 524368, 9, 0, 524371, 9, 0, 589904, 9, 0, 589907, 9, 0, 655440, 9, 0, 655443, 9, 0, 720976, 9, 0, 720979, 9, 0, 786512, 9, 0, 786515, 9, 0, 852048, 9, 0, 852051, 9, 0, 917584, 9, 0, 917587, 9, 0, 983120, 9, 0, 983123, 9, 0, 1048656, 9, 0, 1048657, 9, 0, 1048658, 9, 0, 1048659, 9, 0 )
 
-[node name="TileMap2" type="TileMap" parent="Map" groups=[
-"Walls",
-]]
+[node name="TileMap2" type="TileMap" parent="Map" groups=["Walls"]]
 scale = Vector2( 5.333, 5.333 )
 tile_set = ExtResource( 7 )
 cell_size = Vector2( 12, 12 )
@@ -853,11 +834,6 @@ eventDATA = [ [ "TOGGLE", NodePath("../../Entities/Platform") ] ]
 position = Vector2( 5248, 960 )
 scale = Vector2( 2, 2 )
 eventDATA = [ [ "CHANGE.LEVEL", "res://Assets/Scenes/MainTitle.tscn" ] ]
-
-[node name="LoadEvent2" parent="Map/Events" instance=ExtResource( 13 )]
-position = Vector2( -128, 0 )
-scale = Vector2( 2, 2 )
-eventDATA = [ [ "AI.TEXT", 24 ] ]
 
 [node name="Entities" type="Node2D" parent="Map"]
 
@@ -896,8 +872,8 @@ margin_left = 1088.0
 margin_top = -312.0
 margin_right = 1456.0
 margin_bottom = 63.0
-custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
+custom_fonts/font = SubResource( 18 )
 text = "CREDITS:
 
 
@@ -923,8 +899,8 @@ margin_left = 1472.0
 margin_top = -312.0
 margin_right = 1912.0
 margin_bottom = -18.0
-custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
+custom_fonts/font = SubResource( 18 )
 text = "------------------
 |     TEAM:      |
 |                |
@@ -947,8 +923,8 @@ margin_left = 1944.0
 margin_top = -344.0
 margin_right = 2384.0
 margin_bottom = 58.0
-custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
+custom_fonts/font = SubResource( 18 )
 text = "------------------
 |SCRIPTS:  ROGER |
 ------------------
@@ -975,8 +951,8 @@ margin_left = 2408.0
 margin_top = -344.0
 margin_right = 2848.0
 margin_bottom = -131.0
-custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
+custom_fonts/font = SubResource( 18 )
 text = "------------------
 |    CONCEPTS    |
 |FROG:      ROGER|
@@ -996,8 +972,8 @@ margin_left = 2408.0
 margin_top = -128.0
 margin_right = 2848.0
 margin_bottom = -23.0
-custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
+custom_fonts/font = SubResource( 18 )
 text = "------------------
 |IDEAS N FEATURES|
 |Logan Rubenstein|
@@ -1013,8 +989,8 @@ margin_left = 2928.0
 margin_top = -344.0
 margin_right = 3368.0
 margin_bottom = 31.0
-custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
+custom_fonts/font = SubResource( 18 )
 text = "------------------
 |     MUSIC      |
 |FROG:Boing-Boing|
@@ -1039,8 +1015,8 @@ margin_left = 3840.0
 margin_top = -272.0
 margin_right = 4304.0
 margin_bottom = -5.0
-custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
+custom_fonts/font = SubResource( 18 )
 text = "-------------------
 |  GAME MADE FOR  |
 |       FBLA      |
@@ -1062,8 +1038,8 @@ margin_left = 4840.0
 margin_top = -160.0
 margin_right = 5184.0
 margin_bottom = 26.0
-custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 0.0980392, 0.784314, 0.0980392, 1 )
+custom_fonts/font = SubResource( 18 )
 text = "--------------
 >REBOOTING...
 >FILE FOUND:
